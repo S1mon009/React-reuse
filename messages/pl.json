@@ -1,0 +1,129 @@
+{
+  "Header": {
+    "Links": {
+      "Docs": "Dokumentacja",
+      "Hooks": "Hooks",
+      "Utilities": "Narzędzia"
+    },
+    "Theme": {
+      "ToggleTheme": "Zmień motyw",
+      "Dark": "Ciemny",
+      "Light": "Jasny",
+      "System": "Systemowe"
+    },
+    "Language": {
+      "ToggleLanguage": "Zmień język",
+      "English": "Angielski",
+      "Polish": "Polski"
+    }
+  },
+  "Data": {
+    "GettingStarted": {
+      "Title": "Pierwsze kroki",
+      "Items": {
+        "Introduction": {
+          "Link": "introduction",
+          "Name": "Wprowadzenie",
+          "Content": ""
+        }
+      }
+    },
+    "Hooks": {
+      "Title": "Hooks",
+      "Link": "hooks",
+      "Items": {
+        "useClipboard": {
+          "Link": "useclipboard",
+          "Name": "useClipboard",
+          "Content": ""
+        },
+        "useChatGPT": {
+          "Link": "usechatgpt",
+          "Name": "useChatGPT",
+          "Content": ""
+        },
+        "usePromiseAll": {
+          "Link": "usepromiseall",
+          "Name": "usePromiseAll",
+          "Content": ""
+        },
+        "useHover": {
+          "Link": "usehover",
+          "Name": "useHover",
+          "Content": ""
+        },
+        "useClickOutside": {
+          "Link": "useclickoutside",
+          "Name": "useClickOutside",
+          "Content": ""
+        },
+        "useDebounce": {
+          "Link": "usedebounce",
+          "Name": "useDebounce",
+          "Content": ""
+        },
+        "useSort": {
+          "Link": "usesort",
+          "Name": "useSort",
+          "Content": ""
+        },
+        "useMediaQuery": {
+          "Link": "usemediaquery",
+          "Name": "useMediaQuery",
+          "Content": ""
+        },
+        "useKeyboardShortcup": {
+          "Link": "usekeyboardshortcup",
+          "Name": "useKeyboardShortcup",
+          "Content": ""
+        },
+        "useCounter": {
+          "Link": "usecounter",
+          "Name": "useCounter",
+          "Content": ""
+        },
+        "useLocalStorage": {
+          "Link": "uselocalstorage",
+          "Name": "useLocalStorage",
+          "Content": ""
+        },
+        "useSearch": {
+          "Link": "usesearch",
+          "Name": "useSearch",
+          "Content": ""
+        },
+        "useInterval": {
+          "Link": "useinterval",
+          "Name": "useInterval",
+          "Content": ""
+        },
+        "useScrollIntoView": {
+          "Link": "usescrollintoview",
+          "Name": "useScrollIntoView",
+          "Content": ""
+        }
+      }
+    },
+    "Utilities": {
+      "Title": "Narzędzia",
+      "Link": "utilities",
+      "Items": {
+        "Show": {
+          "Link": "show",
+          "Name": "Show",
+          "Content": ""
+        },
+        "Each": {
+          "Link": "each",
+          "Name": "Each",
+          "Content": ""
+        },
+        "Delay": {
+          "Link": "delay",
+          "Name": "Delay",
+          "Content": ""
+        }
+      }
+    }
+  }
+}
