@@ -40,6 +40,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Configure node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.9.0
+
       - name: Install NPM dependencies
         run: npm install
 
@@ -49,7 +54,7 @@ jobs:
       - name: Upload static site
         uses: actions/upload-artifact@v2
         with:
-          name: static-site
+          name: react-reuse-static-site
           path: .next/
 
   release-project:
@@ -61,7 +66,7 @@ jobs:
       - name: Download site content
         uses: actions/download-artifact@v2
         with:
-          name: site-build
+          name: react-reuse-static-site
 
       - name: View content
         run: ls -R
