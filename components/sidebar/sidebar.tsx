@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 interface sidebarProps {
   children: React.ReactNode;
   className?: string;
@@ -8,7 +10,7 @@ interface sidebarContentProps extends sidebarProps {}
 interface sidebarHeaderProps extends sidebarProps {}
 
 export function Sidebar({ className, children }: sidebarProps): JSX.Element {
-  return <aside className={className}>{children}</aside>;
+  return <div className={cn("w-full", className)}>{children}</div>;
 }
 
 export function SidebarContent({

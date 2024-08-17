@@ -19,4 +19,6 @@ import { keys as sidebarLinksKeys } from "@/config/sidebar-links-keys";
 
 import { usePathname } from "@/components/navigation/navigation";
 
-export default function Aside() {}
+export default function Aside() {
+  return <aside></aside>;
+}
