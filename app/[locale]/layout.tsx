@@ -3,7 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import Header from "@/components/header/header";
+import Header from "@/components/layouts/header/header";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";

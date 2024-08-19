@@ -1,9 +1,18 @@
 {
   "Header": {
     "Links": {
-      "Docs": "Dokumentacja",
-      "Hooks": "Hooks",
-      "Utilities": "Narzędzia"
+      "Docs": {
+        "Title": "Dokumentacja",
+        "Link": "/docs"
+      },
+      "Hooks": {
+        "Title": "Hooks",
+        "Link": "/docs/hooks"
+      },
+      "Utilities": {
+        "Title": "Narzędzia",
+        "Link": "/docs/utilities"
+      }
     },
     "Theme": {
       "ToggleTheme": "Zmień motyw",
@@ -18,108 +27,109 @@
     }
   },
   "Data": {
-    "GettingStarted": {
-      "Title": "Pierwsze kroki",
+    "Docs": {
+      "Name": "Pierwsze kroki",
+      "Link": "/docs",
       "Items": {
-        "Introduction": {
-          "Link": "introduction",
+        "introduction": {
+          "Link": "/docs/introduction",
           "Name": "Wprowadzenie",
           "Content": ""
         }
       }
     },
     "Hooks": {
-      "Title": "Hooks",
-      "Link": "hooks",
+      "Name": "Hooks",
+      "Link": "/docs/hooks",
       "Items": {
-        "useClipboard": {
-          "Link": "useclipboard",
+        "useclipboard": {
+          "Link": "/docs/hooks/useclipboard",
           "Name": "useClipboard",
           "Content": ""
         },
-        "useChatGPT": {
-          "Link": "usechatgpt",
+        "usechatgpt": {
+          "Link": "/docs/hooks/usechatgpt",
           "Name": "useChatGPT",
           "Content": ""
         },
-        "usePromiseAll": {
-          "Link": "usepromiseall",
+        "usepromiseall": {
+          "Link": "/docs/hooks/usepromiseall",
           "Name": "usePromiseAll",
           "Content": ""
         },
-        "useHover": {
-          "Link": "usehover",
+        "usehover": {
+          "Link": "/docs/hooks/usehover",
           "Name": "useHover",
           "Content": ""
         },
-        "useClickOutside": {
-          "Link": "useclickoutside",
+        "useclickoutside": {
+          "Link": "/docs/hooks/useclickoutside",
           "Name": "useClickOutside",
           "Content": ""
         },
-        "useDebounce": {
-          "Link": "usedebounce",
+        "usedebounce": {
+          "Link": "/docs/hooks/usedebounce",
           "Name": "useDebounce",
           "Content": ""
         },
-        "useSort": {
-          "Link": "usesort",
+        "usesort": {
+          "Link": "/docs/hooks/usesort",
           "Name": "useSort",
           "Content": ""
         },
-        "useMediaQuery": {
-          "Link": "usemediaquery",
+        "usemediaquery": {
+          "Link": "/docs/hooks/usemediaquery",
           "Name": "useMediaQuery",
           "Content": ""
         },
-        "useKeyboardShortcup": {
-          "Link": "usekeyboardshortcup",
+        "usekeyboardshortcup": {
+          "Link": "/docs/hooks/usekeyboardshortcup",
           "Name": "useKeyboardShortcup",
           "Content": ""
         },
-        "useCounter": {
-          "Link": "usecounter",
+        "usecounter": {
+          "Link": "/docs/hooks/usecounter",
           "Name": "useCounter",
           "Content": ""
         },
-        "useLocalStorage": {
-          "Link": "uselocalstorage",
+        "uselocalstorage": {
+          "Link": "/docs/hooks/uselocalstorage",
           "Name": "useLocalStorage",
           "Content": ""
         },
-        "useSearch": {
-          "Link": "usesearch",
+        "usesearch": {
+          "Link": "/docs/hooks/usesearch",
           "Name": "useSearch",
           "Content": ""
         },
-        "useInterval": {
-          "Link": "useinterval",
+        "useinterval": {
+          "Link": "/docs/hooks/useinterval",
           "Name": "useInterval",
           "Content": ""
         },
-        "useScrollIntoView": {
-          "Link": "usescrollintoview",
+        "usescrollintoview": {
+          "Link": "/docs/hooks/usescrollintoview",
           "Name": "useScrollIntoView",
           "Content": ""
         }
       }
     },
     "Utilities": {
-      "Title": "Narzędzia",
-      "Link": "utilities",
+      "Name": "Narzędzia",
+      "Link": "/docs/utilities",
       "Items": {
-        "Show": {
-          "Link": "show",
+        "show": {
+          "Link": "/docs/utilities/show",
           "Name": "Show",
           "Content": ""
         },
-        "Each": {
-          "Link": "each",
+        "each": {
+          "Link": "/docs/utilities/each",
           "Name": "Each",
           "Content": ""
         },
-        "Delay": {
-          "Link": "delay",
+        "delay": {
+          "Link": "/docs/utilities/delay",
           "Name": "Delay",
           "Content": ""
         }

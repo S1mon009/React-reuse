@@ -33,7 +33,7 @@ export function LanguageToggle(): JSX.Element {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
+        <Button variant="outline" size="icon" aria-label="Toggle language">
           <Show>
             <Show.When isTrue={locale === "en"}>EN</Show.When>
             <Show.When isTrue={locale === "pl"}>PL</Show.When>
@@ -41,7 +41,7 @@ export function LanguageToggle(): JSX.Element {
           <span className="sr-only"> {t("ToggleLanguage")}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" aria-label="Language options">
         <DropdownMenuItem asChild>
           <Link href={pathname} locale="en">
             {t("English")}

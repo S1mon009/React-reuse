@@ -12,8 +12,6 @@ import { Github } from "lucide-react";
 
 import Logo from "@/public/icon.svg";
 
-import { keys as linkKeys } from "@/config/links-keys";
-
 /**
  * Header component renders a header element for the application.
  *
@@ -26,21 +24,24 @@ import { keys as linkKeys } from "@/config/links-keys";
  */
 export default function Header(): JSX.Element {
   return (
-    <header className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit">
+    <header className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-10">
       <div className="flex items-center h-full">
-        <Links keys={linkKeys} links="Header.Links" type="mobile" />
-        <Link href="/">
+        <Links type="mobile" />
+        <Link href="/" aria-label="Go to homepage">
           <div className="flex items-center">
             <Image src={Logo} alt="Reuse logo" className="size-10" priority />
             <span className="text-xl font-semibold">Reuse</span>
           </div>
         </Link>
       </div>
-      <Links keys={linkKeys} links="Header.Links" type="desktop" />
+      <Links type="desktop" />
       <div className="flex gap-2">
-        <a href="https://github.com/S1mon009/react-reuse">
+        <a
+          href="https://github.com/S1mon009/react-reuse"
+          aria-label="GitHub repository"
+        >
           <Button variant="outline" size="icon">
-            <Github />
+            <Github aria-hidden="true" focusable="false" />
           </Button>
         </a>
         <ModeToggle />

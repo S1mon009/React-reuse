@@ -1,0 +1,20 @@
+export const keys: string[][] = [
+  ["introduction"],
+  [
+    "useclipboard",
+    "usechatgpt",
+    "usepromiseall",
+    "usehover",
+    "useclickoutside",
+    "usedebounce",
+    "usesort",
+    "usemediaquery",
+    "usekeyboardshortcup",
+    "usecounter",
+    "uselocalstorage",
+    "usesearch",
+    "useinterval",
+    "usescrollintoview",
+  ],
+  ["show", "each", "delay"],
+];
