@@ -30,7 +30,7 @@ export default function Header(): JSX.Element {
         <Link href="/" aria-label="Go to homepage">
           <div className="flex items-center">
             <Image src={Logo} alt="Reuse logo" className="size-10" priority />
-            <span className="text-xl font-semibold">Reuse</span>
+            <span className="text-xl font-semibold">Redo</span>
           </div>
         </Link>
       </div>
