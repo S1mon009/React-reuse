@@ -1,0 +1,32 @@
+import React, { useState } from 'react';
+import { useSearch } from './hooks/useSearch';
+
+const Search = () => {
+  const [items] = useState([
+    { id: 1, name: 'Apple' },
+    { id: 2, name: 'Banana' },
+    { id: 3, name: 'Cherry' },
+  ]);
+
+  const filterFn = (item: { id: number, name: string }, query: string) =>
+    item.name.toLowerCase().includes(query.toLowerCase());
+
+  const { query, setQuery, filteredItems, isSearching } = useSearch(items, filterFn, 300);
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search..."
+      />
+      {isSearching && <p>Searching...</p>}
+      <ul>
+        {filteredItems.map(item => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};

@@ -1,0 +1,38 @@
+import { useState } from "react";
+import useChatGPT from "./hooks/usechatgpt"; 
+
+const ExampleComponent: React.FC = () => {
+  const [inputMessage, setInputMessage] = useState<string>("");
+  const { sendMessage, response, isLoading, error } =
+    useChatGPT("YOUR_API_KEY_HERE");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (inputMessage.trim()) {
+      await sendMessage(inputMessage);
+      setInputMessage(""); // Clear input after sending message
+    }
+  };
+
+  return (
+    <div>
+      <h1>Chat with GPT-3.5</h1>
+      <form onSubmit={handleSubmit}>
+        <textarea
+          value={inputMessage}
+          onChange={(e) => setInputMessage(e.target.value)}
+          rows={4}
+          cols={50}
+          placeholder="Type your message here..."
+        />
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Sending..." : "Send"}
+        </button>
+      </form>
+      {error && <p style={{ color: "red" }}>Error: {error}</p>}
+      {response && <p>Response: {response}</p>}
+    </div>
+  );
+};
+
+export default ExampleComponent;

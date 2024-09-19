@@ -1,0 +1,17 @@
+import React from 'react';
+import { useHover } from './hooks/useHover'; 
+
+const HoverableComponent: React.FC = () => {
+  const { hovered, ref } = useHover<HTMLDivElement>();
+
+  return (
+    <div
+      ref={ref}
+      style={{ padding: '20px', backgroundColor: hovered ? 'lightblue' : 'lightgray' }}
+    >
+      {hovered ? 'Hovering!' : 'Hover over me!'}
+    </div>
+  );
+};
+
+export default HoverableComponent;

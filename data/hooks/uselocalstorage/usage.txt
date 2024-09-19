@@ -1,0 +1,19 @@
+import React from 'react';
+import { useLocalStorage } from './hooks/useLocalStorage';
+
+const NameComponent: React.FC = () => {
+  const [name, setName] = useLocalStorage<string>('name', 'John');
+
+  return (
+    <div>
+      <p>Your name is: {name}</p>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+    </div>
+  );
+};
+
+export default NameComponent;

@@ -1,0 +1,22 @@
+import React, { useRef } from "react";
+import useScrollIntoView from "./hooks/useScrollIntoView"; // Adjust the import path as necessary
+
+const ScrollInto: React.FC = () => {
+  const myRef = useRef<HTMLDivElement>(null);
+
+  const scrollIntoView = useScrollIntoView(myRef, "smooth", "center", "nearest");
+
+  return (
+    <div>
+      <button onClick={scrollIntoView}>Scroll to Element</button>
+      {/* Some other content */}
+      <div style={{ height: '150vh' }}>Scroll down to see the target element</div>
+      {/* Target element */}
+      <div ref={myRef} style={{ height: '100px', backgroundColor: 'lightblue' }}>
+        I am the target element
+      </div>
+    </div>
+  );
+};
+
+export default MyComponent;

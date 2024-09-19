@@ -10,21 +10,14 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { buttonVariants } from "@/components/ui/button";
-
 import { Each } from "@/components/utilities/each/each";
 import Show from "@/components/utilities/conditional_rendering/show";
-
-import Nav from "@/components/layouts/nav/nav";
+import { Layout } from "@/components/layouts/layout";
 import Aside from "@/components/navigation/sidebar/aside";
-
 import { Link, usePathname } from "@/components/navigation/navigation";
-
 import { useTranslations } from "next-intl";
-
 import { cn } from "@/lib/utils";
-
 import { ChartNoAxesGantt } from "lucide-react";
-
 import { keys } from "@/keys/links-keys";
 
 const translation: string = "Header.Links";
@@ -98,22 +91,22 @@ export default function Links({ type }: linksProps): JSX.Element {
   return (
     <Show>
       <Show.When isTrue={type === "desktop"}>
-        <Nav className="hidden md:flex gap-2">
+        <Layout type="nav" className="hidden md:flex gap-2">
           <Each of={keys} render={renderLink} />
-        </Nav>
+        </Layout>
       </Show.When>
       <Show.When isTrue={type === "mobile"}>
         <Sheet>
-          <SheetTrigger className="block mr-1 mt-1 md:hidden">
+          <SheetTrigger className="block mr-1 mt-1 lg:hidden">
             <ChartNoAxesGantt />
           </SheetTrigger>
           <SheetContent side="left" aria-describedby="Mobile navigation">
             <SheetHeader>
               <SheetTitle>Menu</SheetTitle>
             </SheetHeader>
-            <Nav className="flex flex-wrap gap-2">
+            <Layout type="nav" className="flex flex-wrap gap-2">
               <Each of={keys} render={renderLink} />
-            </Nav>
+            </Layout>
             <Separator className="mt-2 h-[2px]" />
             <ScrollArea className="h-full w-full pb-40">
               <Aside />

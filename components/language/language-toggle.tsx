@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,12 +8,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
+import { Typography } from "@/components/typography/typography";
 import Show from "@/components/utilities/conditional_rendering/show";
-
 import { Link, usePathname } from "@/components/navigation/navigation";
-
 import { useTranslations, useLocale } from "next-intl";
+
+const translation: string = "Header.Language";
 
 /**
  * LanguageToggle component for switching between different languages.
@@ -28,7 +27,7 @@ import { useTranslations, useLocale } from "next-intl";
 export function LanguageToggle(): JSX.Element {
   const pathname = usePathname();
   const locale = useLocale();
-  const t = useTranslations("Header.Language");
+  const t = useTranslations(translation);
 
   return (
     <DropdownMenu>
@@ -38,7 +37,9 @@ export function LanguageToggle(): JSX.Element {
             <Show.When isTrue={locale === "en"}>EN</Show.When>
             <Show.When isTrue={locale === "pl"}>PL</Show.When>
           </Show>
-          <span className="sr-only"> {t("ToggleLanguage")}</span>
+          <Typography type="span" className="sr-only">
+            {t("ToggleLanguage")}
+          </Typography>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" aria-label="Language options">

@@ -1,17 +1,12 @@
 import Image from "next/image";
-
 import { Link } from "@/components/navigation/navigation";
-
 import { Button } from "@/components/ui/button";
-
-import Header from "@/components/layouts/header/header";
-
+import { Layout } from "@/components/layouts/layout";
+import { Typography } from "@/components/typography/typography";
 import Links from "@/components/navigation/links/links";
 import { ModeToggle } from "@/components/theme/mode-toggle";
 import { LanguageToggle } from "@/components/language/language-toggle";
-
 import { Github } from "lucide-react";
-
 import Logo from "@/public/icon.svg";
 
 /**
@@ -26,18 +21,23 @@ import Logo from "@/public/icon.svg";
  */
 export default function HeaderNavigation(): JSX.Element {
   return (
-    <Header className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-10">
-      <div className="flex items-center h-full">
+    <Layout
+      type="header"
+      className="top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-10"
+    >
+      <Layout type="div" className="flex items-center h-full">
         <Links type="mobile" />
         <Link href="/" aria-label="Go to homepage">
-          <div className="flex items-center">
+          <Layout type="div" className="flex items-center">
             <Image src={Logo} alt="Reuse logo" className="size-10" priority />
-            <span className="text-xl font-semibold">Redo</span>
-          </div>
+            <Typography type="span" className="text-xl font-semibold">
+              Reuse
+            </Typography>
+          </Layout>
         </Link>
-      </div>
+      </Layout>
       <Links type="desktop" />
-      <div className="flex gap-2">
+      <Layout type="div" className="flex gap-2">
         <a
           href="https://github.com/S1mon009/react-reuse"
           aria-label="GitHub repository"
@@ -48,7 +48,7 @@ export default function HeaderNavigation(): JSX.Element {
         </a>
         <ModeToggle />
         <LanguageToggle />
-      </div>
-    </Header>
+      </Layout>
+    </Layout>
   );
 }

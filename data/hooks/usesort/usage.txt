@@ -1,0 +1,32 @@
+import React, { useState } from 'react';
+import { useSort } from './hooks/useSort';
+
+interface Item {
+  id: number;
+  name: string;
+}
+
+const Sort = () => {
+  const [items] = useState<Item[]>([
+    { id: 1, name: 'Apple' },
+    { id: 2, name: 'Banana' },
+    { id: 3, name: 'Cherry' },
+  ]);
+
+  const sortFn = (a: Item, b: Item) => a.name.localeCompare(b.name);
+
+  const { sortedItems, order, toggleOrder } = useSort(items, sortFn, 'asc');
+
+  return (
+    <div>
+      <button onClick={toggleOrder}>
+        Sort {order === 'asc' ? 'Descending' : 'Ascending'}
+      </button>
+      <ul>
+        {sortedItems.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};

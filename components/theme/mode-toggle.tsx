@@ -1,10 +1,8 @@
 "use client";
 
 import * as React from "react";
-
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -12,10 +10,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
 import { Each } from "@/components/utilities/each/each";
-
 import { useTranslations } from "next-intl";
+
+const translation: string = "Header.Theme";
 
 /**
  * ModeToggle component allows users to switch between light, dark, and system themes.
@@ -26,7 +24,7 @@ import { useTranslations } from "next-intl";
  */
 export function ModeToggle() {
   const { setTheme } = useTheme();
-  const t = useTranslations("Header.Theme");
+  const t = useTranslations(translation);
   const themes: string[] = ["Light", "Dark", "System"];
 
   /**

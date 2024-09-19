@@ -1,0 +1,13 @@
+import React from 'react';
+import { useKeyboardShortcut } from './hooks/useKeyboardShortcut';
+
+const SaveShortcutComponent: React.FC = () => {
+  useKeyboardShortcut(['Control', 'S'], () => {
+    console.log('Save action triggered!');
+    // Perform save action
+  });
+
+  return <div>Press "Ctrl+S" to trigger a save action.</div>;
+};
+
+export default SaveShortcutComponent;

@@ -1,7 +1,6 @@
 "use client";
 
 import { Fragment } from "react";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,19 +8,15 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
-import Nav from "@/components/layouts/nav/nav";
-
+import { Layout } from "@/components/layouts/layout";
 import { Link } from "@/components/navigation/navigation";
-
 import { Each } from "@/components/utilities/each/each";
-
 import { usePathname } from "@/components/navigation/navigation";
 import { useTranslations } from "next-intl";
-
 import { House } from "lucide-react";
-
 import { keys } from "@/keys/links-keys";
+
+const translation: string = "Data";
 
 /**
  * BreadcrumbNavigation component
@@ -33,7 +28,7 @@ import { keys } from "@/keys/links-keys";
  */
 export default function BreadcrumbNavigation(): JSX.Element {
   const pathname = usePathname();
-  const t = useTranslations("Data");
+  const t = useTranslations(translation);
 
   /**
    * Generates the link data for each breadcrumb item.
@@ -65,7 +60,7 @@ export default function BreadcrumbNavigation(): JSX.Element {
   };
 
   return (
-    <Nav className="w-full mb-5">
+    <Layout type="nav" className="w-full mb-5">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -102,6 +97,6 @@ export default function BreadcrumbNavigation(): JSX.Element {
           />
         </BreadcrumbList>
       </Breadcrumb>
-    </Nav>
+    </Layout>
   );
 }

@@ -1,3 +1,4 @@
+import { Layout } from "@/components/layouts/layout";
 import { cn } from "@/lib/utils";
 
 interface sidebarProps {
@@ -16,7 +17,11 @@ interface sidebarHeaderProps extends sidebarProps {}
  * @returns {JSX.Element} The rendered Sidebar component, which wraps the provided children elements.
  */
 export function Sidebar({ className, children }: sidebarProps): JSX.Element {
-  return <div className={cn("w-full px-4 pb-4", className)}>{children}</div>;
+  return (
+    <Layout type="div" className={cn("w-full px-4 pb-4", className)}>
+      {children}
+    </Layout>
+  );
 }
 
 /**
@@ -29,7 +34,11 @@ export function SidebarContent({
   children,
   className,
 }: sidebarContentProps): JSX.Element {
-  return <div className={cn(className)}>{children}</div>;
+  return (
+    <Layout type="div" className={cn(className)}>
+      {children}
+    </Layout>
+  );
 }
 
 /**
@@ -42,5 +51,9 @@ export function SidebarHeader({
   children,
   className,
 }: sidebarHeaderProps): JSX.Element {
-  return <div className={`font-semibold py-2 ${className}`}>{children}</div>;
+  return (
+    <Layout type="div" className={`font-semibold py-2 ${className}`}>
+      {children}
+    </Layout>
+  );
 }

@@ -6,17 +6,12 @@ import {
   SidebarHeader,
 } from "@/components/navigation/sidebar/sidebar";
 import { buttonVariants } from "@/components/ui/button";
-
 import { cn } from "@/lib/utils";
-
-import Nav from "@/components/layouts/nav/nav";
-
+import { Layout } from "@/components/layouts/layout";
 import { Each } from "@/components/utilities/each/each";
 import { Link } from "@/components/navigation/navigation";
-
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/components/navigation/navigation";
-
 import { keys as sidebarHeaderKeys } from "@/keys/sidebar-header-keys";
 import { keys as sidebarLinksKeys } from "@/keys/sidebar-links-keys";
 
@@ -32,14 +27,15 @@ export default function Aside(): JSX.Element {
   const pathname = usePathname();
 
   return (
-    <aside>
+    <Layout type="aside">
       <Sidebar>
         <Each
           of={sidebarHeaderKeys}
           render={(sidebarHeaderKey, sidebarHeaderIndex) => (
             <SidebarContent key={sidebarHeaderIndex}>
               <SidebarHeader>{t(`${sidebarHeaderKey}.Name`)}</SidebarHeader>
-              <Nav
+              <Layout
+                type="nav"
                 className="flex flex-wrap gap-2 pl-2"
                 aria-label={t(`${sidebarHeaderKey}.Name`)}
               >
@@ -78,11 +74,11 @@ export default function Aside(): JSX.Element {
                     );
                   }}
                 />
-              </Nav>
+              </Layout>
             </SidebarContent>
           )}
         />
       </Sidebar>
-    </aside>
+    </Layout>
   );
 }

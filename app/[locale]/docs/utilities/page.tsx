@@ -1,3 +1,6 @@
+import { redirect } from "@/components/navigation/navigation";
+import { keys } from "@/keys/sidebar-links-keys";
+
 export default function Page() {
-  return <h1>Utilities</h1>;
+  redirect(`/docs/utilities/${keys[2][0]}`);
 }

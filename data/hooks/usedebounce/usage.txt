@@ -1,0 +1,22 @@
+import React, { useState } from 'react';
+import { useDebounce } from './hooks/useDebounce'; 
+
+const DebouncedComponent: React.FC = () => {
+  const [inputValue, setInputValue] = useState<string>('');
+  const debouncedValue = useDebounce(inputValue, 500); // Delay is 500ms
+
+  return (
+    <div>
+      <input 
+        type="text" 
+        value={inputValue} 
+        onChange={(e) => setInputValue(e.target.value)} 
+        placeholder="Type something..." 
+      />
+      <p>Original Value: {inputValue}</p>
+      <p>Debounced Value: {debouncedValue}</p>
+    </div>
+  );
+};
+
+export default DebouncedComponent;

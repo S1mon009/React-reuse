@@ -1,0 +1,22 @@
+import React, { useRef, useState } from 'react';
+import { useClickOutside } from './hooks/useClickOutside'; 
+
+const ExampleComponent: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useClickOutside(ref, () => setIsOpen(false));
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)}>Open Dropdown</button>
+      {isOpen && (
+        <div ref={ref} className="dropdown">
+          <p>Dropdown content</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ExampleComponent;

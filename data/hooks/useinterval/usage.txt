@@ -1,0 +1,22 @@
+import React, { useState } from 'react';
+import { useInterval } from './hooks/useInterval';
+
+const TimerComponent: React.FC = () => {
+  const [count, setCount] = useState(0);
+  const [isActive, setIsActive] = useState(true);
+
+  useInterval(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, isActive ? 2000 : null); // If isActive is false, the interval will be paused
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setIsActive(!isActive)}>
+        {isActive ? 'Pause' : 'Resume'}
+      </button>
+    </div>
+  );
+};
+
+export default TimerComponent;

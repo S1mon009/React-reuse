@@ -1,0 +1,33 @@
+import React, { useState } from 'react';
+import { useClipboard } from './hooks/useClipboard'; 
+
+const ClipboardComponent: React.FC = () => {
+  const [text, setText] = useState<string>('Copy this text');
+  const { copyToClipboard, isCopied, error, reset } = useClipboard();
+
+  const handleCopy = () => {
+    copyToClipboard(text);
+  };
+
+  return (
+    <div>
+      <h3>Clipboard Example</h3>
+      <textarea 
+        value={text} 
+        onChange={(e) => setText(e.target.value)} 
+        rows={4} 
+        cols={50} 
+        placeholder="Type something to copy"
+      />
+      <br />
+      <button onClick={handleCopy}>Copy to Clipboard</button>
+      <button onClick={reset}>Reset</button>
+
+      {/* Display messages based on the state */}
+      {isCopied && <p style={{ color: 'green' }}>Text copied to clipboard!</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
+  );
+};
+
+export default ClipboardComponent;
