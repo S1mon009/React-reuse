@@ -1,4 +1,4 @@
-# React-redo
+# React-reuse
 
 ![Static Badge](https://img.shields.io/badge/React.js-react?style=flat&logo=react&labelColor=%23333&color=%2361DAFB) ![Static Badge](https://img.shields.io/badge/Next.js-react?style=flat&logo=nextdotjs&labelColor=%23333&color=%23000000) ![Static Badge](https://img.shields.io/badge/TypeScript-react?style=flat&logo=typescript&labelColor=%23333&color=%233178C6) ![Static Badge](https://img.shields.io/badge/Shadcn%2FUI-react?style=flat&logo=shadcnui&labelColor=%23333&color=%23000000) ![Static Badge](https://img.shields.io/badge/Tailwind%20CSS-react?style=flat&logo=tailwindcss&labelColor=%23333&color=%2306B6D4) ![Static Badge](https://img.shields.io/badge/ESLint-react?style=flat&logo=eslint&labelColor=%23333&color=%234B32C3)
 

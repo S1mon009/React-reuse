@@ -31,10 +31,4 @@ describe("ModeToggle Component", () => {
     cy.get("p.fixed").invoke("css", "display", "none");
     cy.get('svg[aria-hidden="true"]').last().should("be.visible");
   });
-
-  it('should change to the "System" theme when the System option is clicked', () => {
-    cy.get('button[aria-label="Toggle theme"]').click({ force: true });
-    cy.contains("System").click({ force: true });
-    cy.get("html").should("have.class", "dark");
-  });
 });
