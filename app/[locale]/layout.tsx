@@ -5,6 +5,7 @@ import { getMessages } from "next-intl/server";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import HeaderNavigation from "@/components/navigation/header/header";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
@@ -46,6 +47,7 @@ export default async function RootLayout({
             <HeaderNavigation />
             {children}
             <SpeedInsights />
+            <Analytics />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
