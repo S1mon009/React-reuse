@@ -48,8 +48,6 @@ jobs:
 
       - name: Run unit tests
         run: npm run test
-        env:
-          OPENAI_API: ${{ secrets.OPENAI_API }}
 
   cypress-tests:
     name: Cypress e2e tests
