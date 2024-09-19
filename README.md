@@ -1,10 +1,10 @@
 # React-reuse
 
-![Static Badge](https://img.shields.io/badge/React.js-react?style=flat&logo=react&labelColor=%23333&color=%2361DAFB) ![Static Badge](https://img.shields.io/badge/Next.js-react?style=flat&logo=nextdotjs&labelColor=%23333&color=%23000000) ![Static Badge](https://img.shields.io/badge/TypeScript-react?style=flat&logo=typescript&labelColor=%23333&color=%233178C6) ![Static Badge](https://img.shields.io/badge/Shadcn%2FUI-react?style=flat&logo=shadcnui&labelColor=%23333&color=%23000000) ![Static Badge](https://img.shields.io/badge/Tailwind%20CSS-react?style=flat&logo=tailwindcss&labelColor=%23333&color=%2306B6D4) ![Static Badge](https://img.shields.io/badge/ESLint-react?style=flat&logo=eslint&labelColor=%23333&color=%234B32C3)
+![Static Badge](https://img.shields.io/badge/Next.js-n?style=for-the-badge&logo=nextdotjs&color=%23000000) ![Static Badge](https://img.shields.io/badge/react.js-n?style=for-the-badge&logo=react&logoColor=%23333&color=%2361DAFB) ![Static Badge](https://img.shields.io/badge/typescript-n?style=for-the-badge&logo=typescript&logoColor=%23fff&color=%233178C6) ![Static Badge](https://img.shields.io/badge/tailwind%20css-n?style=for-the-badge&logo=tailwindcss&logoColor=%23fff&color=%2306B6D4) ![Static Badge](https://img.shields.io/badge/vitest-n?style=for-the-badge&logo=vitest&logoColor=%23fff&color=%236E9F18) ![Static Badge](https://img.shields.io/badge/cypress-n?style=for-the-badge&logo=cypress&logoColor=%23fff&color=%2369D3A7) ![Static Badge](https://img.shields.io/badge/eslint-n?style=for-the-badge&logo=eslint&logoColor=%23fff&color=%234B32C3) ![Static Badge](https://img.shields.io/badge/shadcn%2Fui-n?style=for-the-badge&logo=shadcnui&color=%23000000) ![Static Badge](https://img.shields.io/badge/git-n?style=for-the-badge&logo=git&logoColor=%23fff&color=%23F05032) ![Static Badge](https://img.shields.io/badge/github%20actions-n?style=for-the-badge&logo=githubactions&logoColor=%23fff&color=%232088FF) ![Static Badge](https://img.shields.io/badge/vercel-n?style=for-the-badge&logo=vercel&color=%23000000)
 
 ## What is this?
 
-Redo is a simple React library with the goal of saving you time by offering a large collection of hooks & utilities that will help you get the job done faster & more efficiently!
+Reuse is a simple React library with the goal of saving you time by offering a large collection of hooks & utilities that will help you get the job done faster & more efficiently!
 
 ## Getting Started
 
