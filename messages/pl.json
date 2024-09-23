@@ -27,15 +27,19 @@
     }
   },
   "Data": {
+    "ScrollIntoViewItems": {
+      "Entry": "Wprowadzenie",
+      "Testing": "Testy Vitest",
+      "TypeScript": "TypeScript",
+      "Linting": "Lintowanie oraz jakość kodu",
+      "Description": "Opis",
+      "Code": "Kod",
+      "Parameter": "Parametry",
+      "API": "API"
+    },
     "Docs": {
       "Name": "Pierwsze kroki",
       "Link": "/docs/introduction",
-      "ScrollIntoViewItems": {
-        "Entry": "Wprowadzenie",
-        "Testing": "Testy Vitest",
-        "TypeScript": "TypeScript",
-        "Linting": "Lintowanie oraz jakość kodu"
-      },
       "Items": {
         "introduction": {
           "Link": "/docs/introduction",
@@ -47,7 +51,7 @@
             },
             "Testing": {
               "Title": "Testy Vitest",
-              "Content": "Jednym z filarów naszej biblioteki jest rygorystyczny proces testowania, który stosujemy do każdego hooka i narzędzia. Wykorzystując Vitest—nowoczesne, szybkie środowisko testowe dla TypeScript i JavaScript—zapewniamy, że każdy element kodu działa zgodnie z oczekiwaniami w różnych scenariuszach. Od przypadków brzegowych po codzienne wzorce użytkowania, każdy hook jest dokładnie testowany, aby zagwarantować prawidłowe zachowanie nawet w nieoczekiwanych sytuacjach. & Vitest oferuje szybkie cykle informacji zwrotnej i doskonale integruje się z TypeScript, co czyni go idealnym narzędziem do naszych potrzeb testowych. Stosujemy zarówno testy jednostkowe, jak i testy integracyjne, aby pokryć różne aspekty funkcjonalności. Wysoki poziom pokrycia testami gwarantuje, że nasza biblioteka pozostaje niezawodna, nawet podczas wprowadzania nowych funkcji czy jej rozwoju. Nasze podejście oparte na test-driven development sprawia, że możesz z pełnym zaufaniem korzystać z naszych hooków w swoim projekcie, wiedząc, że będą działać zgodnie z oczekiwaniami."
+              "Content": "Jednym z filarów naszej biblioteki jest rygorystyczny proces testowania, który stosujemy do każdego hooka i narzędzia. Wykorzystując Vitest - nowoczesne, szybkie środowisko testowe dla TypeScript i JavaScript — zapewniamy, że każdy element kodu działa zgodnie z oczekiwaniami w różnych scenariuszach. Od przypadków brzegowych po codzienne wzorce użytkowania, każdy hook jest dokładnie testowany, aby zagwarantować prawidłowe zachowanie nawet w nieoczekiwanych sytuacjach. & Vitest oferuje szybkie cykle informacji zwrotnej i doskonale integruje się z TypeScript, co czyni go idealnym narzędziem do naszych potrzeb testowych. Stosujemy zarówno testy jednostkowe, jak i testy integracyjne, aby pokryć różne aspekty funkcjonalności. Wysoki poziom pokrycia testami gwarantuje, że nasza biblioteka pozostaje niezawodna, nawet podczas wprowadzania nowych funkcji czy jej rozwoju. Nasze podejście oparte na test-driven development sprawia, że możesz z pełnym zaufaniem korzystać z naszych hooków w swoim projekcie, wiedząc, że będą działać zgodnie z oczekiwaniami."
             },
             "TypeScript": {
               "Title": "TypeScript",
@@ -78,12 +82,6 @@
           "Previous": "Poprzedni",
           "Next": "Następny"
         }
-      },
-      "ScrollIntoViewItems": {
-        "Description": "Opis",
-        "Code": "Kod",
-        "Parameter": "Parametry",
-        "API": "API"
       },
       "Items": {
         "useclipboard": {
@@ -217,21 +215,47 @@
     "Utilities": {
       "Name": "Narzędzia",
       "Link": "/docs/utilities",
+      "SectionItems": {
+        "Code": {
+          "Hook": "Hook",
+          "Usage": "Zastosowanie"
+        },
+        "Parameter": {
+          "Name": "Parametry",
+          "Content": "Ten hook akceptuje następujące argumenty:"
+        },
+        "Footer": {
+          "Previous": "Poprzedni",
+          "Next": "Następny"
+        }
+      },
       "Items": {
         "show": {
           "Link": "/docs/utilities/show",
-          "Name": "Show",
-          "Content": ""
+          "Name": "<Show />",
+          "Content": {
+            "Description": "Komponent Show w React umożliwia warunkowe renderowanie elementów potomnych na podstawie określonych warunków. Działa poprzez użycie dwóch podkomponentów: Show.When i Show.Else. Komponent Show.When renderuje swoje dzieci, jeśli właściwość isTrue ma wartość true, a Show.Else jest renderowany, gdy żaden warunek nie został spełniony. Ten komponent upraszcza logikę warunkową, wbudowując ją w JSX.",
+            "Parameters": "",
+            "API": "isTrue?: boolean: Określa, czy element children powinien zostać wyrenderowane. Jeśli wartość jest true, element zostanie wyrenderowany."
+          }
         },
         "each": {
           "Link": "/docs/utilities/each",
-          "Name": "Each",
-          "Content": ""
+          "Name": "<Each />",
+          "Content": {
+            "Description": "Komponent Each to funkcja narzędziowa, która iteruje po tablicy (of) i renderuje każdy element za pomocą dostarczonej funkcji render. Funkcja render otrzymuje dwa argumenty: aktualny element (item) oraz jego indeks (index). Zwraca ona element JSX dla każdego elementu tablicy. Ta funkcja upraszcza proces renderowania elementów z tablic, oferując wielokrotnego użytku i konfigurowalne rozwiązanie.",
+            "Parameters": "",
+            "API": "render(item: any, index: number): JSX.Element: Wymagana funkcja, która definiuje, jak renderować każdy element tablicy. Przyjmuje dwa argumenty (item - Aktualny element z tablicy, index - Indeks aktualnego elementu). & of: any[]: Wymagana tablica elementów, po której będzie iterować funkcja. Funkcja render jest wywoływana dla każdego elementu tej tablicy."
+          }
         },
         "delay": {
           "Link": "/docs/utilities/delay",
-          "Name": "Delay",
-          "Content": ""
+          "Name": "<Delay />",
+          "Content": {
+            "Description": "Komponent Delay to narzędzie, które renderuje swoje dzieci po określonym opóźnieniu. Jest przydatny, gdy chcesz opóźnić renderowanie określonych komponentów ze względów UX lub wydajności. Komponent akceptuje właściwość ms, która określa opóźnienie w milisekundach przed wyrenderowaniem dzieci. W czasie opóźnienia komponent może wyświetlić wskaźnik ładowania lub nic.",
+            "Parameters": "",
+            "API": "ms: number: Opóźnienie w milisekundach przed wyrenderowaniem dzieci."
+          }
         }
       }
     }

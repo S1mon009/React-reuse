@@ -1,0 +1,13 @@
+import { Delay } from './utils/delay';
+
+const DelayComponent: React.FC = () => {
+  return (
+    <div>
+      <h1>Content without delay</h1>
+      
+      <Delay ms={3000}>
+        <p>This content will appear after 3 seconds.</p>
+      </Delay>
+    </div>
+  );
+};

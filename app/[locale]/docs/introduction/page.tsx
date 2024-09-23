@@ -74,9 +74,9 @@ export default function Page() {
           data={[
             {
               link:
-                `${footerItems(
+                footerItems(
                   `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Link`
-                )}` && "",
+                ) && "",
               title: sectionItems("Footer.Previous"),
               description:
                 footerItems(
@@ -85,10 +85,10 @@ export default function Page() {
             },
             {
               link:
-                `${footerItems(
+                footerItems(
                   `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Link`
-                )}` || "",
-              title: sectionItems("Footer.Next") || "",
+                ) || "",
+              title: sectionItems("Footer.Next"),
               description:
                 footerItems(
                   `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Name`
@@ -103,7 +103,7 @@ export default function Page() {
       >
         <SectionNavigation
           scrollItemsArray={["Entry", "Testing", "TypeScript", "Linting"]}
-          translation="Data.Docs.ScrollIntoViewItems"
+          translation="Data.ScrollIntoViewItems"
         />
       </Layout>
     </>

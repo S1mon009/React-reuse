@@ -1,0 +1,19 @@
+import React from 'react';
+import Show from './utils/show';
+
+const ShowComponent: React.FC = () => {
+  const isLoggedIn = true;
+
+  return (
+    <div>
+      <Show>
+        <Show.When isTrue={isLoggedIn}>
+          <p>Welcome back, user!</p>
+        </Show.When>
+        <Show.Else>
+          <p>Please log in to continue.</p>
+        </Show.Else>
+      </Show>
+    </div>
+  );
+};

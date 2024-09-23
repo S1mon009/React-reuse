@@ -50,9 +50,17 @@ export default function Footer({ data }: footerProps): JSX.Element {
           if (item.link) {
             return (
               <Link href={item.link} className="w-2/5">
-                <Card className="border-muted cursor-pointer hover:border-primary">
-                  <CardHeader className="p-3" dir={index == 1 ? "rtl" : "ltl"}>
-                    <CardDescription>{item.title}</CardDescription>
+                <Card
+                  className={cn(
+                    "flex",
+                    index === 1 ? "justify-end" : null,
+                    "border-muted cursor-pointer hover:border-primary"
+                  )}
+                >
+                  <CardHeader className="p-3">
+                    <CardDescription dir={index === 1 ? "rtl" : "ltl"}>
+                      {item.title}
+                    </CardDescription>
                     <CardTitle>{item.description}</CardTitle>
                   </CardHeader>
                 </Card>

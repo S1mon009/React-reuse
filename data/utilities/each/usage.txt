@@ -1,0 +1,15 @@
+import { Each } from "./utils/each";
+
+const renderItem = (item: any, index: number): JSX.Element => (
+  <div key={index}>{item}</div>
+);
+
+const EachComponent: React.FC = () => {
+  const items = ["Apple", "Banana", "Cherry"];
+
+  return (
+    <div>
+      <Each of={items} render={renderItem} />
+    </div>
+  );
+};

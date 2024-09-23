@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Aside from "@/components/navigation/sidebar/aside";
 import { Layout } from "@/components/layouts/layout";
 import BreadcrumbNavigation from "@/components/navigation/breadcrumb/breadcrumb";
+
+export const metadata: Metadata = {
+  icons: {
+    icon: "../icon.svg",
+  },
+};
 
 export default function RootLayout({
   children,

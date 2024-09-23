@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import useScrollIntoView from "./hooks/useScrollIntoView"; // Adjust the import path as necessary
+import { useScrollIntoView } from "./hooks/useScrollIntoView"; // Adjust the import path as necessary
 
 const ScrollInto: React.FC = () => {
   const myRef = useRef<HTMLDivElement>(null);

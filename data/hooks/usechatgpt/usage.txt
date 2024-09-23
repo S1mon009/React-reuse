@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useChatGPT from "./hooks/usechatgpt"; 
+import { useChatGPT } from "./hooks/usechatgpt"; 
 
 const ExampleComponent: React.FC = () => {
   const [inputMessage, setInputMessage] = useState<string>("");

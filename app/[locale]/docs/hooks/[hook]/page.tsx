@@ -135,7 +135,7 @@ export default function Page({ params }: Readonly<pageProps>): JSX.Element {
       >
         <SectionNavigation
           scrollItemsArray={generateSectionNavigationArray()}
-          translation="Data.Hooks.ScrollIntoViewItems"
+          translation="Data.ScrollIntoViewItems"
         />
       </Layout>
     </>
