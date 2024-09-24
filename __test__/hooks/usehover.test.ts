@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { useHover } from "@/data/hooks/usehover/hook";
+import { useHover } from "@/app/data/hooks/usehover/hook";
 
 describe("useHover", () => {
   it("should return initial hovered state as false", () => {

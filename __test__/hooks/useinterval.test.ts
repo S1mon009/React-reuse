@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { expect } from "vitest";
-import { useInterval } from "@/data/hooks/useinterval/hook";
+import { useInterval } from "@/app/data/hooks/useinterval/hook";
 import { vi } from "vitest";
 
 describe("useInterval", () => {

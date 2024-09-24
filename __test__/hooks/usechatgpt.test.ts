@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, vi, Mock } from "vitest";
-import { useChatGPT } from "@/data/hooks/usechatgpt/hook"; // Adjust the import path as needed
+import { useChatGPT } from "@/app/data/hooks/usechatgpt/hook"; // Adjust the import path as needed
 
 global.fetch = vi.fn();
 

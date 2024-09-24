@@ -39,8 +39,8 @@ export default function Page({ params }: Readonly<pageProps>) {
   const sectionItems = useTranslations(sectionItemsTranslation);
   const footerItems = useTranslations("Data");
 
-  const hook: string = `./data/utilities/${params.util}/util.tsx`;
-  const usage: string = `./data/utilities/${params.util}/usage.txt`;
+  const hook: string = `./app/data/utilities/${params.util}/util.tsx`;
+  const usage: string = `./app/data/utilities/${params.util}/usage.txt`;
 
   const footerLinks = getPrevNextValue(params.util, linkKeys, categoryKeys);
 

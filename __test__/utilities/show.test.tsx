@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import Show from "@/data/utilities/show/util";
+import Show from "@/app/data/utilities/show/util";
 
 describe("Show Component", () => {
   it("should render the correct child based on Show.When condition", () => {

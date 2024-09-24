@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-import { Each } from "@/data/utilities/each/util";
+import { Each } from "@/app/data/utilities/each/util";
 
 describe("Each Component", () => {
   it("should render each item using the provided render function", () => {
