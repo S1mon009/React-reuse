@@ -27,11 +27,34 @@ export default function Code({
 }: codeProps): JSX.Element {
   const [state, copyToClipboard] = useCopyToClipboard();
   const [copied, setCopied] = useState<boolean>(false);
+  const [fileContent, setFileContent] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
 
   const copyCode = () => {
     setCopied(true);
     copyToClipboard(code);
   };
+
+  useEffect(() => {
+    const fetchFileContent = async () => {
+      try {
+        const response = await fetch(
+          `/api/read-file?filePath=${encodeURIComponent(code)}`
+        );
+        if (!response.ok) {
+          const errorData = await response.json();
+          setError(errorData.error);
+        } else {
+          const data = await response.json();
+          setFileContent(data.content);
+        }
+      } catch (err) {
+        setError("Failed to fetch file content");
+      }
+    };
+
+    fetchFileContent();
+  }, []);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -44,7 +67,7 @@ export default function Code({
   }, [copied]);
 
   return (
-    <CodeBlock code={code} language={language}>
+    <CodeBlock code={fileContent} language={language}>
       <CodeBlock.Code className="bg-gray-900 p-6 rounded-xl text-wrap">
         <div className="table-row">
           <CodeBlock.LineNumber className="table-cell pr-4 text-sm text-gray-500 text-right select-none" />

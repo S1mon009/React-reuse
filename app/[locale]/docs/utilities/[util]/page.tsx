@@ -9,7 +9,6 @@ import SectionNavigation from "@/components/navigation/section_navigation/sectio
 import { Layout } from "@/components/layouts/layout";
 import Show from "@/components/utilities/conditional_rendering/show";
 import { useTranslations } from "next-intl";
-import { getFileData } from "@/actions/getFileData";
 import { getPrevNextValue } from "@/lib/utils";
 import { roughNotationColor } from "@/config/rought-notation-color";
 import { keys as linkKeys } from "@/keys/sidebar-links-keys";
@@ -24,13 +23,24 @@ interface pageProps {
   };
 }
 
+/**
+ * Page component renders details for a specific util, including util code, usage example,
+ * and additional parameters. It supports localization (i18n) and is responsive for a11y improvements.
+ *
+ * Props:
+ * - params (object):
+ *  - util (string): The util name.
+ *
+ * @param {pageProps} props - Contains the params object.
+ * @returns {JSX.Element} The rendered Page component.
+ */
 export default function Page({ params }: Readonly<pageProps>) {
   const t = useTranslations(`${translation}.${params.util}`);
   const sectionItems = useTranslations(sectionItemsTranslation);
   const footerItems = useTranslations("Data");
 
-  const hook = getFileData(`./data/utilities/${params.util}/util.tsx`);
-  const usage = getFileData(`./data/utilities/${params.util}/usage.txt`);
+  const hook: string = `./data/utilities/${params.util}/util.tsx`;
+  const usage: string = `./data/utilities/${params.util}/usage.txt`;
 
   const footerLinks = getPrevNextValue(params.util, linkKeys, categoryKeys);
 

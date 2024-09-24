@@ -9,7 +9,6 @@ import SectionNavigation from "@/components/navigation/section_navigation/sectio
 import { Layout } from "@/components/layouts/layout";
 import Show from "@/components/utilities/conditional_rendering/show";
 import { useTranslations } from "next-intl";
-import { getFileData } from "@/actions/getFileData";
 import { getPrevNextValue } from "@/lib/utils";
 import { roughNotationColor } from "@/config/rought-notation-color";
 import { keys as linkKeys } from "@/keys/sidebar-links-keys";
@@ -23,9 +22,8 @@ interface pageProps {
     hook: string;
   };
 }
-
 /**
- * Page component renders details for a specific hook, including hook code, usage examples,
+ * Page component renders details for a specific hook, including hook code, usage example,
  * and additional parameters. It supports localization (i18n) and is responsive for a11y improvements.
  *
  * Props:
@@ -35,13 +33,13 @@ interface pageProps {
  * @param {pageProps} props - Contains the params object.
  * @returns {JSX.Element} The rendered Page component.
  */
-export default function Page({ params }: Readonly<pageProps>): JSX.Element {
+export default function Page({ params }: Readonly<pageProps>) {
   const t = useTranslations(`${translation}.${params.hook}`);
   const sectionItems = useTranslations(sectionItemsTranslation);
   const footerItems = useTranslations("Data");
 
-  const hook = getFileData(`./data/hooks/${params.hook}/hook.ts`);
-  const usage = getFileData(`./data/hooks/${params.hook}/usage.txt`);
+  const hook: string = `./data/hooks/${params.hook}/hook.ts`;
+  const usage: string = `./data/hooks/${params.hook}/usage.txt`;
 
   const footerLinks = getPrevNextValue(params.hook, linkKeys, categoryKeys);
 
