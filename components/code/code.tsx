@@ -32,7 +32,7 @@ export default function Code({
 
   const copyCode = () => {
     setCopied(true);
-    copyToClipboard(code);
+    copyToClipboard(fileContent);
   };
 
   useEffect(() => {
@@ -44,17 +44,19 @@ export default function Code({
         if (!response.ok) {
           const errorData = await response.json();
           setError(errorData.error);
+          console.error(error);
         } else {
           const data = await response.json();
           setFileContent(data.content);
         }
       } catch (err) {
         setError("Failed to fetch file content");
+        console.error(error);
       }
     };
 
     fetchFileContent();
-  }, []);
+  }, [code]);
 
   useEffect(() => {
     const timerId = setTimeout(() => {

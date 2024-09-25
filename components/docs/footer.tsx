@@ -43,13 +43,13 @@ export default function Footer({ data }: footerProps): JSX.Element {
   }
 
   return (
-    <Layout type="footer" className={cn("flex", className)}>
+    <Layout type="footer" className={cn("flex flex-wrap gap-2", className)}>
       <Each
         of={data}
         render={(item, index: number) => {
           if (item.link) {
             return (
-              <Link href={item.link} className="w-2/5">
+              <Link href={item.link} className="w-full md:w-[40%] lg:w-2/5">
                 <Card
                   className={cn(
                     "flex",

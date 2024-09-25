@@ -36,7 +36,7 @@ export default function Aside(): JSX.Element {
               <SidebarHeader>{t(`${sidebarHeaderKey}.Name`)}</SidebarHeader>
               <Layout
                 type="nav"
-                className="flex flex-wrap gap-2 pl-2"
+                className="flex flex-wrap gap-2"
                 aria-label={t(`${sidebarHeaderKey}.Name`)}
               >
                 <Each
