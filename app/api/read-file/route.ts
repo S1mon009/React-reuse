@@ -22,7 +22,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   }
 
   // Ensure the file path is absolute or resolve it relative to the project root
-  const resolvedFilePath: string = path.resolve(process.cwd(), filePath);
+  const resolvedFilePath: string = path.join(process.cwd(), filePath);
 
   try {
     const fileContent: string = await fs.readFile(resolvedFilePath, "utf-8");

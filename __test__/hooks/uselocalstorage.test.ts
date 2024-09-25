@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { expect } from "vitest";
-import { useLocalStorage } from "@/app/data/hooks/uselocalstorage/hook";
+import { useLocalStorage } from "@/public/data/hooks/uselocalstorage/hook";
 
 describe("useLocalStorage", () => {
   beforeEach(() => {

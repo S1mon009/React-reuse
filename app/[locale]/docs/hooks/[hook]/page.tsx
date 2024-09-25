@@ -38,8 +38,8 @@ export default function Page({ params }: Readonly<pageProps>) {
   const sectionItems = useTranslations(sectionItemsTranslation);
   const footerItems = useTranslations("Data");
 
-  const hook: string = `./app/data/hooks/${params.hook}/hook.ts`;
-  const usage: string = `./app/data/hooks/${params.hook}/usage.txt`;
+  const hook: string = `./public/data/hooks/${params.hook}/hook.ts`;
+  const usage: string = `./public/data/hooks/${params.hook}/usage.txt`;
 
   const footerLinks = getPrevNextValue(params.hook, linkKeys, categoryKeys);
 

@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, vi, expect } from "vitest";
-import { useScrollIntoView } from "@/app/data/hooks/usescrollintoview/hook";
+import { useScrollIntoView } from "@/public/data/hooks/usescrollintoview/hook";
 
 describe("useScrollIntoView", () => {
   it("should call scrollIntoView with default options", () => {

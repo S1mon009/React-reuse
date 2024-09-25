@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { useSort } from "@/app/data/hooks/usesort/hook";
+import { useSort } from "@/public/data/hooks/usesort/hook";
 
 // Test data
 const items = [

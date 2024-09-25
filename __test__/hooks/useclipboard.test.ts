@@ -1,7 +1,7 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import "@testing-library/jest-dom"; // Dodaj ten import
-import { useClipboard } from "@/app/data/hooks/useclipboard/hook";
+import { useClipboard } from "@/public/data/hooks/useclipboard/hook";
 
 const mockWriteText = vi.fn();
 

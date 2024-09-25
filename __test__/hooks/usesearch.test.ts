@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { useSearch } from "@/app/data/hooks/usesearch/hook";
+import { useSearch } from "@/public/data/hooks/usesearch/hook";
 
 // Mock items for the search
 const items = [
