@@ -9,17 +9,24 @@ import { Layout } from "@/components/layouts/layout";
 import { Typography } from "@/components/typography/typography";
 import { Github } from "lucide-react";
 import { globeConfig, sampleArcs } from "@/config/globe";
+import { useTranslations } from "next-intl";
+import { GridBackground } from "@/components/grid_background/grid-background";
 
 const WorldComponent = dynamic(
-  () => import("../ui/globe").then((m) => m.World),
+  () => import("../../ui/globe").then((m) => m.World),
   {
     ssr: false,
   }
 );
 
+const translation = "LandingPage.Section1";
+
 export default function World() {
+  const t = useTranslations(translation);
+
   return (
     <>
+      <GridBackground />
       <div className="absolute w-full start-1/2 -translate-x-2/4 top-32 z-20">
         <motion.div
           initial={{
@@ -35,22 +42,24 @@ export default function World() {
           }}
           className="div"
         >
-          <Layout type="div" className="w-full text-center text-6xl font-bold">
-            Hooks and utilities for your <br /> next powerfull projects
+          <Layout
+            type="div"
+            className="w-[70%] ml-[50%] text-white dark:md:text-white md:text-black -translate-x-1/2 text-center text-6xl font-bold"
+          >
+            {t("Heading")}
           </Layout>
           <Typography
             type="p"
             className="text-center text-2xl dark:text-white text-muted font-normal max-w-md mt-2 mx-auto "
           >
-            Supercharge your code with reuseable code checked with ESLint and
-            Vitest.
+            {t("Subheading")}
           </Typography>
           <Layout type="div" className="flex justify-center gap-4 mt-4">
             <Link
               href="/docs/introduction"
               className={buttonVariants({ variant: "default", size: "lg" })}
             >
-              Get started
+              {t("GetStarted")}
             </Link>
             <a href="https://github.com/S1mon009">
               <Button variant="secondary" size="lg">
@@ -61,7 +70,7 @@ export default function World() {
           </Layout>
         </motion.div>
       </div>
-      <div className="absolute w-full h-[800px] z-10 flex justify-center items-center">
+      <div className="absolute w-full h-[800px] z-10 flex justify-center items-center top-0">
         <WorldComponent data={sampleArcs} globeConfig={globeConfig} />
       </div>
     </>

@@ -26,6 +26,35 @@
       "Polish": "Polish"
     }
   },
+  "LandingPage": {
+    "Section1": {
+      "Heading": "Hooks and utilities for your next powerfull projects",
+      "Subheading": "Supercharge your code with reuseable code checked with ESLint and Vitest.",
+      "GetStarted": "Get started"
+    },
+    "Section2": {
+      "Article1": {
+        "Heading": "Everything in one",
+        "Description": "React-reuse is an open source React.js snippet library for acceleration your projects. It contains lots of useful hooks and tools to make your work with code easier. You can use it as you wish. Have fun!"
+      },
+      "Article2": {
+        "Card1": {
+          "Heading": "Some useful code"
+        },
+        "Card2": {
+          "Heading": "Hooks",
+          "Description": "Library consider",
+          "Content": "hooks"
+        },
+        "Card3": {
+          "Heading": "Utilities",
+          "Description": "Library consider",
+          "Content": "utils"
+        }
+      },
+      "Button": "See more"
+    }
+  },
   "Data": {
     "ScrollIntoViewItems": {
       "Entry": "Entry",

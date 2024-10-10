@@ -26,6 +26,35 @@
       "Polish": "Polski"
     }
   },
+  "LandingPage": {
+    "Section1": {
+      "Heading": "Hooki i narzędzia do twoich kolejnych wymagających projektów",
+      "Subheading": "Doładuj swój projekt kodem wielokrotnego użytku sprawdzonym za pomocą ESLint i Vitest.",
+      "GetStarted": "Wprowadzenie"
+    },
+    "Section2": {
+      "Article1": {
+        "Heading": "Wszystko w jednym",
+        "Description": "React-reuse to biblioteka React.js o otwartym kodzie źródłowym, służąca do przyspieszania projektów. Zawiera wiele przydatnych hooków i narzędzi ułatwiających pracę z kodem. Możesz go używać, jak chcesz. Miłej zabawy!"
+      },
+      "Article2": {
+        "Card1": {
+          "Heading": "Trochę przydatnego kodu"
+        },
+        "Card2": {
+          "Heading": "Hooki",
+          "Description": "Biblioteka zawiera",
+          "Content": "hooków"
+        },
+        "Card3": {
+          "Heading": "Narzędzia",
+          "Description": "Biblioteka zawiera",
+          "Content": "narzędzi"
+        }
+      },
+      "Button": "Zobacz więcej"
+    }
+  },
   "Data": {
     "ScrollIntoViewItems": {
       "Entry": "Wprowadzenie",
