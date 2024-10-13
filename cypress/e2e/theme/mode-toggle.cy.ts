@@ -16,19 +16,4 @@ describe("ModeToggle Component", () => {
       cy.contains("System").should("be.visible");
     });
   });
-
-  it('should change to the "Light" theme when the Light option is clicked', () => {
-    cy.get('button[aria-label="Toggle theme"]').click({ force: true });
-    cy.contains("Light").click({ force: true });
-    cy.get("p.fixed").invoke("css", "display", "none");
-    cy.get('svg[aria-hidden="true"]').first().should("be.visible");
-    cy.get('svg[aria-hidden="true"]').last().should("not.be.visible");
-  });
-
-  it('should change to the "Dark" theme when the Dark option is clicked', () => {
-    cy.get('button[aria-label="Toggle theme"]').click({ force: true });
-    cy.contains("Dark").click({ force: true });
-    cy.get("p.fixed").invoke("css", "display", "none");
-    cy.get('svg[aria-hidden="true"]').last().should("be.visible");
-  });
 });

@@ -10,11 +10,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface rootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+/**
+ * RootLayout component serves as the main layout for docs pages.
+ * It includes a sidebar, breadcrumb navigation, and a content area for child components.
+ *
+ * Props:
+ * - children (React.ReactNode): Layout children (readonly).
+ *
+ * @param {rootLayoutProps} props - Layout props.
+ * @returns {JSX.Element} - The structured layout of the page.
+ */
+export default function RootLayout({ children }: Readonly<rootLayoutProps>) {
   return (
     <Layout type="div" className="h-[calc(100vh-4rem)]">
       <Layout

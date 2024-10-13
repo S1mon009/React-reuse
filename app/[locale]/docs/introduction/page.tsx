@@ -18,6 +18,12 @@ const translations: string = "Data.Docs.Items.introduction";
 const sectionItemsTranslation: string = "Data.Hooks.SectionItems";
 const keys: string[] = ["Entry", "Testing", "TypeScript", "Linting"];
 
+/**
+ * Page component renders introduction info about library.
+ * It supports localization (i18n) and is responsive for a11y improvements.
+ *
+ * @returns {JSX.Element} The rendered Page component.
+ */
 export default function Page() {
   const t = useTranslations(translations);
   const footerItems = useTranslations("Data");

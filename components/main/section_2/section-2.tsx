@@ -22,6 +22,12 @@ import { keys } from "@/keys/sidebar-links-keys";
 const carouselArray = [keys[1].slice(0, 3), keys[2].slice(0, 3)];
 const translation: string = "LandingPage.Section2";
 
+/**
+ * Section 2 of the Landing Page.
+ * Displays an article with a carousel and several cards that link to documentation pages.
+ *
+ * @returns {JSX.Element} The rendered Section2 component.
+ */
 export default function Section2() {
   const t = useTranslations(translation);
 

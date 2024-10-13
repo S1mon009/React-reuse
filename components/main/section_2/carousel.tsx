@@ -19,6 +19,16 @@ interface carouselProps {
   array: string[][];
 }
 
+/**
+ * Carousel component to display items with translations.
+ * The items are displayed as part of two categories: Hooks and Utilities.
+ *
+ * Props:
+ * - array (array): Two dimensional string array which contains name of hooks and utils.
+ *
+ * @param {carouselProps} props- Component props.
+ * @returns {JSX.Element} - Rendered carousel component.
+ */
 export default function Carousel({ array }: carouselProps) {
   const hooks = useTranslations(hooksTranslation);
   const utils = useTranslations(utilsTranslation);
@@ -26,6 +36,7 @@ export default function Carousel({ array }: carouselProps) {
   return (
     <CarouselContainer
       className="w-[70%]"
+      aria-roledescription="carousel"
       plugins={[
         Autoplay({
           delay: 5000,

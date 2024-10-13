@@ -22,11 +22,22 @@ export const metadata: Metadata = {
   },
 };
 
+interface rootLayoutProps {
+  children: React.ReactNode;
+}
+
+/**
+ * RootLayout component serves as the main layout for pages.
+ *
+ * Props:
+ * - children (React.ReactNode): Layout children (readonly).
+ *
+ * @param {rootLayoutProps} props - Layout props.
+ * @returns {JSX.Element} - The structured layout of the page.
+ */
 export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<rootLayoutProps>) {
   const messages = await getMessages();
 
   return (

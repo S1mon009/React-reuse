@@ -12,15 +12,21 @@ import { globeConfig, sampleArcs } from "@/config/globe";
 import { useTranslations } from "next-intl";
 import { GridBackground } from "@/components/grid_background/grid-background";
 
+// Dynamically import the Globe component with no SSR (for performance)
 const WorldComponent = dynamic(
   () => import("../../ui/globe").then((m) => m.World),
   {
     ssr: false,
   }
 );
-
 const translation = "LandingPage.Section1";
 
+/**
+ * The main world component that displays the globe with a heading,
+ * subheading, and buttons for navigation and GitHub link.
+ *
+ * @returns {JSX.Element} The rendered World component.
+ */
 export default function World() {
   const t = useTranslations(translation);
 
@@ -58,10 +64,15 @@ export default function World() {
             <Link
               href="/docs/introduction"
               className={buttonVariants({ variant: "default", size: "lg" })}
+              aria-label="Get started with the documentation"
             >
               {t("GetStarted")}
             </Link>
-            <a href="https://github.com/S1mon009">
+            <a
+              href="https://github.com/S1mon009"
+              aria-label="Visit GitHub repository"
+              target="_blank"
+            >
               <Button variant="secondary" size="lg">
                 <Github className="mr-2 h-4 w-4" />
                 GitHub
@@ -70,7 +81,10 @@ export default function World() {
           </Layout>
         </motion.div>
       </div>
-      <div className="absolute w-full h-[800px] z-10 flex justify-center items-center top-0">
+      <div
+        className="absolute w-full h-[800px] z-10 flex justify-center items-center top-0"
+        aria-label="Interactive 3D Globe"
+      >
         <WorldComponent data={sampleArcs} globeConfig={globeConfig} />
       </div>
     </>
