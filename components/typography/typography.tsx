@@ -26,7 +26,13 @@ const H1 = ({
   ...props
 }: typographyItemsProps): JSX.Element => {
   return (
-    <h1 className={cn("text-4xl", className)} {...props}>
+    <h1
+      className={cn(
+        "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
+        className
+      )}
+      {...props}
+    >
       {children}
     </h1>
   );
@@ -48,7 +54,13 @@ const H2 = ({
   ...props
 }: typographyItemsProps): JSX.Element => {
   return (
-    <h2 className={cn("text-3xl", className)} {...props}>
+    <h2
+      className={cn(
+        "scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+        className
+      )}
+      {...props}
+    >
       {children}
     </h2>
   );
@@ -70,7 +82,13 @@ const H3 = ({
   ...props
 }: typographyItemsProps): JSX.Element => {
   return (
-    <h3 className={cn("text-2xl", className)} {...props}>
+    <h3
+      className={cn(
+        "scroll-m-20 text-2xl font-semibold tracking-tight",
+        className
+      )}
+      {...props}
+    >
       {children}
     </h3>
   );
@@ -92,7 +110,13 @@ const H4 = ({
   ...props
 }: typographyItemsProps): JSX.Element => {
   return (
-    <h4 className={cn("text-xl", className)} {...props}>
+    <h4
+      className={cn(
+        "scroll-m-20 text-xl font-semibold tracking-tight",
+        className
+      )}
+      {...props}
+    >
       {children}
     </h4>
   );
@@ -136,8 +160,19 @@ const H6 = ({ children, ...props }: typographyItemsProps): JSX.Element => {
  * @param {typographyItemsProps} props - Contains children and everyone else props.
  * @returns {JSX.Element} The rendered P component
  */
-const P = ({ children, ...props }: typographyItemsProps): JSX.Element => {
-  return <p {...props}>{children}</p>;
+const P = ({
+  children,
+  className,
+  ...props
+}: typographyItemsProps): JSX.Element => {
+  return (
+    <p
+      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      {...props}
+    >
+      {children}
+    </p>
+  );
 };
 
 /**

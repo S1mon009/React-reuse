@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Typography } from "@/components/typography/typography";
 import { usePathname, Link } from "@/components/navigation/navigation";
 import { Each } from "@/components/utilities/each/each";
 import { buttonVariants } from "@/components/ui/button";
@@ -57,31 +58,36 @@ export default function SectionNavigation({
   }, [scrollItemsArray]);
 
   return (
-    <ul>
-      <Each
-        of={scrollItemsArray}
-        render={(item: string, index: number) => {
-          const tag = item.toLowerCase();
+    <>
+      <Typography type="p" className="my-2 font-semibold">
+        On this page
+      </Typography>
+      <ul>
+        <Each
+          of={scrollItemsArray}
+          render={(item: string, index: number) => {
+            const tag = item.toLowerCase();
 
-          return (
-            <Link
-              href={`${pathname}/#${tag}`}
-              className={cn(
-                buttonVariants({
-                  variant: "ghost",
-                  className: `flex justify-start items-center rounded-l-none w-full my-2 text-foreground hover:border-l-2 ${
-                    index === activeIndex && "border-l-2"
-                  }`,
-                })
-              )}
-              onClick={() => setActiveIndex(index)}
-              key={index}
-            >
-              {t(item)}
-            </Link>
-          );
-        }}
-      />
-    </ul>
+            return (
+              <Link
+                href={`${pathname}/#${tag}`}
+                className={cn(
+                  buttonVariants({
+                    variant: "ghost",
+                    className: `flex justify-start items-center rounded-l-none w-full my-2 text-foreground hover:border-l-2 ${
+                      index === activeIndex && "border-l-2"
+                    }`,
+                  })
+                )}
+                onClick={() => setActiveIndex(index)}
+                key={index}
+              >
+                {t(item)}
+              </Link>
+            );
+          }}
+        />
+      </ul>
+    </>
   );
 }

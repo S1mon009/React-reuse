@@ -6,7 +6,7 @@ import BreadcrumbNavigation from "@/components/navigation/breadcrumb/breadcrumb"
 
 export const metadata: Metadata = {
   icons: {
-    icon: "../icon.svg",
+    icon: "../../icon.svg",
   },
 };
 

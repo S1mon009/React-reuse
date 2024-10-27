@@ -1,6 +1,9 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Layout } from "@/components/layouts/layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Code from "@/components/code/code";
 import { Each } from "@/components/utilities/each/each";
 
@@ -43,8 +46,34 @@ export default function CodeBlock({
   triggers,
   contents,
 }: codeBlockProps): JSX.Element {
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    setWindowWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [windowWidth]);
+
+  const getScrollAreaWidth = (width: number) => {
+    if (width < 768) {
+      return `${width - 50}px`;
+    } else if (width < 1024) {
+      return `${width - 240}px`;
+    } else if (width < 1200) {
+      return "80%";
+    } else {
+      return "100%";
+    }
+  };
+
   return (
-    <Layout type="section" id="code">
+    <Layout type="section" id="code" className="overflow-hidden">
       <Layout type="article">
         <Tabs defaultValue={defaultValue}>
           <TabsList aria-label="Code and Usage tabs">
@@ -61,8 +90,15 @@ export default function CodeBlock({
             of={contents}
             render={(item, index: number) => (
               <TabsContent value={item.value} key={index}>
-                <ScrollArea className="h-96" aria-label={item.ariaLabel}>
+                <ScrollArea
+                  className="h-96 whitespace-nowrap rounded-xl"
+                  style={{
+                    width: getScrollAreaWidth(windowWidth),
+                  }}
+                  aria-label={item.ariaLabel}
+                >
                   <Code code={item.code} />
+                  <ScrollBar orientation="horizontal" />
                 </ScrollArea>
               </TabsContent>
             )}

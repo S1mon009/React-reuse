@@ -92,13 +92,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
     ...globeConfig,
   };
 
-  useEffect(() => {
-    if (globeRef.current) {
-      _buildData();
-      _buildMaterial();
-    }
-  }, [globeRef.current]);
-
   const _buildMaterial = () => {
     if (!globeRef.current) return;
 
@@ -150,6 +143,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
   };
 
   useEffect(() => {
+    if (globeRef.current) {
+      _buildData();
+      _buildMaterial();
+    }
+  }, [_buildData, _buildMaterial]);
+
+  useEffect(() => {
     if (globeRef.current && globeData) {
       globeRef.current
         .hexPolygonsData(countries.features)
@@ -163,7 +163,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
         });
       startAnimation();
     }
-  }, [globeData]);
+  }, [
+    globeData,
+    defaultProps.atmosphereAltitude,
+    defaultProps.atmosphereColor,
+  ]);
 
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return;
@@ -222,7 +226,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     return () => {
       clearInterval(interval);
     };
-  }, [globeRef.current, globeData]);
+  }, [globeData, data.length]);
 
   return (
     <>
@@ -238,7 +242,7 @@ export function WebGLRendererConfig() {
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
-  }, []);
+  }, [gl, size.height]);
 
   return null;
 }

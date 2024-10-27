@@ -7,108 +7,167 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { buttonVariants } from "@/components/ui/button";
 import { Each } from "@/components/utilities/each/each";
 import Show from "@/components/utilities/conditional_rendering/show";
 import { Layout } from "@/components/layouts/layout";
 import Aside from "@/components/navigation/sidebar/aside";
-import { Link, usePathname } from "@/components/navigation/navigation";
+import { Link } from "@/components/navigation/navigation";
 import { useTranslations } from "next-intl";
-import { cn } from "@/lib/utils";
 import { ChartNoAxesGantt } from "lucide-react";
-import { keys } from "@/keys/links-keys";
+import { keys } from "@/keys/sidebar-links-keys";
 
-const translation: string = "Header.Links";
+const translation: string = "Header.Menu";
+const hooksTranslation: string = "Data.Hooks";
+const utilsTranslation: string = "Data.Utilities";
+const menuArray: string[] = ["Introduction", "Typesafe", "Quality"];
 
-interface linksProps {
+interface LinksProps {
   type: "desktop" | "mobile";
 }
 
+interface ListItemProps {
+  title: string;
+  href: string;
+  children: React.ReactNode;
+}
+
 /**
- * Links component renders a navigation menu based on the keys and type.
- * It supports both desktop and mobile layouts, rendering a different UI based on the `type` prop.
- * The active link is dynamically determined based on the current pathname.
- *
- * Props:
- * - type (desktop | mobile): The type of display UI.
- *
- * @param {linksProps} props - Contains the keys to display in the navigation, the links object for translations, and the type (desktop or mobile).
- * @returns {JSX.Element} The rendered Links component.
+ * Renders a list item for navigation links with appropriate a11y features.
  */
-export default function Links({ type }: linksProps): JSX.Element {
-  const pathname = usePathname();
+const ListItem = ({ title, href, children }: ListItemProps) => (
+  <li>
+    <NavigationMenuLink asChild>
+      <Link
+        href={href}
+        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+      >
+        <div className="text-sm font-medium leading-none">{title}</div>
+        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          {children}
+        </p>
+      </Link>
+    </NavigationMenuLink>
+  </li>
+);
+ListItem.displayName = "ListItem";
+
+/**
+ * Links component renders a navigation menu based on the type (desktop/mobile).
+ * It supports a11y and ensures semantic markup for navigation and focus management.
+ */
+export default function Links({ type }: LinksProps): JSX.Element {
   const t = useTranslations(translation);
-
-  /**
-   * Determines the variant of the button (active or inactive) based on the current pathname and link.
-   *
-   * @param {string} pathname - The current pathname.
-   * @param {string} link - The link to check against the pathname.
-   * @returns {"default" | "ghost"} The variant of the button.
-   */
-  const checkActiveLink = (
-    pathname: string,
-    link: string
-  ): "default" | "ghost" => {
-    const [firstSegment, secondSegment] = pathname.slice(1).split("/");
-
-    if (
-      firstSegment === link &&
-      secondSegment !== "hooks" &&
-      secondSegment !== "utilities"
-    ) {
-      return "default";
-    } else if (secondSegment === link) {
-      return "default";
-    }
-    return "ghost";
-  };
-
-  /**
-   * Renders a single navigation link.
-   *
-   * @param {string} item - The key representing the navigation item.
-   * @param {number} index - The index of the item in the array.
-   * @returns {JSX.Element} The rendered Link component.
-   */
-  const renderLink = (item: string, index: number): JSX.Element => (
-    <Link
-      key={index}
-      href={t(`${item}.Link`)}
-      className={cn(
-        buttonVariants({
-          variant: checkActiveLink(pathname, item.toLowerCase()),
-        }),
-        type === "mobile" ? "w-full flex justify-start" : ""
-      )}
-    >
-      {t(`${item}.Title`)}
-    </Link>
-  );
+  const hooksT = useTranslations(hooksTranslation);
+  const utilsT = useTranslations(utilsTranslation);
 
   return (
     <Show>
       <Show.When isTrue={type === "desktop"}>
         <Layout type="nav" className="hidden md:flex gap-2">
-          <Each of={keys} render={renderLink} />
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>
+                  {t("GettingStarted.Name")}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent aria-label="Getting Started Menu">
+                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <li className="row-span-3">
+                      <NavigationMenuLink asChild>
+                        <Link
+                          className="flex h-full w-full select-none flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                          href={t("GettingStarted.Main.Link")}
+                        >
+                          <div className="mb-2 mt-4 text-lg font-medium">
+                            React reuse
+                          </div>
+                          <p className="text-sm leading-tight text-muted-foreground">
+                            {t("GettingStarted.Main.Description")}
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    {menuArray.map((item) => (
+                      <ListItem
+                        key={item}
+                        href={t(`GettingStarted.${item}.Link`)}
+                        title={t(`GettingStarted.${item}.Name`)}
+                      >
+                        {t(`GettingStarted.${item}.Description`)}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>{hooksT("Name")}</NavigationMenuTrigger>
+                <NavigationMenuContent aria-label="Hooks Menu">
+                  <ul className="grid gap-3 p-4 md:w-[500px] lg:w-[600px] md:grid-cols-2">
+                    <Each
+                      of={keys[1].slice(0, 6)}
+                      render={(item, index) => (
+                        <ListItem
+                          key={index}
+                          href={hooksT(`Items.${item}.Link`)}
+                          title={hooksT(`Items.${item}.Name`)}
+                        >
+                          {hooksT(`Items.${item}.Content.Description`)}
+                        </ListItem>
+                      )}
+                    />
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>{utilsT("Name")}</NavigationMenuTrigger>
+                <NavigationMenuContent aria-label="Utilities Menu">
+                  <ul className="grid gap-3 p-4 md:w-[500px] lg:w-[600px] md:grid-cols-2">
+                    <Each
+                      of={keys[2].slice(0, 6)}
+                      render={(item, index) => (
+                        <ListItem
+                          key={index}
+                          href={utilsT(`Items.${item}.Link`)}
+                          title={utilsT(`Items.${item}.Name`)}
+                        >
+                          {utilsT(`Items.${item}.Content.Description`)}
+                        </ListItem>
+                      )}
+                    />
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </Layout>
       </Show.When>
+
       <Show.When isTrue={type === "mobile"}>
         <Sheet>
-          <SheetTrigger className="block mr-1 mt-1 lg:hidden">
+          <SheetTrigger
+            className="block mr-1 mt-1 lg:hidden"
+            aria-label="Open menu"
+          >
             <ChartNoAxesGantt />
           </SheetTrigger>
           <SheetContent side="left" aria-describedby="Mobile navigation">
             <SheetHeader>
-              <SheetTitle>Menu</SheetTitle>
+              <SheetTitle className="text-left">Menu</SheetTitle>
             </SheetHeader>
-            <Layout type="nav" className="flex flex-wrap gap-2">
-              <Each of={keys} render={renderLink} />
-            </Layout>
             <Separator className="mt-2 h-[2px]" />
-            <ScrollArea className="h-full w-full pb-40">
+            <ScrollArea className="h-full w-full pb-6">
               <Aside />
             </ScrollArea>
           </SheetContent>

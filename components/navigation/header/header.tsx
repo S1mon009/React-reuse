@@ -42,7 +42,7 @@ export default function HeaderNavigation(): JSX.Element {
           href="https://github.com/S1mon009/react-reuse"
           aria-label="GitHub repository"
         >
-          <Button variant="outline" size="icon">
+          <Button variant="outline" size="icon" aria-label="GitHub repository">
             <Github aria-hidden="true" focusable="false" />
           </Button>
         </a>

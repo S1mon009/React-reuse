@@ -56,7 +56,7 @@ export default function Code({
     };
 
     fetchFileContent();
-  }, [code]);
+  }, [code, error]);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -70,7 +70,7 @@ export default function Code({
 
   return (
     <CodeBlock code={fileContent} language={language}>
-      <CodeBlock.Code className="bg-gray-900 p-6 rounded-xl text-wrap">
+      <CodeBlock.Code className="bg-gray-900 p-6 rounded-xl">
         <div className="table-row">
           <CodeBlock.LineNumber className="table-cell pr-4 text-sm text-gray-500 text-right select-none" />
           <CodeBlock.LineContent className="table-cell">
@@ -82,6 +82,7 @@ export default function Code({
           size="icon"
           className="absolute top-2 right-4"
           onClick={copyCode}
+          aria-label="Copy to clipboard"
         >
           {copied ? <Check /> : <Copy />}
         </Button>

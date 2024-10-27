@@ -65,7 +65,7 @@ export default function BreadcrumbNavigation(): JSX.Element {
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/">
+              <Link href="/" aria-label="Go to homepage">
                 <House className="text-primary" />
               </Link>
             </BreadcrumbLink>

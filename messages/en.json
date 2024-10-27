@@ -1,17 +1,27 @@
 {
   "Header": {
-    "Links": {
-      "Docs": {
-        "Title": "Docs",
-        "Link": "/docs/introduction"
-      },
-      "Hooks": {
-        "Title": "Hooks",
-        "Link": "/docs/hooks"
-      },
-      "Utilities": {
-        "Title": "Utilities",
-        "Link": "/docs/utilities"
+    "Menu": {
+      "GettingStarted": {
+        "Name": "Getting started",
+        "Main": {
+          "Description": "Fully funcionalited hooks and utilities that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
+          "Link": "/"
+        },
+        "Introduction": {
+          "Name": "Introduction",
+          "Link": "/docs/introduction",
+          "Description": "Re-usable hooks and utils built using TypeScript and Vitest."
+        },
+        "Typesafe": {
+          "Name": "Typesafe",
+          "Link": "/docs/typesafe",
+          "Description": "How the code is protected against errors."
+        },
+        "Quality": {
+          "Name": "Quality",
+          "Link": "/docs/quality",
+          "Description": "Clean and proven code."
+        }
       }
     },
     "Theme": {
@@ -39,7 +49,7 @@
       },
       "Article2": {
         "Card1": {
-          "Heading": "Some useful code"
+          "Heading": "Some examples"
         },
         "Card2": {
           "Heading": "Hooks",
@@ -92,6 +102,14 @@
             },
             "Summary": "This library offers a carefully crafted set of tools for modern React development. With a strong foundation in testing, TypeScript integration, and a focus on code quality, our hooks and utilities are reliable, developer-friendly, and designed to scale with your project needs. Whether you're looking to streamline your codebase or enhance your application's performance, this collection provides the solutions to do so with confidence."
           }
+        },
+        "typesafe": {
+          "Link": "/docs/typesafe",
+          "Name": "Typesafe"
+        },
+        "quality": {
+          "Link": "/docs/quality",
+          "Name": "Quality"
         }
       }
     },
@@ -120,7 +138,8 @@
             "Description": "The useClipboard is a custom React hook that provides a simple interface to copy text to the user's clipboard using the Clipboard API. It handles success and error states, and includes a reset function to clear the current state. This hook simplifies copying text to the clipboard and provides feedback on whether the operation was successful.",
             "Parameters": "",
             "API": "copyToClipboard(text: string): void: Takes a string and attempts to copy it to the clipboard. If successful, it updates isCopied to true; if it fails, it sets an error message. & isCopied: boolean: A boolean flag indicating whether the text has been successfully copied to the clipboard. & error: string | null: If copying to the clipboard fails, this string contains the error message. It is null if there is no error. & reset(): void: Resets the isCopied and error states to their initial values. Useful if you want to reset the hook after a successful or failed clipboard action."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usechatgpt": {
           "Link": "/docs/hooks/usechatgpt",
@@ -129,7 +148,8 @@
             "Description": "The useChatGPT hook is a custom React hook that allows you to interact with the ChatGPT API. It manages the process of a user's input to the API, handling loading and error states, and storing the API's response. It can be easily integrated into any React component to enable chatbot functionalities.",
             "Parameters": "apiKey: string: The API key used for authenticating requests to the OpenAI API.",
             "API": "sendMessage(message: string): Promise'<'void'>': A function that takes a message string, sends it to the ChatGPT API, and updates the state with the response. & response: string | null: The response from the ChatGPT API, or null if no response is available. & isLoading: boolean: A boolean indicating whether a request to the ChatGPT API is in progress. & error: string | null: An error message if an error occurred during the API request, or null if no error occurred."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usepromiseall": {
           "Link": "/docs/hooks/usepromiseall",
@@ -138,7 +158,8 @@
             "Description": "The usePromiseAll hook is used to handle an array of promises in parallel, providing a simple way to track loading, success, and error states. Once all promises are resolved or rejected, the hook returns the results or the error, along with the loading state.",
             "Parameters": "promises: Promise'<'T'>'[]: An array of promises to execute concurrently.",
             "API": "results: T[] | null: The resolved values from all promises, or null if still loading. & error: Error | null: Any error encountered during promise execution, or null if no errors occurred. & isLoading: boolean: A boolean representing the loading state (true while promises are pending, false when all are resolved or one has rejected)."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usehover": {
           "Link": "/docs/hooks/usehover",
@@ -147,7 +168,8 @@
             "Description": "The useHover hook detects when an element is hovered over. It returns a hovered boolean state that represents whether the mouse is currently over the element and a ref to be attached to the element you want to track.",
             "Parameters": "",
             "API": "hovered: boolean: true if the element is currently being hovered over, false otherwise. & ref: React.RefObject'<'T'>': A ref that needs to be attached to the target element for detecting hover state."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "useclickoutside": {
           "Link": "/docs/hooks/useclickoutside",
@@ -156,7 +178,8 @@
             "Description": "A custom hook that triggers a callback function when a click is detected outside of the element referenced by the ref.",
             "Parameters": "ref (RefObject'<'HTMLElement'>'): A React ref object pointing to the HTML element to watch for outside clicks. & callback(): void: A function to be called when a click outside the referenced element is detected.",
             "API": ""
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usedebounce": {
           "Link": "/docs/hooks/usedebounce",
@@ -165,7 +188,8 @@
             "Description": "The useDebounce hook delays the update of a value until a specified period of time has passed since the last time the value changed. This is useful for scenarios like input filtering or preventing multiple API calls on rapid changes.",
             "Parameters": "value: T: The current value to debounce. It can be of any type (T). & delay: number: The debounce delay in milliseconds.",
             "API": "debouncedValue: T: The debounced version of the input value, which only updates after the specified delay."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usesort": {
           "Link": "/docs/hooks/usesort",
@@ -174,7 +198,8 @@
             "Description": "The useSort hook helps you sort lists of data easily by providing a sorted version of the list based on a specified sorting function. It also provides controls for toggling between ascending and descending order.",
             "Parameters": "items: T[]: The list of items to be sorted. & sortFn: (a: T, b: T): number: A sorting function that defines how to compare two items in the list. Should return a negative number if a comes before b, a positive number if a comes after b, and 0 if they are equal. & initialOrder:? 'asc' | 'desc': The initial sorting order. Defaults to 'asc' (ascending).",
             "API": "sortedItems: T[]: The sorted version of the provided list. & order: 'asc' | 'desc': The current sorting order. & toggleOrder(): void: A function to toggle between ascending ('asc') and descending ('desc') order."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usemediaquery": {
           "Link": "/docs/hooks/usemediaquery",
@@ -183,7 +208,8 @@
             "Description": "The useMediaQuery hook enables you to apply responsive design techniques by listening to CSS media query changes. It returns a boolean indicating whether the media query matches the current viewport, allowing you to conditionally render components or apply styles based on the query.",
             "Parameters": "query: string: A string representing the media query you want to listen to.",
             "API": "isMobile: boolean: true if the media query matches the current viewport, otherwise false."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usekeyboardshortcup": {
           "Link": "/docs/hooks/usekeyboardshortcup",
@@ -192,7 +218,8 @@
             "Description": "The useKeyboardShortcut hook listens for specific key combinations (e.g., 'Ctrl+S' or 'Alt+Shift+P') and triggers a callback function when the combination is pressed. This is useful for implementing features like save shortcuts, quick actions, or custom key-based navigation in your application.",
             "Parameters": "keys: string[]: An array of keys (e.g., ['Control', 'S'] or ['Alt', 'Shift', 'P']) that represent the key combination. & callback(): void: A function that is executed when the key combination is pressed. & element:? HTMLElement | Window: The DOM element to attach the listener to. Defaults to window.",
             "API": ""
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usecounter": {
           "Link": "/docs/hooks/usecounter",
@@ -201,7 +228,8 @@
             "Description": "The useCounter hook provides an easy way to manage counter logic, such as incrementing, decrementing, resetting, and setting a specific value.",
             "Parameters": "initialValue?: number: The initial value of the counter. Defaults to 0.",
             "API": "count: number: The current count value. & increment(): void: Increases the count by 1. & decrement(): void: Decreases the count by 1. & reset(): void: Resets the count to the initialValue. & set(value: number): void: Sets the count to a specified value."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "uselocalstorage": {
           "Link": "/docs/hooks/uselocalstorage",
@@ -210,7 +238,8 @@
             "Description": "The useLocalStorage hook is used to store and retrieve values from localStorage in a React component. It works like the useState hook but keeps the value saved even when the page is refreshed or reopened. The hook automatically synchronizes the state with the localStorage and ensures that the value is always up-to-date.",
             "Parameters": "key: string: The key under which the value is stored in localStorage. & initialValue: string: The initial value to be stored. This can be a value or a function that returns a value.",
             "API": "[storedValue, setValue]: A tuple where storedValue is the current value from localStorage and setValue is a function to update the value."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usesearch": {
           "Link": "/docs/hooks/usesearch",
@@ -219,7 +248,8 @@
             "Description": "The useSearch hook allows you to easily manage search queries and results. It filters a list of items based on a provided search term and filtering function. The hook supports debouncing to optimize performance by avoiding unnecessary filtering during fast input.",
             "Parameters": "items: T[]: The list of items to search through. & filterFn: (item: T, query: string): boolean: A function that defines how to filter the items based on the search query. & debounceDelay:? number: The delay (in milliseconds) for debouncing the search input. Defaults to 300ms.",
             "API": "query: string: The current search query string. & setQuery: (query: string): void: A function to update the search query. & filteredItems: T[]: The list of filtered items based on the search query. & isSearching: boolean: A boolean representing whether the hook is actively searching (debounced)."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "useinterval": {
           "Link": "/docs/hooks/useinterval",
@@ -228,7 +258,8 @@
             "Description": "The useInterval hook is useful when you need to perform a repeated action (such as polling an API or animating something) at specific time intervals within a React component. It automatically handles setting and clearing the interval to avoid memory leaks or stale intervals when the component updates or unmounts.",
             "Parameters": "callback(): void: A function that you want to be executed at regular intervals. & delay: number: The delay in milliseconds between executions. If the delay is null, the interval will be paused.",
             "API": ""
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "usescrollintoview": {
           "Link": "/docs/hooks/usescrollintoview",
@@ -237,7 +268,8 @@
             "Description": "The useScrollIntoView hook is designed to scroll an element (referenced by a ref) into view with customizable behavior. It provides a callback function that triggers the scroll action, and it allows you to specify the scroll behavior (auto or smooth), and the element's alignment once it is scrolled into view (positioning options like start, center, end, or nearest for both block and inline directions).",
             "Parameters": "ref: React.RefObject'<'HTMLElement'>': A reference to the element that should be scrolled into view. & behavior:? 'auto' | 'smooth': The scrolling behavior. Defaults to 'smooth'. & block:? 'start' | 'center' | 'end' | 'nearest': The vertical alignment of the element when scrolled into view. Defaults to 'start'. & inline: 'start' | 'center' | 'end' | 'nearest': The horizontal alignment of the element when scrolled into view. Defaults to 'nearest'.",
             "API": "scrollToElement(): void: A callback function that, when invoked, scrolls the referenced element into view."
-          }
+          },
+          "CreateAt": "2024-10-17"
         }
       }
     },
@@ -266,7 +298,8 @@
             "Description": "The Show component in React allows conditional rendering of child components based on specified conditions. It works by using two subcomponents: Show.When and Show.Else. The Show.When component renders its children if the isTrue prop is true, and Show.Else is rendered if no valid condition is met. This component simplifies conditional logic by embedding it within JSX.",
             "Parameters": "",
             "API": "isTrue?: boolean: Determines if the children should be rendered. If true, the children will be rendered."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "each": {
           "Link": "/docs/utilities/each",
@@ -275,7 +308,8 @@
             "Description": "The Each component is a utility function that iterates over an array (of) and renders each item using the provided render function. The render function is passed two arguments: the current item (item) and its index (index). It returns a JSX element for each array item. This utility abstracts away the common task of rendering elements from arrays, offering a reusable and customizable solution.",
             "Parameters": "",
             "API": "render(item: any, index: number): JSX.Element: A required function that defines how to render each item in the array. It takes two arguments (item - The current element from the array, index - The index of the current element). & of: any[]: A required array of items that will be iterated over. The render function is called on each element of this array."
-          }
+          },
+          "CreateAt": "2024-10-17"
         },
         "delay": {
           "Link": "/docs/utilities/delay",
@@ -284,7 +318,8 @@
             "Description": "The Delay component is a utility that renders its children after a specified delay. It is useful when you want to defer the rendering of certain components for UX or performance reasons. This component accepts the ms prop, which determines the delay in milliseconds before the children are rendered. During the delay period, the component can show a loading indicator or nothing.",
             "Parameters": "",
             "API": "ms: number: The delay in milliseconds before rendering the children."
-          }
+          },
+          "CreateAt": "2024-10-17"
         }
       }
     }
