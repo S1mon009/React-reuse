@@ -9,17 +9,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { buttonVariants } from "@/components/ui/button";
-import Image from "next/image";
-import Carousel from "@/components/main/section_2/carousel";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Link } from "@/components/navigation/navigation";
 import { cn } from "@/lib/utils";
+import { Each } from "@/components/utilities/each/each";
+import Show from "@/components/utilities/conditional_rendering/show";
 import { useTranslations } from "next-intl";
-import SquareRepeat from "@/public/squere-repeat.svg";
 import { roughNotationColor } from "@/config/rought-notation-color";
 import { keys } from "@/keys/sidebar-links-keys";
 
-const carouselArray = [keys[1].slice(0, 3), keys[2].slice(0, 3)];
 const translation: string = "LandingPage.Section2";
 
 /**
@@ -34,7 +32,7 @@ export default function Section2() {
   return (
     <Layout
       type="section"
-      className="flex justify-center gap-6 flex-wrap h-[400px] p-12"
+      className="flex justify-center gap-6 flex-wrap h-[400px] p-6 md:p-12"
     >
       <Layout type="article" className="w-full xl:w-[400px] text-xl">
         <Typography type="p" className="font-bold text-3xl mb-3">
@@ -46,55 +44,53 @@ export default function Section2() {
       </Layout>
       <Layout
         type="article"
-        className="w-[800px] grid grid-cols-1 md:grid-cols-2 grid-rows-1 md:grid-rows-2 gap-4 mb-10"
+        className="w-[800px] grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-4"
       >
-        <Card className="md:row-span-2">
-          <Image
-            src={SquareRepeat}
-            alt="Square repeat image"
-            className="absolute w-[20%] opacity-40"
-          />
-          <CardHeader>
-            <CardTitle>{t("Article2.Card1.Heading")}</CardTitle>
-          </CardHeader>
-          <CardContent className="flex justify-center items-center">
-            <Carousel array={carouselArray} />
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="pb-0">
-            <CardTitle>{t("Article2.Card2.Heading")}</CardTitle>
-            <CardDescription>{t("Article2.Card2.Description")}</CardDescription>
-          </CardHeader>
-          <CardContent className="font-bold text-3xl py-3">
-            {keys[1].length} {t("Article2.Card2.Content")}
-          </CardContent>
-          <CardFooter>
-            <Link
-              href="/docs/hooks"
-              className={cn(buttonVariants({ variant: "default", size: "sm" }))}
-            >
-              {t("Button")}
-            </Link>
-          </CardFooter>
-        </Card>
-        <Card className="md:col-start-2">
-          <CardHeader className="pb-0">
-            <CardTitle>{t("Article2.Card3.Heading")}</CardTitle>
-            <CardDescription>{t("Article2.Card3.Description")}</CardDescription>
-          </CardHeader>
-          <CardContent className="font-bold text-3xl py-3">
-            {keys[2].length} {t("Article2.Card3.Content")}
-          </CardContent>
-          <CardFooter>
-            <Link
-              href="/docs/hooks"
-              className={cn(buttonVariants({ variant: "default", size: "sm" }))}
-            >
-              {t("Button")}
-            </Link>
-          </CardFooter>
-        </Card>
+        <Each
+          of={Array.from({ length: 4 })}
+          render={(_, index: number) => (
+            <Card className={index >= 2 ? "opacity-40" : ""}>
+              <CardHeader className="pb-0">
+                <CardTitle>{t(`Article2.Card${index}.Heading`)}</CardTitle>
+                <CardDescription>
+                  <Show>
+                    <Show.When isTrue={index < 2}>
+                      {t(`Article2.Card${index}.Description`)}
+                    </Show.When>
+                  </Show>
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="font-bold text-3xl py-3">
+                <Show>
+                  <Show.When isTrue={index < 2}>
+                    {keys[index === 0 ? 1 : 2]?.length}{" "}
+                    {t(`Article2.Card${index}.Content`)}
+                  </Show.When>
+                  <Show.Else>{t("CommingSoon")}</Show.Else>
+                </Show>
+              </CardContent>
+              <CardFooter>
+                <Show>
+                  <Show.When isTrue={index < 2}>
+                    <Link
+                      href="/docs/hooks"
+                      className={cn(
+                        buttonVariants({ variant: "default", size: "sm" })
+                      )}
+                    >
+                      {t("Button")}
+                    </Link>
+                  </Show.When>
+                  <Show.Else>
+                    <Button variant="default" size="sm" disabled>
+                      {t("Button")}
+                    </Button>
+                  </Show.Else>
+                </Show>
+              </CardFooter>
+            </Card>
+          )}
+        />
       </Layout>
     </Layout>
   );

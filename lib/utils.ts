@@ -89,3 +89,16 @@ export const getPrevNextValue = (
 
   return null; // If the value is not found in any array
 };
+
+/**
+ * Calculates the difference in days between the current date and a specified start date.
+ *
+ * @param {string} startDate - The starting date in string format (e.g., "YYYY-MM-DD").
+ * @returns The number of days (as an integer) between `startDate` and the current date.
+ */
+export const getDayDifference = (startDate: string): number => {
+  const now = new Date().getTime();
+  const start = new Date(startDate).getTime();
+
+  return +((now - start) / (1000 * 60 * 60 * 24)).toFixed(0);
+};

@@ -10,7 +10,7 @@ import Section2 from "@/components/main/section_2/section-2";
  */
 export default function Page() {
   return (
-    <Layout type="main" className="absolute w-full  h-72 md:h-full z-10">
+    <Layout type="main" className="absolute w-full  h-72 md:h-full z-0">
       <Section1 />
       <Section2 />
     </Layout>

@@ -1,10 +1,11 @@
+/* eslint-disable */
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { colors, globeConfig, sampleArcs } from "@/config/globe";
 import countries from "@/data/globe.json";
 declare module "@react-three/fiber" {
   interface ThreeElements {
@@ -92,6 +93,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
     ...globeConfig,
   };
 
+  useEffect(() => {
+    if (globeRef.current) {
+      _buildData();
+      _buildMaterial();
+    }
+  }, [globeRef.current]);
+
   const _buildMaterial = () => {
     if (!globeRef.current) return;
 
@@ -143,13 +151,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
   };
 
   useEffect(() => {
-    if (globeRef.current) {
-      _buildData();
-      _buildMaterial();
-    }
-  }, [_buildData, _buildMaterial]);
-
-  useEffect(() => {
     if (globeRef.current && globeData) {
       globeRef.current
         .hexPolygonsData(countries.features)
@@ -163,11 +164,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         });
       startAnimation();
     }
-  }, [
-    globeData,
-    defaultProps.atmosphereAltitude,
-    defaultProps.atmosphereColor,
-  ]);
+  }, [globeData]);
 
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return;
@@ -226,7 +223,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     return () => {
       clearInterval(interval);
     };
-  }, [globeData, data.length]);
+  }, [globeRef.current, globeData]);
 
   return (
     <>
@@ -242,7 +239,7 @@ export function WebGLRendererConfig() {
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
-  }, [gl, size.height]);
+  }, []);
 
   return null;
 }

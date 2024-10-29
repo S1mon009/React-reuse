@@ -1,5 +1,5 @@
 const keysList: string[][] = [
-  ["introduction", "typesafe", "quality"],
+  ["introduction"],
   [
     "useclipboard",
     "usechatgpt",

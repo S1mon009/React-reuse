@@ -33,7 +33,7 @@ export default function World() {
   return (
     <>
       <GridBackground />
-      <div className="absolute w-full start-1/2 -translate-x-2/4 top-32 z-20">
+      <div className="absolute w-full start-1/2 -translate-y-28 sm:-translate-y-8 md:-translate-y-0 -translate-x-2/4 top-32 z-20 p-6 md:p-0">
         <motion.div
           initial={{
             opacity: 0,
@@ -50,9 +50,15 @@ export default function World() {
         >
           <Layout
             type="div"
-            className="w-[70%] ml-[50%] text-white dark:md:text-white md:text-black -translate-x-1/2 text-center text-6xl font-bold"
+            className="w-full md:w-[70%] ml-[50%] text-white dark:md:text-white md:text-black -translate-x-1/2 text-center"
           >
-            {t("Heading")}
+            <Typography type="h1">
+              {t.rich("Heading", {
+                span: (chunks) => (
+                  <span className="text-primary">{chunks}</span>
+                ),
+              })}
+            </Typography>
           </Layout>
           <Typography
             type="p"
@@ -82,7 +88,7 @@ export default function World() {
         </motion.div>
       </div>
       <div
-        className="absolute w-full h-[800px] z-10 flex justify-center items-center top-0"
+        className="hidden absolute w-full h-[800px] z-10 md:flex justify-center items-center top-0"
         aria-label="Interactive 3D Globe"
       >
         <WorldComponent data={sampleArcs} globeConfig={globeConfig} />

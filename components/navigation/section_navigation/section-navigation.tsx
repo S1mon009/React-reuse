@@ -20,6 +20,7 @@ export default function SectionNavigation({
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const pathname = usePathname();
   const t = useTranslations(translation);
+  const onThisPage = useTranslations();
 
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
@@ -60,7 +61,7 @@ export default function SectionNavigation({
   return (
     <>
       <Typography type="p" className="my-2 font-semibold">
-        On this page
+        {onThisPage("OnThisPage")}
       </Typography>
       <ul>
         <Each

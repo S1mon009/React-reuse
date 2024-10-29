@@ -15,6 +15,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Each } from "@/components/utilities/each/each";
@@ -27,8 +28,7 @@ import { ChartNoAxesGantt } from "lucide-react";
 import { keys } from "@/keys/sidebar-links-keys";
 
 const translation: string = "Header.Menu";
-const hooksTranslation: string = "Data.Hooks";
-const utilsTranslation: string = "Data.Utilities";
+const dataTranslation: string = "Data";
 const menuArray: string[] = ["Introduction", "Typesafe", "Quality"];
 
 interface LinksProps {
@@ -67,8 +67,7 @@ ListItem.displayName = "ListItem";
  */
 export default function Links({ type }: LinksProps): JSX.Element {
   const t = useTranslations(translation);
-  const hooksT = useTranslations(hooksTranslation);
-  const utilsT = useTranslations(utilsTranslation);
+  const data = useTranslations(dataTranslation);
 
   return (
     <Show>
@@ -97,21 +96,26 @@ export default function Links({ type }: LinksProps): JSX.Element {
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                    {menuArray.map((item) => (
-                      <ListItem
-                        key={item}
-                        href={t(`GettingStarted.${item}.Link`)}
-                        title={t(`GettingStarted.${item}.Name`)}
-                      >
-                        {t(`GettingStarted.${item}.Description`)}
-                      </ListItem>
-                    ))}
+                    <Each
+                      of={menuArray}
+                      render={(item, index) => (
+                        <ListItem
+                          key={index}
+                          href={t(`GettingStarted.${item}.Link`)}
+                          title={t(`GettingStarted.${item}.Name`)}
+                        >
+                          {t(`GettingStarted.${item}.Description`)}
+                        </ListItem>
+                      )}
+                    />
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{hooksT("Name")}</NavigationMenuTrigger>
+                <NavigationMenuTrigger>
+                  {data("Hooks.Name")}
+                </NavigationMenuTrigger>
                 <NavigationMenuContent aria-label="Hooks Menu">
                   <ul className="grid gap-3 p-4 md:w-[500px] lg:w-[600px] md:grid-cols-2">
                     <Each
@@ -119,10 +123,10 @@ export default function Links({ type }: LinksProps): JSX.Element {
                       render={(item, index) => (
                         <ListItem
                           key={index}
-                          href={hooksT(`Items.${item}.Link`)}
-                          title={hooksT(`Items.${item}.Name`)}
+                          href={data(`Hooks.Items.${item}.Link`)}
+                          title={data(`Hooks.Items.${item}.Name`)}
                         >
-                          {hooksT(`Items.${item}.Content.Description`)}
+                          {data(`Hooks.Items.${item}.Content.Description`)}
                         </ListItem>
                       )}
                     />
@@ -131,7 +135,9 @@ export default function Links({ type }: LinksProps): JSX.Element {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{utilsT("Name")}</NavigationMenuTrigger>
+                <NavigationMenuTrigger>
+                  {data("Utilities.Name")}
+                </NavigationMenuTrigger>
                 <NavigationMenuContent aria-label="Utilities Menu">
                   <ul className="grid gap-3 p-4 md:w-[500px] lg:w-[600px] md:grid-cols-2">
                     <Each
@@ -139,15 +145,25 @@ export default function Links({ type }: LinksProps): JSX.Element {
                       render={(item, index) => (
                         <ListItem
                           key={index}
-                          href={utilsT(`Items.${item}.Link`)}
-                          title={utilsT(`Items.${item}.Name`)}
+                          href={data(`Utilities.Items.${item}.Link`)}
+                          title={data(`Utilities.Items.${item}.Name`)}
                         >
-                          {utilsT(`Items.${item}.Content.Description`)}
+                          {data(`Utilities.Items.${item}.Content.Description`)}
                         </ListItem>
                       )}
                     />
                   </ul>
                 </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Button variant="ghost" disabled>
+                  {data("Components.Name")}
+                </Button>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Button variant="ghost" disabled>
+                  {data("Animations.Name")}
+                </Button>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>

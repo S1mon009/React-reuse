@@ -38,31 +38,39 @@
   },
   "LandingPage": {
     "Section1": {
-      "Heading": "Hooki i narzędzia do twoich kolejnych wymagających projektów",
+      "Heading": "<span>Hooki</span>, <span>narzędzia</span>, <span>komponenty</span> oraz <span>animacje</span> do twoich kolejnych wymagających projektów",
       "Subheading": "Doładuj swój projekt kodem wielokrotnego użytku sprawdzonym za pomocą ESLint i Vitest.",
       "GetStarted": "Wprowadzenie"
     },
     "Section2": {
       "Article1": {
         "Heading": "Wszystko w jednym",
-        "Description": "React-reuse to biblioteka React.js o otwartym kodzie źródłowym, służąca do przyspieszania projektów. Zawiera wiele przydatnych hooków i narzędzi ułatwiających pracę z kodem. Możesz go używać, jak chcesz. Miłej zabawy!"
+        "Description": "React-reuse to biblioteka React.js o otwartym kodzie źródłowym, służąca do przyspieszania projektów. Zawiera wiele przydatnych hooków, narzędzi i komponentów ułatwiających pracę z kodem. Możesz go używać, jak chcesz. Miłej zabawy!"
       },
       "Article2": {
-        "Card1": {
-          "Heading": "Przykłady"
-        },
-        "Card2": {
+        "Card0": {
           "Heading": "Hooki",
           "Description": "Biblioteka zawiera",
           "Content": "hooków"
         },
-        "Card3": {
+        "Card1": {
           "Heading": "Narzędzia",
           "Description": "Biblioteka zawiera",
           "Content": "narzędzi"
+        },
+        "Card2": {
+          "Heading": "Komponenty",
+          "Description": "Biblioteka zawiera",
+          "Content": "komponenty"
+        },
+        "Card3": {
+          "Heading": "Animacje",
+          "Description": "Biblioteka zawiera",
+          "Content": "animacje"
         }
       },
-      "Button": "Zobacz więcej"
+      "Button": "Zobacz więcej",
+      "CommingSoon": "Wkrótce"
     }
   },
   "Data": {
@@ -322,6 +330,14 @@
           "CreateAt": "2024-10-17"
         }
       }
+    },
+    "Components": {
+      "Name": "Komponenty"
+    },
+    "Animations": {
+      "Name": "Animacje"
     }
-  }
+  },
+  "New": "Nowość",
+  "OnThisPage": "Na stronie"
 }
