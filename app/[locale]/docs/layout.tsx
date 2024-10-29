@@ -26,7 +26,7 @@ interface rootLayoutProps {
  */
 export default function RootLayout({ children }: Readonly<rootLayoutProps>) {
   return (
-    <Layout type="div" className="h-[calc(100vh-4rem)]">
+    <Layout type="div" className="h-[calc(100vh-4rem)] overflow-hidden">
       <Layout
         type="div"
         className="hidden lg:block w-1/5 h-full border-r-2 border-muted float-left"

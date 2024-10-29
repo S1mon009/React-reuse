@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -28,40 +28,32 @@ import { keys as sidebarLinksKeys } from "@/keys/sidebar-links-keys";
 const translation: string = "Data";
 
 export default function Aside(): JSX.Element {
-  const [isOpen, setIsOpen] = useState<boolean[]>([true, false, false]);
+  const [isOpen, setIsOpen] = useState<boolean[]>([false, false, false]);
   const t = useTranslations(translation);
   const date = useTranslations();
   const pathname = usePathname();
 
+  // Toggle collapsible manually when clicked
   const openCollapsible = (index: number) => {
-    // Create a copy of the isOpen array
-    const updatedIsOpen = [...isOpen];
-    updatedIsOpen[index] = !updatedIsOpen[index];
-    setIsOpen(updatedIsOpen); // Update the state with the new array
+    setIsOpen((prevState) => {
+      const updatedIsOpen = [...prevState];
+      updatedIsOpen[index] = !updatedIsOpen[index];
+      return updatedIsOpen;
+    });
   };
 
-  const openOnActiveCollapsible = useCallback(
-    (index: number) => {
-      const updatedIsOpen = [...isOpen];
-      if (updatedIsOpen[index]) return;
-
-      updatedIsOpen[index] = !updatedIsOpen[index];
-      setIsOpen(updatedIsOpen); // Update the state with the new array
-    },
-    [isOpen]
-  );
-
+  // Automatically open collapsible based on pathname
   useEffect(() => {
     const path = pathname.split("/").slice(1).slice(0, -1).join("/");
 
-    if (path === "docs") {
-      openOnActiveCollapsible(0);
-    } else if (path === "docs/hooks") {
-      openOnActiveCollapsible(1);
-    } else if (path === "docs/utilities") {
-      openOnActiveCollapsible(2);
-    }
-  }, [pathname, openOnActiveCollapsible]);
+    setIsOpen((prevState) => {
+      const updatedIsOpen = [...prevState];
+      if (path === "docs") updatedIsOpen[0] = true;
+      else if (path === "docs/hooks") updatedIsOpen[1] = true;
+      else if (path === "docs/utilities") updatedIsOpen[2] = true;
+      return updatedIsOpen;
+    });
+  }, [pathname]);
 
   return (
     <Layout type="aside">
@@ -182,10 +174,11 @@ export default function Aside(): JSX.Element {
               )}
             >
               <SidebarHeader>{t("Components.Name")}</SidebarHeader>
-
               <ChevronRight className="transition-transform duration-200" />
             </CollapsibleTrigger>
           </SidebarContent>
+        </Collapsible>
+        <Collapsible>
           <SidebarContent>
             <CollapsibleTrigger
               disabled
@@ -198,7 +191,6 @@ export default function Aside(): JSX.Element {
               )}
             >
               <SidebarHeader>{t("Animations.Name")}</SidebarHeader>
-
               <ChevronRight className="transition-transform duration-200" />
             </CollapsibleTrigger>
           </SidebarContent>

@@ -61,7 +61,7 @@ export default function Page({ params }: Readonly<pageProps>) {
     <>
       <Heading title={t("Name")} color={roughNotationColor} />
       <ScrollArea
-        className="block h-[calc(100vh-12rem)] pr-4 pb-4"
+        className="block h-[calc(100vh-12rem)] pr-4 pb-8"
         aria-label="Main content area"
       >
         <Description description={t("Content.Description")} />
