@@ -27,6 +27,11 @@ import { keys as sidebarLinksKeys } from "@/keys/sidebar-links-keys";
 
 const translation: string = "Data";
 
+/**
+ * Aside component renders a list of links for sidebar content.
+ *
+ * @returns {JSX.Element} The rendered Aside component.
+ */
 export default function Aside(): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean[]>([false, false, false]);
   const t = useTranslations(translation);

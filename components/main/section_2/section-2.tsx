@@ -44,7 +44,7 @@ export default function Section2() {
       </Layout>
       <Layout
         type="article"
-        className="w-[800px] grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-4"
+        className="w-full md:w-[800px] grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-4"
       >
         <Each
           of={Array.from({ length: 4 })}

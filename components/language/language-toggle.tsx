@@ -42,7 +42,11 @@ export function LanguageToggle(): JSX.Element {
           </Typography>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" aria-label="Language options">
+      <DropdownMenuContent
+        align="end"
+        aria-label="Language options"
+        className="border-muted"
+      >
         <DropdownMenuItem asChild>
           <Link href={pathname} locale="en">
             {t("English")}

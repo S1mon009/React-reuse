@@ -64,6 +64,12 @@ ListItem.displayName = "ListItem";
 /**
  * Links component renders a navigation menu based on the type (desktop/mobile).
  * It supports a11y and ensures semantic markup for navigation and focus management.
+ *
+ * Props:
+ * - type("desktop" | "mobile")
+ *
+ * @param {LinksProps} props - Contains the type of Links component
+ * @returns {JSX.Element} The rendered Links component
  */
 export default function Links({ type }: LinksProps): JSX.Element {
   const t = useTranslations(translation);
@@ -72,7 +78,7 @@ export default function Links({ type }: LinksProps): JSX.Element {
   return (
     <Show>
       <Show.When isTrue={type === "desktop"}>
-        <Layout type="nav" className="hidden md:flex gap-2">
+        <Layout type="nav" className="hidden lg:flex gap-2">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -183,7 +189,7 @@ export default function Links({ type }: LinksProps): JSX.Element {
               <SheetTitle className="text-left">Menu</SheetTitle>
             </SheetHeader>
             <Separator className="mt-2 h-[2px]" />
-            <ScrollArea className="h-full w-full pb-6">
+            <ScrollArea className="h-full w-[110%] -translate-x-7 pb-6">
               <Aside />
             </ScrollArea>
           </SheetContent>

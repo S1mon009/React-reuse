@@ -71,7 +71,11 @@ export function ModeToggle() {
           <span className="sr-only"> {t("ToggleTheme")}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" aria-label="Theme modes">
+      <DropdownMenuContent
+        align="end"
+        aria-label="Theme modes"
+        className="border-muted"
+      >
         <Each of={themes} render={renderThemes} />
       </DropdownMenuContent>
     </DropdownMenu>

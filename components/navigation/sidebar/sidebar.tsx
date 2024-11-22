@@ -13,6 +13,9 @@ interface sidebarHeaderProps extends sidebarProps {}
 /**
  * Sidebar component renders a container for the sidebar content.
  *
+ * Props:
+ * - children
+ *
  * @param {sidebarProps} props - Contains the children elements and an optional className for additional styling.
  * @returns {JSX.Element} The rendered Sidebar component, which wraps the provided children elements.
  */
