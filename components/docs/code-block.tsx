@@ -79,7 +79,10 @@ export default function CodeBlock({
           <TabsList aria-label="Code and Usage tabs">
             <Each
               of={triggers}
-              render={(item, index: number) => (
+              render={(
+                item: { value: string; title: string },
+                index: number
+              ) => (
                 <TabsTrigger value={item.value} key={index}>
                   {item.title}
                 </TabsTrigger>
@@ -88,7 +91,10 @@ export default function CodeBlock({
           </TabsList>
           <Each
             of={contents}
-            render={(item, index: number) => (
+            render={(
+              item: { value: string; ariaLabel: string; code: string },
+              index: number
+            ) => (
               <TabsContent value={item.value} key={index}>
                 <ScrollArea
                   className="h-96 whitespace-nowrap rounded-xl"

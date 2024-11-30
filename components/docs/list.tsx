@@ -51,7 +51,7 @@ export default function List({
         <ul className="list-disc ml-8" aria-label={ariaLabel}>
           <Each
             of={contentList.split("&")}
-            render={(item, index) => {
+            render={(item: string, index: number) => {
               const [firstItem, secondItem] = splitTextByLastChar(item, ":");
 
               return (

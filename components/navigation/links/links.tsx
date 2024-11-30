@@ -104,7 +104,7 @@ export default function Links({ type }: LinksProps): JSX.Element {
                     </li>
                     <Each
                       of={menuArray}
-                      render={(item, index) => (
+                      render={(item: string, index: number) => (
                         <ListItem
                           key={index}
                           href={t(`GettingStarted.${item}.Link`)}
@@ -126,7 +126,7 @@ export default function Links({ type }: LinksProps): JSX.Element {
                   <ul className="grid gap-3 p-4 md:w-[500px] lg:w-[600px] md:grid-cols-2">
                     <Each
                       of={keys[1].slice(0, 6)}
-                      render={(item, index) => (
+                      render={(item: string, index: number) => (
                         <ListItem
                           key={index}
                           href={data(`Hooks.Items.${item}.Link`)}
@@ -148,7 +148,7 @@ export default function Links({ type }: LinksProps): JSX.Element {
                   <ul className="grid gap-3 p-4 md:w-[500px] lg:w-[600px] md:grid-cols-2">
                     <Each
                       of={keys[2].slice(0, 6)}
-                      render={(item, index) => (
+                      render={(item: string, index: number) => (
                         <ListItem
                           key={index}
                           href={data(`Utilities.Items.${item}.Link`)}

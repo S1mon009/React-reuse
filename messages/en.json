@@ -71,6 +71,28 @@
       },
       "Button": "See more",
       "CommingSoon": "Comming soon"
+    },
+    "Section3": {
+      "Heading": "Why this?",
+      "Description": "Our React.js library of hooks, utilities, components, and animations is designed to streamline your development process.",
+      "Accordions": {
+        "Accordion0": {
+          "Title": "Simplicity",
+          "Content": "Easy-to-use APIs that reduce boilerplate and keep your code clean."
+        },
+        "Accordion1": {
+          "Title": "Flexibility",
+          "Content": "Modular design lets you pick only what you need, tailored to your project."
+        },
+        "Accordion2": {
+          "Title": "Community-Driven",
+          "Content": "Backed by best practices and contributions from developers worldwide."
+        },
+        "Accordion3": {
+          "Title": "Can I use this in my project?",
+          "Content": "Yes. Free to use for personal and commercial projects. No attribution required."
+        }
+      }
     }
   },
   "Data": {
@@ -341,5 +363,11 @@
     }
   },
   "New": "New",
-  "OnThisPage": "On this page"
+  "OnThisPage": "On this page",
+  "SearchBar": {
+    "ButtonSearchLg": "Search documentation...",
+    "ButtonSearchMd": "Search...",
+    "InputSearch": "Type to search",
+    "NoResults": "No results found."
+  }
 }

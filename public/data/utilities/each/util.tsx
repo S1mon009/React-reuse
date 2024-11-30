@@ -1,8 +1,8 @@
-interface eachInterface {
-  render: (item: any, index: number) => JSX.Element;
-  of: any[];
+interface eachInterface<T> {
+  render: (item: T, index: number) => JSX.Element;
+  of: T[];
 }
 
-export const Each = ({ render, of }: eachInterface): JSX.Element[] => {
+export const Each = <T,>({ render, of }: eachInterface<T>): JSX.Element[] => {
   return of.map((item, index) => render(item, index));
 };

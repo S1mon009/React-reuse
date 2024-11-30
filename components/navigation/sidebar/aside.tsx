@@ -65,7 +65,7 @@ export default function Aside(): JSX.Element {
       <Sidebar>
         <Each
           of={sidebarHeaderKeys}
-          render={(sidebarHeaderKey, sidebarHeaderIndex) => (
+          render={(sidebarHeaderKey: string, sidebarHeaderIndex: number) => (
             <Collapsible
               open={isOpen[sidebarHeaderIndex]}
               key={sidebarHeaderIndex}
@@ -101,7 +101,7 @@ export default function Aside(): JSX.Element {
                     <Each
                       of={sidebarLinksKeys[sidebarHeaderIndex]}
                       render={(
-                        sidebarLinkKey: any,
+                        sidebarLinkKey: string,
                         sidebarLinkIndex: number
                       ) => (
                         <Link

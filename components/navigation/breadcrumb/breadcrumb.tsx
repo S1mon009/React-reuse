@@ -72,7 +72,7 @@ export default function BreadcrumbNavigation(): JSX.Element {
           </BreadcrumbItem>
           <Each
             of={pathname.split("/").slice(1)}
-            render={(item: any, index: number) => (
+            render={(item: string, index: number) => (
               <Fragment key={index}>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>

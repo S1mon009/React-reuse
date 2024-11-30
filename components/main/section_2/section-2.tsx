@@ -32,7 +32,7 @@ export default function Section2() {
   return (
     <Layout
       type="section"
-      className="flex justify-center gap-6 flex-wrap h-[400px] p-6 md:p-12"
+      className="flex justify-center gap-6 flex-wrap xl:h-[400px] p-6 md:p-12"
     >
       <Layout type="article" className="w-full xl:w-[400px] text-xl">
         <Typography type="p" className="font-bold text-3xl mb-3">

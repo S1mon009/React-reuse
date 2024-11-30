@@ -21,10 +21,17 @@ import { keys as HeaderKeys } from "@/keys/links-keys";
 import { keys as LinksKeys } from "@/keys/sidebar-links-keys";
 
 const translation: string = "Data";
+const searchTranslation: string = "SearchBar";
 
-export default function Command() {
+/**
+ * Command component that renders a searchable command palette with a dialog-based UI.
+ *
+ * @returns {JSX.Element} The rendered Command component.
+ */
+export default function Command(): JSX.Element {
   const [open, setOpen] = useState<boolean>(false);
   const t = useTranslations(translation);
+  const search = useTranslations(searchTranslation);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -40,12 +47,12 @@ export default function Command() {
   return (
     <>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder={search("InputSearch")} />
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandEmpty>{search("NoResults")}</CommandEmpty>
           <Each
             of={HeaderKeys}
-            render={(headerKey, headerIndex) => (
+            render={(headerKey: string, headerIndex: number) => (
               <>
                 <CommandGroup
                   heading={t(`${headerKey}.Name`)}
@@ -53,9 +60,12 @@ export default function Command() {
                 >
                   <Each
                     of={LinksKeys[headerIndex]}
-                    render={(link, index) => (
-                      <Link href={t(`${headerKey}.Items.${link}.Link`)}>
-                        <CommandItem key={index} className="cursor-pointer">
+                    render={(link: string, index: number) => (
+                      <Link
+                        href={t(`${headerKey}.Items.${link}.Link`)}
+                        key={index}
+                      >
+                        <CommandItem className="cursor-pointer">
                           <Circle />
                           <Typography type="span">
                             {t(`${headerKey}.Items.${link}.Name`)}
@@ -76,10 +86,10 @@ export default function Command() {
         className="hidden md:inline-flex items-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input hover:bg-accent hover:text-accent-foreground px-4 py-2 relative w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
       >
         <Typography type="span" className="hidden lg:inline-flex">
-          Search documentation...
+          {search("ButtonSearchLg")}
         </Typography>
         <Typography type="span" className="inline-flex lg:hidden">
-          Search...
+          {search("ButtonSearchMd")}
         </Typography>
         <CommandShortcut className="pointer-events-none absolute right-[0.3rem] top-[0.6rem] hidden h-5 select-none items-center gap-1 rounded border-muted bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
           <Typography type="span" className="text-xs">

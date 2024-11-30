@@ -18,7 +18,7 @@ import Logo from "@/public/icon.svg";
  * - Navigation links for both mobile and desktop layouts.
  * - External links to GitHub and other toggle controls for theme and language.
  *
- * @returns {JSX.Element} The rendered header component.
+ * @returns {JSX.Element} The rendered Header component.
  */
 export default function HeaderNavigation(): JSX.Element {
   return (
@@ -39,7 +39,6 @@ export default function HeaderNavigation(): JSX.Element {
       </Layout>
       <Links type="desktop" />
       <Layout type="div" className="flex gap-2">
-        <Command />
         <a
           href="https://github.com/S1mon009/react-reuse"
           aria-label="GitHub repository"
@@ -48,6 +47,7 @@ export default function HeaderNavigation(): JSX.Element {
             <Github aria-hidden="true" focusable="false" />
           </Button>
         </a>
+        <Command />
         <ModeToggle />
         <LanguageToggle />
       </Layout>

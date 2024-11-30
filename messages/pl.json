@@ -71,6 +71,28 @@
       },
       "Button": "Zobacz więcej",
       "CommingSoon": "Wkrótce"
+    },
+    "Section3": {
+      "Heading": "Dlaczego to?",
+      "Description": "Nasza biblioteka React.js zawierająca hooki, narzędzia, komponenty oraz animacje została zaprojektowana w celu usprawnienia procesu programowania.",
+      "Accordions": {
+        "Accordion1": {
+          "Title": "Prostota",
+          "Content": "Łatwe w użyciu interfejsy API, które redukują schematy i zapewniają czystość kodu."
+        },
+        "Accordion2": {
+          "Title": "Elastyczność",
+          "Content": "Modułowa konstrukcja pozwala wybrać tylko to, czego potrzebujesz, dostosowane do Twojego projektu."
+        },
+        "Accordion3": {
+          "Title": "Kierowany przez społeczność",
+          "Content": "Wspierane przez najlepsze praktyki i wkład programistów z całego świata."
+        },
+        "Accordion4": {
+          "Title": "Czy mogę to wykorzystać w swoim projekcie?",
+          "Content": "Tak. Można go używać bezpłatnie do projektów osobistych i komercyjnych. Nie jest wymagane podanie źródła."
+        }
+      }
     }
   },
   "Data": {
@@ -339,5 +361,11 @@
     }
   },
   "New": "Nowość",
-  "OnThisPage": "Na stronie"
+  "OnThisPage": "Na stronie",
+  "SearchBar": {
+    "ButtonSearchLg": "Szukaj w dokumentacji...",
+    "ButtonSearchMd": "Szukaj...",
+    "InputSearch": "Zacznij szukać",
+    "NoResults": "Brak wyników."
+  }
 }

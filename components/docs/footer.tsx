@@ -46,7 +46,10 @@ export default function Footer({ data }: footerProps): JSX.Element {
     <Layout type="footer" className={cn("flex flex-wrap gap-2", className)}>
       <Each
         of={data}
-        render={(item, index: number) => {
+        render={(
+          item: { link: string; title: string; description: string },
+          index: number
+        ) => {
           if (item.link) {
             return (
               <Link href={item.link} className="w-full md:w-[40%] lg:w-2/5">
