@@ -92,7 +92,11 @@ export default function CodeBlock({
           <Each
             of={contents}
             render={(
-              item: { value: string; ariaLabel: string; code: string },
+              item: {
+                value: string;
+                ariaLabel?: string | undefined;
+                code: string;
+              },
               index: number
             ) => (
               <TabsContent value={item.value} key={index}>
