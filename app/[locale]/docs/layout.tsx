@@ -24,7 +24,9 @@ interface rootLayoutProps {
  * @param {rootLayoutProps} props - Layout props.
  * @returns {JSX.Element} - The structured layout of the page.
  */
-export default function RootLayout({ children }: Readonly<rootLayoutProps>) {
+export default function RootLayout({
+  children,
+}: Readonly<rootLayoutProps>): JSX.Element {
   return (
     <Layout type="div" className="h-[calc(100vh-4rem)] overflow-hidden">
       <Layout

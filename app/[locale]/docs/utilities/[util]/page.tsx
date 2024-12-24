@@ -34,7 +34,7 @@ interface pageProps {
  * @param {pageProps} props - Contains the params object.
  * @returns {JSX.Element} The rendered Page component.
  */
-export default function Page({ params }: Readonly<pageProps>) {
+export default function Page({ params }: Readonly<pageProps>): JSX.Element {
   const t = useTranslations(`${translation}.${params.util}`);
   const sectionItems = useTranslations(sectionItemsTranslation);
   const footerItems = useTranslations("Data");

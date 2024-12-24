@@ -10,8 +10,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Typography } from "@/components/typography/typography";
 import Show from "@/components/utilities/conditional_rendering/show";
+import { Each } from "@/components/utilities/each/each";
 import { Link, usePathname } from "@/components/navigation/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import { cn } from "@/lib/utils";
+import { locales } from "@/config/locales";
 
 const translation: string = "Header.Language";
 
@@ -28,6 +31,31 @@ export function LanguageToggle(): JSX.Element {
   const pathname = usePathname();
   const locale = useLocale();
   const t = useTranslations(translation);
+
+  /**
+   * Renders a single theme item.
+   *
+   * @param {string} localeSelect - The name of theme.
+   * @param {number} index - The index of the item in the array.
+   * @returns {JSX.Element} The rendered DropdownMenuItem component.
+   */
+  const renderLocales = (localeSelect: string, index: number): JSX.Element => {
+    const isActive = locale === localeSelect.toLowerCase();
+    return (
+      <DropdownMenuItem asChild key={index}>
+        <Link href={pathname} locale={localeSelect}>
+          <span
+            className={cn(
+              "block size-2 rounded-full mr-3",
+              isActive ? "bg-current" : "bg-transparent"
+            )}
+          ></span>
+          {localeSelect === "en" && t("English")}
+          {localeSelect === "pl" && t("Polish")}
+        </Link>
+      </DropdownMenuItem>
+    );
+  };
 
   return (
     <DropdownMenu>
@@ -47,16 +75,7 @@ export function LanguageToggle(): JSX.Element {
         aria-label="Language options"
         className="border-muted"
       >
-        <DropdownMenuItem asChild>
-          <Link href={pathname} locale="en">
-            {t("English")}
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href={pathname} locale="pl">
-            {t("Polish")}
-          </Link>
-        </DropdownMenuItem>
+        <Each of={locales} render={renderLocales} />
       </DropdownMenuContent>
     </DropdownMenu>
   );

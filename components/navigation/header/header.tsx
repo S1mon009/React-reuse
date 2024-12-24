@@ -39,6 +39,7 @@ export default function HeaderNavigation(): JSX.Element {
       </Layout>
       <Links type="desktop" />
       <Layout type="div" className="flex gap-2">
+        <Command />
         <a
           href="https://github.com/S1mon009/react-reuse"
           aria-label="GitHub repository"
@@ -47,7 +48,6 @@ export default function HeaderNavigation(): JSX.Element {
             <Github aria-hidden="true" focusable="false" />
           </Button>
         </a>
-        <Command />
         <ModeToggle />
         <LanguageToggle />
       </Layout>
