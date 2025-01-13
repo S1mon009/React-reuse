@@ -232,7 +232,7 @@
       "Link": "/docs/utilities",
       "SectionItems": {
         "Code": {
-          "Hook": "Hook",
+          "Util": "Utility",
           "Usage": "Usage"
         },
         "Parameter": {
@@ -248,31 +248,19 @@
         "show": {
           "Link": "/docs/utilities/show",
           "Name": "<Show />",
-          "Content": {
-            "Description": "The Show component in React allows conditional rendering of child components based on specified conditions. It works by using two subcomponents: Show.When and Show.Else. The Show.When component renders its children if the isTrue prop is true, and Show.Else is rendered if no valid condition is met. This component simplifies conditional logic by embedding it within JSX.",
-            "Parameters": "",
-            "API": "isTrue?: boolean: Determines if the children should be rendered. If true, the children will be rendered."
-          },
+          "Content": "<h2>Description</h2>The Show component in React enables conditional rendering of child components based on specified conditions. It uses two subcomponents: <secondaryhighlight>Show.When</secondaryhighlight> and <secondaryhighlight>Show.Else</secondaryhighlight>. The <secondaryhighlight>Show.When</secondaryhighlight> component renders its children if the <secondaryhighlight>isTrue</secondaryhighlight> prop is true, while <secondaryhighlight>Show.Else</secondaryhighlight> renders if no valid condition is met. This component simplifies conditional logic by embedding it directly within JSX.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>isTrue?: boolean</secondaryhighlight> - Determines whether the children should be rendered. If true, the children will be rendered.</li></ul>",
           "CreateAt": "2024-10-17"
         },
         "each": {
           "Link": "/docs/utilities/each",
           "Name": "<Each />",
-          "Content": {
-            "Description": "The Each component is a utility function that iterates over an array (of) and renders each item using the provided render function. The render function is passed two arguments: the current item (item) and its index (index). It returns a JSX element for each array item. This utility abstracts away the common task of rendering elements from arrays, offering a reusable and customizable solution.",
-            "Parameters": "",
-            "API": "render(item: any, index: number): JSX.Element: A required function that defines how to render each item in the array. It takes two arguments (item - The current element from the array, index - The index of the current element). & of: any[]: A required array of items that will be iterated over. The render function is called on each element of this array."
-          },
+          "Content": "<h2>Description</h2>The Each component is a utility function that iterates over an array of items and renders each item using the provided render function. The render function receives two arguments: the current item (<secondaryhighlight>item</secondaryhighlight>) and its index (<secondaryhighlight>index</secondaryhighlight>). It returns a JSX element for each array item. This utility abstracts away the common task of rendering elements from arrays, offering a reusable and customizable solution.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>render(item: any, index: number): JSX.Element</secondaryhighlight> - A required function that defines how to render each item in the array. It takes two arguments (<secondaryhighlight>item</secondaryhighlight> - The current element from the array, <secondaryhighlight>index</secondaryhighlight> - The index of the current element).</li><li><secondaryhighlight>of: any[]</secondaryhighlight> - A required array of items that will be iterated over. The render function is called on each element of this array.</li></ul>",
           "CreateAt": "2024-10-17"
         },
         "delay": {
           "Link": "/docs/utilities/delay",
           "Name": "<Delay />",
-          "Content": {
-            "Description": "The Delay component is a utility that renders its children after a specified delay. It is useful when you want to defer the rendering of certain components for UX or performance reasons. This component accepts the ms prop, which determines the delay in milliseconds before the children are rendered. During the delay period, the component can show a loading indicator or nothing.",
-            "Parameters": "",
-            "API": "ms: number: The delay in milliseconds before rendering the children."
-          },
+          "Content": "<h2>Description</h2>The Delay component is a utility that renders its children after a specified delay. It is useful when you want to defer the rendering of certain components for UX or performance reasons. This component accepts the <secondaryhighlight>ms</secondaryhighlight> prop, which determines the delay in milliseconds before the children are rendered. During the delay period, the component can show a loading indicator or nothing.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>ms: number</secondaryhighlight> - The delay in milliseconds before rendering the children.</li></ul>",
           "CreateAt": "2024-10-17"
         }
       }

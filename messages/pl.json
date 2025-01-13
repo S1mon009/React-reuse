@@ -232,7 +232,7 @@
       "Link": "/docs/utilities",
       "SectionItems": {
         "Code": {
-          "Hook": "Hook",
+          "Util": "Utility",
           "Usage": "Zastosowanie"
         },
         "Parameter": {
@@ -248,31 +248,19 @@
         "show": {
           "Link": "/docs/utilities/show",
           "Name": "<Show />",
-          "Content": {
-            "Description": "Komponent Show w React umożliwia warunkowe renderowanie elementów potomnych na podstawie określonych warunków. Działa poprzez użycie dwóch podkomponentów: Show.When i Show.Else. Komponent Show.When renderuje swoje dzieci, jeśli właściwość isTrue ma wartość true, a Show.Else jest renderowany, gdy żaden warunek nie został spełniony. Ten komponent upraszcza logikę warunkową, wbudowując ją w JSX.",
-            "Parameters": "",
-            "API": "isTrue?: boolean: Określa, czy element children powinien zostać wyrenderowane. Jeśli wartość jest true, element zostanie wyrenderowany."
-          },
+          "Content": "<h2>Opis</h2>Komponent Show w React umożliwia warunkowe renderowanie komponentów podrzędnych na podstawie określonych warunków. Używa dwóch podkomponentów: <secondaryhighlight>Show.When</secondaryhighlight> i <secondaryhighlight>Show.Else</secondaryhighlight>. Komponent <secondaryhighlight>Show.When</secondaryhighlight> renderuje swoje dzieci, jeśli prop <secondaryhighlight>isTrue</secondaryhighlight> jest ustawiony na true, natomiast <secondaryhighlight>Show.Else</secondaryhighlight> renderuje się, jeśli żaden warunek nie jest spełniony. Ten komponent upraszcza logikę warunkową, wbudowując ją bezpośrednio w JSX.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>isTrue?: boolean</secondaryhighlight> - Określa, czy dzieci powinny być renderowane. Jeśli jest ustawione na true, dzieci zostaną wyrenderowane.</li></ul>",
           "CreateAt": "2024-10-17"
         },
         "each": {
           "Link": "/docs/utilities/each",
           "Name": "<Each />",
-          "Content": {
-            "Description": "Komponent Each to funkcja narzędziowa, która iteruje po tablicy (of) i renderuje każdy element za pomocą dostarczonej funkcji render. Funkcja render otrzymuje dwa argumenty: aktualny element (item) oraz jego indeks (index). Zwraca ona element JSX dla każdego elementu tablicy. Ta funkcja upraszcza proces renderowania elementów z tablic, oferując wielokrotnego użytku i konfigurowalne rozwiązanie.",
-            "Parameters": "",
-            "API": "render(item: any, index: number): JSX.Element: Wymagana funkcja, która definiuje, jak renderować każdy element tablicy. Przyjmuje dwa argumenty (item - Aktualny element z tablicy, index - Indeks aktualnego elementu). & of: any[]: Wymagana tablica elementów, po której będzie iterować funkcja. Funkcja render jest wywoływana dla każdego elementu tej tablicy."
-          },
+          "Content": "<h2>Opis</h2>Komponent Each jest funkcją pomocniczą, która iteruje po tablicy elementów i renderuje każdy element, używając dostarczonej funkcji renderującej. Funkcja renderująca przyjmuje dwa argumenty: bieżący element (<secondaryhighlight>item</secondaryhighlight>) oraz jego indeks (<secondaryhighlight>index</secondaryhighlight>). Zwraca element JSX dla każdego elementu w tablicy. Ta funkcjonalność upraszcza powszechny proces renderowania elementów z tablic, oferując wielokrotnego użytku i dostosowywalne rozwiązanie.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>render(item: any, index: number): JSX.Element</secondaryhighlight> - Wymagana funkcja, która definiuje sposób renderowania każdego elementu w tablicy. Przyjmuje dwa argumenty (<secondaryhighlight>item</secondaryhighlight> - Bieżący element z tablicy, <secondaryhighlight>index</secondaryhighlight> - Indeks bieżącego elementu).</li><li><secondaryhighlight>of: any[]</secondaryhighlight> - Wymagana tablica elementów, po której zostanie przeprowadzona iteracja. Funkcja renderująca jest wywoływana dla każdego elementu tej tablicy.</li></ul>",
           "CreateAt": "2024-10-17"
         },
         "delay": {
           "Link": "/docs/utilities/delay",
           "Name": "<Delay />",
-          "Content": {
-            "Description": "Komponent Delay to narzędzie, które renderuje swoje dzieci po określonym opóźnieniu. Jest przydatny, gdy chcesz opóźnić renderowanie określonych komponentów ze względów UX lub wydajności. Komponent akceptuje właściwość ms, która określa opóźnienie w milisekundach przed wyrenderowaniem dzieci. W czasie opóźnienia komponent może wyświetlić wskaźnik ładowania lub nic.",
-            "Parameters": "",
-            "API": "ms: number: Opóźnienie w milisekundach przed wyrenderowaniem dzieci."
-          },
+          "Content": "<h2>Description</h2>Komponent Delay jest funkcją pomocniczą, która renderuje swoje dzieci po określonym opóźnieniu. Jest to przydatne, gdy chcesz opóźnić renderowanie niektórych komponentów z powodów UX lub wydajnościowych. Komponent ten akceptuje prop <secondaryhighlight>ms</secondaryhighlight>, który określa opóźnienie w milisekundach przed renderowaniem dzieci. Podczas okresu opóźnienia komponent może wyświetlić wskaźnik ładowania lub nic.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>ms: number</secondaryhighlight> - Opóźnienie w milisekundach przed renderowaniem dzieci.</li></ul>",
           "CreateAt": "2024-10-17"
         }
       }

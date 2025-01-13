@@ -10,7 +10,7 @@ interface TranslationProps {
   keyMessage: string;
 }
 
-const hooksTabsTranslation: string = "Data.Hooks.SectionItems";
+const tabsTranslation: string = "Data";
 
 /**
  * Translation component allows to dynamicly render html elements
@@ -26,7 +26,7 @@ export default function Translation({
   keyMessage,
 }: TranslationProps): JSX.Element {
   const t = useTranslations();
-  const hooksTabs = useTranslations(hooksTabsTranslation);
+  const tabs = useTranslations(tabsTranslation);
   const params = useParams();
   const hook: string = `/data/hooks/${params.hook}/hook.ts`;
   const hookUsage: string = `/data/hooks/${params.hook}/usage.txt`;
@@ -70,32 +70,48 @@ export default function Translation({
         secondaryhighlight: (chunks) => (
           <Typography type="code">{chunks}</Typography>
         ),
-        code: (chunks) => (
-          <CodeBlock
-            defaultValue={chunks === "hook" ? "hook" : "util"}
-            triggers={[
-              {
-                value: chunks === "hook" ? "hook" : "util",
-                title: hooksTabs(`Code.${chunks === "hook" ? "Util" : "Hook"}`),
-              },
-              { value: "usage", title: hooksTabs("Code.Usage") },
-            ]}
-            contents={[
-              {
-                value: chunks === "hook" ? "hook" : "util",
-                code: chunks === "hook" ? util : hook,
-                ariaLabel: `${
-                  chunks === "hook" ? "Hook" : "Util"
-                } code scroll area`,
-              },
-              {
-                value: "usage",
-                code: chunks === "hook" ? utilUsage : hookUsage,
-                ariaLabel: "Usage example scroll area",
-              },
-            ]}
-          />
-        ),
+        code: (chunks: any) => {
+          console.log(chunks[0]);
+          return (
+            <CodeBlock
+              defaultValue={chunks[0] === "hook" ? "hook" : "util"}
+              triggers={[
+                {
+                  value: chunks[0] === "hook" ? "hook" : "util",
+                  title: tabs(
+                    `${
+                      chunks[0] === "hook" ? "Hooks" : "Utilities"
+                    }.SectionItems.Code.${
+                      chunks[0] === "hook" ? "Hook" : "Util"
+                    }`
+                  ),
+                },
+                {
+                  value: "usage",
+                  title: tabs(
+                    `${
+                      chunks[0] === "hook" ? "Hooks" : "Utilities"
+                    }.SectionItems.Code.Usage`
+                  ),
+                },
+              ]}
+              contents={[
+                {
+                  value: chunks[0] === "hook" ? "hook" : "util",
+                  code: chunks[0] === "hook" ? hook : util,
+                  ariaLabel: `${
+                    chunks[0] === "hook" ? "Hook" : "Util"
+                  } code scroll area`,
+                },
+                {
+                  value: "usage",
+                  code: chunks[0] === "hook" ? hookUsage : utilUsage,
+                  ariaLabel: "Usage example scroll area",
+                },
+              ]}
+            />
+          );
+        },
       })}
     </>
   );

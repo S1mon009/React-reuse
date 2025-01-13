@@ -31,40 +31,35 @@ export default function Page(): JSX.Element {
       <Layout type="section">
         <Heading title={t("Name")} color={color} />
       </Layout>
-      <ScrollArea
-        className="block h-[calc(100vh-12rem)] pr-4 pb-8"
-        aria-label="Main content area"
-      >
-        <Layout type="section" id="typesafe">
-          <Translation keyMessage={"Data.Docs.Items.typesafe.Content"} />
-        </Layout>
-        <Separator className="my-4" />
-        <Footer
-          data={[
-            {
-              link: `${footerItems(
-                `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Link`
-              )}`,
-              title: sectionItems("Footer.Previous"),
-              description: footerItems(
-                `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Name`
-              ),
-            },
-            {
-              link: `${footerItems(
-                `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Link`
-              )}`,
-              title: sectionItems("Footer.Next"),
-              description: footerItems(
-                `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Name`
-              ),
-            },
-          ]}
-        />
-      </ScrollArea>
+      <Layout type="section" id="typesafe">
+        <Translation keyMessage="Data.Docs.Items.typesafe.Content" />
+      </Layout>
+      <Separator className="my-4" />
+      <Footer
+        data={[
+          {
+            link: `${footerItems(
+              `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Link`
+            )}`,
+            title: sectionItems("Footer.Previous"),
+            description: footerItems(
+              `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Name`
+            ),
+          },
+          {
+            link: `${footerItems(
+              `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Link`
+            )}`,
+            title: sectionItems("Footer.Next"),
+            description: footerItems(
+              `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Name`
+            ),
+          },
+        ]}
+      />
       <Layout
         type="aside"
-        className="hidden md:w-1/5 md:block fixed top-14 right-4 h-full p-4"
+        className="hidden md:block fixed top-14 right-0 h-full w-1/5 p-4"
       >
         <SectionNavigationList sectionId="typesafe" />
       </Layout>

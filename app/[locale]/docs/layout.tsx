@@ -28,16 +28,16 @@ export default function RootLayout({
   children,
 }: Readonly<rootLayoutProps>): JSX.Element {
   return (
-    <Layout type="div" className="h-[calc(100vh-4rem)] overflow-hidden">
+    <Layout type="div" className="lg:flex lg:justify-center overflow-x-hidden">
       <Layout
         type="div"
-        className="hidden lg:block w-1/5 h-full border-r-2 border-muted float-left"
+        className="hidden lg:block fixed top-14 left-0 w-1/5 h-full border-r-2 border-muted pt-4"
       >
-        <ScrollArea className="w-full h-full">
+        <ScrollArea className="w-full h-full pb-14">
           <Aside />
         </ScrollArea>
       </Layout>
-      <Layout type="div" className="h-full lg:w-3/5 md:w-4/5 float-left p-4">
+      <Layout type="div" className="h-full p-4 pt-20 md:w-4/5 lg:w-3/5">
         <BreadcrumbNavigation />
         <Layout type="main" className="w-full">
           {children}
