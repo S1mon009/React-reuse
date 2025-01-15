@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Search, Circle } from "lucide-react";
+import { Search, Circle, Bot } from "lucide-react";
 import {
   CommandEmpty,
   CommandGroup,
@@ -12,6 +12,7 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Each } from "@/components/utilities/each/each";
 import { Typography } from "@/components/typography/typography";
@@ -47,39 +48,55 @@ export default function Command(): JSX.Element {
   return (
     <>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder={search("InputSearch")} />
-        <CommandList>
-          <CommandEmpty>{search("NoResults")}</CommandEmpty>
-          <Each
-            of={HeaderKeys}
-            render={(headerKey: string, headerIndex: number) => (
-              <>
-                <CommandGroup
-                  heading={t(`${headerKey}.Name`)}
-                  key={headerIndex}
-                >
-                  <Each
-                    of={LinksKeys[headerIndex]}
-                    render={(link: string, index: number) => (
-                      <Link
-                        href={t(`${headerKey}.Items.${link}.Link`)}
-                        key={index}
-                      >
-                        <CommandItem className="cursor-pointer">
-                          <Circle />
-                          <Typography type="span">
-                            {t(`${headerKey}.Items.${link}.Name`)}
-                          </Typography>
-                        </CommandItem>
-                      </Link>
-                    )}
-                  />
-                </CommandGroup>
-                <CommandSeparator className="last:hidden" />
-              </>
-            )}
-          />
-        </CommandList>
+        <Tabs defaultValue="search">
+          <TabsList className="ml-3 mt-3">
+            <TabsTrigger value="search">
+              <Search className="size-4 mr-2" /> Search
+            </TabsTrigger>
+            <TabsTrigger value="askai">
+              <Bot className="size-4 mr-2" />
+              Ask AI
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="search">
+            <CommandInput placeholder={search("InputSearch")} />
+            <CommandList>
+              <CommandEmpty>{search("NoResults")}</CommandEmpty>
+              <Each
+                of={HeaderKeys}
+                render={(headerKey: string, headerIndex: number) => (
+                  <>
+                    <CommandGroup
+                      heading={t(`${headerKey}.Name`)}
+                      key={headerIndex}
+                    >
+                      <Each
+                        of={LinksKeys[headerIndex]}
+                        render={(link: string, index: number) => (
+                          <Link
+                            href={t(`${headerKey}.Items.${link}.Link`)}
+                            key={index}
+                          >
+                            <CommandItem className="cursor-pointer">
+                              <Circle />
+                              <Typography type="span">
+                                {t(`${headerKey}.Items.${link}.Name`)}
+                              </Typography>
+                            </CommandItem>
+                          </Link>
+                        )}
+                      />
+                    </CommandGroup>
+                    <CommandSeparator className="last:hidden" />
+                  </>
+                )}
+              />
+            </CommandList>
+          </TabsContent>
+          <TabsContent value="askai" className="h-32 p-3">
+            <Typography type="p">Comming soon</Typography>
+          </TabsContent>
+        </Tabs>
       </CommandDialog>
       <Button
         onClick={() => setOpen(true)}

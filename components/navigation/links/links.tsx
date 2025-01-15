@@ -117,7 +117,6 @@ export default function Links({ type }: LinksProps): JSX.Element {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-
               <NavigationMenuItem>
                 <NavigationMenuTrigger>
                   {data("Hooks.Name")}
@@ -132,14 +131,13 @@ export default function Links({ type }: LinksProps): JSX.Element {
                           href={data(`Hooks.Items.${item}.Link`)}
                           title={data(`Hooks.Items.${item}.Name`)}
                         >
-                          {data(`Hooks.Items.${item}.Content.Description`)}
+                          {data(`Hooks.Items.${item}.Description`)}
                         </ListItem>
                       )}
                     />
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-
               <NavigationMenuItem>
                 <NavigationMenuTrigger>
                   {data("Utilities.Name")}
@@ -154,7 +152,7 @@ export default function Links({ type }: LinksProps): JSX.Element {
                           href={data(`Utilities.Items.${item}.Link`)}
                           title={data(`Utilities.Items.${item}.Name`)}
                         >
-                          {data(`Utilities.Items.${item}.Content.Description`)}
+                          {data(`Utilities.Items.${item}.Description`)}
                         </ListItem>
                       )}
                     />
@@ -175,7 +173,6 @@ export default function Links({ type }: LinksProps): JSX.Element {
           </NavigationMenu>
         </Layout>
       </Show.When>
-
       <Show.When isTrue={type === "mobile"}>
         <Sheet>
           <SheetTrigger

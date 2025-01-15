@@ -1,5 +1,4 @@
 import { Separator } from "@/components/ui/separator";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import Heading from "@/components/docs/heading";
 import Footer from "@/components/docs/footer";
 import SectionNavigationList from "@/components/navigation/section_navigation/section-navigation-list";

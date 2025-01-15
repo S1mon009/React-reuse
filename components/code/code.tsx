@@ -1,10 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { CodeBlock } from "react-code-block";
-import { useCopyToClipboard } from "react-use";
-import { Copy, Check } from "lucide-react";
+import Show from "@/components/utilities/conditional_rendering/show";
+import { Layout } from "@/components/layouts/layout";
+import { Typography } from "@/components/typography/typography";
+import { Copy, Check, Loader2 } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { getCodeContent } from "@/actions/data/code-content";
 
 interface codeProps {
   code: string;
@@ -25,38 +30,22 @@ export default function Code({
   code,
   language = "tsx",
 }: codeProps): JSX.Element {
-  const [state, copyToClipboard] = useCopyToClipboard();
   const [copied, setCopied] = useState<boolean>(false);
-  const [fileContent, setFileContent] = useState<string>("");
-  const [error, setError] = useState<string | null>(null);
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["fileContent", code],
+    queryFn: getCodeContent.bind(null, code),
+  });
+
+  if (error) {
+    console.error(error);
+  }
 
   const copyCode = () => {
     setCopied(true);
-    copyToClipboard(fileContent);
+    if (data) {
+      navigator.clipboard.writeText(data.content);
+    }
   };
-
-  useEffect(() => {
-    const fetchFileContent = async () => {
-      try {
-        const response = await fetch(
-          `/api/read-file?filePath=${encodeURIComponent(code)}`
-        );
-        if (!response.ok) {
-          const errorData = await response.json();
-          setError(errorData.error);
-          console.error(error);
-        } else {
-          const data = await response.json();
-          setFileContent(data.content);
-        }
-      } catch (err) {
-        setError("Failed to fetch file content");
-        console.error(error);
-      }
-    };
-
-    fetchFileContent();
-  }, [code, error]);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -69,24 +58,44 @@ export default function Code({
   }, [copied]);
 
   return (
-    <CodeBlock code={fileContent} language={language}>
-      <CodeBlock.Code className="bg-gray-900 p-6 rounded-xl">
-        <div className="table-row">
-          <CodeBlock.LineNumber className="table-cell pr-4 text-sm text-gray-500 text-right select-none" />
-          <CodeBlock.LineContent className="table-cell">
-            <CodeBlock.Token />
-          </CodeBlock.LineContent>
-        </div>
-        <Button
-          variant="secondary"
-          size="icon"
-          className="absolute top-2 right-4"
-          onClick={copyCode}
-          aria-label="Copy to clipboard"
-        >
-          {copied ? <Check /> : <Copy />}
-        </Button>
-      </CodeBlock.Code>
-    </CodeBlock>
+    <ScrollArea className="h-96 whitespace-nowrap rounded-xl w-full">
+      <CodeBlock code={data || ""} language={language}>
+        <CodeBlock.Code className="bg-gray-900 p-6 rounded-xl h-auto">
+          <Show>
+            <Show.When isTrue={isLoading}>
+              <Layout type="div" className="flex items-center space-x-3">
+                <Loader2 className="animate-spin" />
+                <Typography type="p" className="-translate-y-3">
+                  Loading...
+                </Typography>
+              </Layout>
+            </Show.When>
+            <Show.When isTrue={isError}>Error loading content.</Show.When>
+            <Show.Else>
+              <div className="table-row">
+                <CodeBlock.LineNumber className="table-cell pr-4 text-sm text-gray-500 text-right select-none" />
+                <CodeBlock.LineContent className="table-cell">
+                  <CodeBlock.Token />
+                </CodeBlock.LineContent>
+              </div>
+            </Show.Else>
+          </Show>
+          <Show>
+            <Show.When isTrue={!!data}>
+              <Button
+                variant="secondary"
+                size="icon"
+                className="absolute top-2 right-4"
+                onClick={copyCode}
+                aria-label="Copy to clipboard"
+              >
+                {copied ? <Check /> : <Copy />}
+              </Button>
+            </Show.When>
+          </Show>
+        </CodeBlock.Code>
+      </CodeBlock>
+      <ScrollBar orientation="horizontal" />
+    </ScrollArea>
   );
 }
