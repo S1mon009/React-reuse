@@ -1,5 +1,7 @@
-import { Layout } from "@/components/layouts/layout";
-import { Typography } from "@/components/typography/typography";
+import type { JSX } from "react";
+import { useTranslations } from "next-intl";
+
+import { Separator } from "@/components/ui/separator";
 import { Compare } from "@/components/ui/compare";
 import {
   Accordion,
@@ -7,11 +9,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Separator } from "@/components/ui/separator";
 import { RoughNotation } from "react-rough-notation";
-import { Each } from "@/components/utilities/each/each";
+import Each from "@/components/utilities/each/each";
+import Typography from "@/components/typography/typography";
+import Layout from "@/components/layouts/layout";
+
 import { roughNotationColor } from "@/config/rought-notation-color";
-import { useTranslations } from "next-intl";
+
 import Image1 from "@/public/code1.png";
 import Image2 from "@/public/code2.png";
 
@@ -55,7 +59,7 @@ export default function Section3(): JSX.Element {
           <Each
             of={Array.from({ length: 4 })}
             render={(_, index: number) => (
-              <AccordionItem value={`item-${index}`}>
+              <AccordionItem value={`item-${index}`} key={index}>
                 <AccordionTrigger>
                   {t(`Accordions.Accordion${index}.Title`)}
                 </AccordionTrigger>

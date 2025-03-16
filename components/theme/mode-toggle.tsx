@@ -1,7 +1,9 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import type { JSX } from "react";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,8 +11,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Each } from "@/components/utilities/each/each";
-import { useTranslations } from "next-intl";
+import Each from "@/components/utilities/each/each";
+import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const translation: string = "Header.Theme";

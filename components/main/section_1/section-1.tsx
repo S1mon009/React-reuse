@@ -1,5 +1,7 @@
+import { type JSX } from "react";
+
 import World from "@/components/main/section_1/world";
-import { Layout } from "@/components/layouts/layout";
+import Layout from "@/components/layouts/layout";
 
 /**
  * Section 1 component for the main landing page.
@@ -7,7 +9,7 @@ import { Layout } from "@/components/layouts/layout";
  *
  * @returns {JSX.Element} The rendered Section1 component.
  */
-export default function Section1() {
+export default function Section1(): JSX.Element {
   return (
     <Layout type="section">
       <World />

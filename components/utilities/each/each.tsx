@@ -1,7 +1,6 @@
-interface eachInterface<T> {
-  render: (item: T, index: number) => JSX.Element;
-  of: T[];
-}
+import type { JSX } from "react";
+
+import { EachProps } from "./interface";
 
 /**
  * Component that iterates over an array and renders each item using a provided render function.
@@ -14,6 +13,8 @@ interface eachInterface<T> {
  * @returns {JSX.Element[]} Array of JSX elements rendered by the provided render function.
  */
 
-export const Each = <T,>({ render, of }: eachInterface<T>): JSX.Element[] => {
+const Each = <T,>({ render, of }: EachProps<T>): JSX.Element[] => {
   return of.map((item, index) => render(item, index));
 };
+
+export default Each;

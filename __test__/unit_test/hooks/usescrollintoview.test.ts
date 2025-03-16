@@ -12,7 +12,7 @@ describe("useScrollIntoView", () => {
     // Create a mock ref object with current pointing to the mock element
     const ref = {
       current: mockElement,
-    } as unknown as React.RefObject<HTMLElement>;
+    } as unknown as React.RefObject<HTMLElement | null>;
 
     // Render the hook
     const { result } = renderHook(() => useScrollIntoView(ref));
@@ -39,7 +39,7 @@ describe("useScrollIntoView", () => {
     // Create a mock ref object with current pointing to the mock element
     const ref = {
       current: mockElement,
-    } as unknown as React.RefObject<HTMLElement>;
+    } as unknown as React.RefObject<HTMLElement | null>;
 
     // Render the hook with custom options
     const { result } = renderHook(() =>
@@ -61,7 +61,7 @@ describe("useScrollIntoView", () => {
 
   it("should not call scrollIntoView if ref is null", () => {
     // Create a mock ref object with current as null
-    const ref = { current: null } as React.RefObject<HTMLElement>;
+    const ref = { current: null } as React.RefObject<HTMLElement | null>;
 
     // Render the hook
     const { result } = renderHook(() => useScrollIntoView(ref));

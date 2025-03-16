@@ -1,5 +1,7 @@
-import { Layout } from "@/components/layouts/layout";
-import { Typography } from "@/components/typography/typography";
+import { type JSX } from "react";
+import { useTranslations } from "next-intl";
+
+import { Button, buttonVariants } from "@/components/ui/button";
 import { RoughNotation } from "react-rough-notation";
 import {
   Card,
@@ -9,12 +11,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button, buttonVariants } from "@/components/ui/button";
 import { Link } from "@/components/navigation/navigation";
+import Show from "@/components/utilities/show/show";
+import Each from "@/components/utilities/each/each";
+import Typography from "@/components/typography/typography";
+import Layout from "@/components/layouts/layout";
 import { cn } from "@/lib/utils";
-import { Each } from "@/components/utilities/each/each";
-import Show from "@/components/utilities/conditional_rendering/show";
-import { useTranslations } from "next-intl";
+
 import { roughNotationColor } from "@/config/rought-notation-color";
 import { keys } from "@/keys/sidebar-links-keys";
 
@@ -26,7 +29,7 @@ const translation: string = "LandingPage.Section2";
  *
  * @returns {JSX.Element} The rendered Section2 component.
  */
-export default function Section2() {
+export default function Section2(): JSX.Element {
   const t = useTranslations(translation);
 
   return (
@@ -49,7 +52,7 @@ export default function Section2() {
         <Each
           of={Array.from({ length: 4 })}
           render={(_, index: number) => (
-            <Card className={index >= 2 ? "opacity-40" : ""}>
+            <Card className={index >= 2 ? "opacity-40" : ""} key={index}>
               <CardHeader className="pb-0">
                 <CardTitle>{t(`Article2.Card${index}.Heading`)}</CardTitle>
                 <CardDescription>

@@ -1,6 +1,8 @@
 "use client";
 
-import * as React from "react";
+import type { JSX } from "react";
+import { useTranslations, useLocale } from "next-intl";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -8,12 +10,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Typography } from "@/components/typography/typography";
-import Show from "@/components/utilities/conditional_rendering/show";
-import { Each } from "@/components/utilities/each/each";
 import { Link, usePathname } from "@/components/navigation/navigation";
-import { useTranslations, useLocale } from "next-intl";
+import Show from "@/components/utilities/show/show";
+import Each from "@/components/utilities/each/each";
+import Typography from "@/components/typography/typography";
 import { cn } from "@/lib/utils";
+
 import { locales } from "@/config/locales";
 
 const translation: string = "Header.Language";
@@ -41,6 +43,7 @@ export function LanguageToggle(): JSX.Element {
    */
   const renderLocales = (localeSelect: string, index: number): JSX.Element => {
     const isActive = locale === localeSelect.toLowerCase();
+
     return (
       <DropdownMenuItem asChild key={index}>
         <Link href={pathname} locale={localeSelect}>

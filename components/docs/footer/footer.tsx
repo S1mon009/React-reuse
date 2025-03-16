@@ -1,23 +1,18 @@
+import type { JSX } from "react";
+
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Layout } from "@/components/layouts/layout";
 import { Link } from "@/components/navigation/navigation";
-import { Each } from "@/components/utilities/each/each";
+import Show from "@/components/utilities/show/show";
+import Each from "@/components/utilities//each/each";
+import Layout from "@/components/layouts/layout";
 import { cn } from "@/lib/utils";
 
-interface prevNextProps {
-  link: string;
-  title: string;
-  description: string;
-}
-
-interface footerProps {
-  data: prevNextProps[];
-}
+import { FooterProps } from "./interface";
 
 /**
  * Footer component that displays navigation cards for previous/next items.
@@ -28,10 +23,10 @@ interface footerProps {
  *  - title (string): Page title
  *  - description (string): Previous or Next
  *
- * @param {footerProps} props - Contains data object with link, title, description keys.
+ * @param {FooterProps} props - Contains data object with link, title, description keys.
  * @returns {JSX.Element} The rendered Footer component.
  */
-export default function Footer({ data }: footerProps): JSX.Element {
+export default function Footer({ data }: FooterProps): JSX.Element {
   let className: string = "";
 
   if (!data[0].link) {
@@ -49,9 +44,9 @@ export default function Footer({ data }: footerProps): JSX.Element {
         render={(
           item: { link: string; title: string; description: string },
           index: number
-        ) => {
-          if (item.link) {
-            return (
+        ) => (
+          <Show key={index}>
+            <Show.When isTrue={!!item.link}>
               <Link href={item.link} className="w-full md:w-[40%] lg:w-2/5">
                 <Card
                   className={cn(
@@ -68,10 +63,9 @@ export default function Footer({ data }: footerProps): JSX.Element {
                   </CardHeader>
                 </Card>
               </Link>
-            );
-          }
-          return <></>;
-        }}
+            </Show.When>
+          </Show>
+        )}
       />
     </Layout>
   );

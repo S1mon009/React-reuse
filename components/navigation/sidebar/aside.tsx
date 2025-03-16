@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type JSX } from "react";
+import { useTranslations } from "next-intl";
+
 import {
   Sidebar,
   SidebarContent,
@@ -13,15 +15,15 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
-import { Layout } from "@/components/layouts/layout";
-import { Each } from "@/components/utilities/each/each";
-import Show from "@/components/utilities/conditional_rendering/show";
 import { Link } from "@/components/navigation/navigation";
-import { useTranslations } from "next-intl";
 import { usePathname } from "@/components/navigation/navigation";
-import { getDayDifference } from "@/lib/utils";
+import Show from "@/components/utilities/show/show";
+import Each from "@/components/utilities/each/each";
+import Layout from "@/components/layouts/layout";
 import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+import { getDayDifference } from "@/lib/utils";
 import { keys as sidebarHeaderKeys } from "@/keys/links-keys";
 import { keys as sidebarLinksKeys } from "@/keys/sidebar-links-keys";
 

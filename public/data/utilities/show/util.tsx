@@ -18,8 +18,8 @@ const Show: React.FC<showInterface> & {
   When: React.FC<conditionalInterface>;
   Else: React.FC<elseInterface>;
 } = (props) => {
-  let when: ReactElement | null = null;
-  let otherwise: ReactElement | null = null;
+  let when: ReactElement<any> | null = null;
+  let otherwise: ReactElement<any> | null = null;
 
   Children.forEach(props.children, (child) => {
     if (React.isValidElement(child)) {

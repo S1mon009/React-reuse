@@ -1,18 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Typography } from "@/components/typography/typography";
-import { usePathname, Link } from "@/components/navigation/navigation";
-import { Each } from "@/components/utilities/each/each";
-import { buttonVariants } from "@/components/ui/button";
+import { useEffect, useState, type JSX } from "react";
 import { useTranslations } from "next-intl";
+
+import { buttonVariants } from "@/components/ui/button";
+import { usePathname, Link } from "@/components/navigation/navigation";
+import Each from "@/components/utilities/each/each";
+import Typography from "@/components/typography/typography";
 import { cn } from "@/lib/utils";
 
-interface SectionListProps {
-  sectionId: string;
-}
+import { SectionListProps } from "./interface";
 
-export default function SectionList({ sectionId }: SectionListProps) {
+/**
+ * Component displaying a list of navigation sections.
+ *
+ * @param {SectionListProps} props - Contains the sectionId.
+ * @returns {JSX.Element} The rendered SectionList component
+ */
+export default function SectionList({
+  sectionId,
+}: SectionListProps): JSX.Element {
   const [headings, setHeadings] = useState<any[]>([]);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const pathname = usePathname();

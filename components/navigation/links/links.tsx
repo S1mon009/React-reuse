@@ -1,5 +1,11 @@
 "use client";
 
+import type { JSX } from "react";
+import { useTranslations } from "next-intl";
+
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Sheet,
   SheetContent,
@@ -15,46 +21,48 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Each } from "@/components/utilities/each/each";
-import Show from "@/components/utilities/conditional_rendering/show";
-import { Layout } from "@/components/layouts/layout";
-import Aside from "@/components/navigation/sidebar/aside";
 import { Link } from "@/components/navigation/navigation";
-import { useTranslations } from "next-intl";
+import Show from "@/components/utilities/show/show";
+import Each from "@/components/utilities/each/each";
+import Aside from "@/components/navigation/sidebar/aside";
+import Typography from "@/components/typography/typography";
+import Layout from "@/components/layouts/layout";
 import { ChartNoAxesGantt } from "lucide-react";
+
+import { ListItemProps, LinksProps } from "./interface";
 import { keys } from "@/keys/sidebar-links-keys";
 
 const translation: string = "Header.Menu";
 const dataTranslation: string = "Data";
 const menuArray: string[] = ["Introduction", "Typesafe", "Quality"];
 
-interface LinksProps {
-  type: "desktop" | "mobile";
-}
-
-interface ListItemProps {
-  title: string;
-  href: string;
-  children: React.ReactNode;
-}
-
 /**
  * Renders a list item for navigation links with appropriate a11y features.
+ *
+ * Props:
+ * - title: string
+ * - href: string
+ * - children: Readonly<React.ReactNode>
+ *
+ * @param {ListItemProps} props - Contains the title, href and children for component.
+ * @returns {JSX.Element} The rendered ListItem component
  */
-const ListItem = ({ title, href, children }: ListItemProps) => (
+const ListItem = ({ title, href, children }: ListItemProps): JSX.Element => (
   <li>
     <NavigationMenuLink asChild>
       <Link
         href={href}
         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
       >
-        <div className="text-sm font-medium leading-none">{title}</div>
-        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+        <Layout type="div" className="text-sm font-medium leading-none">
+          {title}
+        </Layout>
+        <Typography
+          type="p"
+          className="line-clamp-2 text-sm leading-snug text-muted-foreground"
+        >
           {children}
-        </p>
+        </Typography>
       </Link>
     </NavigationMenuLink>
   </li>

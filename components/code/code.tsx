@@ -1,19 +1,30 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type JSX } from "react";
+import { useQuery } from "@tanstack/react-query";
+
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { CodeBlock } from "react-code-block";
-import Show from "@/components/utilities/conditional_rendering/show";
-import { Layout } from "@/components/layouts/layout";
-import { Typography } from "@/components/typography/typography";
+import Show from "@/components/utilities/show/show";
+import Typography from "@/components/typography/typography";
+import Layout from "@/components/layouts/layout";
 import { Copy, Check, Loader2 } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { getCodeContent } from "@/actions/data/code-content";
 
-interface codeProps {
-  code: string;
-  language?: string;
+import axios from "axios";
+import { CodeProps } from "./interface";
+
+export async function getCodeContent(code: string) {
+  try {
+    const response = await axios.get(`/api/read-file`, {
+      params: { filePath: code },
+    });
+
+    return response.data.content;
+  } catch (err) {
+    console.error(err);
+    throw new Error("Something went wrong");
+  }
 }
 
 /**
@@ -23,13 +34,13 @@ interface codeProps {
  * - code (string): The code content to display.
  * - language (string | optional): The language for syntax highlighting (defaults to "tsx").
  *
- * @param {codeProps} props - Contains code content and optional language parameter
+ * @param {CodeProps} props - Contains code content and optional language parameter
  * @returns {JSX.Element} The rendered Code component.
  */
 export default function Code({
   code,
   language = "tsx",
-}: codeProps): JSX.Element {
+}: CodeProps): JSX.Element {
   const [copied, setCopied] = useState<boolean>(false);
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["fileContent", code],

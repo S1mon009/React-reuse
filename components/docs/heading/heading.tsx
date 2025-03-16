@@ -1,11 +1,10 @@
-import { RoughNotation } from "react-rough-notation";
-import { Layout } from "@/components/layouts/layout";
-import { Typography } from "@/components/typography/typography";
+import type { JSX } from "react";
 
-interface headingProps {
-  title: string;
-  color: string;
-}
+import { RoughNotation } from "react-rough-notation";
+import Typography from "@/components/typography/typography";
+import Layout from "@/components/layouts/layout";
+
+import { HeadingProps } from "./interface";
 
 /**
  * Heading component that displays a title with a highlight effect using RoughNotation.
@@ -14,10 +13,10 @@ interface headingProps {
  * - title (string): Heading title.
  * - color (string): RoughNotation color.
  *
- * @param {headingProps} props - Contains title and color
+ * @param {HeadingProps} props - Contains title and color
  * @returns {JSX.Element} The rendered Heading component.
  */
-export default function Heading({ title, color }: headingProps): JSX.Element {
+export default function Heading({ title, color }: HeadingProps): JSX.Element {
   return (
     <Layout type="section">
       <Typography type="h1" className="mb-5">

@@ -1,13 +1,16 @@
+import type { JSX } from "react";
 import Image from "next/image";
-import { Link } from "@/components/navigation/navigation";
+
 import { Button } from "@/components/ui/button";
-import { Layout } from "@/components/layouts/layout";
-import { Typography } from "@/components/typography/typography";
-import Links from "@/components/navigation/links/links";
+import { Link } from "@/components/navigation/navigation";
 import { ModeToggle } from "@/components/theme/mode-toggle";
 import { LanguageToggle } from "@/components/language/language-toggle";
+import Links from "@/components/navigation/links/links";
 import Command from "@/components/command/command";
+import Typography from "@/components/typography/typography";
+import Layout from "@/components/layouts/layout";
 import { Github } from "lucide-react";
+
 import Logo from "@/public/icon.svg";
 
 /**

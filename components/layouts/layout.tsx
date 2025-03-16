@@ -1,18 +1,7 @@
-interface layoutProps extends React.HTMLAttributes<HTMLElement> {
-  type:
-    | "main"
-    | "header"
-    | "nav"
-    | "div"
-    | "aside"
-    | "section"
-    | "article"
-    | "footer";
-  children: Readonly<React.ReactNode>;
-}
-interface layoutItemsProps extends React.HTMLAttributes<HTMLElement> {
-  children: Readonly<React.ReactNode>;
-}
+import type { JSX } from "react";
+import { cn } from "@/lib/utils";
+
+import { LayoutProps, LayoutItemsProps } from "./interface";
 
 /**
  * This component wrap children into html main element.
@@ -21,10 +10,10 @@ interface layoutItemsProps extends React.HTMLAttributes<HTMLElement> {
  * - children (Readonly<React.ReactNode>): The children of the component.
  * - ...props: Everyone else props
  *
- * @param {layoutItemsProps} props - Contains children and everyone else props.
+ * @param {LayoutItemsProps} props - Contains children and everyone else props.
  * @returns {JSX.Element} The rendered Main component
  */
-const Main = ({ children, ...props }: layoutItemsProps): JSX.Element => (
+const Main = ({ children, ...props }: LayoutItemsProps): JSX.Element => (
   <main {...props}>{children}</main>
 );
 
@@ -38,7 +27,7 @@ const Main = ({ children, ...props }: layoutItemsProps): JSX.Element => (
  * @param {mainProps} props - Contains children and everyone else props.
  * @returns {JSX.Element} The rendered Header component
  */
-const Header = ({ children, ...props }: layoutItemsProps): JSX.Element => (
+const Header = ({ children, ...props }: LayoutItemsProps): JSX.Element => (
   <header {...props}>{children}</header>
 );
 
@@ -49,10 +38,10 @@ const Header = ({ children, ...props }: layoutItemsProps): JSX.Element => (
  * - children (Readonly<React.ReactNode>): The children of the component.
  * - ...props: Everyone else props
  *
- * @param {layoutItemsProps} props - Contains children and everyone else props.
+ * @param {LayoutItemsProps} props - Contains children and everyone else props.
  * @returns {JSX.Element} The rendered Nav component
  */
-const Nav = ({ children, ...props }: layoutItemsProps): JSX.Element => (
+const Nav = ({ children, ...props }: LayoutItemsProps): JSX.Element => (
   <nav {...props}>{children}</nav>
 );
 
@@ -63,10 +52,10 @@ const Nav = ({ children, ...props }: layoutItemsProps): JSX.Element => (
  * - children (Readonly<React.ReactNode>): The children of the component.
  * - ...props: Everyone else props
  *
- * @param {layoutItemsProps} props - Contains children and everyone else props.
+ * @param {LayoutItemsProps} props - Contains children and everyone else props.
  * @returns {JSX.Element} The rendered Div component
  */
-const Div = ({ children, ...props }: layoutItemsProps): JSX.Element => (
+const Div = ({ children, ...props }: LayoutItemsProps): JSX.Element => (
   <div {...props}>{children}</div>
 );
 
@@ -77,10 +66,10 @@ const Div = ({ children, ...props }: layoutItemsProps): JSX.Element => (
  * - children (Readonly<React.ReactNode>): The children of the component.
  * - ...props: Everyone else props
  *
- * @param {layoutItemsProps} props - Contains children and everyone else props.
+ * @param {LayoutItemsProps} props - Contains children and everyone else props.
  * @returns {JSX.Element} The rendered aside component
  */
-const Aside = ({ children, ...props }: layoutItemsProps): JSX.Element => (
+const Aside = ({ children, ...props }: LayoutItemsProps): JSX.Element => (
   <aside {...props}>{children}</aside>
 );
 
@@ -91,10 +80,10 @@ const Aside = ({ children, ...props }: layoutItemsProps): JSX.Element => (
  * - children (Readonly<React.ReactNode>): The children of the component.
  * - ...props: Everyone else props
  *
- * @param {layoutItemsProps} props - Contains children and everyone else props.
+ * @param {LayoutItemsProps} props - Contains children and everyone else props.
  * @returns {JSX.Element} The rendered Section component
  */
-const Section = ({ children, ...props }: layoutItemsProps): JSX.Element => (
+const Section = ({ children, ...props }: LayoutItemsProps): JSX.Element => (
   <section {...props}>{children}</section>
 );
 
@@ -105,10 +94,10 @@ const Section = ({ children, ...props }: layoutItemsProps): JSX.Element => (
  * - children (Readonly<React.ReactNode>): The children of the component.
  * - ...props: Everyone else props
  *
- * @param {layoutItemsProps} props - Contains children and everyone else props.
+ * @param {LayoutItemsProps} props - Contains children and everyone else props.
  * @returns {JSX.Element} The rendered Article component
  */
-const Article = ({ children, ...props }: layoutItemsProps): JSX.Element => (
+const Article = ({ children, ...props }: LayoutItemsProps): JSX.Element => (
   <article {...props}>{children}</article>
 );
 
@@ -119,14 +108,40 @@ const Article = ({ children, ...props }: layoutItemsProps): JSX.Element => (
  * - children (Readonly<React.ReactNode>): The children of the component.
  * - ...props: Everyone else props
  *
- * @param {layoutItemsProps} props - Contains children and everyone else props.
+ * @param {LayoutItemsProps} props - Contains children and everyone else props.
  * @returns {JSX.Element} The rendered Footer component
  */
-const Footer = ({ children, ...props }: layoutItemsProps): JSX.Element => (
+const Footer = ({ children, ...props }: LayoutItemsProps): JSX.Element => (
   <footer {...props}>{children}</footer>
 );
 
-const layoutsMap: Map<string, React.ComponentType<layoutItemsProps>> = new Map([
+/**
+ * This component wrap children into tailwind CSS prose element.
+ *
+ * Props:
+ * - children (Readonly<React.ReactNode>): The children of the component.
+ * - ...props: Everyone else props
+ *
+ * @param {LayoutItemsProps} props - Contains children and everyone else props.
+ * @returns {JSX.Element} The rendered Mdx component
+ */
+const Mdx = ({
+  children,
+  className,
+  ...props
+}: LayoutItemsProps): JSX.Element => (
+  <article
+    className={cn(
+      "prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-5xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg dark:prose-headings:text-white",
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </article>
+);
+
+const layoutsMap: Map<string, React.ComponentType<LayoutItemsProps>> = new Map([
   ["main", Main],
   ["header", Header],
   ["nav", Nav],
@@ -135,9 +150,14 @@ const layoutsMap: Map<string, React.ComponentType<layoutItemsProps>> = new Map([
   ["section", Section],
   ["article", Article],
   ["footer", Footer],
+  ["mdx", Mdx],
 ]);
 
-export function Layout({ type, children, ...props }: layoutProps): JSX.Element {
+export default function Layout({
+  type,
+  children,
+  ...props
+}: LayoutProps): JSX.Element {
   const SelectedLayout = layoutsMap.get(type);
 
   return SelectedLayout ? (

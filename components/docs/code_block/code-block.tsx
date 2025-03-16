@@ -1,25 +1,11 @@
-import { Layout } from "@/components/layouts/layout";
+import type { JSX } from "react";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import Each from "@/components/utilities/each/each";
 import Code from "@/components/code/code";
-import { Each } from "@/components/utilities/each/each";
+import Layout from "@/components/layouts/layout";
 
-interface Trigger {
-  value: string;
-  title: string;
-}
-
-interface Content {
-  value: string;
-  code: string;
-  ariaLabel?: string;
-}
-
-interface codeBlockProps {
-  defaultValue: string;
-  triggers: Trigger[];
-  contents: Content[];
-}
+import { CodeBlockProps } from "./interface";
 
 /**
  * CodeBlock component renders a tabbed interface where each tab displays a code block.
@@ -35,14 +21,14 @@ interface codeBlockProps {
  *  - code (string): The code for content.
  *  - ariaLabel (string | optional): The aria-label element for content.
  *
- * @param {codeBlockProps} props - Contains the default value, triggers, and contents.
+ * @param {CodeBlockProps} props - Contains the default value, triggers, and contents.
  * @returns {JSX.Element} The rendered CodeBlock component.
  */
 export default function CodeBlock({
   defaultValue,
   triggers,
   contents,
-}: codeBlockProps): JSX.Element {
+}: CodeBlockProps): JSX.Element {
   return (
     <Layout type="section" id="code" className="overflow-hidden">
       <Layout type="article">

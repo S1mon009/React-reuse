@@ -1,6 +1,8 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, type JSX } from "react";
+import { useTranslations } from "next-intl";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,12 +10,12 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Layout } from "@/components/layouts/layout";
 import { Link } from "@/components/navigation/navigation";
-import { Each } from "@/components/utilities/each/each";
 import { usePathname } from "@/components/navigation/navigation";
-import { useTranslations } from "next-intl";
+import Each from "@/components/utilities/each/each";
+import Layout from "@/components/layouts/layout";
 import { House } from "lucide-react";
+
 import { keys } from "@/keys/links-keys";
 
 const translation: string = "Data";

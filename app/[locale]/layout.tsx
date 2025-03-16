@@ -1,12 +1,15 @@
+import type { JSX } from "react";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { ThemeProvider } from "@/components/theme/theme-provider";
-import HeaderNavigation from "@/components/navigation/header/header";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { getMessages } from "next-intl/server";
+import { ThemeProvider } from "@/components/theme/theme-provider";
+
+import HeaderNavigation from "@/components/navigation/header";
 import { cn } from "@/lib/utils";
+
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-interface rootLayoutProps {
+interface RootLayoutProps {
   children: React.ReactNode;
 }
 
@@ -33,12 +36,12 @@ interface rootLayoutProps {
  * Props:
  * - children (React.ReactNode): Layout children (readonly).
  *
- * @param {rootLayoutProps} props - Layout props.
+ * @param {RootLayoutProps} props - Layout props.
  * @returns {JSX.Element} - The structured layout of the page.
  */
 export default async function RootLayout({
   children,
-}: Readonly<rootLayoutProps>): Promise<JSX.Element> {
+}: Readonly<RootLayoutProps>): Promise<JSX.Element> {
   const messages = await getMessages();
 
   return (

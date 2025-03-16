@@ -1,23 +1,23 @@
-import { Separator } from "@/components/ui/separator";
-import Heading from "@/components/docs/heading";
-import Footer from "@/components/docs/footer";
-import { Layout } from "@/components/layouts/layout";
-import Translation from "@/components/translation/translation";
-import SectionNavigationList from "@/components/navigation/section_navigation/section-navigation-list";
+import { use, type JSX } from "react";
 import { useTranslations } from "next-intl";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import Footer from "@/components/docs/footer/footer";
+import SectionNavigationList from "@/components/navigation/section_navigation/section-navigation-list";
+import Translation from "@/components/translation/translation";
+import Layout from "@/components/layouts/layout";
+
 import { getPrevNextValue } from "@/lib/utils";
 import { roughNotationColor } from "@/config/rought-notation-color";
+
 import { keys as linkKeys } from "@/keys/sidebar-links-keys";
 import { keys as categoryKeys } from "@/keys/links-keys";
 
 const translation: string = "Data.Utilities.Items";
 const sectionItemsTranslation: string = "Data.Utilities.SectionItems";
 
-interface pageProps {
-  params: {
-    util: string;
-  };
-}
+type Params = Promise<{ util: string }>;
 
 /**
  * Page component renders details for a specific util, including util code, usage example,
@@ -30,11 +30,13 @@ interface pageProps {
  * @param {pageProps} props - Contains the params object.
  * @returns {JSX.Element} The rendered Page component.
  */
-export default function Page({ params }: Readonly<pageProps>): JSX.Element {
-  const t = useTranslations(`${translation}.${params.util}`);
+export default function Page(props: { params: Params }): JSX.Element {
+  const params = use(props.params);
+  const util = params.util;
+  const t = useTranslations(`${translation}.${util}`);
   const sectionItems = useTranslations(sectionItemsTranslation);
   const footerItems = useTranslations("Data");
-  const footerLinks = getPrevNextValue(params.util, linkKeys, categoryKeys);
+  const footerLinks = getPrevNextValue(util, linkKeys, categoryKeys);
 
   return (
     <>

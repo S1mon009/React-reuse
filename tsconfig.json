@@ -30,7 +30,8 @@
     ".next/types/**/*.ts",
     "cypress/support/e2e.js",
     "app/[locale]/docs/hooks/[hook]/page.tsx",
-    "app/[locale]/docs/introduction/page.tsx"
+    "app/[locale]/docs/introduction/page.tsx",
+    "content/en/hooks/usechatgpt.mdx"
   ],
   "exclude": ["node_modules"]
 }

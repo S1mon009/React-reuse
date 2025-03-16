@@ -1,10 +1,11 @@
 "use client";
-
-import { Typography } from "@/components/typography/typography";
+import Typography from "@/components/typography/typography";
 import { Separator } from "@/components/ui/separator";
-import CodeBlock from "@/components/docs/code-block";
+import CodeBlock from "@/components/docs/code_block/code-block";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
+
+import type { JSX } from "react";
 
 interface TranslationProps {
   keyMessage: string;

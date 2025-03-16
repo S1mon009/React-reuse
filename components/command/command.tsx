@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Search, Circle, Bot } from "lucide-react";
+import { useState, useEffect, type JSX } from "react";
+import { useTranslations } from "next-intl";
+
+import { Button } from "@/components/ui/button";
 import {
   CommandEmpty,
   CommandGroup,
@@ -13,11 +15,11 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
-import { Each } from "@/components/utilities/each/each";
-import { Typography } from "@/components/typography/typography";
 import { Link } from "@/components/navigation/navigation";
-import { useTranslations } from "next-intl";
+import Each from "@/components/utilities/each/each";
+import Typography from "@/components/typography/typography";
+import { Search, Circle, Bot } from "lucide-react";
+
 import { keys as HeaderKeys } from "@/keys/links-keys";
 import { keys as LinksKeys } from "@/keys/sidebar-links-keys";
 
