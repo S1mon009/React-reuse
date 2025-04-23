@@ -13,7 +13,7 @@ export async function generateMetadata(props: {
   const { hook, locale } = await props.params;
 
   const { name, description } = await import(
-    `@/content/${locale}/hooks/${hook}.mdx`
+    `@/public/content/${locale}/hooks/${hook}.mdx`
   );
 
   return {
@@ -28,7 +28,7 @@ export default async function Page(props: {
   const { hook, locale } = await props.params;
 
   const { default: Post } = await import(
-    `@/content/${locale}/hooks/${hook}.mdx`
+    `@/public/content/${locale}/hooks/${hook}.mdx`
   );
 
   return (

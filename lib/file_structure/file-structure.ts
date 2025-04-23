@@ -1,6 +1,6 @@
 "use server";
 
-import { readdir, readFile, stat } from "fs/promises";
+import { readdir, readFile } from "fs/promises";
 import path from "path";
 
 import { FolderStructure, LocaleStructure } from "./interface";
@@ -8,11 +8,10 @@ import { FolderStructure, LocaleStructure } from "./interface";
 export async function getContentStructure(
   locale: string
 ): Promise<LocaleStructure> {
-  const baseDir = path.join(process.cwd(), "content", locale);
+  const baseDir = path.join(process.cwd(), "public/content", locale);
 
-  // Pobierz zawartość katalogu wraz z typem wpisu
   const entries = await readdir(baseDir, { withFileTypes: true });
-  // Filtruj: tylko katalogi, które nie zaczynają się od "__"
+
   const subfolders = entries
     .filter((e) => e.isDirectory() && !e.name.startsWith("__"))
     .map((e) => e.name);
