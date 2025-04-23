@@ -1,0 +1,49 @@
+export const name = "useInterval";
+export const link = "/docs/hooks/useinterval";
+export const createdAt = "2024-10-17";
+export const description =
+  "The useInterval hook is useful when you need to perform a repeated action (such as polling an API or animating something) at specific time intervals within a React component.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `useInterval` hook is useful when you need to perform a repeated action (such as polling an API or animating something) at specific time intervals within a React component. It automatically handles setting and clearing the interval to avoid memory leaks or stale intervals when the component updates or unmounts.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## Parameters
+
+- `callback(): void` - A function that you want to be executed at regular intervals.
+- `delay: number` - The delay in milliseconds between executions. If the delay is `null`, the interval will be paused.

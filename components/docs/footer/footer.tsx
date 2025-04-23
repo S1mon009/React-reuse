@@ -14,18 +14,6 @@ import { cn } from "@/lib/utils";
 
 import { FooterProps } from "./interface";
 
-/**
- * Footer component that displays navigation cards for previous/next items.
- *
- * Props:
- * - data (array(object)):
- *  - link (string): Link to page
- *  - title (string): Page title
- *  - description (string): Previous or Next
- *
- * @param {FooterProps} props - Contains data object with link, title, description keys.
- * @returns {JSX.Element} The rendered Footer component.
- */
 export default function Footer({ data }: FooterProps): JSX.Element {
   let className: string = "";
 

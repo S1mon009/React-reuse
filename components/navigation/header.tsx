@@ -13,24 +13,20 @@ import { Github } from "lucide-react";
 
 import Logo from "@/public/icon.svg";
 
-/**
- * Header component renders a header element for the application.
- *
- * This component is responsible for rendering the main navigation header, including:
- * - A logo with a link to the homepage.
- * - Navigation links for both mobile and desktop layouts.
- * - External links to GitHub and other toggle controls for theme and language.
- *
- * @returns {JSX.Element} The rendered Header component.
- */
-export default function HeaderNavigation(): JSX.Element {
+interface HeaderNavigationProps {
+  locale: string;
+}
+
+export default function HeaderNavigation({
+  locale,
+}: HeaderNavigationProps): JSX.Element {
   return (
     <Layout
       type="header"
-      className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-[100]"
+      className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-[10]"
     >
       <Layout type="div" className="flex items-center h-full">
-        <Links type="mobile" />
+        <Links type="mobile" locale={locale} />
         <Link href="/" aria-label="Go to homepage">
           <Layout type="div" className="flex items-center">
             <Image src={Logo} alt="Reuse logo" className="size-10" priority />
@@ -40,7 +36,7 @@ export default function HeaderNavigation(): JSX.Element {
           </Layout>
         </Link>
       </Layout>
-      <Links type="desktop" />
+      <Links type="desktop" locale={locale} />
       <Layout type="div" className="flex gap-2">
         <Command />
         <a

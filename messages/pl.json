@@ -1,28 +1,19 @@
 {
   "Header": {
-    "Menu": {
-      "GettingStarted": {
-        "Name": "Pierwsze kroki",
-        "Main": {
-          "Description": "W pełni funkcjonalne hooki i narzędzia, które możesz skopiować i użyć w swoich aplikacji. Łatwe. Możliwość dostosowania. Open source.",
-          "Link": "/"
-        },
-        "Introduction": {
-          "Name": "Wprowadzenie",
-          "Link": "/docs/introduction",
-          "Description": "Hooki i narzędzia wielokrotnego użytku zbudowane przy użyciu TypeScript i Vitest."
-        },
-        "Typesafe": {
-          "Name": "Bezpieczeństwo",
-          "Link": "/docs/typesafe",
-          "Description": "Jak kod jest chroniony przed błędami."
-        },
-        "Quality": {
-          "Name": "Jakość",
-          "Link": "/docs/quality",
-          "Description": "Czysty i sprawdzony kod."
-        }
-      }
+    "Getting_started": {
+      "Description": "W pełni funkcjonalne hooki i narzędzia, które możesz skopiować i użyć w swoich aplikacji. Łatwe. Możliwość dostosowania. Open source."
+    },
+    "Hooks": {
+      "Description": ""
+    },
+    "Utilities": {
+      "Description": ""
+    },
+    "Animations": {
+      "Description": ""
+    },
+    "Components": {
+      "Description": ""
     },
     "Theme": {
       "ToggleTheme": "Zmień motyw",
@@ -34,6 +25,28 @@
       "ToggleLanguage": "Zmień język",
       "English": "Angielski",
       "Polish": "Polski"
+    }
+  },
+  "System": {
+    "Code": {
+      "Header": "Kod i zastosowanie"
+    },
+    "Navigation": {
+      "Getting_started": "Pierwsze kroki",
+      "Hooks": "Hooks",
+      "Utilities": "Narzędzia",
+      "Components": "Komponenty",
+      "Animations": "Animacje",
+      "Prev": "Poprzedni",
+      "Next": "Następny",
+      "OnThisPage": "Na stronie"
+    },
+    "New": "Nowość",
+    "SearchBar": {
+      "ButtonSearchLg": "Szukaj w dokumentacji...",
+      "ButtonSearchMd": "Szukaj...",
+      "InputSearch": "Zacznij szukać",
+      "NoResults": "Brak wyników."
     }
   },
   "LandingPage": {
@@ -94,207 +107,5 @@
         }
       }
     }
-  },
-  "Data": {
-    "ScrollIntoViewItems": {
-      "Entry": "Wprowadzenie",
-      "Testing": "Testy Vitest",
-      "TypeScript": "TypeScript",
-      "Linting": "Lintowanie oraz jakość kodu",
-      "Description": "Opis",
-      "Code": "Kod",
-      "Parameter": "Parametry",
-      "API": "API"
-    },
-    "Docs": {
-      "Name": "Pierwsze kroki",
-      "Link": "/docs/introduction",
-      "Items": {
-        "introduction": {
-          "Link": "/docs/introduction",
-          "Name": "Wprowadzenie",
-          "Content": "<h2>Wstęp</h2>Witamy w naszej kompleksowej bibliotece niestandardowych hooków React, funkcji pomocniczych, komponentów i animacji, <bold>stworzonych w celu usprawnienia i ulepszenia Twojego procesu tworzenia aplikacji.</bold> Ta kolekcja narzędzi została opracowana z silnym naciskiem na możliwość ponownego użycia, wydajność i doświadczenie programisty. Niezależnie od tego, czy pracujesz nad złożonym zarządzaniem stanem, obsługą efektów ubocznych, czy upraszczaniem typowych <bold>wzorów interfejsu użytkownika</bold>, nasze hooki i narzędzia pozwolą Ci tworzyć solidne i skalowalne aplikacje z łatwością.<br></br><br></br> Cała nasza biblioteka jest napisana w TypeScript, co zapewnia bezpieczeństwo typów i automatyczne uzupełnianie kodu od razu po instalacji. Każdy hook i funkcja pomocnicza została rygorystycznie przetestowana za pomocą Vitest, co gwarantuje niezawodność i brak błędów w szerokim zakresie przypadków użycia. Przestrzegamy również najlepszych praktyk w zakresie lintingu i stylu kodu, aby utrzymać czysty i łatwy w utrzymaniu kod.<br></br><br></br>W tym dokumencie omówimy trzy kluczowe aspekty, które wyróżniają naszą bibliotekę: kompleksowe podejście do testowania, zalety TypeScript oraz spójne stosowanie zasad lintingu. <h3>Testowanie z Vitest</h3>Jednym z głównych filarów naszej biblioteki jest rygorystyczny proces testowania, który stosujemy do każdego hooka i funkcji pomocniczej, którą rozwijamy. Wykorzystując <bold>Vitest</bold>, szybkie i nowoczesne środowisko testowe zaprojektowane dla TypeScript i JavaScript, zapewniamy, że każda część kodu spełnia najwyższe standardy niezawodności i funkcjonalności. Testowanie nie jest dla nas dodatkiem – to integralna część naszego procesu tworzenia, pozwalająca wykrywać potencjalne problemy na wczesnym etapie i dostarczać narzędzia, na których możesz polegać.<br></br><br></br> Vitest oferuje szybkie sprzężenie zwrotne i bezproblemowo integruje się z TypeScript, co czyni go idealnym narzędziem do naszych potrzeb testowych. Używamy zarówno <bold>testów jednostkowych, jak i testów integracyjnych</bold>, aby obejmować różne aspekty funkcjonalności. Wysoki poziom pokrycia testami zapewnia, że nasza biblioteka pozostaje niezawodna, nawet gdy dodawane są nowe funkcje lub ewoluuje w czasie. Nasze zaangażowanie w rozwój oparty na testach oznacza, że możesz z pełnym zaufaniem integrować nasze hooki w swoim projekcie, wiedząc, że będą działały zgodnie z oczekiwaniami. <h3>Napisane w TypeScript</h3> Cała nasza biblioteka jest napisana w <bold>TypeScript</bold>, potężnym nadzbiorze JavaScript, który wprowadza statyczne typowanie do kodu. TypeScript zapewnia liczne korzyści, takie jak lepsze narzędzia, ulepszona czytelność kodu i wcześniejsze wykrywanie błędów w trakcie tworzenia. Dzięki używaniu TypeScript we wszystkich naszych hookach i funkcjach pomocniczych zapewniamy Ci maksymalne korzyści z procesu tworzenia, w tym ulepszone automatyczne uzupełnianie kodu, bezpieczeństwo typów i bardziej przewidywalne zachowanie.<br></br><br></br> Definicje typów w naszych hookach i funkcjach pomocniczych zapewniają solidne egzekwowanie kontraktów, zapobiegając typowym błędom zanim się pojawią. TypeScript pozwala nam również tworzyć bardziej wyraziste <bold>API</bold>, dzięki czemu programiści łatwiej rozumieją, jak poprawnie używać każdego hooka. Dzięki wnioskowaniu typów programiści często otrzymują sugestie bezpośrednio w IDE, co przyspiesza tworzenie i zmniejsza ryzyko błędów w czasie działania. Dzięki temu nasze narzędzia są zarówno przyjazne dla programistów, jak i bardzo niezawodne w środowiskach produkcyjnych.<h3>Linting i jakość kodu</h3> Utrzymanie <bold>czystej i spójnej bazy kodu</bold> jest jednym z podstawowych założeń naszego procesu tworzenia. Aby to osiągnąć, stosujemy rygorystyczne zasady lintingu i przestrzegamy najlepszych praktyk dotyczących formatowania kodu. Nasza biblioteka jest w pełni lintowana za pomocą ESLint, co zapewnia, że kod jest nie tylko funkcjonalny, ale również czysty, czytelny i łatwy w utrzymaniu. To pomaga zmniejszyć dług technologiczny i ułatwia wprowadzanie zmian w przyszłości.<br></br><br></br>Linting wymusza również spójność we wszystkich hookach i funkcjach pomocniczych, zapewniając, że wszystkie przestrzegają jednolitego stylu kodowania. Dzięki temu programiści mogą łatwiej zrozumieć kod, szybciej wychwytywać potencjalne błędy i zapobiegać wprowadzaniu złych praktyk. Dodatkowo uruchamiamy lintery jako część naszego procesu ciągłej integracji, co oznacza, że każdy fragment kodu jest sprawdzany pod kątem jakości, zanim zostanie scalony z główną bazą kodu.<separator></separator>Ta biblioteka oferuje starannie opracowany zestaw narzędzi do nowoczesnego tworzenia aplikacji React. Dzięki solidnym podstawom w testowaniu, integracji z TypeScript oraz naciskowi na jakość kodu, nasze hooki i funkcje pomocnicze są niezawodne, przyjazne dla programistów i zaprojektowane tak, aby skalowały się wraz z potrzebami Twojego projektu. Niezależnie od tego, czy chcesz usprawnić swoją bazę kodu, czy zwiększyć wydajność swojej aplikacji, ta kolekcja zapewnia rozwiązania, które pozwolą Ci to osiągnąć z pełnym zaufaniem."
-        },
-        "typesafe": {
-          "Link": "/docs/typesafe",
-          "Name": "Bezpieczeństwo",
-          "Content": "<h2>Testowanie z Vitest</h2> Jednym z głównych filarów naszej biblioteki jest rygorystyczny proces testowania stosowany do każdego hooka i funkcji pomocniczej, które tworzymy. Korzystając z <bold>Vitest</bold>, szybkiego i nowoczesnego frameworka testowego zaprojektowanego dla TypeScript i JavaScript, zapewniamy, że każdy fragment kodu spełnia najwyższe standardy niezawodności i funkcjonalności. Testowanie nie jest dla nas dodatkiem – to integralna część procesu tworzenia, pozwalająca nam wcześnie wykrywać potencjalne problemy i dostarczać narzędzia, na których można polegać. <h3>Wszechstronne testowanie w różnych scenariuszach</h3> Każdy hook i funkcja pomocnicza w naszej bibliotece przechodzi dokładne testy, aby upewnić się, że zachowuje się poprawnie w szerokim zakresie scenariuszy. Obejmuje to: <ul><li><bold>Przypadki brzegowe:</bold> Symulujemy nietypowe lub nieoczekiwane interakcje użytkowników, aby upewnić się, że nasze narzędzia są wystarczająco solidne, by poradzić sobie z nimi w sposób bezproblemowy.</li><li><bold>Codzienne wzorce użycia:</bold> Testując w typowych i praktycznych scenariuszach, zapewniamy, że nasze hooki działają płynnie w codziennych aplikacjach.</li><li><bold>Testy obciążeniowe:</bold> Hooki są oceniane w warunkach dużego obciążenia, takich jak obsługa dużych zbiorów danych lub szybkie zmiany stanu, aby potwierdzić, że utrzymują optymalną wydajność.</li></ul>To skrupulatne podejście gwarantuje, że nasze narzędzia działają zgodnie z oczekiwaniami, niezależnie od tego, jak prosty czy skomplikowany jest Twój przypadek użycia.<h3>Moc Vitest w naszym procesie</h3>Vitest wyróżnia się jako nowoczesny framework testowy, który łączy szybkość, elastyczność i bezproblemową integrację z TypeScript. Jego błyskawiczna pętla informacji zwrotnej pozwala nam szybko iterować, jednocześnie utrzymując pewność co do niezawodności naszego kodu. Ponadto bliskie powiązanie Vitest z nowoczesnym ekosystemem JavaScript oznacza, że integruje się on płynnie z naszym procesem pracy, umożliwiając pisanie testów, które są zarówno efektywne, jak i łatwe w utrzymaniu.<h5>Stosujemy <bold>wielowarstwową strategię testowania</bold>, która obejmuje:</h5><ol> <li><bold>Testy jednostkowe:</bold> Skupiają się na indywidualnych funkcjach lub hookach, aby zweryfikować, że każdy komponent działa zgodnie z przeznaczeniem w izolacji.</li><li><bold>Testy integracyjne:</bold> Zaprojektowane, aby ocenić, jak hooki współdziałają ze sobą i z zewnętrznymi komponentami, zapewniając płynną funkcjonalność w większych systemach.</li></ol>Łącząc te podejścia, osiągamy wysoki poziom pokrycia testami, co pomaga nam utrzymać niezawodność biblioteki, gdy się rozwija i ewoluuje. To zaangażowanie w testowanie gwarantuje, że wszelkie nowe funkcje lub aktualizacje są wprowadzane bez kompromisów dla istniejącej funkcjonalności.<h3>Pewność dzięki podejściu Test-Driven Development</h3>Nasza biblioteka powstaje z silnym naciskiem na test-driven development (TDD). To podejście polega na pisaniu testów przed implementacją samego kodu, co zapewnia, że każda funkcja jest rozwijana z jasnym zrozumieniem jej wymagań i zachowania. Rezultat? Solidna biblioteka, którą możesz z pewnością zintegrować ze swoimi projektami, wiedząc, że każdy hook i funkcja pomocnicza zostały rygorystycznie zweryfikowane pod kątem działania w różnych warunkach.<h2>Tworzone w TypeScript</h2>Cała nasza biblioteka jest rozwijana przy użyciu <bold>TypeScript</bold>, potężnego nadzbioru JavaScript, który wprowadza statyczne typowanie do języka. Wybierając TypeScript jako fundament dla naszych hooków i narzędzi, odblokowujemy bogactwo korzyści, które poprawiają doświadczenie deweloperskie i jakość końcowego produktu.<h3>Zalety TypeScript</h3>TypeScript oferuje wiele funkcji, które są szczególnie cenne przy budowaniu i utrzymywaniu złożonych bibliotek:<ol><li><bold>Bezpieczeństwo typów:</bold> Dzięki statycznemu typowaniu potencjalne błędy są wychwytywane podczas tworzenia, zmniejszając ryzyko problemów w czasie wykonywania w produkcji.</li><li><bold>Zaawansowane narzędzia:</bold> Integracja TypeScript z nowoczesnymi IDE zapewnia solidne funkcje, takie jak autouzupełnianie kodu, dokumentacja inline i inteligentne sugestie refaktoryzacyjne.</li><li><bold>Poprawiona czytelność kodu:</bold> Dzięki jawnie zdefiniowanym typom sprawiamy, że nasze hooki i narzędzia są łatwiejsze do zrozumienia i użycia, zarówno dla Ciebie, jak i Twojego zespołu.</li></ol><h3>Solidne definicje typów dla lepszych API</h3>Definicje typów w naszej bibliotece pełnią rolę kontraktu między naszymi narzędziami a ich użytkownikami. Te definicje jasno określają oczekiwane wejścia i wyjścia każdego hooka, zmniejszając ryzyko błędów i zapewniając, że Twój kod pozostaje przewidywalny i łatwy w utrzymaniu.<h5>Dodatkowo TypeScript pozwala nam tworzyć <bold>wyraziste i intuicyjne API.</bold> Na przykład:</h5><ul><li>Hooki automatycznie wnioskują typy z ich wejść, dzięki czemu nie musisz podawać nadmiarowych adnotacji typów.</li><li>Złożone struktury danych są upraszczane za pomocą jasnych, samodokumentujących się definicji typów.</li></ul><h3>Doświadczenie deweloperskie spotyka niezawodność w produkcji</h3>TypeScript oferuje zaawansowane funkcje, takie jak unie rozróżnialne i generyki, które pozwalają projektować API, które są zarówno potężne, jak i przyjazne dla użytkownika. Te możliwości nie tylko poprawiają <bold>doświadczenie deweloperskie</bold> podczas implementacji, ale także przekładają się na <bold>większą niezawodność</bold> w środowiskach produkcyjnych. Dzięki wczesnemu wykrywaniu błędów i egzekwowaniu ścisłych reguł typowania TypeScript pomaga nam dostarczać narzędzia, które są jednocześnie elastyczne i solidne.<h5>Niezależnie od tego, czy integrujesz nasze hooki z małym projektem, czy dużą aplikacją korporacyjną, połączenie rozwoju opartego na TypeScript i testowania wspieranego przez Vitest zapewnia, że masz bibliotekę, której możesz zaufać, aby spełniała Twoje potrzeby.</h5>"
-        },
-        "quality": {
-          "Link": "/docs/quality",
-          "Name": "Jakość",
-          "Content": "<h2>Linting i Jakość Kodu</h2>Utrzymanie czystego, spójnego i wysokiej jakości kodu jest podstawową zasadą w naszym procesie deweloperskim. Dobrze utrzymana baza kodu sprzyja współpracy, skalowalności i łatwości zarządzania w miarę rozwoju projektu. Poniżej przedstawiamy, jak osiągamy i egzekwujemy te standardy.<h3>Dlaczego Jakość Kodu Ma Znaczenie</h3><ul><li><bold>Czytelność:</bold> Czysty kod jest łatwiejszy do zrozumienia i modyfikacji.</li><li><bold>Łatwość utrzymania:</bold> Dobrze zorganizowana baza kodu redukuje dług techniczny i wspiera długoterminowy rozwój.</li><li><bold>Współpraca:</bold> Spójny kod ułatwia pracę zespołów i współpracy z innymi deweloperami.</li></ul><h3>Jak Egzekwujemy Jakość Kodu</h3><ol><li><bold>Używanie ESLint do Lintingu</bold><br></br>Opieramy się na <bold>ESLint</bold>, potężnym narzędziu do egzekwowania standardów kodowania. Zapewnia ono, że:<ul><li>Kod przestrzega wcześniej określonych zasad i najlepszych praktyk.</li><li>Problemy są wykrywane wcześnie w cyklu deweloperskim.</li><li>Biblioteka pozostaje czysta, czytelna i łatwa do utrzymania.</li></ul></li><li><bold>Przyjęcie Spójnego Stylu Kodowania</bold><br></br>Spójność jest kluczem. Aby zapewnić jednolity wygląd i strukturę w całej bazie kodu:<ul><li>Wszystkie haki i narzędzia przestrzegają tych samych konwencji kodowania.</li><li>Deweloperzy mogą łatwo nawigować i rozumieć strukturę oraz logikę kodu.</li></ul></li><li><bold>Automatyzacja Sprawdzania Jakości w CI</bold><br></br>Nasza pipeline <bold>Continuous Integration (CI)</bold> zawiera automatyczne sprawdzanie lintingowe:<ul><li>Każda zmiana kodu jest analizowana pod kątem jakości przed połączeniem.</li><li>Potencjalne problemy są wykrywane wcześniej, zmniejszając ryzyko wprowadzenia błędów.</li></ul></li></ol><h2>Korzyści z Lintingu</h2><ul><li><bold>Zapobieganie Błędom:</bold> Identyfikuje problemy, takie jak błędy składniowe czy złe praktyki.</li><li><bold>Ulepszona Współpraca:</bold> Standaryzowany kod jest łatwiejszy do współpracy dla zespołów i współautorów.</li><li><bold>Przygotowanie na Przyszłość:</bold> Czysty, spójny kod jest łatwiejszy do dostosowania do przyszłych aktualizacji i rozszerzeń.</li></ul> Priorytetowe traktowanie lintingu i jakości kodu zapewnia, że nasza biblioteka pozostaje solidna, niezawodna i łatwa w użyciu. To zaangażowanie buduje silną podstawę dla przyszłego rozwoju i tworzy środowisko, w którym deweloperzy mogą się rozwijać."
-        }
-      }
-    },
-    "Hooks": {
-      "Name": "Hooks",
-      "Link": "/docs/hooks",
-      "SectionItems": {
-        "Code": {
-          "Hook": "Hook",
-          "Usage": "Zastosowanie"
-        },
-        "Footer": {
-          "Previous": "Poprzedni",
-          "Next": "Następny"
-        }
-      },
-      "Items": {
-        "useclipboard": {
-          "Link": "/docs/hooks/useclipboard",
-          "Name": "useClipboard",
-          "Content": "<h2>Opis</h2>UseClipboard to niestandardowy hook React, który zapewnia prosty interfejs do kopiowania tekstu do schowka użytkownika za pomocą API Clipboard. Obsługuje stany powodzenia i błędu oraz zawiera funkcję resetowania, która pozwala wyczyścić bieżący stan. Ten hook upraszcza proces kopiowania tekstu do schowka i dostarcza informacje zwrotne o powodzeniu operacji. <separator></separator> <h2hide>Kod</h2hide> <code>hook</code> <h2>Parametry</h2> <ul> <li><secondaryhighlight>copyToClipboard(text: string): void</secondaryhighlight> - Przyjmuje ciąg znaków i próbuje skopiować go do schowka. Jeśli operacja zakończy się sukcesem, ustawia isCopied na true; w przypadku niepowodzenia ustawia komunikat o błędzie.</li> <li><secondaryhighlight>isCopied: boolean</secondaryhighlight> - Flaga logiczna wskazująca, czy tekst został pomyślnie skopiowany do schowka.</li> <li><secondaryhighlight>error: string | null</secondaryhighlight> - Jeśli kopiowanie do schowka zakończy się niepowodzeniem, ten ciąg zawiera komunikat o błędzie. Jeśli nie wystąpił żaden błąd, wartość jest null.</li> <li><secondaryhighlight>reset(): void</secondaryhighlight> - Resetuje stany isCopied i error do ich początkowych wartości. Przydatne, jeśli chcesz zresetować hook po pomyślnej lub nieudanej operacji schowka.</li> </ul>",
-          "Description": "UseClipboard to niestandardowy hook React, który zapewnia prosty interfejs do kopiowania tekstu do schowka użytkownika za pomocą API Clipboard.",
-          "CreateAt": "2024-10-17"
-        },
-        "usechatgpt": {
-          "Link": "/docs/hooks/usechatgpt",
-          "Name": "useChatGPT",
-          "Content": "<h2>Opis</h2> UseChatGPT to niestandardowy hook React, który pozwala na interakcję z API ChatGPT. Zarządza procesem przesyłania danych użytkownika do API, obsługuje stany ładowania i błędu oraz przechowuje odpowiedź zwróconą przez API. Może być łatwo zintegrowany z dowolnym komponentem React, aby umożliwić funkcjonalność chatbota. <separator></separator> <h2hide>Kod</h2hide> <code>hook</code> <h2>API</h2><ul> <li><secondaryhighlight>apiKey: string</secondaryhighlight> - Klucz API używany do uwierzytelniania żądań do OpenAI API.</li> </ul> <h2>Parametry</h2> <ul> <li><secondaryhighlight>sendMessage(message: string): Promise'<'void'>'</secondaryhighlight> - Funkcja, która przyjmuje ciąg znaków jako wiadomość, wysyła ją do API ChatGPT i aktualizuje stan odpowiedzi.</li> <li><secondaryhighlight>response: string | null</secondaryhighlight> - Odpowiedź zwrócona przez API ChatGPT lub null, jeśli brak odpowiedzi.</li> <li><secondaryhighlight>isLoading: boolean</secondaryhighlight> - Flaga logiczna wskazująca, czy żądanie do API ChatGPT jest w trakcie przetwarzania.</li> <li><secondaryhighlight>error: string | null</secondaryhighlight> - Komunikat o błędzie, jeśli wystąpił błąd podczas żądania do API, lub null, jeśli brak błędu.</li> </ul>",
-          "Description": "UseChatGPT to niestandardowy hook React, który pozwala na interakcję z API ChatGPT.",
-          "CreateAt": "2024-10-17"
-        },
-        "usepromiseall": {
-          "Link": "/docs/hooks/usepromiseall",
-          "Name": "usePromiseAll",
-          "Content": "<h2>Opis</h2> UsePromiseAll to hook, który umożliwia równoległe wykonywanie wielu obietnic (promises), oferując prosty sposób śledzenia stanu ładowania, sukcesu i błędów. Po rozwiązaniu wszystkich obietnic (lub ich odrzuceniu), hook zwraca wyniki lub błąd oraz stan ładowania. <separator></separator> <h2hide>Kod</h2hide> <code>hook</code> <h2>Parametry</h2> <ul> <li><secondaryhighlight>promises: Promise&lt;T&gt;[]</secondaryhighlight> - Tablica obietnic do wykonania równocześnie.</li> </ul> <h2>API</h2> <ul> <li><secondaryhighlight>results: T[] | null</secondaryhighlight> - Rozwiązane wartości wszystkich obietnic lub null, jeśli trwa ładowanie.</li> <li><secondaryhighlight>error: Error | null</secondaryhighlight> - Każdy napotkany błąd w trakcie wykonywania obietnic, lub null w przypadku braku błędów.</li>  <li><secondaryhighlight>isLoading: boolean</secondaryhighlight> - Wartość logiczna reprezentująca stan ładowania (true podczas oczekiwania na obietnice, false, gdy wszystkie zostaną rozwiązane lub jedna zostanie odrzucona).</li> </ul>",
-          "Description": "UsePromiseAll to hook, który umożliwia równoległe wykonywanie wielu obietnic (promises), oferując prosty sposób śledzenia stanu ładowania, sukcesu i błędów.",
-          "CreateAt": "2024-10-17"
-        },
-        "usehover": {
-          "Link": "/docs/hooks/usehover",
-          "Name": "useHover",
-          "Content": "<h2>Opis</h2>Hook useHover wykrywa, kiedy element jest najechany kursorem. Zwraca logiczny stan hovered, który wskazuje, czy mysz znajduje się obecnie nad elementem, oraz ref do podłączenia do elementu, który chcesz śledzić.<separator></separator><h2hide>Kod</h2hide><code>hook</code><ul></ul><h2>API</h2><ul><li><secondaryhighlight>hovered: boolean</secondaryhighlight> - true, jeśli element jest aktualnie najechany, false w przeciwnym razie.</li><li><secondaryhighlight>ref: React.RefObject'<'T'>'</secondaryhighlight> - Ref, który należy podłączyć do śledzonego elementu w celu wykrywania stanu najechania.</li></ul>",
-          "Description": "Hook useHover wykrywa, kiedy element jest najechany kursorem.",
-          "CreateAt": "2024-10-17"
-        },
-        "useclickoutside": {
-          "Link": "/docs/hooks/useclickoutside",
-          "Name": "useClickOutside",
-          "Content": "<h2>Opis</h2>Niestandardowy hook, który wywołuje funkcję zwrotną po wykryciu kliknięcia poza elementem wskazanym przez ref.<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>ref: RefObject'<'HTMLElement'>'</secondaryhighlight> - Obiekt referencji React wskazujący element HTML do monitorowania kliknięć poza nim.</li><li><secondaryhighlight>callback(): void</secondaryhighlight> - Funkcja wywoływana po wykryciu kliknięcia poza wskazanym elementem.</li></ul>",
-          "Description": "Niestandardowy hook, który wywołuje funkcję zwrotną po wykryciu kliknięcia poza elementem wskazanym przez ref.",
-          "CreateAt": "2024-10-17"
-        },
-        "usedebounce": {
-          "Link": "/docs/hooks/usedebounce",
-          "Name": "useDebounce",
-          "Content": "<h2>Opis</h2>Hook useDebounce opóźnia aktualizację wartości do momentu upłynięcia określonego czasu od ostatniej zmiany wartości. Jest to przydatne w scenariuszach takich jak filtrowanie danych wprowadzanych przez użytkownika lub zapobieganie wielokrotnym wywołaniom API podczas szybkich zmian.<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>value: T</secondaryhighlight> - Bieżąca wartość do opóźnienia. Może być dowolnego typu (T).</li><li><secondaryhighlight>delay: number</secondaryhighlight> - Opóźnienie w milisekundach.</li></ul><h2>API</h2><ul><li><secondaryhighlight>debouncedValue: T</secondaryhighlight> - Wersja opóźniona wartości wejściowej, która aktualizuje się dopiero po określonym opóźnieniu.</li></ul>",
-          "Description": "Hook useDebounce opóźnia aktualizację wartości do momentu upłynięcia określonego czasu od ostatniej zmiany wartości.",
-          "CreateAt": "2024-10-17"
-        },
-        "usesort": {
-          "Link": "/docs/hooks/usesort",
-          "Name": "useSort",
-          "Content": "<h2>Opis</h2>Hook useSort ułatwia sortowanie list danych, dostarczając posortowaną wersję listy na podstawie określonej funkcji sortowania. Oferuje również możliwość przełączania między porządkiem rosnącym i malejącym.<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>items: T[]</secondaryhighlight> - Lista elementów do posortowania.</li><li><secondaryhighlight>sortFn: (a: T, b: T) => number</secondaryhighlight> - Funkcja sortowania określająca sposób porównywania dwóch elementów na liście. Powinna zwrócić liczbę ujemną, jeśli a poprzedza b, liczbę dodatnią, jeśli a następuje po b, i 0, jeśli są równe.</li><li><secondaryhighlight>initialOrder?: asc | desc</secondaryhighlight> - Początkowy porządek sortowania. Domyślnie asc (rosnący).</li></ul><h2>API</h2><ul><li><secondaryhighlight>sortedItems: T[]</secondaryhighlight> - Posortowana wersja podanej listy.</li><li><secondaryhighlight>order: asc | desc</secondaryhighlight> - Obecny porządek sortowania.</li><li><secondaryhighlight>toggleOrder(): void</secondaryhighlight> - Funkcja przełączająca między porządkiem rosnącym ('asc') i malejącym ('desc').</li></ul>",
-          "Description": "Hook useSort ułatwia sortowanie list danych, dostarczając posortowaną wersję listy na podstawie określonej funkcji sortowania.",
-          "CreateAt": "2024-10-17"
-        },
-        "usemediaquery": {
-          "Link": "/docs/hooks/usemediaquery",
-          "Name": "useMediaQuery",
-          "Content": "<h2>Opis</h2>Hook useMediaQuery pozwala na stosowanie technik projektowania responsywnego poprzez nasłuchiwanie zmian w zapytaniach medialnych CSS. Zwraca wartość logiczną wskazującą, czy zapytanie medialne pasuje do bieżącego widoku, umożliwiając warunkowe renderowanie komponentów lub stosowanie stylów w oparciu o zapytanie.<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>query: string</secondaryhighlight> - Ciąg znaków reprezentujący zapytanie medialne, które chcesz monitorować.</li></ul><h2>API</h2><ul><li><secondaryhighlight>isMobile: boolean</secondaryhighlight> - true, jeśli zapytanie medialne pasuje do bieżącego widoku, w przeciwnym razie false.</li></ul>",
-          "Description": "Hook useMediaQuery pozwala na stosowanie technik projektowania responsywnego poprzez nasłuchiwanie zmian w zapytaniach medialnych CSS.",
-          "CreateAt": "2024-10-17"
-        },
-        "usekeyboardshortcup": {
-          "Link": "/docs/hooks/usekeyboardshortcup",
-          "Name": "useKeyboardShortcup",
-          "Content": "<h2>Opis</h2>Hook useKeyboardShortcut nasłuchuje określonych kombinacji klawiszy (np. 'Ctrl+S' lub 'Alt+Shift+P') i wywołuje funkcję zwrotną po ich naciśnięciu. Jest to przydatne do implementacji funkcji takich jak skróty zapisywania, szybkie akcje lub nawigacja oparta na klawiszach w aplikacji.<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>keys: string[]</secondaryhighlight> - Tablica klawiszy (np. ['Control', 'S'] lub ['Alt', 'Shift', 'P']) reprezentująca kombinację klawiszy.</li><li><secondaryhighlight>callback(): void</secondaryhighlight> - Funkcja wykonywana po naciśnięciu kombinacji klawiszy.</li><li><secondaryhighlight>element?: HTMLElement | Window</secondaryhighlight> - Element DOM, do którego ma zostać przypisany nasłuchiwacz. Domyślnie window.</li></ul>",
-          "Description": "Hook useKeyboardShortcut nasłuchuje określonych kombinacji klawiszy (np. 'Ctrl+S' lub 'Alt+Shift+P') i wywołuje funkcję zwrotną po ich naciśnięciu.",
-          "CreateAt": "2024-10-17"
-        },
-        "usecounter": {
-          "Link": "/docs/hooks/usecounter",
-          "Name": "useCounter",
-          "Content": "<h2>Opis</h2>Hook useCounter zapewnia łatwy sposób zarządzania logiką licznika, taką jak zwiększanie, zmniejszanie, resetowanie oraz ustawianie określonej wartości.<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>initialValue?: number</secondaryhighlight> - Początkowa wartość licznika. Domyślnie 0.</li></ul><h2>API</h2><ul><li><secondaryhighlight>count: number</secondaryhighlight> - Aktualna wartość licznika.</li><li><secondaryhighlight>increment(): void</secondaryhighlight> - Zwiększa licznik o 1.</li><li><secondaryhighlight>decrement(): void</secondaryhighlight> - Zmniejsza licznik o 1.</li><li><secondaryhighlight>reset(): void</secondaryhighlight> - Resetuje licznik do wartości początkowej.</li><li><secondaryhighlight>set(value: number): void</secondaryhighlight> - Ustawia licznik na określoną wartość.</li></ul>",
-          "Description": "Hook useCounter zapewnia łatwy sposób zarządzania logiką licznika, taką jak zwiększanie, zmniejszanie, resetowanie oraz ustawianie określonej wartości.",
-          "CreateAt": "2024-10-17"
-        },
-        "uselocalstorage": {
-          "Link": "/docs/hooks/uselocalstorage",
-          "Name": "useLocalStorage",
-          "Content": "<h2>Opis</h2>Hook useLocalStorage służy do przechowywania i pobierania wartości z localStorage w komponencie React. Działa jak hook useState, ale przechowuje wartość nawet po odświeżeniu strony lub ponownym jej otwarciu. Hook automatycznie synchronizuje stan z localStorage i zapewnia, że wartość jest zawsze aktualna.<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>key: string</secondaryhighlight> - Klucz, pod którym wartość jest przechowywana w localStorage.</li><li><secondaryhighlight>initialValue: string</secondaryhighlight> - Początkowa wartość do przechowania. Może to być wartość lub funkcja zwracająca wartość.</li></ul><h2>API</h2><ul><li><secondaryhighlight>[storedValue, setValue]</secondaryhighlight> - Krotka, gdzie storedValue to aktualna wartość z localStorage, a setValue to funkcja do aktualizacji wartości.</li></ul>",
-          "Description": "Hook useLocalStorage służy do przechowywania i pobierania wartości z localStorage w komponencie React.",
-          "CreateAt": "2024-10-17"
-        },
-        "usesearch": {
-          "Link": "/docs/hooks/usesearch",
-          "Name": "useSearch",
-          "Content": "<h2>Opis</h2>Hook useSearch pozwala łatwo zarządzać zapytaniami wyszukiwania i wynikami. Filtruje listę elementów na podstawie podanego zapytania i funkcji filtrującej. Hook obsługuje debouncing, aby zoptymalizować wydajność, unikając niepotrzebnego filtrowania podczas szybkiego wpisywania.<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>items: T[]</secondaryhighlight> - Lista elementów do przeszukania.</li><li><secondaryhighlight>filterFn: (item: T, query: string): boolean</secondaryhighlight> - Funkcja, która definiuje, jak filtrować elementy na podstawie zapytania wyszukiwania.</li><li><secondaryhighlight>debounceDelay?: number</secondaryhighlight> - Opóźnienie (w milisekundach) dla debouncingu wejścia wyszukiwania. Domyślnie 300ms.</li></ul><h2>API</h2><ul><li><secondaryhighlight>query: string</secondaryhighlight> - Bieżące zapytanie wyszukiwania.</li><li><secondaryhighlight>setQuery: (query: string): void</secondaryhighlight> - Funkcja do aktualizacji zapytania wyszukiwania.</li><li><secondaryhighlight>filteredItems: T[]</secondaryhighlight> - Lista przefiltrowanych elementów na podstawie zapytania wyszukiwania.</li><li><secondaryhighlight>isSearching: boolean</secondaryhighlight> - Wartość logiczna reprezentująca, czy hook aktywnie przeszukuje (z debouncingiem).</li></ul>",
-          "Description": "Hook useSearch pozwala łatwo zarządzać zapytaniami wyszukiwania i wynikami.",
-          "CreateAt": "2024-10-17"
-        },
-        "useinterval": {
-          "Link": "/docs/hooks/useinterval",
-          "Name": "useInterval",
-          "Content": "<h2>Opis</h2>Hook useInterval jest przydatny, gdy trzeba wykonać powtarzającą się akcję (np. polling API lub animowanie czegoś) w określonych interwałach czasowych w komponencie React. Automatycznie zarządza ustawianiem i czyszczeniem interwału, aby uniknąć wycieków pamięci lub przestarzałych interwałów, gdy komponent jest aktualizowany lub odmontowywany.<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>callback(): void</secondaryhighlight> - Funkcja, która ma być wykonywana w regularnych odstępach czasu.</li><li><secondaryhighlight>delay: number</secondaryhighlight> - Opóźnienie w milisekundach między wykonaniami. Jeśli opóźnienie jest nullem, interwał zostanie wstrzymany.</li></ul>",
-          "Description": "Hook useInterval jest przydatny, gdy trzeba wykonać powtarzającą się akcję (np. polling API lub animowanie czegoś) w określonych interwałach czasowych w komponencie React.",
-          "CreateAt": "2024-10-17"
-        },
-        "usescrollintoview": {
-          "Link": "/docs/hooks/usescrollintoview",
-          "Name": "useScrollIntoView",
-          "Content": "<h2>Opis</h2>Hook useScrollIntoView służy do przewijania elementu (reprezentowanego przez ref) do widoku z możliwością dostosowania zachowania. Zapewnia funkcję zwrotną, która uruchamia akcję przewijania, a także pozwala określić sposób przewijania (auto lub smooth) oraz wyrównanie elementu po przewinięciu do widoku (opcje pozycjonowania, takie jak start, center, end lub nearest dla obu kierunków: blokowego i inline).<separator></separator><h2hide>Kod</h2hide><code>hook</code><h2>Parametry</h2><ul><li><secondaryhighlight>ref: React.RefObject'<'HTMLElement'>'</secondaryhighlight>- Referencja do elementu, który powinien zostać przewinięty do widoku.</li><li><secondaryhighlight>behavior?: auto | smooth</secondaryhighlight> - Zachowanie przewijania. Domyślnie smooth.</li><li><secondaryhighlight>block?: start | center | end | nearest</secondaryhighlight> - Wyrównanie pionowe elementu po przewinięciu do widoku. Domyślnie start.</li><li><secondaryhighlight>inline: start | center | end | nearest</secondaryhighlight> - Wyrównanie poziome elementu po przewinięciu do widoku. Domyślnie nearest.</li></ul><h2>API</h2><ul><li><secondaryhighlight>scrollToElement(): void</secondaryhighlight> - Funkcja zwrotna, która po wywołaniu przewija wskazany element do widoku.</li></ul>",
-          "Description": "Hook useScrollIntoView służy do przewijania elementu (reprezentowanego przez ref) do widoku z możliwością dostosowania zachowania.",
-          "CreateAt": "2024-10-17"
-        }
-      }
-    },
-    "Utilities": {
-      "Name": "Narzędzia",
-      "Link": "/docs/utilities",
-      "SectionItems": {
-        "Code": {
-          "Util": "Utility",
-          "Usage": "Zastosowanie"
-        },
-        "Parameter": {
-          "Name": "Parametry",
-          "Content": "Ten hook akceptuje następujące argumenty:"
-        },
-        "Footer": {
-          "Previous": "Poprzedni",
-          "Next": "Następny"
-        }
-      },
-      "Items": {
-        "show": {
-          "Link": "/docs/utilities/show",
-          "Name": "<Show />",
-          "Content": "<h2>Opis</h2>Komponent Show w React umożliwia warunkowe renderowanie komponentów podrzędnych na podstawie określonych warunków. Używa dwóch podkomponentów: <secondaryhighlight>Show.When</secondaryhighlight> i <secondaryhighlight>Show.Else</secondaryhighlight>. Komponent <secondaryhighlight>Show.When</secondaryhighlight> renderuje swoje dzieci, jeśli prop <secondaryhighlight>isTrue</secondaryhighlight> jest ustawiony na true, natomiast <secondaryhighlight>Show.Else</secondaryhighlight> renderuje się, jeśli żaden warunek nie jest spełniony. Ten komponent upraszcza logikę warunkową, wbudowując ją bezpośrednio w JSX.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>isTrue?: boolean</secondaryhighlight> - Określa, czy dzieci powinny być renderowane. Jeśli jest ustawione na true, dzieci zostaną wyrenderowane.</li></ul>",
-          "Description": "Komponent Show w React umożliwia warunkowe renderowanie komponentów podrzędnych na podstawie określonych warunków.",
-          "CreateAt": "2024-10-17"
-        },
-        "each": {
-          "Link": "/docs/utilities/each",
-          "Name": "<Each />",
-          "Content": "<h2>Opis</h2>Komponent Each jest funkcją pomocniczą, która iteruje po tablicy elementów i renderuje każdy element, używając dostarczonej funkcji renderującej. Funkcja renderująca przyjmuje dwa argumenty: bieżący element (<secondaryhighlight>item</secondaryhighlight>) oraz jego indeks (<secondaryhighlight>index</secondaryhighlight>). Zwraca element JSX dla każdego elementu w tablicy. Ta funkcjonalność upraszcza powszechny proces renderowania elementów z tablic, oferując wielokrotnego użytku i dostosowywalne rozwiązanie.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>render(item: any, index: number): JSX.Element</secondaryhighlight> - Wymagana funkcja, która definiuje sposób renderowania każdego elementu w tablicy. Przyjmuje dwa argumenty (<secondaryhighlight>item</secondaryhighlight> - Bieżący element z tablicy, <secondaryhighlight>index</secondaryhighlight> - Indeks bieżącego elementu).</li><li><secondaryhighlight>of: any[]</secondaryhighlight> - Wymagana tablica elementów, po której zostanie przeprowadzona iteracja. Funkcja renderująca jest wywoływana dla każdego elementu tej tablicy.</li></ul>",
-          "Description": "Komponent Each jest funkcją pomocniczą, która iteruje po tablicy elementów i renderuje każdy element, używając dostarczonej funkcji renderującej. ",
-          "CreateAt": "2024-10-17"
-        },
-        "delay": {
-          "Link": "/docs/utilities/delay",
-          "Name": "<Delay />",
-          "Content": "<h2>Description</h2>Komponent Delay jest funkcją pomocniczą, która renderuje swoje dzieci po określonym opóźnieniu. Jest to przydatne, gdy chcesz opóźnić renderowanie niektórych komponentów z powodów UX lub wydajnościowych. Komponent ten akceptuje prop <secondaryhighlight>ms</secondaryhighlight>, który określa opóźnienie w milisekundach przed renderowaniem dzieci. Podczas okresu opóźnienia komponent może wyświetlić wskaźnik ładowania lub nic.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>ms: number</secondaryhighlight> - Opóźnienie w milisekundach przed renderowaniem dzieci.</li></ul>",
-          "Description": "Komponent Delay jest funkcją pomocniczą, która renderuje swoje dzieci po określonym opóźnieniu.",
-          "CreateAt": "2024-10-17"
-        }
-      }
-    },
-    "Components": {
-      "Name": "Komponenty"
-    },
-    "Animations": {
-      "Name": "Animacje"
-    }
-  },
-  "New": "Nowość",
-  "OnThisPage": "Na stronie",
-  "SearchBar": {
-    "ButtonSearchLg": "Szukaj w dokumentacji...",
-    "ButtonSearchMd": "Szukaj...",
-    "InputSearch": "Zacznij szukać",
-    "NoResults": "Brak wyników."
   }
 }

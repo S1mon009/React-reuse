@@ -1,65 +1,33 @@
 import type { JSX } from "react";
-import { useTranslations } from "next-intl";
+import type { Metadata } from "next";
 
-import { Separator } from "@/components/ui/separator";
-import Heading from "@/components/docs/heading/heading";
-import Footer from "@/components/docs/footer/footer";
+import PrevNextNav from "@/components/navigation/prev-next-nav";
 import SectionNavigationList from "@/components/navigation/section_navigation/section-navigation-list";
-import Translation from "@/components/translation/translation";
 import Layout from "@/components/layouts/layout";
 
-import { getPrevNextValue } from "@/lib/utils";
-import { roughNotationColor as color } from "@/config/rought-notation-color";
+type Params = Promise<{ locale: string }>;
 
-import { keys as linkKeys } from "@/keys/sidebar-links-keys";
-import { keys as categoryKeys } from "@/keys/links-keys";
+export const metadata: Metadata = {
+  title: "Typesafe",
+  description:
+    "Description of actions taken to secure the correct operation of the application.",
+};
 
-const translations: string = "Data.Docs.Items.typesafe";
-const sectionItemsTranslation: string = "Data.Hooks.SectionItems";
+export default async function Page(props: {
+  params: Params;
+}): Promise<JSX.Element> {
+  const { locale } = await props.params;
 
-/**
- * Page component renders typesafe info about library.
- * It supports localization (i18n) and is responsive for a11y improvements.
- *
- * @returns {JSX.Element} The rendered Page component.
- */
-export default function Page(): JSX.Element {
-  const t = useTranslations(translations);
-  const sectionItems = useTranslations(sectionItemsTranslation);
-  const footerItems = useTranslations("Data");
-  const footerLinks = getPrevNextValue("typesafe", linkKeys, categoryKeys);
+  const { default: Post } = await import(
+    `@/content/${locale}/getting_started/typesafe.mdx`
+  );
 
   return (
     <>
-      <Layout type="section">
-        <Heading title={t("Name")} color={color} />
+      <Layout type="mdx" id="typesafe">
+        <Post />
+        <PrevNextNav />
       </Layout>
-      <Layout type="section" id="typesafe">
-        <Translation keyMessage="Data.Docs.Items.typesafe.Content" />
-      </Layout>
-      <Separator className="my-4" />
-      <Footer
-        data={[
-          {
-            link: `${footerItems(
-              `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Link`
-            )}`,
-            title: sectionItems("Footer.Previous"),
-            description: footerItems(
-              `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Name`
-            ),
-          },
-          {
-            link: `${footerItems(
-              `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Link`
-            )}`,
-            title: sectionItems("Footer.Next"),
-            description: footerItems(
-              `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Name`
-            ),
-          },
-        ]}
-      />
       <Layout
         type="aside"
         className="hidden md:block fixed top-14 right-0 h-full w-1/5 p-4"

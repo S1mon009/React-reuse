@@ -1,0 +1,53 @@
+export const name = "useLocalStorage";
+export const link = "/docs/hooks/uselocalstorage";
+export const createdAt = "2024-10-17";
+export const description =
+  "The useLocalStorage hook is used to store and retrieve values from localStorage in a React component.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `useLocalStorage` hook is used to store and retrieve values from localStorage in a React component. It works like the useState hook but keeps the value saved even when the page is refreshed or reopened. The hook automatically synchronizes the state with the localStorage and ensures that the value is always up-to-date.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## API
+
+- `[storedValue, setValue]` - A tuple where storedValue is the current value from localStorage and setValue is a function to update the value.
+
+## Parameters
+
+- `key: string` - The key under which the value is stored in localStorage.
+- `initialValue: string` - The initial value to be stored. This can be a value or a function that returns a value.

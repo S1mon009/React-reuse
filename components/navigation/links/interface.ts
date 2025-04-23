@@ -1,9 +1,4 @@
 export interface LinksProps {
+  locale: string;
   type: "desktop" | "mobile";
-}
-
-export interface ListItemProps {
-  title: string;
-  href: string;
-  children: Readonly<React.ReactNode>;
 }

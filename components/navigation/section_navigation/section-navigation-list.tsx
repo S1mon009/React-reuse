@@ -11,12 +11,6 @@ import { cn } from "@/lib/utils";
 
 import { SectionListProps } from "./interface";
 
-/**
- * Component displaying a list of navigation sections.
- *
- * @param {SectionListProps} props - Contains the sectionId.
- * @returns {JSX.Element} The rendered SectionList component
- */
 export default function SectionList({
   sectionId,
 }: SectionListProps): JSX.Element {
@@ -79,7 +73,7 @@ export default function SectionList({
   return (
     <>
       <Typography type="p" className="my-2 font-semibold">
-        {onThisPage("OnThisPage")}
+        {onThisPage("System.Navigation.OnThisPage")}
       </Typography>
       <div className="border-l-2 border-muted">
         <Each

@@ -4,16 +4,6 @@ import { cn } from "@/lib/utils";
 
 import { TypographyProps, TypographyItemsProps } from "./interface";
 
-/**
- * This component wrap children into html h1 element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered H1 component
- */
 const H1 = ({
   children,
   className,
@@ -32,16 +22,6 @@ const H1 = ({
   );
 };
 
-/**
- * This component wrap children into html h2 element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered H2 component
- */
 const H2 = ({
   children,
   className,
@@ -60,16 +40,6 @@ const H2 = ({
   );
 };
 
-/**
- * This component wrap children into html h3 element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered H3 component
- */
 const H3 = ({
   children,
   className,
@@ -88,16 +58,6 @@ const H3 = ({
   );
 };
 
-/**
- * This component wrap children into html h4 element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered H4 component
- */
 const H4 = ({
   children,
   className,
@@ -116,44 +76,14 @@ const H4 = ({
   );
 };
 
-/**
- * This component wrap children into html h5 element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered H5 component
- */
 const H5 = ({ children, ...props }: TypographyItemsProps): JSX.Element => {
   return <h5 {...props}>{children}</h5>;
 };
 
-/**
- * This component wrap children into html h6 element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered H6 component
- */
 const H6 = ({ children, ...props }: TypographyItemsProps): JSX.Element => {
   return <h6 {...props}>{children}</h6>;
 };
 
-/**
- * This component wrap children into html p element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered P component
- */
 const P = ({
   children,
   className,
@@ -169,44 +99,14 @@ const P = ({
   );
 };
 
-/**
- * This component wrap children into html span element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered Span component
- */
 const Span = ({ children, ...props }: TypographyItemsProps): JSX.Element => {
   return <span {...props}>{children}</span>;
 };
 
-/**
- * This component wrap children into html a element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered A component
- */
 const A = ({ children, href, ...props }: TypographyItemsProps): JSX.Element => {
   return <a {...props}>{children}</a>;
 };
 
-/**
- * This component wrap children into html span code element.
- *
- * Props:
- * - children (Readonly<React.ReactNode>): The children of the component.
- * - ...props: Everyone else props
- *
- * @param {TypographyItemsProps} props - Contains children and everyone else props.
- * @returns {JSX.Element} The rendered Code Span component
- */
 const Code = ({ children, ...props }: TypographyItemsProps): JSX.Element => {
   return (
     <span className="bg-gray-300 dark:bg-gray-600 rounded-sm px-2" {...props}>

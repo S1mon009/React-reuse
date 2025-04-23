@@ -1,28 +1,19 @@
 {
   "Header": {
-    "Menu": {
-      "GettingStarted": {
-        "Name": "Getting started",
-        "Main": {
-          "Description": "Fully funcionalited hooks and utilities that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
-          "Link": "/"
-        },
-        "Introduction": {
-          "Name": "Introduction",
-          "Link": "/docs/introduction",
-          "Description": "Re-usable hooks and utils built using TypeScript and Vitest."
-        },
-        "Typesafe": {
-          "Name": "Typesafe",
-          "Link": "/docs/typesafe",
-          "Description": "How the code is protected against errors."
-        },
-        "Quality": {
-          "Name": "Quality",
-          "Link": "/docs/quality",
-          "Description": "Clean and proven code."
-        }
-      }
+    "Getting_started": {
+      "Description": "Fully funcionalited hooks and utilities that you can copy and paste into your apps. Accessible. Customizable. Open Source."
+    },
+    "Hooks": {
+      "Description": ""
+    },
+    "Utilities": {
+      "Description": ""
+    },
+    "Animations": {
+      "Description": ""
+    },
+    "Components": {
+      "Description": ""
     },
     "Theme": {
       "ToggleTheme": "Toggle theme",
@@ -31,11 +22,37 @@
       "System": "System"
     },
     "Language": {
-      "ToggleLanguage": "Toggle language",
+      "ToggleLanguage": "Switch language",
       "English": "English",
       "Polish": "Polish"
     }
   },
+  "System": {
+    "Code": {
+      "Header": "Code and usage"
+    },
+    "Navigation": {
+      "Getting_started": "Getting started",
+      "Introduction": "Introduction",
+      "Typesafe": "Typesafe",
+      "Quality": "Quality",
+      "Hooks": "Hooks",
+      "Utilities": "Utilities",
+      "Components": "Components",
+      "Animations": "Animations",
+      "Prev": "Previous",
+      "Next": "Next",
+      "OnThisPage": "On this page"
+    },
+    "New": "New",
+    "SearchBar": {
+      "ButtonSearchLg": "Search documentation...",
+      "ButtonSearchMd": "Search...",
+      "InputSearch": "Type to search",
+      "NoResults": "No results found."
+    }
+  },
+
   "LandingPage": {
     "Section1": {
       "Heading": "<span>Hooks</span>, <span>utilities</span>, <span>components</span> and <span>animations</span> for your next powerfull projects",
@@ -94,209 +111,5 @@
         }
       }
     }
-  },
-  "Data": {
-    "ScrollIntoViewItems": {
-      "Entry": "Entry",
-      "Testing": "Testing with Vitest",
-      "TypeScript": "Written in TypeScript",
-      "Linting": "Linting and Code Quality",
-      "Description": "Description",
-      "Code": "Code",
-      "Parameter": "Parameters",
-      "API": "API"
-    },
-    "Docs": {
-      "Name": "Getting Started",
-      "Link": "/docs/introduction",
-      "Items": {
-        "introduction": {
-          "Link": "/docs/introduction",
-          "Name": "Introduction",
-          "Content": "<h2>Entry</h2>Welcome to our comprehensive library of custom React hooks, utility functions, components and animations, <bold>designed to streamline and enhance your development workflow.</bold> This collection of tools is built with a strong focus on reusability, performance, and developer experience. Whether you're working on complex state management, handling side effects, or simplifying common <bold>UI patterns</bold>, our hooks and utilities will empower you to build robust and scalable applications with ease.<br></br><br></br> Our entire library is written in TypeScript, providing you with type safety and autocompletion right out of the box. Each hook and utility has been rigorously tested using Vitest, ensuring reliability and bug-free behavior across a wide range of use cases. We also follow best practices in linting and code style to maintain a clean and maintainable codebase. <br></br><br></br>In this document, we’ll dive into three core aspects that make our library stand out: the comprehensive testing approach, the advantages of TypeScript, and the consistent use of code linting. <h3>Testing with Vitest</h3>One of the main pillars of our library is the rigorous testing process we apply to every hook and utility. By utilizing <bold>Vitest</bold> a fast, modern testing framework for TypeScript and JavaScript we ensure that every piece of code works as expected in various scenarios. From edge cases to everyday usage patterns, each hook undergoes thorough testing to guarantee that it behaves correctly, even under edge cases or uncommon user interactions.<br></br><br></br> Vitest offers a fast feedback loop and integrates seamlessly with TypeScript, making it ideal for our testing needs. We use both <bold>unit tests and integration tests</bold> to cover different aspects of functionality. The high level of test coverage ensures that our library remains reliable, even as new features are added or as it evolves over time. Our commitment to test-driven development means that you can confidently integrate our hooks into your project, knowing they will perform as expected. <h3>Written in TypeScript</h3> Our entire library is written in <bold>TypeScript</bold>, a powerful superset of JavaScript that adds static typing to your code. TypeScript provides numerous benefits, such as better tooling, enhanced code readability, and early detection of bugs during development. By using TypeScript in all of our hooks and utilities, we ensure that you get the most out of your development experience, including improved code autocompletion, type safety, and more predictable behavior.<br></br><br></br> The type definitions within our hooks and utilities provide robust contract enforcement, preventing common errors before they occur. TypeScript also allows us to create more expressive <bold>APIs</bold>, making it easier for developers to understand how to use each hook properly. With type inference, developers can often get suggestions directly from their IDE, improving development speed while reducing the chance of runtime errors. This ensures that our tools are both developer-friendly and highly reliable in production environments.<h3>Linting and Code Quality</h3> Maintaining a <bold>clean and consistent codebase</bold> is a core principle in our development process. To achieve this, we use strict linting rules and follow best practices for code formatting. Our library is fully linted using ESLint, ensuring that the code is not only functional but also clean, readable, and maintainable. This helps reduce technical debt and makes the library easier to contribute to or modify over time.<br></br><br></br>Linting also enforces consistency across all hooks and utilities, ensuring that they adhere to a uniform coding style. This makes it easier for developers to understand the code, catch potential errors early, and prevent bad practices from creeping in. Additionally, we run linters as part of our continuous integration pipeline, meaning that every piece of code is checked for quality before it gets merged into the main codebase.<separator></separator>This library offers a carefully crafted set of tools for modern React development. With a strong foundation in testing, TypeScript integration, and a focus on code quality, our hooks and utilities are reliable, developer-friendly, and designed to scale with your project needs. Whether you're looking to streamline your codebase or enhance your application's performance, this collection provides the solutions to do so with confidence."
-        },
-        "typesafe": {
-          "Link": "/docs/typesafe",
-          "Name": "Typesafe",
-          "Content": "<h2>Testing with Vitest</h2>One of the core pillars of our library is the rigorous testing process applied to every hook and utility we develop. By leveraging <bold>Vitest</bold>, a fast, modern testing framework designed for TypeScript and JavaScript, we ensure that every piece of code meets the highest standards of reliability and functionality. Testing is not an afterthought for us - it’s an integral part of our development process, allowing us to catch potential issues early and deliver tools you can depend on.<h3>Comprehensive Testing Across Scenarios</h3> Every hook and utility in our library undergoes thorough testing to ensure that it behaves correctly in a wide variety of scenarios. This includes: <ul><li><bold>Edge Cases:</bold> We simulate uncommon or unexpected user interactions to ensure our tools are robust enough to handle them gracefully.</li><li><bold>Real-World Usage Patterns:</bold> By testing against common and practical usage scenarios, we ensure our hooks work seamlessly in everyday applications.</li><li><bold>Stress Testing:</bold> Hooks are evaluated under high-pressure conditions, such as handling large datasets or rapid state changes, to confirm they maintain optimal performance.</li></ul>This meticulous approach guarantees that our tools perform as expected, regardless of how simple or complex your use case may be.<h3>The Power of Vitest in Our Workflow</h3>Vitest stands out as a cutting-edge testing framework that combines speed, flexibility, and seamless TypeScript integration. Its blazing-fast feedback loop allows us to iterate quickly while maintaining confidence in the reliability of our code. Additionally, Vitest's close alignment with the modern JavaScript ecosystem means that it integrates smoothly into our workflow, enabling us to write tests that are both efficient and easy to maintain.<h5>We employ a <bold>multi-layered testing strategy</bold> that includes:</h5><ol><li><bold>Unit Tests:</bold> Focused on individual functions or hooks to verify that each component works as intended in isolation.</li><li><bold>Integration Tests:</bold> Designed to evaluate how hooks interact with one another and with external components, ensuring smooth functionality within larger systems.</li></ol>By combining these approaches, we achieve a high level of test coverage, which helps us maintain the library’s reliability as it grows and evolves over time. This commitment to testing ensures that any new features or updates are introduced without compromising existing functionality.<h3>Confidence Through Test-Driven Development</h3>Our library is built with a strong focus on test-driven development (TDD). This approach involves writing tests before implementing the code itself, ensuring that every feature is developed with a clear understanding of its requirements and behavior. The result? A robust library you can confidently integrate into your projects, knowing that each hook and utility has been rigorously validated to perform under various conditions.<h2>Written in TypeScript</h2>Our entire library is developed using <bold>TypeScript</bold>, a powerful superset of JavaScript that introduces static typing to the language. By choosing TypeScript as the foundation for our hooks and utilities, we unlock a wealth of benefits that enhance the development experience and improve the quality of the final product.<h3>The Advantages of TypeScript</h3>TypeScript brings a range of features to the table that are especially valuable for building and maintaining complex libraries:<ol><li><bold>Type Safety:</bold> With static typing, potential errors are caught during development, reducing the likelihood of runtime issues in production.</li><li><bold>Enhanced Tooling:</bold> TypeScript's integration with modern IDEs provides robust features like code autocompletion, inline documentation, and intelligent refactoring suggestions.</li><li><bold>Improved Code Readability:</bold> By explicitly defining types, we make our hooks and utilities easier to understand and work with, both for you and your team.</li></ol><h3>Robust Type Definitions for Better APIs</h3> The type definitions in our library serve as a contract between our tools and their users. These definitions clearly specify the expected inputs and outputs of each hook, reducing the potential for misuse and ensuring that your code remains predictable and maintainable.<h5>Additionally, TypeScript allows us to create <bold>expressive and intuitive APIs.</bold> For example:</h5><ul><li>Hooks automatically infer types from their inputs, so you don’t need to provide redundant type annotations.</li><li>Complex data structures are simplified with clear, self-documenting type definitions.</li></ul><h3>Developer Experience Meets Production Reliability</h3>ypeScript's type inference and advanced features like discriminated unions and generics make it possible to design APIs that are both powerful and user-friendly. These capabilities not only improve the <bold>developer experience</bold> during implementation but also translate into <bold>higher reliability</bold> in production environments. By catching errors early and enforcing strict typing rules, TypeScript helps us deliver tools that are both flexible and robust.<br></br><br></br>Whether you're integrating our hooks into a small project or a large-scale enterprise application, the combination of TypeScript-driven development and Vitest-powered testing ensures that you have a library you can trust to meet your needs."
-        },
-        "quality": {
-          "Link": "/docs/quality",
-          "Name": "Quality",
-          "Content": "<h2>Linting and Code Quality</h2>Maintaining a clean, consistent, and high-quality codebase is a fundamental principle in our development process. A well-maintained codebase fosters collaboration, scalability, and ease of management as the project evolves. Below, we outline how we achieve and enforce these standards.<h3>Why Code Quality Matters</h3><ul><li><bold>Readability:</bold> Clean code is easier to understand and modify.</li><li><bold>Maintainability:</bold> A well-structured codebase reduces technical debt and supports long-term development.</li><li><bold>Collaboration:</bold> Consistent code makes it easier for teams and contributors to work together effectively.</li></ul><h3>How We Enforce Code Quality</h3><ol><li><bold>Using ESLint for Linting</bold><br></br>We rely on <bold>ESLint</bold>, a powerful tool for enforcing coding standards. It ensures that:<ul><li>Code adheres to predefined rules and best practices.</li><li>Issues are detected early in the development cycle.</li><li>The library remains clean, readable, and maintainable.</li></ul></li><li><bold>Adopting a Uniform Coding Style</bold><br></br>Consistency is key. To ensure a unified look and feel across the codebase:<ul><li>All hooks and utilities follow the same coding conventions.</li><li>Developers can easily navigate and understand the structure and logic.</li></ul></li><li><bold>Automating Quality Checks with CI</bold><br></br>Our <bold>Continuous Integration (CI)</bold> pipeline includes automatic linting checks:<ul><li>Every code change is analyzed for quality before merging.</li><li>Potential issues are flagged early, reducing the risk of introducing bugs.</li></ul></li></ol><h2>Benefits of Linting</h2><ul><li><bold>Error Prevention:</bold> Identifies issues such as syntax errors or bad practices.</li><li><bold>Improved Collaboration:</bold> Standardized code is easier for teams and contributors to work with.</li><li><bold>Future-Proofing:</bold> Clean, consistent code is more adaptable to future updates and enhancements.</li></ul> By prioritizing linting and code quality, we ensure that our library remains robust, reliable, and easy to use. This commitment builds a strong foundation for future development and creates an environment where developers can thrive."
-        }
-      }
-    },
-    "Hooks": {
-      "Name": "Hooks",
-      "Link": "/docs/hooks",
-      "SectionItems": {
-        "Code": {
-          "Hook": "Hook",
-          "Usage": "Usage"
-        },
-        "Footer": {
-          "Previous": "Previous",
-          "Next": "Next"
-        }
-      },
-      "Items": {
-        "useclipboard": {
-          "Link": "/docs/hooks/useclipboard",
-          "Name": "useClipboard",
-          "Content": "<h2>Description</h2>The useClipboard is a custom React hook that provides a simple interface to copy text to the user's clipboard using the Clipboard API. It handles success and error states, and includes a reset function to clear the current state. This hook simplifies copying text to the clipboard and provides feedback on whether the operation was successful.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>copyToClipboard(text: string): void</secondaryhighlight> - Takes a string and attempts to copy it to the clipboard. If successful, it updates isCopied to true; if it fails, it sets an error message.</li><li><secondaryhighlight>isCopied: boolean</secondaryhighlight> - A boolean flag indicating whether the text has been successfully copied to the clipboard.</li><li><secondaryhighlight>error: string | null</secondaryhighlight> - If copying to the clipboard fails, this string contains the error message. It is null if there is no error.</li><li><secondaryhighlight>reset(): void</secondaryhighlight> - Resets the isCopied and error states to their initial values. Useful if you want to reset the hook after a successful or failed clipboard action.</li></ul>",
-          "Description": "The useClipboard is a custom React hook that provides a simple interface to copy text to the user's clipboard using the Clipboard API",
-          "CreateAt": "2024-10-17"
-        },
-        "usechatgpt": {
-          "Link": "/docs/hooks/usechatgpt",
-          "Name": "useChatGPT",
-          "Content": "<h2>Description</h2>The useChatGPT hook is a custom React hook that allows you to interact with the ChatGPT API. It manages the process of a user's input to the API, handling loading and error states, and storing the API's response. It can be easily integrated into any React component to enable chatbot functionalities.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>API</h2><ul><li><secondaryhighlight>apiKey: string</secondaryhighlight> - The API key used for authenticating requests to the OpenAI API.</li></ul><h2>Parameters</h2><ul><li><secondaryhighlight>sendMessage(message: string): Promise'<'void'>'</secondaryhighlight> - A function that takes a message string, sends it to the ChatGPT API, and updates the state with the response.</li> <li><secondaryhighlight>response: string | null</secondaryhighlight> - The response from the ChatGPT API, or null if no response is available.</li> <li><secondaryhighlight>isLoading: boolean</secondaryhighlight> - A boolean indicating whether a request to the ChatGPT API is in progress.</li> <li><secondaryhighlight>error: string | null</secondaryhighlight> - An error message if an error occurred during the API request, or null if no error occurred.</li></ul>",
-          "Description": "The useChatGPT hook is a custom React hook that allows you to interact with the ChatGPT API.",
-          "CreateAt": "2024-10-17"
-        },
-        "usepromiseall": {
-          "Link": "/docs/hooks/usepromiseall",
-          "Name": "usePromiseAll",
-          "Content": "<h2>Description</h2>The usePromiseAll is a hook that allows executing multiple promises concurrently, providing a simple way to track loading, success, and error states. Once all promises are resolved (or any is rejected), the hook returns the results or an error, along with the loading state.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>promises: Promise&lt;T&gt;[]</secondaryhighlight> - An array of promises to be executed concurrently.</li></ul><h2>API</h2><ul><li><secondaryhighlight>results: T[] | null</secondaryhighlight> - Resolved values of all promises or null if still loading.</li><li><secondaryhighlight>error: Error | null</secondaryhighlight> - Any encountered error during promise execution, or null if no errors occurred.</li><li><secondaryhighlight>isLoading: boolean</secondaryhighlight> - A boolean representing the loading state (true while waiting for promises, false when all are resolved or one is rejected).</li></ul>",
-          "Description": "The usePromiseAll is a hook that allows executing multiple promises concurrently, providing a simple way to track loading, success, and error states.",
-          "CreateAt": "2024-10-17"
-        },
-        "usehover": {
-          "Link": "/docs/hooks/usehover",
-          "Name": "useHover",
-          "Content": "<h2>Description</h2>The useHover hook detects when an element is hovered over. It returns a hovered boolean state that indicates whether the mouse is currently over the element and a ref to be attached to the element you want to track.<separator></separator><h2hide>Code</h2hide><code>hook</code><ul></ul><h2>API</h2><ul><li><secondaryhighlight>hovered: boolean</secondaryhighlight> - true if the element is currently being hovered over, false otherwise.</li><li><secondaryhighlight>ref: React.RefObject'<'T'>'</secondaryhighlight> - A ref that needs to be attached to the target element for detecting hover state.</li></ul>",
-          "Description": "The useHover hook detects when an element is hovered over.",
-          "CreateAt": "2024-10-17"
-        },
-        "useclickoutside": {
-          "Link": "/docs/hooks/useclickoutside",
-          "Name": "useClickOutside",
-          "Content": "<h2>Description</h2>A custom hook that triggers a callback function when a click is detected outside of the element referenced by the ref.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>ref: RefObject'<'HTMLElement'>'</secondaryhighlight> - A React ref object pointing to the HTML element to watch for outside clicks.</li><li><secondaryhighlight>callback(): void</secondaryhighlight> - A function to be called when a click outside the referenced element is detected.</li></ul>",
-          "Description": "A custom hook that triggers a callback function when a click is detected outside of the element referenced by the ref.",
-          "CreateAt": "2024-10-17"
-        },
-        "usedebounce": {
-          "Link": "/docs/hooks/usedebounce",
-          "Name": "useDebounce",
-          "Content": "<h2>Description</h2>The useDebounce hook delays the update of a value until a specified period of time has passed since the last time the value changed. This is useful for scenarios like input filtering or preventing multiple API calls on rapid changes.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>value: T</secondaryhighlight> - The current value to debounce. It can be of any type (T).</li><li><secondaryhighlight>delay: number</secondaryhighlight> - The debounce delay in milliseconds.</li></ul><h2>API</h2><ul><li><secondaryhighlight>debouncedValue: T</secondaryhighlight> - The debounced version of the input value, which only updates after the specified delay.</li></ul>",
-          "Description": "The useDebounce hook delays the update of a value until a specified period of time has passed since the last time the value changed.",
-          "CreateAt": "2024-10-17"
-        },
-        "usesort": {
-          "Link": "/docs/hooks/usesort",
-          "Name": "useSort",
-          "Content": "<h2>Description</h2>The useSort hook helps you sort lists of data easily by providing a sorted version of the list based on a specified sorting function. It also provides controls for toggling between ascending and descending order.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>items: T[]</secondaryhighlight> - The list of items to be sorted.</li><li><secondaryhighlight>sortFn: (a: T, b: T) => number</secondaryhighlight> - A sorting function that defines how to compare two items in the list. Should return a negative number if a comes before b, a positive number if a comes after b, and 0 if they are equal.</li><li><secondaryhighlight>initialOrder?: asc | desc</secondaryhighlight> - The initial sorting order. Defaults to 'asc' (ascending).</li></ul><h2>API</h2><ul><li><secondaryhighlight>sortedItems: T[]</secondaryhighlight> - The sorted version of the provided list.</li><li><secondaryhighlight>order: asc | desc</secondaryhighlight> - The current sorting order.</li><li><secondaryhighlight>toggleOrder(): void</secondaryhighlight> - A function to toggle between ascending (asc) and descending (desc) order.</li></ul>",
-          "Description": "The useSort hook helps you sort lists of data easily by providing a sorted version of the list based on a specified sorting function.",
-          "CreateAt": "2024-10-17"
-        },
-        "usemediaquery": {
-          "Link": "/docs/hooks/usemediaquery",
-          "Name": "useMediaQuery",
-          "Content": "<h2>Description</h2>The useMediaQuery hook enables you to apply responsive design techniques by listening to CSS media query changes. It returns a boolean indicating whether the media query matches the current viewport, allowing you to conditionally render components or apply styles based on the query.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>query: string</secondaryhighlight> - A string representing the media query you want to listen to.</li></ul><h2>API</h2><ul><li><secondaryhighlight>isMobile: boolean</secondaryhighlight> - true if the media query matches the current viewport, otherwise false.</li></ul>",
-          "Description": "The useMediaQuery hook enables you to apply responsive design techniques by listening to CSS media query changes.",
-          "CreateAt": "2024-10-17"
-        },
-        "usekeyboardshortcup": {
-          "Link": "/docs/hooks/usekeyboardshortcup",
-          "Name": "useKeyboardShortcup",
-          "Content": "<h2>Description</h2>The useKeyboardShortcut hook listens for specific key combinations (e.g., 'Ctrl+S' or 'Alt+Shift+P') and triggers a callback function when the combination is pressed. This is useful for implementing features like save shortcuts, quick actions, or custom key-based navigation in your application.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>keys: string[]</secondaryhighlight> - An array of keys (e.g., ['Control', 'S'] or ['Alt', 'Shift', 'P']) that represent the key combination.</li><li><secondaryhighlight>callback(): void</secondaryhighlight> - A function that is executed when the key combination is pressed.</li><li><secondaryhighlight>element?: HTMLElement | Window</secondaryhighlight> - The DOM element to attach the listener to. Defaults to window.</li></ul>",
-          "Description": "The useKeyboardShortcut hook listens for specific key combinations (e.g., 'Ctrl+S' or 'Alt+Shift+P') and triggers a callback function when the combination is pressed.",
-          "CreateAt": "2024-10-17"
-        },
-        "usecounter": {
-          "Link": "/docs/hooks/usecounter",
-          "Name": "useCounter",
-          "Content": "<h2>Description</h2>The useCounter hook provides an easy way to manage counter logic, such as incrementing, decrementing, resetting, and setting a specific value.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>initialValue?: number</secondaryhighlight> - The initial value of the counter. Defaults to 0.</li></ul><h2>API</h2><ul><li><secondaryhighlight>count: number</secondaryhighlight> - The current count value.</li><li><secondaryhighlight>increment(): void</secondaryhighlight> - Increases the count by 1.</li><li><secondaryhighlight>decrement(): void</secondaryhighlight> - Decreases the count by 1.</li><li><secondaryhighlight>reset(): void</secondaryhighlight> - Resets the count to the initialValue.</li><li><secondaryhighlight>set(value: number): void</secondaryhighlight> - Sets the count to a specified value.</li></ul>",
-          "Description": "The useCounter hook provides an easy way to manage counter logic, such as incrementing, decrementing, resetting, and setting a specific value.",
-          "CreateAt": "2024-10-17"
-        },
-        "uselocalstorage": {
-          "Link": "/docs/hooks/uselocalstorage",
-          "Name": "useLocalStorage",
-          "Content": "<h2>Description</h2>The useLocalStorage hook is used to store and retrieve values from localStorage in a React component. It works like the useState hook but keeps the value saved even when the page is refreshed or reopened. The hook automatically synchronizes the state with the localStorage and ensures that the value is always up-to-date.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>key: string</secondaryhighlight> - The key under which the value is stored in localStorage.</li><li><secondaryhighlight>initialValue: string</secondaryhighlight> - The initial value to be stored. This can be a value or a function that returns a value.</li></ul><h2>API</h2><ul><li><secondaryhighlight>[storedValue, setValue]</secondaryhighlight> - A tuple where storedValue is the current value from localStorage and setValue is a function to update the value.</li></ul>",
-          "Description": "The useLocalStorage hook is used to store and retrieve values from localStorage in a React component.",
-          "CreateAt": "2024-10-17"
-        },
-        "usesearch": {
-          "Link": "/docs/hooks/usesearch",
-          "Name": "useSearch",
-          "Content": "<h2>Description</h2>The useSearch hook allows you to easily manage search queries and results. It filters a list of items based on a provided search term and filtering function. The hook supports debouncing to optimize performance by avoiding unnecessary filtering during fast input.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>items: T[]</secondaryhighlight> - The list of items to search through.</li><li><secondaryhighlight>filterFn: (item: T, query: string): boolean</secondaryhighlight> - A function that defines how to filter the items based on the search query.</li><li><secondaryhighlight>debounceDelay?: number</secondaryhighlight> - The delay (in milliseconds) for debouncing the search input. Defaults to 300ms.</li></ul><h2>API</h2><ul><li><secondaryhighlight>query: string</secondaryhighlight> - The current search query string.</li><li><secondaryhighlight>setQuery: (query: string): void</secondaryhighlight> - A function to update the search query.</li><li><secondaryhighlight>filteredItems: T[]</secondaryhighlight> - The list of filtered items based on the search query.</li><li><secondaryhighlight>isSearching: boolean</secondaryhighlight> - A boolean representing whether the hook is actively searching (debounced).</li></ul>",
-          "Description": "The useSearch hook allows you to easily manage search queries and results.",
-          "CreateAt": "2024-10-17"
-        },
-        "useinterval": {
-          "Link": "/docs/hooks/useinterval",
-          "Name": "useInterval",
-          "Content": "<h2>Description</h2>The useInterval hook is useful when you need to perform a repeated action (such as polling an API or animating something) at specific time intervals within a React component. It automatically handles setting and clearing the interval to avoid memory leaks or stale intervals when the component updates or unmounts.<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>callback(): void</secondaryhighlight> - A function that you want to be executed at regular intervals.</li><li><secondaryhighlight>delay: number</secondaryhighlight> - The delay in milliseconds between executions. If the delay is null, the interval will be paused.</li></ul>",
-          "Description": "The useInterval hook is useful when you need to perform a repeated action (such as polling an API or animating something) at specific time intervals within a React component.",
-          "CreateAt": "2024-10-17"
-        },
-        "usescrollintoview": {
-          "Link": "/docs/hooks/usescrollintoview",
-          "Name": "useScrollIntoView",
-          "Content": "<h2>Description</h2>The useScrollIntoView hook is designed to scroll an element (referenced by a ref) into view with customizable behavior. It provides a callback function that triggers the scroll action, and it allows you to specify the scroll behavior (auto or smooth), and the element's alignment once it is scrolled into view (positioning options like start, center, end, or nearest for both block and inline directions).<separator></separator><h2hide>Code</h2hide><code>hook</code><h2>Parameters</h2><ul><li><secondaryhighlight>ref: React.RefObject'<'HTMLElement'>'</secondaryhighlight> - A reference to the element that should be scrolled into view.</li><li><secondaryhighlight>behavior?: auto | smooth</secondaryhighlight> - The scrolling behavior. Defaults to smooth.</li><li><secondaryhighlight>block?: start | center | end | nearest</secondaryhighlight> - The vertical alignment of the element when scrolled into view. Defaults to start.</li><li><secondaryhighlight>inline: start | center | end | nearest</secondaryhighlight> - The horizontal alignment of the element when scrolled into view. Defaults to nearest.</li></ul><h2>API</h2><ul><li><secondaryhighlight>scrollToElement(): void</secondaryhighlight> - A callback function that, when invoked, scrolls the referenced element into view.</li></ul>",
-          "Description": "The useScrollIntoView hook is designed to scroll an element (referenced by a ref) into view with customizable behavior.",
-          "CreateAt": "2024-10-17"
-        }
-      }
-    },
-    "Utilities": {
-      "Name": "Utilities",
-      "Link": "/docs/utilities",
-      "SectionItems": {
-        "Code": {
-          "Util": "Utility",
-          "Usage": "Usage"
-        },
-        "Parameter": {
-          "Name": "Parameters",
-          "Content": "This hook accepts the following arguments:"
-        },
-        "Footer": {
-          "Previous": "Previous",
-          "Next": "Next"
-        }
-      },
-      "Items": {
-        "show": {
-          "Link": "/docs/utilities/show",
-          "Name": "<Show />",
-          "Content": "<h2>Description</h2>The Show component in React enables conditional rendering of child components based on specified conditions. It uses two subcomponents: <secondaryhighlight>Show.When</secondaryhighlight> and <secondaryhighlight>Show.Else</secondaryhighlight>. The <secondaryhighlight>Show.When</secondaryhighlight> component renders its children if the <secondaryhighlight>isTrue</secondaryhighlight> prop is true, while <secondaryhighlight>Show.Else</secondaryhighlight> renders if no valid condition is met. This component simplifies conditional logic by embedding it directly within JSX.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>isTrue?: boolean</secondaryhighlight> - Determines whether the children should be rendered. If true, the children will be rendered.</li></ul>",
-          "Description": "The Show component in React enables conditional rendering of child components based on specified conditions.",
-          "CreateAt": "2024-10-17"
-        },
-        "each": {
-          "Link": "/docs/utilities/each",
-          "Name": "<Each />",
-          "Content": "<h2>Description</h2>The Each component is a utility function that iterates over an array of items and renders each item using the provided render function. The render function receives two arguments: the current item (<secondaryhighlight>item</secondaryhighlight>) and its index (<secondaryhighlight>index</secondaryhighlight>). It returns a JSX element for each array item. This utility abstracts away the common task of rendering elements from arrays, offering a reusable and customizable solution.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>render(item: any, index: number): JSX.Element</secondaryhighlight> - A required function that defines how to render each item in the array. It takes two arguments (<secondaryhighlight>item</secondaryhighlight> - The current element from the array, <secondaryhighlight>index</secondaryhighlight> - The index of the current element).</li><li><secondaryhighlight>of: any[]</secondaryhighlight> - A required array of items that will be iterated over. The render function is called on each element of this array.</li></ul>",
-          "Description": "The Each component is a utility function that iterates over an array of items and renders each item using the provided render function.",
-          "CreateAt": "2024-10-17"
-        },
-        "delay": {
-          "Link": "/docs/utilities/delay",
-          "Name": "<Delay />",
-          "Content": "<h2>Description</h2>The Delay component is a utility that renders its children after a specified delay. It is useful when you want to defer the rendering of certain components for UX or performance reasons. This component accepts the <secondaryhighlight>ms</secondaryhighlight> prop, which determines the delay in milliseconds before the children are rendered. During the delay period, the component can show a loading indicator or nothing.<separator></separator><h2hide>Code</h2hide><code>util</code><h2>Parameters</h2><ul><li><secondaryhighlight>ms: number</secondaryhighlight> - The delay in milliseconds before rendering the children.</li></ul>",
-          "Description": "The Delay component is a utility that renders its children after a specified delay.",
-          "CreateAt": "2024-10-17"
-        }
-      }
-    },
-    "Components": {
-      "Name": "Components",
-      "Link": "/docs/components"
-    },
-    "Animations": {
-      "Name": "Animations",
-      "Link": "/docs/animations"
-    }
-  },
-  "New": "New",
-  "OnThisPage": "On this page",
-  "SearchBar": {
-    "ButtonSearchLg": "Search documentation...",
-    "ButtonSearchMd": "Search...",
-    "InputSearch": "Type to search",
-    "NoResults": "No results found."
   }
 }

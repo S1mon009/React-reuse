@@ -1,14 +1,15 @@
 import type { JSX } from "react";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+
 import { NextIntlClientProvider } from "next-intl";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { getMessages } from "next-intl/server";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-
 import HeaderNavigation from "@/components/navigation/header";
+
 import { cn } from "@/lib/utils";
+import { getMessages } from "next-intl/server";
 
 import "./globals.css";
 
@@ -16,6 +17,8 @@ const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
+type Params = Promise<{ locale: string }>;
 
 export const metadata: Metadata = {
   title: "React-reuse",
@@ -26,22 +29,11 @@ export const metadata: Metadata = {
   },
 };
 
-interface RootLayoutProps {
+export default async function RootLayout(props: {
+  params: Params;
   children: React.ReactNode;
-}
-
-/**
- * RootLayout component serves as the main layout for pages.
- *
- * Props:
- * - children (React.ReactNode): Layout children (readonly).
- *
- * @param {RootLayoutProps} props - Layout props.
- * @returns {JSX.Element} - The structured layout of the page.
- */
-export default async function RootLayout({
-  children,
-}: Readonly<RootLayoutProps>): Promise<JSX.Element> {
+}): Promise<JSX.Element> {
+  const { locale } = await props.params;
   const messages = await getMessages();
 
   return (
@@ -59,12 +51,12 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <HeaderNavigation />
-            {children}
-            <SpeedInsights />
+            <HeaderNavigation locale={locale} />
+            {props.children}
             <Analytics />
           </ThemeProvider>
         </NextIntlClientProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

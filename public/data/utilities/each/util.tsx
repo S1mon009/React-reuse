@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+
 interface eachInterface<T> {
   render: (item: T, index: number) => JSX.Element;
   of: T[];

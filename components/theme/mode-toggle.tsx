@@ -17,13 +17,6 @@ import { cn } from "@/lib/utils";
 
 const translation: string = "Header.Theme";
 
-/**
- * ModeToggle component allows users to switch between light, dark, and system themes.
- * The component uses a dropdown menu to present the options and updates the theme
- * accordingly when an option is selected.
- *
- * @returns {JSX.Element} The rendered ModeToggle component.
- */
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
   const t = useTranslations(translation);

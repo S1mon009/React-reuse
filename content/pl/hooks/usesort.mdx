@@ -1,0 +1,56 @@
+export const name = "useSort";
+export const link = "/docs/hooks/usesort";
+export const createdAt = "2024-10-17";
+export const description =
+  "Hook useSort ułatwia sortowanie list danych, dostarczając posortowaną wersję listy na podstawie określonej funkcji sortowania.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Opis
+
+Hook `useSort` ułatwia sortowanie list danych, dostarczając posortowaną wersję listy na podstawie określonej funkcji sortowania. Oferuje również możliwość przełączania między porządkiem rosnącym i malejącym.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Zastosowanie",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## API
+
+- `sortedItems: T[]` - Posortowana wersja podanej listy.
+- `order: asc | desc` - Obecny porządek sortowania.
+- `toggleOrder(): void` - Funkcja przełączająca między porządkiem rosnącym (asc) i malejącym (desc).
+
+## Parametry
+
+- `items: T[]` - Lista elementów do posortowania.
+- `sortFn: (a: T, b: T): number` - Funkcja sortowania określająca sposób porównywania dwóch elementów na liście. Powinna zwrócić liczbę ujemną, jeśli a poprzedza b, liczbę dodatnią, jeśli a następuje po b, i 0, jeśli są równe.
+- `initialOrder?: asc | desc` - Początkowy porządek sortowania. Domyślnie asc (rosnący).

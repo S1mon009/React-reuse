@@ -1,0 +1,48 @@
+export const name = "<Show/>";
+export const link = "/docs/utilities/show";
+export const createdAt = "2024-10-17";
+export const description =
+  "The Show component in React enables conditional rendering of child components based on specified conditions.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `Show` component in React enables conditional rendering of child components based on specified conditions. It uses two subcomponents: `Show.When` and `Show.Else`. The `Show.When` component renders its children if the `isTrue` prop is true, while `Show.Else` renders if no valid condition is met. This component simplifies conditional logic by embedding it directly within JSX.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="util"
+  triggers={[
+    {
+      value: "util",
+      title: "Util",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "util",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/util.tsx`,
+      ariaLabel: "Util code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## Parameters
+
+- `isTrue?: boolean` - Determines whether the children should be rendered. If `true`, the children will be rendered.

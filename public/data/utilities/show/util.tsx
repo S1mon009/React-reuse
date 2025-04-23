@@ -1,32 +1,34 @@
-import React, { Children, ReactNode, ReactElement } from "react";
+import React, { Children, ReactNode, ReactElement, type JSX } from "react";
 
-interface showInterface {
-  children: ReactNode;
+interface ShowProps {
+  children: Readonly<React.ReactNode>;
 }
 
-interface conditionalInterface {
+interface ConditionalProps {
   isTrue?: boolean;
-  children: ReactNode;
+  children: Readonly<React.ReactNode>;
 }
 
-interface elseInterface {
-  render?: ReactNode;
-  children?: ReactNode;
+interface ElseProps {
+  render?: Readonly<React.ReactNode>;
+  children?: Readonly<React.ReactNode>;
 }
 
-const Show: React.FC<showInterface> & {
-  When: React.FC<conditionalInterface>;
-  Else: React.FC<elseInterface>;
-} = (props) => {
-  let when: ReactElement<any> | null = null;
-  let otherwise: ReactElement<any> | null = null;
+const Show: React.FC<ShowProps> & {
+  When: React.FC<ConditionalProps>;
+  Else: React.FC<ElseProps>;
+} = ({ children }): JSX.Element | null => {
+  let when: ReactElement | null = null;
+  let otherwise: ReactElement | null = null;
 
-  Children.forEach(props.children, (child) => {
-    if (React.isValidElement(child)) {
-      if (child.props.isTrue === undefined) {
-        otherwise = child;
-      } else if (!when && child.props.isTrue === true) {
-        when = child;
+  Children.forEach(children, (child) => {
+    if (React.isValidElement<ConditionalProps>(child)) {
+      const typedChild = child as ReactElement<ConditionalProps>;
+
+      if (typedChild.props.isTrue === undefined) {
+        otherwise = typedChild;
+      } else if (!when && typedChild.props.isTrue) {
+        when = typedChild;
       }
     }
   });
@@ -36,11 +38,13 @@ const Show: React.FC<showInterface> & {
 
 Show.displayName = "Show";
 
-Show.When = ({ isTrue, children }: conditionalInterface) =>
+Show.When = ({ isTrue, children }: ConditionalProps): JSX.Element | null =>
   isTrue ? <>{children}</> : null;
 Show.When.displayName = "Show.When";
 
-Show.Else = ({ render, children }: elseInterface) => <>{render || children}</>;
+Show.Else = ({ render, children }: ElseProps): JSX.Element | null => (
+  <>{render || children}</>
+);
 Show.Else.displayName = "Show.Else";
 
 export default Show;

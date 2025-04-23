@@ -20,15 +20,6 @@ import { locales } from "@/config/locales";
 
 const translation: string = "Header.Language";
 
-/**
- * LanguageToggle component for switching between different languages.
- *
- * This component displays a dropdown menu with options to switch between
- * different languages. The currently selected language is shown on the button,
- * and users can select another language from the dropdown.
- *
- * @returns {JSX.Element} The rendered LanguageToggle component.
- */
 export function LanguageToggle(): JSX.Element {
   const pathname = usePathname();
   const locale = useLocale();

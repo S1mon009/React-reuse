@@ -1,77 +1,47 @@
-import { use, type JSX } from "react";
-import { useTranslations } from "next-intl";
+import { type JSX } from "react";
+import type { Metadata } from "next";
 
-import { Separator } from "@/components/ui/separator";
-import Heading from "@/components/docs/heading/heading";
-import Footer from "@/components/docs/footer/footer";
+import PrevNextNav from "@/components/navigation/prev-next-nav";
 import SectionNavigationList from "@/components/navigation/section_navigation/section-navigation-list";
-import Translation from "@/components/translation/translation";
 import Layout from "@/components/layouts/layout";
 
-import { getPrevNextValue } from "@/lib/utils";
-import { roughNotationColor } from "@/config/rought-notation-color";
+type Params = Promise<{ locale: string; util: string }>;
 
-import { keys as linkKeys } from "@/keys/sidebar-links-keys";
-import { keys as categoryKeys } from "@/keys/links-keys";
+export async function generateMetadata(props: {
+  params: Params;
+}): Promise<Metadata> {
+  const { util, locale } = await props.params;
 
-const translation: string = "Data.Utilities.Items";
-const sectionItemsTranslation: string = "Data.Utilities.SectionItems";
+  const { name, description } = await import(
+    `@/content/${locale}/utilities/${util}.mdx`
+  );
 
-type Params = Promise<{ util: string }>;
+  return {
+    title: name,
+    description,
+  };
+}
 
-/**
- * Page component renders details for a specific util, including util code, usage example,
- * and additional parameters. It supports localization (i18n) and is responsive for a11y improvements.
- *
- * Props:
- * - params (object):
- *  - util (string): The util name.
- *
- * @param {pageProps} props - Contains the params object.
- * @returns {JSX.Element} The rendered Page component.
- */
-export default function Page(props: { params: Params }): JSX.Element {
-  const params = use(props.params);
-  const util = params.util;
-  const t = useTranslations(`${translation}.${util}`);
-  const sectionItems = useTranslations(sectionItemsTranslation);
-  const footerItems = useTranslations("Data");
-  const footerLinks = getPrevNextValue(util, linkKeys, categoryKeys);
+export default async function Page(props: {
+  params: Params;
+}): Promise<JSX.Element> {
+  const { util, locale } = await props.params;
+
+  const { default: Post } = await import(
+    `@/content/${locale}/utilities/${util}.mdx`
+  );
 
   return (
     <>
-      <Heading title={t("Name")} color={roughNotationColor} />
-      <Layout type="section" id={params.util}>
-        <Translation keyMessage={`${translation}.${params.util}.Content`} />
+      <Layout type="mdx" id={util}>
+        <Post />
+        <PrevNextNav />
       </Layout>
-      <Separator className="my-5" aria-hidden="true" />
-      <Footer
-        data={[
-          {
-            link: `${footerItems(
-              `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Link`
-            )}`,
-            title: sectionItems("Footer.Previous"),
-            description: footerItems(
-              `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Name`
-            ),
-          },
-          {
-            link: `${footerItems(
-              `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Link`
-            )}`,
-            title: sectionItems("Footer.Next"),
-            description: footerItems(
-              `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Name`
-            ),
-          },
-        ]}
-      />
       <Layout
         type="aside"
         className="hidden md:block fixed top-14 right-0 h-full w-1/5 p-4"
       >
-        <SectionNavigationList sectionId={params.util} />
+        <SectionNavigationList sectionId={util} />
       </Layout>
     </>
   );

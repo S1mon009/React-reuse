@@ -21,12 +21,6 @@ import Image2 from "@/public/code2.png";
 
 const translation: string = "LandingPage.Section3";
 
-/**
- * Section 23 of the Landing Page.
- * Displays an article with a image compare and several accordions.
- *
- * @returns {JSX.Element} The rendered Section3 component.
- */
 export default function Section3(): JSX.Element {
   const t = useTranslations(translation);
 

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, type JSX } from "react";
-import { useTranslations } from "next-intl";
+import { useState, useEffect, type JSX, Fragment } from "react";
+import { useTranslations, useLocale } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +11,6 @@ import {
   CommandItem,
   CommandList,
   CommandDialog,
-  CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -20,21 +19,27 @@ import Each from "@/components/utilities/each/each";
 import Typography from "@/components/typography/typography";
 import { Search, Circle, Bot } from "lucide-react";
 
-import { keys as HeaderKeys } from "@/keys/links-keys";
-import { keys as LinksKeys } from "@/keys/sidebar-links-keys";
+import { getContentStructure } from "@/lib/file_structure/file-structure";
+import { capitalize } from "@/lib/helpers/text";
+import { FileMetadata, LocaleStructure } from "@/lib/file_structure/interface";
 
-const translation: string = "Data";
-const searchTranslation: string = "SearchBar";
+const searchTranslation: string = "System.SearchBar";
+const translation: string = "System.Navigation";
 
-/**
- * Command component that renders a searchable command palette with a dialog-based UI.
- *
- * @returns {JSX.Element} The rendered Command component.
- */
 export default function Command(): JSX.Element {
   const [open, setOpen] = useState<boolean>(false);
+  const [data, setData] = useState<LocaleStructure | null>(null);
   const t = useTranslations(translation);
   const search = useTranslations(searchTranslation);
+  const locale = useLocale();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getContentStructure(locale);
+      setData(data);
+    };
+    fetchData();
+  }, [locale]);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -65,32 +70,25 @@ export default function Command(): JSX.Element {
             <CommandList>
               <CommandEmpty>{search("NoResults")}</CommandEmpty>
               <Each
-                of={HeaderKeys}
-                render={(headerKey: string, headerIndex: number) => (
-                  <>
-                    <CommandGroup
-                      heading={t(`${headerKey}.Name`)}
-                      key={headerIndex}
-                    >
+                of={Object.keys(data?.structure || {})}
+                render={(item, index) => (
+                  <Fragment key={index}>
+                    <CommandGroup heading={t(capitalize(item))}>
                       <Each
-                        of={LinksKeys[headerIndex]}
-                        render={(link: string, index: number) => (
-                          <Link
-                            href={t(`${headerKey}.Items.${link}.Link`)}
-                            key={index}
-                          >
+                        of={data?.structure[item] as FileMetadata[]}
+                        render={(data_item, data_index: number) => (
+                          <Link href={data_item.link} key={data_index}>
                             <CommandItem className="cursor-pointer">
                               <Circle />
                               <Typography type="span">
-                                {t(`${headerKey}.Items.${link}.Name`)}
+                                {data_item.name}
                               </Typography>
                             </CommandItem>
                           </Link>
                         )}
                       />
                     </CommandGroup>
-                    <CommandSeparator className="last:hidden" />
-                  </>
+                  </Fragment>
                 )}
               />
             </CommandList>
@@ -122,6 +120,7 @@ export default function Command(): JSX.Element {
         size="icon"
         variant="outline"
         className="flex xl:hidden"
+        aria-label="Search button with icon"
       >
         <Search />
       </Button>

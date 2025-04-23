@@ -1,0 +1,49 @@
+export const name = "<Each/>";
+export const link = "/docs/utilities/each";
+export const createdAt = "2024-10-17";
+export const description =
+  "Komponent Each jest funkcją pomocniczą, która iteruje po tablicy elementów i renderuje każdy element, używając dostarczonej funkcji renderującej.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Opis
+
+Komponent `Each` to funkcja pomocnicza, która upraszcza renderowanie tablic w React. Przyjmuje tablicę (`of`) oraz funkcję render, która jest wywoływana dla każdego elementu tablicy. Funkcja render otrzymuje dwa argumenty: aktualny element (`item`) i jego indeks (`index`), zwracając odpowiadający mu element JSX. Dzięki abstrakcji logiki iteracji Each zapewnia czysty, wielokrotnego użytku i bezpieczny typowo sposób na dynamiczne renderowanie list.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="util"
+  triggers={[
+    {
+      value: "util",
+      title: "Util",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "util",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/util.tsx`,
+      ariaLabel: "Util code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## Parametry
+
+- `render(item: any, index: number): JSX.Element` - Wymagana funkcja, która definiuje sposób renderowania każdego elementu w tablicy. Przyjmuje dwa argumenty (`item` - Bieżący element z tablicy, `index` - Indeks bieżącego elementu).
+- `of: any[]` - Wymagana tablica elementów, po której zostanie przeprowadzona iteracja. Funkcja renderująca jest wywoływana dla każdego elementu tej tablicy.

@@ -3,9 +3,11 @@ import type { Metadata } from "next";
 import QueryProvider from "@/providers/query-provider";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-import Aside from "@/components/navigation/sidebar/aside";
-import BreadcrumbNavigation from "@/components/navigation/breadcrumb";
+import ContentTree from "@/components/navigation/sidebar/content_tree/content-tree";
+import BreadcrumbNavigation from "@/components/navigation/breadcrumb/breadcrumb";
 import Layout from "@/components/layouts/layout";
+
+import { getContentStructure } from "@/lib/file_structure/file-structure";
 
 export const metadata: Metadata = {
   icons: {
@@ -13,31 +15,27 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * RootLayout component serves as the main layout for docs pages.
- * It includes a sidebar, breadcrumb navigation, and a content area for child components.
- *
- * Props:
- * - children (React.ReactNode): Layout children.
- *
- * @param props - Layout props.
- * @returns {JSX.Element} - The structured layout of the page.
- */
-export default function RootLayout(props: {
+type Params = Promise<{ locale: string }>;
+
+export default async function RootLayout(props: {
+  params: Params;
   children: React.ReactNode;
-}): JSX.Element {
+}): Promise<JSX.Element> {
+  const { locale } = await props.params;
+  const { structure } = await getContentStructure(locale);
+
   return (
     <Layout type="div" className="lg:flex lg:justify-center overflow-x-hidden">
       <Layout
         type="div"
         className="hidden lg:block fixed top-14 left-0 w-1/5 h-full border-r-2 border-muted pt-4"
       >
-        <ScrollArea className="w-full h-full pb-14">
-          <Aside />
+        <ScrollArea className="w-full h-full pb-14 px-2">
+          <ContentTree locale={locale} />
         </ScrollArea>
       </Layout>
       <Layout type="div" className="h-full p-4 pt-20 md:w-4/5 lg:w-3/5">
-        <BreadcrumbNavigation />
+        <BreadcrumbNavigation structure={structure} />
         <QueryProvider>
           <Layout type="main" className="w-full">
             {props.children}

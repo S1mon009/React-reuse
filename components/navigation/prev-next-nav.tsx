@@ -1,0 +1,94 @@
+"use client";
+
+import { useState, useEffect, type JSX } from "react";
+import { usePathname } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
+
+import { Link } from "@/components/navigation/navigation";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import Show from "@/components/utilities/show/show";
+import Layout from "@/components/layouts/layout";
+import Typography from "@/components/typography/typography";
+
+import { getPrevNextLinks } from "@/lib/prev_next_links/get-prev-next-links";
+
+import { FileMetadata } from "@/lib/file_structure/interface";
+
+export default function PrevNextNav(): JSX.Element {
+  const [prevNextLinks, setPrevNextLinks] = useState<{
+    prev: FileMetadata | null;
+    next: FileMetadata | null;
+  }>({
+    prev: null,
+    next: null,
+  });
+  const t = useTranslations("System.Navigation");
+  const pathname = usePathname();
+  const locale = useLocale();
+
+  useEffect(() => {
+    const fetchLinks = async () => {
+      const { prev, next } = await getPrevNextLinks(pathname, locale);
+      setPrevNextLinks({ prev, next });
+    };
+
+    fetchLinks();
+  }, [pathname, locale]);
+
+  return (
+    <Layout
+      type="nav"
+      className="flex justify-between flex-wrap gap-2 mt-8 w-full"
+    >
+      <Show>
+        <Show.When isTrue={prevNextLinks?.prev != null}>
+          <Link
+            href={String(prevNextLinks?.prev?.link)}
+            className="w-full md:w-[40%] lg:w-2/5"
+          >
+            <Card className="flex border-muted cursor-pointer hover:border-primary">
+              <CardHeader className="p-3 pt-0">
+                <CardDescription className="mb-0">
+                  <Typography type="span" className="text-muted-foreground">
+                    {t("Prev")}
+                  </Typography>
+                </CardDescription>
+                <CardTitle>{prevNextLinks?.prev?.name}</CardTitle>
+              </CardHeader>
+            </Card>
+          </Link>
+        </Show.When>
+        <Show.Else>
+          <div />
+        </Show.Else>
+      </Show>
+      <Show>
+        <Show.When isTrue={prevNextLinks?.next != null}>
+          <Link
+            href={String(prevNextLinks?.next?.link)}
+            className="w-full md:w-[40%] lg:w-2/5"
+          >
+            <Card className="flex flex-wrap justify-end border-muted cursor-pointer hover:border-primary">
+              <CardHeader className="p-3 pt-0">
+                <CardDescription dir="rtl" className="mb-0">
+                  <Typography type="span" className="text-muted-foreground">
+                    {t("Next")}
+                  </Typography>
+                </CardDescription>
+                <CardTitle>{prevNextLinks?.next?.name}</CardTitle>
+              </CardHeader>
+            </Card>
+          </Link>
+        </Show.When>
+        <Show.Else>
+          <div />
+        </Show.Else>
+      </Show>
+    </Layout>
+  );
+}

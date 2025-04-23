@@ -1,14 +1,8 @@
 import { type JSX } from "react";
 
-import World from "@/components/main/section_1/world";
 import Layout from "@/components/layouts/layout";
+import World from "@/components/main/section_1/world";
 
-/**
- * Section 1 component for the main landing page.
- * It includes the world/globe component wrapped inside a layout.
- *
- * @returns {JSX.Element} The rendered Section1 component.
- */
 export default function Section1(): JSX.Element {
   return (
     <Layout type="section">

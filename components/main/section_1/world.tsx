@@ -4,18 +4,11 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 import Layout from "@/components/layouts/layout";
 import Typography from "@/components/typography/typography";
 import { Github } from "lucide-react";
-import { globeConfig, sampleArcs } from "@/config/globe";
 import { useTranslations } from "next-intl";
 import { GridBackground } from "@/components/grid_background/grid-background";
-
-const WorldComponent = dynamic(
-  () => import("../../ui/globe").then((m) => m.World),
-  { ssr: false }
-);
 
 const translation = "LandingPage.Section1";
 
