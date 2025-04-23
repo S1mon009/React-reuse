@@ -8,10 +8,16 @@ import { FolderStructure, LocaleStructure } from "./interface";
 export async function getContentStructure(
   locale: string
 ): Promise<LocaleStructure> {
-  // Użycie path.resolve do określenia absolutnej ścieżki
-  const baseDir = path.resolve("content", locale);
+  // Bazowa ścieżka do folderu content w public/
+  const baseDir = path.resolve(process.cwd(), "public", "content", locale);
 
-  const entries = await readdir(baseDir, { withFileTypes: true });
+  let entries;
+  try {
+    entries = await readdir(baseDir, { withFileTypes: true });
+  } catch (err) {
+    console.error(`Nie znaleziono folderu: ${baseDir}`, err);
+    throw new Error(`Nie znaleziono treści dla locale: ${locale}`);
+  }
 
   const subfolders = entries
     .filter((e) => e.isDirectory() && !e.name.startsWith("__"))
@@ -26,7 +32,7 @@ export async function getContentStructure(
     try {
       files = await readdir(folderPath);
     } catch (error) {
-      console.error(`Error while reading folder ${folderPath}:`, error);
+      console.error(`Błąd podczas czytania folderu ${folderPath}:`, error);
       continue;
     }
 
@@ -34,7 +40,8 @@ export async function getContentStructure(
 
     for (const fileName of files) {
       if (!fileName.endsWith(".mdx")) continue;
-      const filePath = path.resolve(folderPath, fileName); // Użycie path.resolve przy określaniu pełnej ścieżki do pliku
+
+      const filePath = path.resolve(folderPath, fileName);
       const fileContent = await readFile(filePath, "utf-8");
 
       const getMatch = (rx: RegExp) =>
@@ -51,7 +58,7 @@ export async function getContentStructure(
       );
 
       if (!name || !link) {
-        console.warn(`Skipping ${fileName}, brakuje name/link`);
+        console.warn(`Pomijam ${fileName}, brakuje name/link`);
         continue;
       }
 
