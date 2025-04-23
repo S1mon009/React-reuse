@@ -24,7 +24,7 @@ jobs:
           node-version: "18.x"
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Run ESLint
         run: npm run lint
@@ -44,7 +44,7 @@ jobs:
           node-version: "18.x"
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Run unit tests
         run: npm run test
@@ -66,7 +66,7 @@ jobs:
           node-version: "18.x"
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
