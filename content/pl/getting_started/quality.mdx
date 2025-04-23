@@ -1,0 +1,49 @@
+export const name = "Jakość";
+export const link = "/docs/quality";
+export const createdAt = "2024-10-17";
+export const description = "Czysty i sprawdzony kod.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Linting i jakość kodu
+
+Utrzymanie czystego, spójnego i wysokiej jakości kodu jest podstawową zasadą w naszym procesie deweloperskim. Dobrze utrzymana baza kodu sprzyja współpracy, skalowalności i łatwości zarządzania w miarę rozwoju projektu. Poniżej przedstawiamy, jak osiągamy i egzekwujemy te standardy.
+
+### Dlaczego jakość kodu ma znaczenie
+
+- **Czytelność:** Czysty kod jest łatwiejszy do zrozumienia i modyfikacji.
+- **Łatwość utrzymania:** Dobrze zorganizowana baza kodu redukuje dług techniczny i wspiera długoterminowy rozwój.
+- **Współpraca:** Spójny kod ułatwia pracę zespołów i współpracy z innymi deweloperami.
+
+### Jak egzekwujemy jakość kodu
+
+1. **Używanie ESLint**\
+   Opieramy się na **ESLint**, potężnym narzędziu do egzekwowania standardów kodowania. Zapewnia ono, że:
+
+- Kod przestrzega wcześniej określonych zasad i najlepszych praktyk.
+- Problemy są wykrywane wcześnie w cyklu deweloperskim.
+- Biblioteka pozostaje czysta, czytelna i łatwa do utrzymania.
+
+2. **Przyjęcie spójnego stylu kodowania**\
+   Spójność jest kluczem. Aby zapewnić jednolity wygląd i strukturę w całej bazie kodu:
+
+- Wszystkie haki i narzędzia przestrzegają tych samych konwencji kodowania.
+- Deweloperzy mogą łatwo nawigować i rozumieć strukturę oraz logikę kodu.
+
+3. **Automatyzacja sprawdzania jakości w CI**\
+   Nasza pipeline **Continuous Integration (CI)** zawiera automatyczne sprawdzanie lintingowe:
+
+- Każda zmiana kodu jest analizowana pod kątem jakości przed połączeniem.
+- Potencjalne problemy są wykrywane wcześniej, zmniejszając ryzyko wprowadzenia błędów.
+
+## Korzyści z Lintingu
+
+- **Zapobieganie błędom:** Identyfikuje problemy, takie jak błędy składniowe czy złe praktyki.
+- **Ulepszona współpraca:** Standaryzowany kod jest łatwiejszy do współpracy dla zespołów i współautorów.
+- **Przygotowanie na przyszłość:** Czysty, spójny kod jest łatwiejszy do dostosowania do przyszłych aktualizacji i rozszerzeń.
+
+Priorytetowe traktowanie lintingu i jakości kodu zapewnia, że nasza biblioteka pozostaje solidna, niezawodna i łatwa w użyciu. To zaangażowanie buduje silną podstawę dla przyszłego rozwoju i tworzy środowisko, w którym deweloperzy mogą się rozwijać.

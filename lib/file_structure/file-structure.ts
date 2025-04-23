@@ -9,7 +9,7 @@ export async function getContentStructure(
   locale: string
 ): Promise<LocaleStructure> {
   // Użycie path.resolve do określenia absolutnej ścieżki
-  const baseDir = path.resolve("public/content", locale);
+  const baseDir = path.resolve("content", locale);
 
   const entries = await readdir(baseDir, { withFileTypes: true });
 

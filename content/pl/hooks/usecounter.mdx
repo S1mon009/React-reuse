@@ -1,0 +1,56 @@
+export const name = "useCounter";
+export const link = "/docs/hooks/usecounter";
+export const createdAt = "2024-10-17";
+export const description =
+  "Hook useCounter zapewnia łatwy sposób zarządzania logiką licznika, taką jak zwiększanie, zmniejszanie, resetowanie oraz ustawianie określonej wartości.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Opis
+
+Hook `useCounter` zapewnia łatwy sposób zarządzania logiką licznika, taką jak zwiększanie, zmniejszanie, resetowanie oraz ustawianie określonej wartości.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Zastosowanie",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## API
+
+- `count: number` - Aktualna wartość licznika.
+- `increment(): void` - Zwiększa licznik o 1.
+- `decrement(): void` - Zmniejsza licznik o 1.
+- `reset(): void` - Resetuje licznik do wartości początkowej.
+- `set(value: number): void` - Ustawia licznik na określoną wartość.
+
+## Parametry
+
+- `initialValue?: number` - Początkowa wartość licznika. Domyślnie 0.

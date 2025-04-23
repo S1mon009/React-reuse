@@ -1,0 +1,51 @@
+export const name = "useClipboard";
+export const link = "/docs/hooks/useclipboard";
+export const createdAt = "2024-10-17";
+export const description =
+  "UseClipboard to niestandardowy hook React, który zapewnia prosty interfejs do kopiowania tekstu do schowka użytkownika za pomocą API Clipboard.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Opis
+
+`UseClipboard` to niestandardowy hook React, który zapewnia prosty interfejs do kopiowania tekstu do schowka użytkownika za pomocą API Clipboard. Obsługuje stany powodzenia i błędu oraz zawiera funkcję resetowania, która pozwala wyczyścić bieżący stan. Ten hook upraszcza proces kopiowania tekstu do schowka i dostarcza informacje zwrotne o powodzeniu operacji.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Zastosowanie",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## Parametry
+
+- `copyToClipboard(text: string): void` - Przyjmuje ciąg znaków i próbuje skopiować go do schowka. Jeśli operacja zakończy się sukcesem, ustawia isCopied na true; w przypadku niepowodzenia ustawia komunikat o błędzie.
+- `isCopied: boolean` - Flaga logiczna wskazująca, czy tekst został pomyślnie skopiowany do schowka.
+- `error: string | null` - Jeśli kopiowanie do schowka zakończy się niepowodzeniem, ten ciąg zawiera komunikat o błędzie. Jeśli nie wystąpił żaden błąd, wartość jest null.
+- `reset(): void` - Resetuje stany isCopied i error do ich początkowych wartości. Przydatne, jeśli chcesz zresetować hook po pomyślnej lub nieudanej operacji schowka.

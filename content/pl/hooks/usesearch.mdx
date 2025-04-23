@@ -1,0 +1,57 @@
+export const name = "useSearch";
+export const link = "/docs/hooks/usesearch";
+export const createdAt = "2024-10-17";
+export const description =
+  "Hook useSearch pozwala łatwo zarządzać zapytaniami wyszukiwania i wynikami.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Opis
+
+Hook `useSearch` pozwala łatwo zarządzać zapytaniami wyszukiwania i wynikami. Filtruje listę elementów na podstawie podanego zapytania i funkcji filtrującej. Hook obsługuje debouncing, aby zoptymalizować wydajność, unikając niepotrzebnego filtrowania podczas szybkiego wpisywania.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Zastosowanie",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## API
+
+- `query: string` - Bieżące zapytanie wyszukiwania.
+- `setQuery: (query: string): void` - Funkcja do aktualizacji zapytania wyszukiwania.
+- `filteredItems: T[]` - Lista przefiltrowanych elementów na podstawie zapytania wyszukiwania.
+- `isSearching: boolean` - Wartość logiczna reprezentująca, czy hook aktywnie przeszukuje (z debouncingiem).
+
+## Parametry
+
+- `items: T[]` - Lista elementów do przeszukania.
+- `filterFn: (item: T, query: string): boolean` - Funkcja, która definiuje, jak filtrować elementy na podstawie zapytania wyszukiwania.
+- `debounceDelay?: number` - Opóźnienie (w milisekundach) dla debouncingu wejścia wyszukiwania. Domyślnie 300ms.
