@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description:
     "React-reuse is a reuseable library of hooks, utilities, components and animations.",
   icons: {
-    icon: "./icon.svg",
+    icon: "./favicon.ico",
   },
 };
 
