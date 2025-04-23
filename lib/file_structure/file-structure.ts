@@ -8,7 +8,8 @@ import { FolderStructure, LocaleStructure } from "./interface";
 export async function getContentStructure(
   locale: string
 ): Promise<LocaleStructure> {
-  const baseDir = path.join(process.cwd(), "public/content", locale);
+  // Użycie path.resolve do określenia absolutnej ścieżki
+  const baseDir = path.resolve("public/content", locale);
 
   const entries = await readdir(baseDir, { withFileTypes: true });
 
@@ -19,7 +20,7 @@ export async function getContentStructure(
   const structure: FolderStructure = {};
 
   for (const folder of subfolders) {
-    const folderPath = path.join(baseDir, folder);
+    const folderPath = path.resolve(baseDir, folder);
     let files: string[];
 
     try {
@@ -33,7 +34,7 @@ export async function getContentStructure(
 
     for (const fileName of files) {
       if (!fileName.endsWith(".mdx")) continue;
-      const filePath = path.join(folderPath, fileName);
+      const filePath = path.resolve(folderPath, fileName); // Użycie path.resolve przy określaniu pełnej ścieżki do pliku
       const fileContent = await readFile(filePath, "utf-8");
 
       const getMatch = (rx: RegExp) =>
