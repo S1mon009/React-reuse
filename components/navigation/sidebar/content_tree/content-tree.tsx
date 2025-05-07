@@ -7,7 +7,11 @@ interface ContentTreeProps {
 }
 
 export default async function ContentTree({ locale }: ContentTreeProps) {
-  const { structure } = await getContentStructure(locale);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/get-folder-structure?locale=${locale}`
+  );
+  const { structure } = await res.json();
+  console.log(structure);
 
   return (
     <Each
