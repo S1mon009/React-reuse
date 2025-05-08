@@ -15,11 +15,14 @@ import { getContentStructure } from "@/lib/file_structure/file-structure";
 
 type Params = { locale: string };
 
-export default function RootLayout(props: {
-  params: Params;
+export default function RootLayout({
+  children,
+  params,
+}: {
   children: React.ReactNode;
+  params: Params;
 }): JSX.Element {
-  const { locale } = props.params;
+  const { locale } = params;
   const [structure, setStructure] = useState<any>({});
   useEffect(() => {
     const fetchStructure = async () => {
@@ -44,7 +47,7 @@ export default function RootLayout(props: {
         <BreadcrumbNavigation structure={structure} />
         <QueryProvider>
           <Layout type="main" className="w-full">
-            {props.children}
+            {children}
           </Layout>
         </QueryProvider>
       </Layout>
