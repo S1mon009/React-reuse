@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, Fragment } from "react";
+import { use } from "react";
 
 import { type JSX } from "react";
 import type { Metadata } from "next";
@@ -13,16 +14,14 @@ import Layout from "@/components/layouts/layout";
 
 import { getContentStructure } from "@/lib/file_structure/file-structure";
 
-type Params = { locale: string };
+type Params = Promise<{ locale: string }>;
 
-export default function RootLayout({
-  children,
-  params,
-}: {
+export default function RootLayout(props: {
   children: React.ReactNode;
   params: Params;
 }): JSX.Element {
-  const { locale } = params;
+  const params = use(props.params);
+  const locale = params.locale;
   const [structure, setStructure] = useState<any>({});
   useEffect(() => {
     const fetchStructure = async () => {
@@ -44,10 +43,10 @@ export default function RootLayout({
         </ScrollArea>
       </Layout>
       <Layout type="div" className="h-full p-4 pt-20 md:w-4/5 lg:w-3/5">
-        <BreadcrumbNavigation structure={structure} />
+        {/* <BreadcrumbNavigation structure={structure} /> */}
         <QueryProvider>
           <Layout type="main" className="w-full">
-            {children}
+            {props.children}
           </Layout>
         </QueryProvider>
       </Layout>
