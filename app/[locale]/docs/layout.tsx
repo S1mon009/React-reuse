@@ -13,13 +13,13 @@ import Layout from "@/components/layouts/layout";
 
 import { getContentStructure } from "@/lib/file_structure/file-structure";
 
-type Params = Promise<{ locale: string }>;
+type Params = { locale: string };
 
-export default async function RootLayout(props: {
+export default function RootLayout(props: {
   params: Params;
   children: React.ReactNode;
-}): Promise<JSX.Element> {
-  const { locale } = await props.params;
+}): JSX.Element {
+  const { locale } = props.params;
   const [structure, setStructure] = useState<any>({});
   useEffect(() => {
     const fetchStructure = async () => {
