@@ -13,12 +13,6 @@ import Layout from "@/components/layouts/layout";
 
 import { getContentStructure } from "@/lib/file_structure/file-structure";
 
-export const metadata: Metadata = {
-  icons: {
-    icon: "../../icon.svg",
-  },
-};
-
 type Params = Promise<{ locale: string }>;
 
 export default async function RootLayout(props: {
