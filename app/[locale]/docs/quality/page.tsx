@@ -25,7 +25,7 @@ export default async function Page(props: {
     <>
       <Layout type="mdx" id="quality">
         <Post />
-        <PrevNextNav />
+        {/* <PrevNextNav /> */}
       </Layout>
       <Layout
         type="aside"

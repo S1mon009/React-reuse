@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 import type { JSX } from "react";
 
 import { Separator } from "@/components/ui/separator";
@@ -31,11 +35,16 @@ import { getContentStructure } from "@/lib/file_structure/file-structure";
 
 import { LinksProps } from "./interface";
 
-export default async function Links({
-  locale,
-  type,
-}: LinksProps): Promise<JSX.Element> {
-  const { structure } = await getContentStructure(locale);
+export default function Links({ locale, type }: LinksProps): JSX.Element {
+  const [structure, setStructure] = useState<any>({});
+  useEffect(() => {
+    const fetchStructure = async () => {
+      const res = await fetch(`/api/get-folder-structure?locale=${locale}`);
+      const { structure } = await res.json();
+      setStructure(structure);
+    };
+    fetchStructure();
+  }, [locale]);
 
   return (
     <Show>

@@ -10,7 +10,6 @@ import {
 export async function GET(request: Request) {
   // Pobranie parametru `locale` z zapytania
   const url = new URL(request.url);
-  console.log("URL:", url);
   const locale = url.searchParams.get("locale");
 
   // Jeśli brak parametru `locale`, zwróć błąd

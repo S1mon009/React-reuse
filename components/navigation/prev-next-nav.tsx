@@ -33,7 +33,10 @@ export default function PrevNextNav(): JSX.Element {
 
   useEffect(() => {
     const fetchLinks = async () => {
-      const { prev, next } = await getPrevNextLinks(pathname, locale);
+      const res = await fetch(
+        `/api/prev-next-links?locale=pl&path=/pl/docs/getting_started`
+      );
+      const { prev, next } = await res.json();
       setPrevNextLinks({ prev, next });
     };
 

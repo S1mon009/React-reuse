@@ -35,7 +35,7 @@ export default async function Page(props: {
     <>
       <Layout type="mdx" id={util}>
         <Post />
-        <PrevNextNav />
+        {/* <PrevNextNav /> */}
       </Layout>
       <Layout
         type="aside"
