@@ -1,0 +1,49 @@
+export const name = "useHover";
+export const link = "/docs/hooks/usehover";
+export const createdAt = "2024-10-17";
+export const description =
+  "The useHover hook detects when an element is hovered over.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `useHover` hook detects when an element is hovered over. It returns a hovered boolean state that indicates whether the mouse is currently over the element and a ref to be attached to the element you want to track.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## API
+
+- `hovered: boolean` - `true` if the element is currently being hovered over, `false` otherwise.
+- `ref: React.RefObject<T>` - A `ref` that needs to be attached to the target element for detecting hover state.

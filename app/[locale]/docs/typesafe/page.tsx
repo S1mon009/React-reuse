@@ -19,7 +19,7 @@ export default async function Page(props: {
   const { locale } = await props.params;
 
   const { default: Post } = await import(
-    `@/content/${locale}/getting_started/typesafe.mdx`
+    `@/public/content/${locale}/getting_started/typesafe.mdx`
   );
 
   return (

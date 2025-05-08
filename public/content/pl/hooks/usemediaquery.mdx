@@ -1,0 +1,54 @@
+export const name = "useMediaQuery";
+export const link = "/docs/hooks/usemediaquery";
+export const createdAt = "2024-10-17";
+export const description =
+  "Hook useMediaQuery pozwala na stosowanie technik projektowania responsywnego poprzez nasłuchiwanie zmian w zapytaniach medialnych CSS.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Opis
+
+Hook `useMediaQuery` pozwala na stosowanie technik projektowania responsywnego poprzez nasłuchiwanie zmian w zapytaniach medialnych CSS. Zwraca wartość logiczną wskazującą, czy zapytanie medialne pasuje do bieżącego widoku, umożliwiając warunkowe renderowanie komponentów lub stosowanie stylów w oparciu o zapytanie.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Zastosowanie",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## API
+
+- `isMobile: boolean` - `true`, jeśli zapytanie medialne pasuje do bieżącego
+  widoku, w przeciwnym razie `false`.
+
+## Parametry
+
+- `query: string` - Ciąg znaków
+  reprezentujący zapytanie medialne, które chcesz monitorować.

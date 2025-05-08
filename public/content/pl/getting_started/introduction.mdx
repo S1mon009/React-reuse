@@ -1,0 +1,41 @@
+export const name = "Wprowadzenie";
+export const link = "/docs/introduction";
+export const createdAt = "2024-10-17";
+export const description =
+  "Hooki i narzędzia wielokrotnego użytku zbudowane przy użyciu TypeScript i Vitest.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Wstęp
+
+Witamy w naszej kompleksowej bibliotece niestandardowych hooków React, funkcji pomocniczych, komponentów i animacji, **stworzonych w celu usprawnienia i ulepszenia Twojego procesu tworzenia aplikacji**. Ta kolekcja narzędzi została opracowana z silnym naciskiem na możliwość ponownego użycia, wydajność i doświadczenie programisty. Niezależnie od tego, czy pracujesz nad złożonym zarządzaniem stanem, obsługą efektów ubocznych, czy upraszczaniem typowych wzorów interfejsu użytkownika, nasze hooki i narzędzia pozwolą Ci tworzyć solidne i skalowalne aplikacje z łatwością.
+
+Cała nasza biblioteka jest napisana w TypeScript, co zapewnia bezpieczeństwo typów i automatyczne uzupełnianie kodu od razu po instalacji. Każdy hook i funkcja pomocnicza została rygorystycznie przetestowana za pomocą Vitest, co gwarantuje niezawodność i brak błędów w szerokim zakresie przypadków użycia. Przestrzegamy również najlepszych praktyk w zakresie lintingu i stylu kodu, aby utrzymać czysty i łatwy w utrzymaniu kod.
+
+W tym dokumencie omówimy trzy kluczowe aspekty, które wyróżniają naszą bibliotekę: kompleksowe podejście do testowania, zalety TypeScript oraz spójne stosowanie zasad lintingu.
+
+### Testowanie z Vitest
+
+Jednym z głównych filarów naszej biblioteki jest rygorystyczny proces testowania, który stosujemy do każdego hooka i funkcji pomocniczej, którą rozwijamy. Wykorzystując **Vitest**, szybkie i nowoczesne środowisko testowe zaprojektowane dla TypeScript i JavaScript, zapewniamy, że każda część kodu spełnia najwyższe standardy niezawodności i funkcjonalności. Testowanie nie jest dla nas dodatkiem – to integralna część naszego procesu tworzenia, pozwalająca wykrywać potencjalne problemy na wczesnym etapie i dostarczać narzędzia, na których możesz polegać.
+
+Vitest oferuje szybkie sprzężenie zwrotne i bezproblemowo integruje się z TypeScript, co czyni go idealnym narzędziem do naszych potrzeb testowych. Używamy zarówno **testów jednostkowych, jak i testów integracyjnych**, aby obejmować różne aspekty funkcjonalności. Wysoki poziom pokrycia testami zapewnia, że nasza biblioteka pozostaje niezawodna, nawet gdy dodawane są nowe funkcje lub ewoluuje w czasie. Nasze zaangażowanie w rozwój oparty na testach oznacza, że możesz z pełnym zaufaniem integrować nasze hooki w swoim projekcie, wiedząc, że będą działały zgodnie z oczekiwaniami.
+
+### Napisane w TypeScript
+
+Cała nasza biblioteka jest napisana w **TypeScript**, potężnym nadzbiorze JavaScript, który wprowadza statyczne typowanie do kodu. TypeScript zapewnia liczne korzyści, takie jak lepsze narzędzia, ulepszona czytelność kodu i wcześniejsze wykrywanie błędów w trakcie tworzenia. Dzięki używaniu TypeScript we wszystkich naszych hookach i funkcjach pomocniczych zapewniamy Ci maksymalne korzyści z procesu tworzenia, w tym ulepszone automatyczne uzupełnianie kodu, bezpieczeństwo typów i bardziej przewidywalne zachowanie.
+
+Definicje typów w naszych hookach i funkcjach pomocniczych zapewniają solidne egzekwowanie kontraktów, zapobiegając typowym błędom zanim się pojawią. TypeScript pozwala nam również tworzyć bardziej wyraziste **API**, dzięki czemu programiści łatwiej rozumieją, jak poprawnie używać każdego hooka. Dzięki wnioskowaniu typów programiści często otrzymują sugestie bezpośrednio w IDE, co przyspiesza tworzenie i zmniejsza ryzyko błędów w czasie działania. Dzięki temu nasze narzędzia są zarówno przyjazne dla programistów, jak i bardzo niezawodne w środowiskach produkcyjnych.
+
+### Linting i jakość kodu
+
+Utrzymanie **czystej i spójnej bazy kodu** jest jednym z podstawowych założeń naszego procesu tworzenia. Aby to osiągnąć, stosujemy rygorystyczne zasady lintingu i przestrzegamy najlepszych praktyk dotyczących formatowania kodu. Nasza biblioteka jest w pełni lintowana za pomocą ESLint, co zapewnia, że kod jest nie tylko funkcjonalny, ale również czysty, czytelny i łatwy w utrzymaniu. To pomaga zmniejszyć dług technologiczny i ułatwia wprowadzanie zmian w przyszłości.
+
+Linting wymusza również spójność we wszystkich hookach i funkcjach pomocniczych, zapewniając, że wszystkie przestrzegają jednolitego stylu kodowania. Dzięki temu programiści mogą łatwiej zrozumieć kod, szybciej wychwytywać potencjalne błędy i zapobiegać wprowadzaniu złych praktyk. Dodatkowo uruchamiamy lintery jako część naszego procesu ciągłej integracji, co oznacza, że każdy fragment kodu jest sprawdzany pod kątem jakości, zanim zostanie scalony z główną bazą kodu.
+
+<Separator className="my-5" aria-hidden="true" />
+
+Ta biblioteka oferuje starannie opracowany zestaw narzędzi do nowoczesnego tworzenia aplikacji React. Dzięki solidnym podstawom w testowaniu, integracji z TypeScript oraz naciskowi na jakość kodu, nasze hooki i funkcje pomocnicze są niezawodne, przyjazne dla programistów i zaprojektowane tak, aby skalowały się wraz z potrzebami Twojego projektu. Niezależnie od tego, czy chcesz usprawnić swoją bazę kodu, czy zwiększyć wydajność swojej aplikacji, ta kolekcja zapewnia rozwiązania, które pozwolą Ci to osiągnąć z pełnym zaufaniem.
