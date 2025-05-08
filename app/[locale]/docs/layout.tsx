@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, useEffect, Fragment } from "react";
+
 import { type JSX } from "react";
 import type { Metadata } from "next";
 import QueryProvider from "@/providers/query-provider";
@@ -22,8 +26,15 @@ export default async function RootLayout(props: {
   children: React.ReactNode;
 }): Promise<JSX.Element> {
   const { locale } = await props.params;
-  const res = await fetch(`/api/get-folder-structure?locale=${locale}`);
-  const { structure } = await res.json();
+  const [structure, setStructure] = useState<any>({});
+  useEffect(() => {
+    const fetchStructure = async () => {
+      const res = await fetch(`/api/get-folder-structure?locale=${locale}`);
+      const { structure } = await res.json();
+      setStructure(structure);
+    };
+    fetchStructure();
+  }, [locale]);
 
   return (
     <Layout type="div" className="lg:flex lg:justify-center overflow-x-hidden">
