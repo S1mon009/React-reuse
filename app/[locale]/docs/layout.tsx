@@ -22,7 +22,8 @@ export default async function RootLayout(props: {
   children: React.ReactNode;
 }): Promise<JSX.Element> {
   const { locale } = await props.params;
-  const { structure } = await getContentStructure(locale);
+  const res = await fetch(`/api/get-folder-structure?locale=${locale}`);
+  const { structure } = await res.json();
 
   return (
     <Layout type="div" className="lg:flex lg:justify-center overflow-x-hidden">

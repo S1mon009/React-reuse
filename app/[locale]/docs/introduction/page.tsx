@@ -17,15 +17,14 @@ export default async function Page(props: {
 }): Promise<JSX.Element> {
   const { locale } = await props.params;
 
-  // const { default: Post } = await import(
-  //   `@/public/content/${locale}/getting_started/introduction.mdx`
-  // );
+  const { default: Post } = await import(
+    `@/public/content/${locale}/getting_started/introduction.mdx`
+  );
 
   return (
     <>
       <Layout type="mdx" id="introduction">
-        {/* <Post /> */}
-        sjdfn
+        <Post />
         {/* <PrevNextNav /> */}
       </Layout>
       <Layout
