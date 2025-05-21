@@ -2,11 +2,11 @@
 
 ![Static Badge](https://img.shields.io/badge/Next.js-n?style=for-the-badge&logo=nextdotjs&color=%23000000) ![Static Badge](https://img.shields.io/badge/react.js-n?style=for-the-badge&logo=react&logoColor=%23333&color=%2361DAFB) ![Static Badge](https://img.shields.io/badge/typescript-n?style=for-the-badge&logo=typescript&logoColor=%23fff&color=%233178C6) ![Static Badge](https://img.shields.io/badge/tailwind%20css-n?style=for-the-badge&logo=tailwindcss&logoColor=%23fff&color=%2306B6D4) ![Static Badge](https://img.shields.io/badge/vitest-n?style=for-the-badge&logo=vitest&logoColor=%23fff&color=%236E9F18) ![Static Badge](https://img.shields.io/badge/cypress-n?style=for-the-badge&logo=cypress&logoColor=%23fff&color=%2369D3A7) ![Static Badge](https://img.shields.io/badge/eslint-n?style=for-the-badge&logo=eslint&logoColor=%23fff&color=%234B32C3) ![Static Badge](https://img.shields.io/badge/shadcn%2Fui-n?style=for-the-badge&logo=shadcnui&color=%23000000) ![Static Badge](https://img.shields.io/badge/git-n?style=for-the-badge&logo=git&logoColor=%23fff&color=%23F05032) ![Static Badge](https://img.shields.io/badge/github%20actions-n?style=for-the-badge&logo=githubactions&logoColor=%23fff&color=%232088FF) ![Static Badge](https://img.shields.io/badge/vercel-n?style=for-the-badge&logo=vercel&color=%23000000)
 
-![react-reuse](https://github.com/user-attachments/assets/b4b0e93d-72c6-4a24-908a-06a112a0ee15)
+![react-reuse](https://github.com/user-attachments/assets/37160319-4f4b-4e47-a176-0117d34e96fb)
 
 ## What is this?
 
-Reuse is a simple React library with the goal of saving you time by offering a large collection of hooks, utilities, components & animations that will help you get the job done faster & more efficiently!
+Reuse is a simple React library with the goal of saving you time by offering a large collection of hooks, utilities, components (comming soon) & animations (comming soon) that will help you get the job done faster & more efficiently!
 
 ## Getting Started
 
