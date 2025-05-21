@@ -7,7 +7,6 @@ export interface PrevNextLinksReturnType {
 
 export async function GET(request: Request): Promise<Response> {
   const { searchParams } = new URL(request.url);
-  console.log(searchParams);
   const locale = searchParams.get("locale");
   const path = searchParams.get("path");
 
@@ -19,7 +18,7 @@ export async function GET(request: Request): Promise<Response> {
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/get-folder-structure?locale=${locale}`
+      `http://localhost:3000/api/get-folder-structure?locale=${locale}`
     );
     const { structure } = await res.json();
     const sections = Object.keys(structure);
@@ -40,10 +39,10 @@ export async function GET(request: Request): Promise<Response> {
     const next = idx < allItems.length - 1 ? allItems[idx + 1] : null;
 
     const result: PrevNextLinksReturnType = { prev, next };
+    console.log("Result:", result);
 
     return new Response(JSON.stringify(result), {
       status: 200,
-      headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
     console.error("Error in prev-next API:", error);

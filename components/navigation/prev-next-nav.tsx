@@ -36,6 +36,7 @@ export default function PrevNextNav(): JSX.Element {
       const res = await fetch(
         `/api/prev-next-links?locale=pl&path=/pl/docs/getting_started`
       );
+      console.log("res", res);
       const { prev, next } = await res.json();
       setPrevNextLinks({ prev, next });
     };

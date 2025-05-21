@@ -12,8 +12,10 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "@/components/navigation/navigation";
+import Typography from "@/components/typography/typography";
 import Layout from "@/components/layouts/layout";
 import Each from "@/components/utilities/each/each";
+import Show from "@/components/utilities/show/show";
 import { House } from "lucide-react";
 import { capitalize } from "@/lib/helpers/text";
 import { FileMetadata } from "@/lib/file_structure/interface";
@@ -83,13 +85,24 @@ export default function BreadcrumbNavigatio(): JSX.Element {
           </BreadcrumbItem>
           <Each
             of={crumbs}
-            render={(item: { name: string; href: string }) => (
+            render={(item: { name: string; href: string }, index: number) => (
               <Fragment key={item.href}>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link href={item.href}>{item.name}</Link>
-                  </BreadcrumbLink>
+                  <Show>
+                    <Show.When isTrue={index === 0}>
+                      <BreadcrumbLink asChild>
+                        <Typography type="span">{item.name}</Typography>
+                      </BreadcrumbLink>
+                    </Show.When>
+                    <Show.Else>
+                      <BreadcrumbLink asChild>
+                        <Link href={`${item.name.toLowerCase()}`}>
+                          {item.name}
+                        </Link>
+                      </BreadcrumbLink>
+                    </Show.Else>
+                  </Show>
                 </BreadcrumbItem>
               </Fragment>
             )}

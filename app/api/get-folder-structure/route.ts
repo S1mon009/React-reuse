@@ -33,7 +33,7 @@ export async function GET(request: Request) {
 }
 
 async function getContentStructure(locale: string): Promise<LocaleStructure> {
-  const baseDir = path.join(process.cwd(), "content", locale);
+  const baseDir = path.join(process.cwd(), "public", "content", locale);
 
   // Pobierz zawartość katalogu
   const entries = await readdir(baseDir, { withFileTypes: true });
