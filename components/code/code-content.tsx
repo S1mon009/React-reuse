@@ -15,6 +15,12 @@ import { getFileContent } from "@/lib/file_structure/file-content";
 
 import { CodeContentProps } from "./interface";
 
+const fetchContent = async (code: string) => {
+  const res = await fetch(`/api/get-file?filePath=${code}`);
+  const { content } = await res.json();
+  return content;
+};
+
 export default function CodeContent({
   code,
   language = "tsx",
@@ -22,7 +28,9 @@ export default function CodeContent({
   const [copied, setCopied] = useState<boolean>(false);
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["fileContent", code],
-    queryFn: getFileContent.bind(null, code),
+    queryFn: () => {
+      return fetchContent(code);
+    },
   });
 
   if (error) {

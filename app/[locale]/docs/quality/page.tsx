@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import type { Metadata } from "next";
 
-import PrevNextNav from "@/components/navigation/prev-next-nav";
+// import PrevNextNav from "@/components/navigation/prev-next-nav";
 import SectionNavigationList from "@/components/navigation/section_navigation/section-navigation-list";
 import Layout from "@/components/layouts/layout";
 
@@ -25,7 +25,7 @@ export default async function Page(props: {
     <>
       <Layout type="mdx" id="quality">
         <Post />
-        <PrevNextNav />
+        {/* <PrevNextNav /> */}
       </Layout>
       <Layout
         type="aside"

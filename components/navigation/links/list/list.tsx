@@ -57,6 +57,10 @@ export function ListItem({
 export function MainList({ objectKey, structure }: MainListProps): JSX.Element {
   const t = useTranslations(mainListTranslation);
 
+  if (!objectKey) {
+    return <></>;
+  }
+
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger>

@@ -34,11 +34,12 @@ export default function Command(): JSX.Element {
   const locale = useLocale();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getContentStructure(locale);
+    const fetchStructure = async () => {
+      const res = await fetch(`/api/get-folder-structure?locale=${locale}`);
+      const data = await res.json();
       setData(data);
     };
-    fetchData();
+    fetchStructure();
   }, [locale]);
 
   useEffect(() => {

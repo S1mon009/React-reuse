@@ -1,5 +1,4 @@
-import { type JSX } from "react";
-import type { Metadata } from "next";
+import { use, type JSX } from "react";
 import QueryProvider from "@/providers/query-provider";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -7,22 +6,14 @@ import ContentTree from "@/components/navigation/sidebar/content_tree/content-tr
 import BreadcrumbNavigation from "@/components/navigation/breadcrumb/breadcrumb";
 import Layout from "@/components/layouts/layout";
 
-import { getContentStructure } from "@/lib/file_structure/file-structure";
-
-export const metadata: Metadata = {
-  icons: {
-    icon: "../../icon.svg",
-  },
-};
-
 type Params = Promise<{ locale: string }>;
 
-export default async function RootLayout(props: {
-  params: Params;
+export default function RootLayout(props: {
   children: React.ReactNode;
-}): Promise<JSX.Element> {
-  const { locale } = await props.params;
-  const { structure } = await getContentStructure(locale);
+  params: Params;
+}): JSX.Element {
+  const params = use(props.params);
+  const locale = params.locale;
 
   return (
     <Layout type="div" className="lg:flex lg:justify-center overflow-x-hidden">
@@ -35,7 +26,7 @@ export default async function RootLayout(props: {
         </ScrollArea>
       </Layout>
       <Layout type="div" className="h-full p-4 pt-20 md:w-4/5 lg:w-3/5">
-        <BreadcrumbNavigation structure={structure} />
+        <BreadcrumbNavigation />
         <QueryProvider>
           <Layout type="main" className="w-full">
             {props.children}

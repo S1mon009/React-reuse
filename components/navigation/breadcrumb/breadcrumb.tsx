@@ -1,6 +1,8 @@
 "use client";
 
 import { Fragment, type JSX } from "react";
+import { useState, useEffect } from "react";
+import { useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
 import {
   Breadcrumb,
@@ -10,17 +12,30 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "@/components/navigation/navigation";
+import Typography from "@/components/typography/typography";
 import Layout from "@/components/layouts/layout";
 import Each from "@/components/utilities/each/each";
+import Show from "@/components/utilities/show/show";
 import { House } from "lucide-react";
 import { capitalize } from "@/lib/helpers/text";
-import { BreadcrumbNavigationProps } from "./interface";
+import { FileMetadata } from "@/lib/file_structure/interface";
 
-export default function BreadcrumbNavigation({
-  structure,
-}: BreadcrumbNavigationProps): JSX.Element {
+type Structure = Record<string, FileMetadata[]>;
+
+export default function BreadcrumbNavigatio(): JSX.Element {
+  const locale = useLocale();
+  const [structure, setStructure] = useState<Structure>({});
   const pathname = usePathname();
   const rawSegments = pathname.split("/").filter(Boolean);
+
+  useEffect(() => {
+    const fetchStructure = async () => {
+      const res = await fetch(`/api/get-folder-structure?locale=${locale}`);
+      const { structure } = await res.json();
+      setStructure(structure);
+    };
+    fetchStructure();
+  }, [locale]);
 
   const segments = rawSegments.filter(
     (seg, idx) => idx !== 0 && seg !== "docs"
@@ -39,19 +54,19 @@ export default function BreadcrumbNavigation({
       name =
         idx === 0
           ? "Hooks"
-          : structure.hooks.find((i) => i.link.endsWith(segment))?.name ||
+          : structure.hooks?.find((i: any) => i.link.endsWith(segment))?.name ||
             capitalize(segment);
     } else if (category === "utilities") {
       name =
         idx === 0
           ? "Utilities"
-          : structure.utilities.find((i) => i.link.endsWith(segment))?.name ||
-            capitalize(segment);
+          : structure.utilities?.find((i: any) => i.link.endsWith(segment))
+              ?.name || capitalize(segment);
     } else {
       crumbs.push({ name: "Getting started", href: "/docs" });
       name =
-        structure.getting_started.find((i) => i.link.endsWith(segment))?.name ||
-        capitalize(segment);
+        structure.getting_started?.find((i: any) => i.link.endsWith(segment))
+          ?.name || capitalize(segment);
     }
 
     crumbs.push({ name, href: path });
@@ -70,13 +85,24 @@ export default function BreadcrumbNavigation({
           </BreadcrumbItem>
           <Each
             of={crumbs}
-            render={(item: { name: string; href: string }) => (
+            render={(item: { name: string; href: string }, index: number) => (
               <Fragment key={item.href}>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link href={item.href}>{item.name}</Link>
-                  </BreadcrumbLink>
+                  <Show>
+                    <Show.When isTrue={index === 0}>
+                      <BreadcrumbLink asChild>
+                        <Typography type="span">{item.name}</Typography>
+                      </BreadcrumbLink>
+                    </Show.When>
+                    <Show.Else>
+                      <BreadcrumbLink asChild>
+                        <Link href={`${item.name.toLowerCase()}`}>
+                          {item.name}
+                        </Link>
+                      </BreadcrumbLink>
+                    </Show.Else>
+                  </Show>
                 </BreadcrumbItem>
               </Fragment>
             )}
