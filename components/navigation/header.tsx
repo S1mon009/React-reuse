@@ -26,7 +26,7 @@ export default function HeaderNavigation({
       className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-[10]"
     >
       <Layout type="div" className="flex items-center h-full">
-        <Links type="mobile" locale={locale} />
+        <Links type="mobile" />
         <Link href="/" aria-label="Go to homepage">
           <Layout type="div" className="flex items-center">
             <Image src={Logo} alt="Reuse logo" className="size-10" priority />
@@ -36,7 +36,7 @@ export default function HeaderNavigation({
           </Layout>
         </Link>
       </Layout>
-      <Links type="desktop" locale={locale} />
+      <Links type="desktop" />
       <Layout type="div" className="flex gap-2">
         <Command />
         <a
