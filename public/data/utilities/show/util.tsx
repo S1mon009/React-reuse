@@ -1,4 +1,4 @@
-import React, { Children, ReactNode, ReactElement, type JSX } from "react";
+import React, { Children, ReactElement, type JSX } from "react";
 
 interface ShowProps {
   children: Readonly<React.ReactNode>;

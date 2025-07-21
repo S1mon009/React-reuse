@@ -1,0 +1,20 @@
+import { If } from "./utils/if";
+
+const IfComponent = () => {
+  const isLoggedIn = true;
+  const unreadCount = 5;
+
+  return (
+    <div>
+      <If condition={isLoggedIn}>
+        <p>Welcome again!</p>
+      </If>
+      <If
+        condition={unreadCount > 0}
+        else={<p>No new messages.</p>}
+      >
+        <p>You have {unreadcount} unread messages.</p>
+      </If>
+    </div>
+  );
+}
