@@ -52,6 +52,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - `Delay` - A component that renders its children with a delay. Useful for adding a loading or transition effect before displaying content.
 - `Each` - A component that iterates over an array of data and renders a specified component or elements for each item. Ideal for dynamically displaying lists or collections of data.
 - `Show` - A component that conditionally renders its children based on a given boolean value or condition. Useful for displaying or hiding content based on state or props.
+- `If` - A component that conditionally renders its children based on a boolean expression.
 
 ### Components (comming soon)
 ### Animations (comming soon)
