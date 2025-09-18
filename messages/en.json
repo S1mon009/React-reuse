@@ -27,6 +27,10 @@
       "Polish": "Polish"
     }
   },
+  "Footer": {
+    "CreatedWith": "Created with ",
+    "By": "by "
+  },
   "System": {
     "Code": {
       "Header": "Code and usage"
@@ -52,7 +56,6 @@
       "NoResults": "No results found."
     }
   },
-
   "LandingPage": {
     "Section1": {
       "Heading": "<span>Hooks</span>, <span>utilities</span>, <span>components</span> and <span>animations</span> for your next powerfull projects",

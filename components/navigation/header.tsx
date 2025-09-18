@@ -13,17 +13,11 @@ import { Github } from "lucide-react";
 
 import Logo from "@/public/icon.svg";
 
-interface HeaderNavigationProps {
-  locale: string;
-}
-
-export default function HeaderNavigation({
-  locale,
-}: HeaderNavigationProps): JSX.Element {
+export default function HeaderNavigation(): JSX.Element {
   return (
     <Layout
       type="header"
-      className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-[10]"
+      className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-50"
     >
       <Layout type="div" className="flex items-center h-full">
         <Links type="mobile" />

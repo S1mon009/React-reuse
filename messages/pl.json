@@ -27,6 +27,10 @@
       "Polish": "Polski"
     }
   },
+  "Footer": {
+    "CreatedWith": "Stworzone z ",
+    "By": "przez "
+  },
   "System": {
     "Code": {
       "Header": "Kod i zastosowanie"

@@ -33,7 +33,6 @@ export default async function RootLayout(props: {
   params: Params;
   children: React.ReactNode;
 }): Promise<JSX.Element> {
-  const { locale } = await props.params;
   const messages = await getMessages();
 
   return (
@@ -51,7 +50,7 @@ export default async function RootLayout(props: {
             enableSystem
             disableTransitionOnChange
           >
-            <HeaderNavigation locale={locale} />
+            <HeaderNavigation />
             {props.children}
             <Analytics />
           </ThemeProvider>
