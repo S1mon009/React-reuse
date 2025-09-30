@@ -1,4 +1,3 @@
-// app/api/content/route.ts
 import { readdir, readFile } from "fs/promises";
 import path from "path";
 import {
@@ -6,13 +5,10 @@ import {
   LocaleStructure,
 } from "@/lib/file_structure/interface";
 
-// Funkcja API, która będzie obsługiwała zapytanie
 export async function GET(request: Request) {
-  // Pobranie parametru `locale` z zapytania
   const url = new URL(request.url);
   const locale = url.searchParams.get("locale");
 
-  // Jeśli brak parametru `locale`, zwróć błąd
   if (!locale) {
     return new Response(JSON.stringify({ error: "Locale is required" }), {
       status: 400,
@@ -24,7 +20,8 @@ export async function GET(request: Request) {
     return new Response(JSON.stringify(structure), {
       status: 200,
     });
-  } catch (error) {
+  } catch (error: unknown) {
+    console.error("Error fetching content structure:", error);
     return new Response(
       JSON.stringify({ error: "Failed to get content structure" }),
       { status: 500 }
@@ -35,7 +32,6 @@ export async function GET(request: Request) {
 async function getContentStructure(locale: string): Promise<LocaleStructure> {
   const baseDir = path.join(process.cwd(), "public", "content", locale);
 
-  // Pobierz zawartość katalogu
   const entries = await readdir(baseDir, { withFileTypes: true });
   const subfolders = entries
     .filter((e) => e.isDirectory() && !e.name.startsWith("__"))
@@ -49,7 +45,7 @@ async function getContentStructure(locale: string): Promise<LocaleStructure> {
 
     try {
       files = await readdir(folderPath);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error(`Error while reading folder ${folderPath}:`, error);
       continue;
     }

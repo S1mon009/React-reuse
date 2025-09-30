@@ -1,7 +1,7 @@
 import { type JSX } from "react";
 import type { Metadata } from "next";
 
-import SectionNavigationList from "@/components/navigation/section_navigation/section-navigation-list";
+import SectionNavigationList from "@/components/navigation/section_list/section-list";
 // import PrevNextNav from "@/components/navigation/prev-next-nav";
 import Layout from "@/components/layouts/layout";
 

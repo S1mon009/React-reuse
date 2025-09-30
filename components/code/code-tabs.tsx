@@ -2,8 +2,7 @@ import type { JSX } from "react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Each from "@/components/utilities/each/each";
-import CodeContent from "@/components/code/code-content";
-import CodeHeading from "@/components/code/code-heading";
+import { CodeContent, CodeHeading } from "@/components/code";
 import Layout from "@/components/layouts/layout";
 
 import { CodeTabsProps } from "./interface";

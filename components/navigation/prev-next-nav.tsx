@@ -15,8 +15,6 @@ import Show from "@/components/utilities/show/show";
 import Layout from "@/components/layouts/layout";
 import Typography from "@/components/typography/typography";
 
-import { getPrevNextLinks } from "@/lib/prev_next_links/get-prev-next-links";
-
 import { FileMetadata } from "@/lib/file_structure/interface";
 
 export default function PrevNextNav(): JSX.Element {

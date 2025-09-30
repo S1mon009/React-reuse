@@ -10,9 +10,7 @@ export async function getContentStructure(
 ): Promise<LocaleStructure> {
   const baseDir = path.join(process.cwd(), "content", locale);
 
-  // Pobierz zawartość katalogu wraz z typem wpisu
   const entries = await readdir(baseDir, { withFileTypes: true });
-  // Filtruj: tylko katalogi, które nie zaczynają się od "__"
   const subfolders = entries
     .filter((e) => e.isDirectory() && !e.name.startsWith("__"))
     .map((e) => e.name);

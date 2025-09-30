@@ -11,8 +11,6 @@ import Typography from "@/components/typography/typography";
 import Layout from "@/components/layouts/layout";
 import { Copy, Check, Loader2 } from "lucide-react";
 
-import { getFileContent } from "@/lib/file_structure/file-content";
-
 import { CodeContentProps } from "./interface";
 
 const fetchContent = async (code: string) => {

@@ -104,7 +104,11 @@ const Span = ({ children, ...props }: TypographyItemsProps): JSX.Element => {
 };
 
 const A = ({ children, href, ...props }: TypographyItemsProps): JSX.Element => {
-  return <a {...props}>{children}</a>;
+  return (
+    <a {...props} href={href}>
+      {children}
+    </a>
+  );
 };
 
 const Code = ({ children, ...props }: TypographyItemsProps): JSX.Element => {

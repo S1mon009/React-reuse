@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:imports": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "vitest",
     "cypress:open": "cypress open"
   },
@@ -72,6 +73,7 @@
     "cypress": "^13.13.3",
     "eslint": "^8",
     "eslint-config-next": "15.2.0",
+    "eslint-plugin-unused-imports": "^4.2.0",
     "jsdom": "^24.1.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",

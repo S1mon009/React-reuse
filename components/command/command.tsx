@@ -19,7 +19,6 @@ import Each from "@/components/utilities/each/each";
 import Typography from "@/components/typography/typography";
 import { Search, Circle, Bot } from "lucide-react";
 
-import { getContentStructure } from "@/lib/file_structure/file-structure";
 import { capitalize } from "@/lib/helpers/text";
 import { FileMetadata, LocaleStructure } from "@/lib/file_structure/interface";
 

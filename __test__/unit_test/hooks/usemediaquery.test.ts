@@ -1,10 +1,9 @@
-import { renderHook, act } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
 import { vi, describe, it, expect, beforeEach } from "vitest";
 import { useMediaQuery } from "@/public/data/hooks/usemediaquery/hook";
 
 describe("useMediaQuery", () => {
   beforeEach(() => {
-    // Mock implementation of window.matchMedia
     vi.spyOn(window, "matchMedia").mockImplementation((query: string) => {
       let matches = query === "(max-width: 600px)";
       const listeners: EventListener[] = [];
@@ -26,12 +25,11 @@ describe("useMediaQuery", () => {
             }
           }
         },
-        addListener: vi.fn(), // Deprecated
-        removeListener: vi.fn(), // Deprecated
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
         dispatchEvent: vi.fn(),
       };
 
-      // Simulate a media query change after a short delay
       setTimeout(() => {
         matches = !matches;
         listeners.forEach((listener) =>
@@ -70,45 +68,6 @@ describe("useMediaQuery", () => {
   });
 
   it("should update state when media query changes", async () => {
-    const matchMediaSpy = vi
-      .spyOn(window, "matchMedia")
-      .mockImplementation((query: string) => {
-        let matches = query === "(max-width: 600px)";
-        const listeners: EventListener[] = [];
-
-        const mediaQueryList: MediaQueryList = {
-          media: query,
-          matches,
-          onchange: null,
-          addEventListener: (type: string, listener: EventListener) => {
-            if (type === "change") {
-              listeners.push(listener);
-            }
-          },
-          removeEventListener: (type: string, listener: EventListener) => {
-            if (type === "change") {
-              const index = listeners.indexOf(listener);
-              if (index !== -1) {
-                listeners.splice(index, 1);
-              }
-            }
-          },
-          addListener: vi.fn(), // Deprecated
-          removeListener: vi.fn(), // Deprecated
-          dispatchEvent: vi.fn(),
-        };
-
-        // Simulate a media query change after a short delay
-        setTimeout(() => {
-          matches = !matches;
-          listeners.forEach((listener) =>
-            listener({ matches } as unknown as Event)
-          );
-        }, 100);
-
-        return mediaQueryList;
-      });
-
     const { result } = renderHook(() => useMediaQuery("(max-width: 600px)"));
 
     expect(result.current).toBe(true);

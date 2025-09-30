@@ -22,8 +22,8 @@ import {
   ListItem,
   Trigger,
   MainList,
-} from "@/components/navigation/links/list/list";
-import ContentTree from "@/components/navigation/sidebar/content_tree/content-tree";
+  ContentTree,
+} from "@/components/navigation";
 import Show from "@/components/utilities/show/show";
 import Each from "@/components/utilities/each/each";
 import Layout from "@/components/layouts/layout";

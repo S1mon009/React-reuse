@@ -2,8 +2,7 @@ import { use, type JSX } from "react";
 import QueryProvider from "@/providers/query-provider";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-import ContentTree from "@/components/navigation/sidebar/content_tree/content-tree";
-import BreadcrumbNavigation from "@/components/navigation/breadcrumb/breadcrumb";
+import { Breadcrumb, ContentTree } from "@/components/navigation";
 import Layout from "@/components/layouts/layout";
 
 type Params = Promise<{ locale: string }>;
@@ -26,7 +25,7 @@ export default function RootLayout(props: {
         </ScrollArea>
       </Layout>
       <Layout type="div" className="h-full p-4 pt-20 md:w-4/5 lg:w-3/5">
-        <BreadcrumbNavigation />
+        <Breadcrumb />
         <QueryProvider>
           <Layout type="main" className="w-full">
             {props.children}

@@ -2,12 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Each from "@/components/utilities/each/each";
-import { getContentStructure } from "@/lib/file_structure/file-structure";
 import ContentTreeItem from "./content-tree-item";
-
-interface ContentTreeProps {
-  locale: string;
-}
+import { ContentTreeProps } from "./interface";
 
 export default function ContentTree({ locale }: ContentTreeProps) {
   const [structure, setStructure] = useState<any>({});

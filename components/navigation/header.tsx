@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/components/navigation/navigation";
 import { ModeToggle } from "@/components/theme/mode-toggle";
 import { LanguageToggle } from "@/components/language/language-toggle";
-import Links from "@/components/navigation/links/links";
+import { Links } from "@/components/navigation";
 import Command from "@/components/command/command";
 import Typography from "@/components/typography/typography";
 import Layout from "@/components/layouts/layout";
@@ -13,13 +13,7 @@ import { Github } from "lucide-react";
 
 import Logo from "@/public/icon.svg";
 
-interface HeaderNavigationProps {
-  locale: string;
-}
-
-export default function HeaderNavigation({
-  locale,
-}: HeaderNavigationProps): JSX.Element {
+export default function HeaderNavigation(): JSX.Element {
   return (
     <Layout
       type="header"

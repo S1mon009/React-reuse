@@ -3,7 +3,7 @@
 import { useState, useEffect, type JSX } from "react";
 import { useTranslations } from "next-intl";
 
-import { SidebarHeader } from "@/components/navigation/sidebar/sidebar";
+import { SidebarHeader } from "@/components/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import {
   Collapsible,
@@ -21,21 +21,15 @@ import { cn } from "@/lib/utils";
 
 import { getDayDifference } from "@/lib/helpers/date";
 import { capitalize } from "@/lib/helpers/text";
-import { FileMetadata } from "@/lib/file_structure/interface";
+import { ContentTreeItemProps } from "./interface";
 
 const translation: string = "System.Navigation";
-
-interface ContentTreeItemProps {
-  name: string;
-  content: FileMetadata[];
-  openPathName?: string;
-}
 
 export default function ContentTreeItem({
   name,
   content,
   openPathName,
-}: ContentTreeItemProps) {
+}: ContentTreeItemProps): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const t = useTranslations(translation);
   const date = useTranslations();
