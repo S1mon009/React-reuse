@@ -38,7 +38,7 @@ export default function BreadcrumbNavigatio(): JSX.Element {
   }, [locale]);
 
   const segments = rawSegments.filter(
-    (seg, idx) => idx !== 0 && seg !== "docs"
+    (seg, idx) => idx !== 0 && seg !== "docs",
   );
 
   const crumbs: Array<{ name: string; href: string }> = [];
@@ -73,7 +73,7 @@ export default function BreadcrumbNavigatio(): JSX.Element {
   });
 
   return (
-    <Layout type="nav" className="w-full mb-5">
+    <Layout type="nav" className="mb-5 w-full">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

@@ -15,12 +15,12 @@ export default function RootLayout(props: {
   const locale = params.locale;
 
   return (
-    <Layout type="div" className="lg:flex lg:justify-center overflow-x-hidden">
+    <Layout type="div" className="overflow-x-hidden lg:flex lg:justify-center">
       <Layout
         type="div"
-        className="hidden lg:block fixed top-14 left-0 w-1/5 h-full border-r-2 border-muted pt-4"
+        className="fixed left-0 top-14 hidden h-full w-1/5 border-r-2 border-muted pt-4 lg:block"
       >
-        <ScrollArea className="w-full h-full pb-14 px-2">
+        <ScrollArea className="h-full w-full px-2 pb-14">
           <ContentTree locale={locale} />
         </ScrollArea>
       </Layout>

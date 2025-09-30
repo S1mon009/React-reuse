@@ -63,7 +63,7 @@ export default function ContentTreeItem({
             variant: "ghost",
             size: "sm",
           }),
-          "flex justify-between items-center w-full my-2"
+          "my-2 flex w-full items-center justify-between",
         )}
       >
         <SidebarHeader>{t(capitalize(name))}</SidebarHeader>
@@ -90,15 +90,15 @@ export default function ContentTreeItem({
                       size: "sm",
                       className: "flex justify-start py-0",
                     }),
-                    "relative transition-all duration-300 w-[calc(100%-40px)] ml-[30px] before:absolute before:content-[''] before:h-[calc(100%+10px)] before:w-[1px] before:bg-muted before:-left-[10px] hover:before:bg-foreground",
-                    pathname === item.link ? "before:bg-foreground" : null
+                    "relative ml-[30px] w-[calc(100%-40px)] transition-all duration-300 before:absolute before:-left-[10px] before:h-[calc(100%+10px)] before:w-[1px] before:bg-muted before:content-[''] hover:before:bg-foreground",
+                    pathname === item.link ? "before:bg-foreground" : null,
                   )}
                   aria-current={pathname === item.link ? "page" : undefined}
                 >
                   {item.name}
                   <Show>
                     <Show.When isTrue={getDayDifference(item.createdAt) < 30}>
-                      <Badge className="absolute top-0 right-0 -translate-y-2 translate-x-2 scale-[80%]">
+                      <Badge className="absolute right-0 top-0 -translate-y-2 translate-x-2 scale-[80%]">
                         {date("System.New")}
                       </Badge>
                     </Show.When>

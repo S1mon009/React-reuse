@@ -7,7 +7,7 @@ describe("If Component", () => {
     render(
       <If condition={true}>
         <p>Condition is true</p>
-      </If>
+      </If>,
     );
 
     expect(screen.getByText("Condition is true")).toBeInTheDocument();
@@ -17,7 +17,7 @@ describe("If Component", () => {
     render(
       <If condition={false}>
         <p>Condition is false</p>
-      </If>
+      </If>,
     );
 
     expect(screen.queryByText("Condition is false")).toBeNull();
@@ -27,7 +27,7 @@ describe("If Component", () => {
     render(
       <If condition={false} else={<p>Fallback content</p>}>
         <p>Main content</p>
-      </If>
+      </If>,
     );
 
     expect(screen.getByText("Fallback content")).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe("If Component", () => {
     render(
       <If condition={true} else={<p>Fallback content</p>}>
         <p>Main content</p>
-      </If>
+      </If>,
     );
 
     expect(screen.getByText("Main content")).toBeInTheDocument();

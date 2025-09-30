@@ -13,7 +13,7 @@ const H1 = ({
     <h1
       className={cn(
         "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-6xl",
-        className
+        className,
       )}
       {...props}
     >
@@ -31,7 +31,7 @@ const H2 = ({
     <h2
       className={cn(
         "scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
-        className
+        className,
       )}
       {...props}
     >
@@ -49,7 +49,7 @@ const H3 = ({
     <h3
       className={cn(
         "scroll-m-20 text-2xl font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     >
@@ -67,7 +67,7 @@ const H4 = ({
     <h4
       className={cn(
         "scroll-m-20 text-xl font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     >
@@ -113,7 +113,7 @@ const A = ({ children, href, ...props }: TypographyItemsProps): JSX.Element => {
 
 const Code = ({ children, ...props }: TypographyItemsProps): JSX.Element => {
   return (
-    <span className="bg-gray-300 dark:bg-gray-600 rounded-sm px-2" {...props}>
+    <span className="rounded-sm bg-gray-300 px-2 dark:bg-gray-600" {...props}>
       {children}
     </span>
   );

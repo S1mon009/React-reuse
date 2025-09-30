@@ -58,10 +58,10 @@ export default function Command(): JSX.Element {
         <Tabs defaultValue="search">
           <TabsList className="ml-3 mt-3">
             <TabsTrigger value="search">
-              <Search className="size-4 mr-2" /> Search
+              <Search className="mr-2 size-4" /> Search
             </TabsTrigger>
             <TabsTrigger value="askai">
-              <Bot className="size-4 mr-2" />
+              <Bot className="mr-2 size-4" />
               Ask AI
             </TabsTrigger>
           </TabsList>
@@ -100,7 +100,7 @@ export default function Command(): JSX.Element {
       </CommandDialog>
       <Button
         onClick={() => setOpen(true)}
-        className="hidden xl:inline-flex items-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input hover:bg-accent hover:text-accent-foreground px-4 py-2 relative w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
+        className="relative hidden w-full items-center justify-start gap-2 whitespace-nowrap rounded-[0.5rem] border border-input bg-muted/50 px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:pr-12 md:w-40 lg:w-64 xl:inline-flex [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0"
       >
         <Typography type="span" className="hidden lg:inline-flex">
           {search("ButtonSearchLg")}

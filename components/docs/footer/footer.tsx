@@ -31,7 +31,7 @@ export default function Footer({ data }: FooterProps): JSX.Element {
         of={data}
         render={(
           item: { link: string; title: string; description: string },
-          index: number
+          index: number,
         ) => (
           <Show key={index}>
             <Show.When isTrue={!!item.link}>
@@ -40,7 +40,7 @@ export default function Footer({ data }: FooterProps): JSX.Element {
                   className={cn(
                     "flex",
                     index === 1 ? "justify-end" : null,
-                    "border-muted cursor-pointer hover:border-primary"
+                    "cursor-pointer border-muted hover:border-primary",
                   )}
                 >
                   <CardHeader className="p-3">

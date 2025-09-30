@@ -49,7 +49,7 @@ describe("useInterval", () => {
       ({ delay }) => useInterval(callback, delay),
       {
         initialProps: { delay: 1000 },
-      }
+      },
     );
 
     // Fast-forward time by 2 seconds

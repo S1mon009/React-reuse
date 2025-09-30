@@ -33,7 +33,7 @@ describe("useMediaQuery", () => {
       setTimeout(() => {
         matches = !matches;
         listeners.forEach((listener) =>
-          listener({ matches } as unknown as Event)
+          listener({ matches } as unknown as Event),
         );
       }, 100);
 

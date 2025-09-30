@@ -24,7 +24,7 @@ export async function GET(request: Request) {
     console.error("Error fetching content structure:", error);
     return new Response(
       JSON.stringify({ error: "Failed to get content structure" }),
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -64,10 +64,10 @@ async function getContentStructure(locale: string): Promise<LocaleStructure> {
       const name = getMatch(/export\s+const\s+name\s*=\s*["'](.+?)["'];?/);
       const link = getMatch(/export\s+const\s+link\s*=\s*["'](.+?)["'];?/);
       const description = getMatch(
-        /export\s+const\s+description\s*=\s*["'](.+?)["'];?/
+        /export\s+const\s+description\s*=\s*["'](.+?)["'];?/,
       );
       const createdAt = getMatch(
-        /export\s+const\s+createdAt\s*=\s*["'](.+?)["'];?/
+        /export\s+const\s+createdAt\s*=\s*["'](.+?)["'];?/,
       );
 
       if (!name || !link) {

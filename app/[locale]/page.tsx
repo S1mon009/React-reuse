@@ -7,7 +7,7 @@ import Section3 from "@/components/main/section_3/section-3";
 
 export default function Page(): JSX.Element {
   return (
-    <Layout type="main" className="absolute w-full top-14 h-72 md:h-full z-0">
+    <Layout type="main" className="absolute top-14 z-0 h-72 w-full md:h-full">
       <Section1 />
       <Section2 />
       <Section3 />

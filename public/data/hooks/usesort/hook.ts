@@ -9,7 +9,7 @@ interface UseSortReturn<T> {
 export function useSort<T>(
   items: T[],
   sortFn: (a: T, b: T) => number,
-  initialOrder: "asc" | "desc" = "asc"
+  initialOrder: "asc" | "desc" = "asc",
 ): UseSortReturn<T> {
   const [order, setOrder] = useState<"asc" | "desc">(initialOrder);
 

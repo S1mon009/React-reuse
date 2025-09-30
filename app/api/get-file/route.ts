@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   if (!filePath) {
     return NextResponse.json(
       { error: "File path is required" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
     console.error("Error reading file:", err);
     return NextResponse.json(
       { error: "File not found or unable to read" },
-      { status: 404 }
+      { status: 404 },
     );
   }
 }

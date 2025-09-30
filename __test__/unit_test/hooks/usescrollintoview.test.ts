@@ -43,7 +43,7 @@ describe("useScrollIntoView", () => {
 
     // Render the hook with custom options
     const { result } = renderHook(() =>
-      useScrollIntoView(ref, "auto", "center", "end")
+      useScrollIntoView(ref, "auto", "center", "end"),
     );
 
     // Call the hook's returned callback to trigger scrollIntoView

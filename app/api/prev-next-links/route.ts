@@ -18,7 +18,7 @@ export async function GET(request: Request): Promise<Response> {
 
   try {
     const res = await fetch(
-      `http://localhost:3000/api/get-folder-structure?locale=${locale}`
+      `http://localhost:3000/api/get-folder-structure?locale=${locale}`,
     );
     const { structure } = await res.json();
     const sections = Object.keys(structure);

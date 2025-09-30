@@ -12,7 +12,7 @@ const items = [
 // Custom sorting function
 const sortFn = (
   a: { id: number; name: string },
-  b: { id: number; name: string }
+  b: { id: number; name: string },
 ) => a.name.localeCompare(b.name);
 
 describe("useSort", () => {

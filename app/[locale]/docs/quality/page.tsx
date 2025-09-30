@@ -29,7 +29,7 @@ export default async function Page(props: {
       </Layout>
       <Layout
         type="aside"
-        className="hidden md:block fixed top-14 right-0 h-full w-1/5 p-4"
+        className="fixed right-0 top-14 hidden h-full w-1/5 p-4 md:block"
       >
         <SectionNavigationList sectionId="quality" />
       </Layout>

@@ -27,10 +27,10 @@ export default function Section3(): JSX.Element {
   return (
     <Layout
       type="section"
-      className="flex justify-around gap-6 flex-wrap-reverse xl:h-[400px] xl:mt-52 p-6 md:p-12"
+      className="flex flex-wrap-reverse justify-around gap-6 p-6 md:p-12 xl:mt-52 xl:h-[400px]"
     >
       <Layout type="article">
-        <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100  border-neutral-200 dark:border-neutral-800 px-4">
+        <div className="rounded-3xl border border-neutral-200 bg-neutral-100 p-4 px-4 dark:border-neutral-800 dark:bg-neutral-900">
           <Compare
             firstImage={Image1}
             secondImage={Image2}
@@ -41,8 +41,8 @@ export default function Section3(): JSX.Element {
           />
         </div>
       </Layout>
-      <Layout type="article" className="w-full xl:w-[500px] text-xl">
-        <Typography type="p" className="font-bold text-3xl mb-3">
+      <Layout type="article" className="w-full text-xl xl:w-[500px]">
+        <Typography type="p" className="mb-3 text-3xl font-bold">
           <RoughNotation type="highlight" color={roughNotationColor} show>
             {t("Heading")}
           </RoughNotation>

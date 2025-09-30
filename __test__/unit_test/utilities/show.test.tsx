@@ -9,7 +9,7 @@ describe("Show Component", () => {
         <Show.When isTrue={false}>Should not be shown</Show.When>
         <Show.When isTrue={true}>Should be shown</Show.When>
         <Show.Else>Fallback content</Show.Else>
-      </Show>
+      </Show>,
     );
 
     expect(screen.getByText("Should be shown")).toBeInTheDocument();
@@ -22,7 +22,7 @@ describe("Show Component", () => {
       <Show>
         <Show.When isTrue={false}>Should not be shown</Show.When>
         <Show.Else>Fallback content</Show.Else>
-      </Show>
+      </Show>,
     );
 
     expect(screen.queryByText("Should not be shown")).toBeNull();
@@ -33,7 +33,7 @@ describe("Show Component", () => {
     render(
       <Show>
         <Show.Else>Fallback content</Show.Else>
-      </Show>
+      </Show>,
     );
 
     expect(screen.getByText("Fallback content")).toBeInTheDocument();
@@ -45,7 +45,7 @@ describe("Show Component", () => {
         <Show.When isTrue={true}>First true</Show.When>
         <Show.When isTrue={true}>Second true</Show.When>
         <Show.Else>Fallback content</Show.Else>
-      </Show>
+      </Show>,
     );
 
     expect(screen.getByText("First true")).toBeInTheDocument();

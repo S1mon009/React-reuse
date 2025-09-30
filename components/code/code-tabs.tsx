@@ -15,14 +15,14 @@ export default function CodeTabs({
   return (
     <>
       <CodeHeading />
-      <Layout type="section" id="code" className="overflow-hidden my-3">
+      <Layout type="section" id="code" className="my-3 overflow-hidden">
         <Tabs defaultValue={defaultValue}>
           <TabsList aria-label="Code and Usage tabs">
             <Each
               of={triggers}
               render={(
                 item: { value: string; title: string },
-                index: number
+                index: number,
               ) => (
                 <TabsTrigger value={item.value} key={index}>
                   {item.title}
@@ -38,7 +38,7 @@ export default function CodeTabs({
                 ariaLabel?: string | undefined;
                 code: string;
               },
-              index: number
+              index: number,
             ) => (
               <TabsContent value={item.value} key={index}>
                 <CodeContent code={item.code} />

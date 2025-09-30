@@ -46,7 +46,7 @@ export default function Links({ type }: LinksProps): JSX.Element {
   return (
     <Show>
       <Show.When isTrue={type === "desktop"}>
-        <Layout type="nav" className="hidden lg:flex gap-2">
+        <Layout type="nav" className="hidden gap-2 lg:flex">
           <NavigationMenu>
             <NavigationMenuList>
               {structure &&
@@ -68,7 +68,7 @@ export default function Links({ type }: LinksProps): JSX.Element {
                           <Trigger text={key} />
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
-                          <ul className="grid gap-3 p-4 md:w-[500px] lg:w-[600px] md:grid-cols-2">
+                          <ul className="grid gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                             <Each
                               of={structure[key].slice(0, 6)}
                               render={(item: any, index: number) => (
@@ -120,7 +120,7 @@ export default function Links({ type }: LinksProps): JSX.Element {
       <Show.When isTrue={type === "mobile"}>
         <Sheet>
           <SheetTrigger
-            className="block mr-1 mt-1 lg:hidden"
+            className="mr-1 mt-1 block lg:hidden"
             aria-label="Open menu"
           >
             <ChartNoAxesGantt />

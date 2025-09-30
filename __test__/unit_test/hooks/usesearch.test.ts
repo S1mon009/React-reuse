@@ -51,7 +51,7 @@ describe("useSearch", () => {
       item.name.toLowerCase().includes(query.toLowerCase());
 
     const { result } = renderHook(
-      () => useSearch(items, filterFn, 500) // Longer debounce for testing
+      () => useSearch(items, filterFn, 500), // Longer debounce for testing
     );
 
     act(() => {

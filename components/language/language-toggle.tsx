@@ -40,8 +40,8 @@ export function LanguageToggle(): JSX.Element {
         <Link href={pathname} locale={localeSelect}>
           <span
             className={cn(
-              "block size-2 rounded-full mr-3",
-              isActive ? "bg-current" : "bg-transparent"
+              "mr-3 block size-2 rounded-full",
+              isActive ? "bg-current" : "bg-transparent",
             )}
           ></span>
           {localeSelect === "en" && t("English")}

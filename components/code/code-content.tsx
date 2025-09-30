@@ -53,16 +53,16 @@ export default function CodeContent({
   }, [copied]);
 
   return (
-    <ScrollArea className="h-96 whitespace-nowrap rounded-xl w-full">
+    <ScrollArea className="h-96 w-full whitespace-nowrap rounded-xl">
       <CodeBlock code={data || ""} language={language}>
-        <CodeBlock.Code className="bg-gray-900 p-6 my-0 rounded-xl">
+        <CodeBlock.Code className="my-0 rounded-xl bg-gray-900 p-6">
           <Show>
             <Show.When isTrue={isLoading}>
               <Layout type="div" className="flex items-center space-x-3">
                 <Loader2 className="animate-spin" />
                 <Typography
                   type="p"
-                  className="-translate-y-1 after:content-['.'] after:animate-ellipsis after:inline-block after:w-4"
+                  className="-translate-y-1 after:inline-block after:w-4 after:animate-ellipsis after:content-['.']"
                 >
                   Loading
                 </Typography>
@@ -70,8 +70,8 @@ export default function CodeContent({
             </Show.When>
             <Show.When isTrue={isError}>Error loading content.</Show.When>
             <Show.Else>
-              <div className="table-row mt-3">
-                <CodeBlock.LineNumber className="table-cell pr-4 text-sm text-gray-500 text-right select-none" />
+              <div className="mt-3 table-row">
+                <CodeBlock.LineNumber className="table-cell select-none pr-4 text-right text-sm text-gray-500" />
                 <CodeBlock.LineContent className="table-cell">
                   <CodeBlock.Token />
                 </CodeBlock.LineContent>
@@ -83,7 +83,7 @@ export default function CodeContent({
               <Button
                 variant="secondary"
                 size="icon"
-                className="absolute top-4 right-4"
+                className="absolute right-4 top-4"
                 onClick={copyCode}
                 aria-label="Copy to clipboard"
               >

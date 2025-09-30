@@ -6,7 +6,7 @@ import path from "path";
 import { FolderStructure, LocaleStructure } from "./interface";
 
 export async function getContentStructure(
-  locale: string
+  locale: string,
 ): Promise<LocaleStructure> {
   const baseDir = path.join(process.cwd(), "content", locale);
 
@@ -42,10 +42,10 @@ export async function getContentStructure(
       const name = getMatch(/export\s+const\s+name\s*=\s*["'](.+?)["'];?/);
       const link = getMatch(/export\s+const\s+link\s*=\s*["'](.+?)["'];?/);
       const description = getMatch(
-        /export\s+const\s+description\s*=\s*["'](.+?)["'];?/
+        /export\s+const\s+description\s*=\s*["'](.+?)["'];?/,
       );
       const createdAt = getMatch(
-        /export\s+const\s+createdAt\s*=\s*["'](.+?)["'];?/
+        /export\s+const\s+createdAt\s*=\s*["'](.+?)["'];?/,
       );
 
       if (!name || !link) {

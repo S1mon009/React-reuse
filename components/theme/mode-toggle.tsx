@@ -43,7 +43,7 @@ export function ModeToggle() {
    */
   const renderThemes = (
     themeSelect: "light" | "dark" | "system",
-    index: number
+    index: number,
   ): JSX.Element => {
     const isActive = theme === themeSelect;
     return (
@@ -51,14 +51,14 @@ export function ModeToggle() {
         key={index}
         onClick={changeMode.bind(null, themeSelect)}
         aria-label={t(
-          themeSelect.charAt(0).toUpperCase() + themeSelect.slice(1)
+          themeSelect.charAt(0).toUpperCase() + themeSelect.slice(1),
         )}
         className="flex items-center justify-start"
       >
         <span
           className={cn(
-            "block size-2 rounded-full mr-3",
-            isActive ? "bg-current" : "bg-transparent"
+            "mr-3 block size-2 rounded-full",
+            isActive ? "bg-current" : "bg-transparent",
           )}
         ></span>
         {t(themeSelect.charAt(0).toUpperCase() + themeSelect.slice(1))}

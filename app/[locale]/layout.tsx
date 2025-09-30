@@ -41,7 +41,7 @@ export default async function RootLayout(props: {
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <NextIntlClientProvider messages={messages}>

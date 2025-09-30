@@ -7,7 +7,7 @@ describe("Delay Component", () => {
     render(
       <Delay ms={500}>
         <div>Delayed Content</div>
-      </Delay>
+      </Delay>,
     );
 
     expect(screen.queryByText("Delayed Content")).toBeNull();
@@ -21,7 +21,7 @@ describe("Delay Component", () => {
     render(
       <Delay ms={500}>
         <div>Delayed Content</div>
-      </Delay>
+      </Delay>,
     );
 
     expect(screen.queryByText("Delayed Content")).toBeNull();

@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 export function useKeyboardShortcut(
   keys: string[],
   callback: () => void,
-  element: HTMLElement | Window = window
+  element: HTMLElement | Window = window,
 ) {
   const pressedKeys = useRef(new Set<string>());
 

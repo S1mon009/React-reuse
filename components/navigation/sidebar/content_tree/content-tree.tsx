@@ -21,7 +21,7 @@ export default function ContentTree({ locale }: ContentTreeProps) {
       of={Object.keys(structure)}
       render={(item, index) => {
         const pathnames = Object.keys(structure).map((pathname) =>
-          pathname === "getting_started" ? "docs" : `docs/${pathname}`
+          pathname === "getting_started" ? "docs" : `docs/${pathname}`,
         );
 
         return (
