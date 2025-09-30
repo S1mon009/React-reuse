@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Link } from "@/components/navigation/navigation";
+import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Layout from "@/components/layouts/layout";

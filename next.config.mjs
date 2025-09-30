@@ -1,5 +1,6 @@
 import createNextIntlPlugin from "next-intl/plugin";
 import nextMdx from "@next/mdx";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 const withNextIntl = createNextIntlPlugin("./i18/request.ts");
 
