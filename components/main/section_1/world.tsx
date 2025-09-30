@@ -18,7 +18,7 @@ export default function World() {
   return (
     <>
       <GridBackground />
-      <div className="absolute w-full start-1/2 -translate-y-28 sm:-translate-y-8 md:-translate-y-0 -translate-x-2/4 top-32 z-20 p-6 md:p-0">
+      <div className="absolute start-1/2 top-32 z-20 w-full -translate-x-2/4 -translate-y-28 p-6 sm:-translate-y-8 md:-translate-y-0 md:p-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ export default function World() {
         >
           <Layout
             type="section"
-            className="w-full md:w-[70%] ml-[50%] text-white dark:md:text-white md:text-black -translate-x-1/2 text-center"
+            className="ml-[50%] w-full -translate-x-1/2 text-center text-white md:w-[70%] md:text-black dark:md:text-white"
           >
             <Typography type="h1">
               {t.rich("Heading", {
@@ -38,11 +38,11 @@ export default function World() {
           </Layout>
           <Typography
             type="p"
-            className="text-center text-2xl dark:text-white text-muted font-normal max-w-md mt-2 mx-auto"
+            className="mx-auto mt-2 max-w-md text-center text-2xl font-normal text-muted dark:text-white"
           >
             {t("Subheading")}
           </Typography>
-          <Layout type="section" className="flex justify-center gap-4 mt-4">
+          <Layout type="section" className="mt-4 flex justify-center gap-4">
             <Link
               href="/docs/introduction"
               className={buttonVariants({ variant: "default", size: "lg" })}
@@ -65,7 +65,7 @@ export default function World() {
         </motion.div>
       </div>
       <div
-        className="hidden absolute w-full h-[800px] z-10 md:flex justify-center items-center top-0"
+        className="absolute top-0 z-10 hidden h-[800px] w-full items-center justify-center md:flex"
         aria-label="Interactive 3D Globe"
       >
         {/* <WorldComponent data={sampleArcs} globeConfig={globeConfig} /> */}

@@ -2,12 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Each from "@/components/utilities/each/each";
-import { getContentStructure } from "@/lib/file_structure/file-structure";
 import ContentTreeItem from "./content-tree-item";
-
-interface ContentTreeProps {
-  locale: string;
-}
+import { ContentTreeProps } from "./interface";
 
 export default function ContentTree({ locale }: ContentTreeProps) {
   const [structure, setStructure] = useState<any>({});
@@ -25,7 +21,7 @@ export default function ContentTree({ locale }: ContentTreeProps) {
       of={Object.keys(structure)}
       render={(item, index) => {
         const pathnames = Object.keys(structure).map((pathname) =>
-          pathname === "getting_started" ? "docs" : `docs/${pathname}`
+          pathname === "getting_started" ? "docs" : `docs/${pathname}`,
         );
 
         return (

@@ -49,7 +49,7 @@ export default function SectionList({
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const index = headingData.findIndex(
-                (heading) => heading.id === entry.target.id
+                (heading) => heading.id === entry.target.id,
               );
               if (index !== -1) {
                 setActiveIndex(index);
@@ -57,7 +57,7 @@ export default function SectionList({
             }
           });
         },
-        { rootMargin: "0px 0px -50% 0px" }
+        { rootMargin: "0px 0px -50% 0px" },
       );
 
       allHeadings.forEach((heading) => {
@@ -80,7 +80,7 @@ export default function SectionList({
           of={headings}
           render={(
             heading: { type: string; text: string; id: string },
-            index: number
+            index: number,
           ) => (
             <Link
               href={`${pathname}/#${heading.id}`}
@@ -88,13 +88,13 @@ export default function SectionList({
                 buttonVariants({
                   variant: "link",
                   className:
-                    "flex justify-start items-center rounded-none w-full my-2 text-muted-foreground truncate relative hover:text-current -translate-x-0.5",
+                    "relative my-2 flex w-full -translate-x-0.5 items-center justify-start truncate rounded-none text-muted-foreground hover:text-current",
                 }),
                 heading.type === "h3" ? "pl-7" : null,
                 heading.type === "h4" ? "pl-9" : null,
                 index === activeIndex
-                  ? "text-current before:content-[''] before:block before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-current"
-                  : null
+                  ? "text-current before:absolute before:bottom-0 before:left-0 before:top-0 before:block before:w-[2px] before:bg-current before:content-['']"
+                  : null,
               )}
               onClick={() => handleScroll(index, heading.id)}
               key={index}

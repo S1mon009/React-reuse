@@ -33,7 +33,7 @@ export function SidebarHeader({
   className,
 }: SidebarHeaderProps): JSX.Element {
   return (
-    <Layout type="div" className={`font-semibold py-2 ${className}`}>
+    <Layout type="div" className={`py-2 font-semibold ${className}`}>
       {children}
     </Layout>
   );

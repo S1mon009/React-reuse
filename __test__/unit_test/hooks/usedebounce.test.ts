@@ -24,7 +24,7 @@ describe("useDebounce", () => {
       ({ value }) => useDebounce(value, 500),
       {
         initialProps: { value: "initial" },
-      }
+      },
     );
 
     // Initially, debounced value should be the initial value
@@ -50,7 +50,7 @@ describe("useDebounce", () => {
       ({ value }) => useDebounce(value, 500),
       {
         initialProps: { value: "first" },
-      }
+      },
     );
 
     // Initially, debounced value should be 'first'

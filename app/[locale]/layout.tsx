@@ -5,8 +5,8 @@ import { Inter as FontSans } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { ThemeProvider } from "@/components/theme/theme-provider";
-import HeaderNavigation from "@/components/navigation/header";
+import { ThemeProvider } from "@/providers/theme-provider";
+import { HeaderNavigation } from "@/components/navigation";
 
 import { cn } from "@/lib/utils";
 import { getMessages } from "next-intl/server";
@@ -40,7 +40,7 @@ export default async function RootLayout(props: {
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <NextIntlClientProvider messages={messages}>

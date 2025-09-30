@@ -15,8 +15,6 @@ import Show from "@/components/utilities/show/show";
 import Layout from "@/components/layouts/layout";
 import Typography from "@/components/typography/typography";
 
-import { getPrevNextLinks } from "@/lib/prev_next_links/get-prev-next-links";
-
 import { FileMetadata } from "@/lib/file_structure/interface";
 
 export default function PrevNextNav(): JSX.Element {
@@ -34,7 +32,7 @@ export default function PrevNextNav(): JSX.Element {
   useEffect(() => {
     const fetchLinks = async () => {
       const res = await fetch(
-        `/api/prev-next-links?locale=pl&path=/pl/docs/getting_started`
+        `/api/prev-next-links?locale=pl&path=/pl/docs/getting_started`,
       );
       console.log("res", res);
       const { prev, next } = await res.json();
@@ -47,7 +45,7 @@ export default function PrevNextNav(): JSX.Element {
   return (
     <Layout
       type="nav"
-      className="flex justify-between flex-wrap gap-2 mt-8 w-full"
+      className="mt-8 flex w-full flex-wrap justify-between gap-2"
     >
       <Show>
         <Show.When isTrue={prevNextLinks?.prev != null}>
@@ -55,7 +53,7 @@ export default function PrevNextNav(): JSX.Element {
             href={String(prevNextLinks?.prev?.link)}
             className="w-full md:w-[40%] lg:w-2/5"
           >
-            <Card className="flex border-muted cursor-pointer hover:border-primary">
+            <Card className="flex cursor-pointer border-muted hover:border-primary">
               <CardHeader className="p-3 pt-0">
                 <CardDescription className="mb-0">
                   <Typography type="span" className="text-muted-foreground">
@@ -77,7 +75,7 @@ export default function PrevNextNav(): JSX.Element {
             href={String(prevNextLinks?.next?.link)}
             className="w-full md:w-[40%] lg:w-2/5"
           >
-            <Card className="flex flex-wrap justify-end border-muted cursor-pointer hover:border-primary">
+            <Card className="flex cursor-pointer flex-wrap justify-end border-muted hover:border-primary">
               <CardHeader className="p-3 pt-0">
                 <CardDescription dir="rtl" className="mb-0">
                   <Typography type="span" className="text-muted-foreground">

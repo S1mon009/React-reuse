@@ -6,7 +6,7 @@ import path from "path";
 import { FolderStructure, LocaleStructure } from "./interface";
 
 export async function getContentStructure(
-  locale: string
+  locale: string,
 ): Promise<LocaleStructure> {
   // Bazowa ścieżka do folderu content w public/
   const baseDir = path.resolve(process.cwd(), "public", "content", locale);
@@ -19,6 +19,10 @@ export async function getContentStructure(
     throw new Error(`Nie znaleziono treści dla locale: ${locale}`);
   }
 
+<<<<<<< HEAD
+=======
+  const entries = await readdir(baseDir, { withFileTypes: true });
+>>>>>>> nextjs-15.2.0
   const subfolders = entries
     .filter((e) => e.isDirectory() && !e.name.startsWith("__"))
     .map((e) => e.name);
@@ -51,10 +55,10 @@ export async function getContentStructure(
       const name = getMatch(/export\s+const\s+name\s*=\s*["'](.+?)["'];?/);
       const link = getMatch(/export\s+const\s+link\s*=\s*["'](.+?)["'];?/);
       const description = getMatch(
-        /export\s+const\s+description\s*=\s*["'](.+?)["'];?/
+        /export\s+const\s+description\s*=\s*["'](.+?)["'];?/,
       );
       const createdAt = getMatch(
-        /export\s+const\s+createdAt\s*=\s*["'](.+?)["'];?/
+        /export\s+const\s+createdAt\s*=\s*["'](.+?)["'];?/,
       );
 
       if (!name || !link) {

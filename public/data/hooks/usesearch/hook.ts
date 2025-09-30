@@ -10,7 +10,7 @@ interface UseSearchReturn<T> {
 export function useSearch<T>(
   items: T[],
   filterFn: (item: T, query: string) => boolean,
-  debounceDelay = 300
+  debounceDelay = 300,
 ): UseSearchReturn<T> {
   const [query, setQuery] = useState("");
   const [filteredItems, setFilteredItems] = useState<T[]>(items);

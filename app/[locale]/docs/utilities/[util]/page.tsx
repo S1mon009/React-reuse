@@ -2,7 +2,7 @@ import { type JSX } from "react";
 import type { Metadata } from "next";
 
 // import PrevNextNav from "@/components/navigation/prev-next-nav";
-import SectionNavigationList from "@/components/navigation/section_navigation/section-navigation-list";
+import SectionNavigationList from "@/components/navigation/section_list/section-list";
 import Layout from "@/components/layouts/layout";
 
 type Params = Promise<{ locale: string; util: string }>;
@@ -39,7 +39,7 @@ export default async function Page(props: {
       </Layout>
       <Layout
         type="aside"
-        className="hidden md:block fixed top-14 right-0 h-full w-1/5 p-4"
+        className="fixed right-0 top-14 hidden h-full w-1/5 p-4 md:block"
       >
         <SectionNavigationList sectionId={util} />
       </Layout>

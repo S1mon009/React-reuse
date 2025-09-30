@@ -6,7 +6,7 @@ import { FileMetadata } from "@/lib/file_structure/interface";
 
 export async function getPrevNextLinks(
   path: string,
-  locale: string
+  locale: string,
 ): Promise<PrevNextLinksReturnType> {
   const { structure } = await getContentStructure(locale);
 

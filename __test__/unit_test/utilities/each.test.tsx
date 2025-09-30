@@ -14,7 +14,7 @@ describe("Each Component", () => {
       expect(mockRender).toHaveBeenCalledWith(item, index);
     });
 
-    items.forEach((item, index) => {
+    items.forEach((item) => {
       expect(screen.getByText(item)).toBeInTheDocument();
     });
   });

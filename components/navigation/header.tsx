@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/components/navigation/navigation";
 import { ModeToggle } from "@/components/theme/mode-toggle";
 import { LanguageToggle } from "@/components/language/language-toggle";
-import Links from "@/components/navigation/links/links";
+import { Links } from "@/components/navigation";
 import Command from "@/components/command/command";
 import Typography from "@/components/typography/typography";
 import Layout from "@/components/layouts/layout";
@@ -17,9 +17,13 @@ export default function HeaderNavigation(): JSX.Element {
   return (
     <Layout
       type="header"
+<<<<<<< HEAD
       className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-50"
+=======
+      className="fixed left-0 top-0 z-[10] flex h-16 w-full items-center justify-between border-b-2 border-b-muted bg-inherit p-3"
+>>>>>>> nextjs-15.2.0
     >
-      <Layout type="div" className="flex items-center h-full">
+      <Layout type="div" className="flex h-full items-center">
         <Links type="mobile" />
         <Link href="/" aria-label="Go to homepage">
           <Layout type="div" className="flex items-center">

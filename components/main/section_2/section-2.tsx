@@ -29,10 +29,10 @@ export default function Section2(): JSX.Element {
   return (
     <Layout
       type="section"
-      className="flex justify-center gap-6 flex-wrap xl:h-[400px] p-6 md:p-12"
+      className="flex flex-wrap justify-center gap-6 p-6 md:p-12 xl:h-[400px]"
     >
-      <Layout type="article" className="w-full xl:w-[400px] text-xl">
-        <Typography type="p" className="font-bold text-3xl mb-3">
+      <Layout type="article" className="w-full text-xl xl:w-[400px]">
+        <Typography type="p" className="mb-3 text-3xl font-bold">
           <RoughNotation type="highlight" color={roughNotationColor} show>
             {t("Article1.Heading")}
           </RoughNotation>
@@ -41,7 +41,7 @@ export default function Section2(): JSX.Element {
       </Layout>
       <Layout
         type="article"
-        className="w-full md:w-[800px] grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-4"
+        className="grid w-full grid-cols-1 grid-rows-4 gap-4 md:w-[800px] md:grid-cols-2 md:grid-rows-2"
       >
         <Each
           of={Array.from({ length: 4 })}
@@ -57,7 +57,7 @@ export default function Section2(): JSX.Element {
                   </Show>
                 </CardDescription>
               </CardHeader>
-              <CardContent className="font-bold text-3xl py-3">
+              <CardContent className="py-3 text-3xl font-bold">
                 <Show>
                   <Show.When isTrue={index < 2}>
                     {keys[index === 0 ? 1 : 2]?.length}{" "}
@@ -72,7 +72,7 @@ export default function Section2(): JSX.Element {
                     <Link
                       href="/docs/hooks"
                       className={cn(
-                        buttonVariants({ variant: "default", size: "sm" })
+                        buttonVariants({ variant: "default", size: "sm" }),
                       )}
                     >
                       {t("Button")}
