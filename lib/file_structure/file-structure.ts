@@ -8,21 +8,9 @@ import { FolderStructure, LocaleStructure } from "./interface";
 export async function getContentStructure(
   locale: string,
 ): Promise<LocaleStructure> {
-  // Bazowa ścieżka do folderu content w public/
-  const baseDir = path.resolve(process.cwd(), "public", "content", locale);
+  const baseDir = path.join(process.cwd(), "content", locale);
 
-  let entries;
-  try {
-    entries = await readdir(baseDir, { withFileTypes: true });
-  } catch (err) {
-    console.error(`Nie znaleziono folderu: ${baseDir}`, err);
-    throw new Error(`Nie znaleziono treści dla locale: ${locale}`);
-  }
-
-<<<<<<< HEAD
-=======
   const entries = await readdir(baseDir, { withFileTypes: true });
->>>>>>> nextjs-15.2.0
   const subfolders = entries
     .filter((e) => e.isDirectory() && !e.name.startsWith("__"))
     .map((e) => e.name);
@@ -30,13 +18,13 @@ export async function getContentStructure(
   const structure: FolderStructure = {};
 
   for (const folder of subfolders) {
-    const folderPath = path.resolve(baseDir, folder);
+    const folderPath = path.join(baseDir, folder);
     let files: string[];
 
     try {
       files = await readdir(folderPath);
     } catch (error) {
-      console.error(`Błąd podczas czytania folderu ${folderPath}:`, error);
+      console.error(`Error while reading folder ${folderPath}:`, error);
       continue;
     }
 
@@ -44,8 +32,7 @@ export async function getContentStructure(
 
     for (const fileName of files) {
       if (!fileName.endsWith(".mdx")) continue;
-
-      const filePath = path.resolve(folderPath, fileName);
+      const filePath = path.join(folderPath, fileName);
       const fileContent = await readFile(filePath, "utf-8");
 
       const getMatch = (rx: RegExp) =>
@@ -62,7 +49,7 @@ export async function getContentStructure(
       );
 
       if (!name || !link) {
-        console.warn(`Pomijam ${fileName}, brakuje name/link`);
+        console.warn(`Skipping ${fileName}, brakuje name/link`);
         continue;
       }
 

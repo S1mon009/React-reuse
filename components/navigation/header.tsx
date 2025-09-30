@@ -17,11 +17,7 @@ export default function HeaderNavigation(): JSX.Element {
   return (
     <Layout
       type="header"
-<<<<<<< HEAD
-      className="fixed top-0 left-0 flex items-center justify-between w-full h-16 p-3 border-b-muted border-b-2 bg-inherit z-50"
-=======
       className="fixed left-0 top-0 z-[10] flex h-16 w-full items-center justify-between border-b-2 border-b-muted bg-inherit p-3"
->>>>>>> nextjs-15.2.0
     >
       <Layout type="div" className="flex h-full items-center">
         <Links type="mobile" />

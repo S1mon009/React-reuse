@@ -2,13 +2,8 @@ import { use, type JSX } from "react";
 import QueryProvider from "@/providers/query-provider";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-<<<<<<< HEAD
-import ContentTree from "@/components/navigation/sidebar/content_tree/content-tree";
-import BreadcrumbNavigation from "@/components/navigation/breadcrumb/breadcrumb";
-import Footer from "@/components/navigation/footer";
-=======
 import { Breadcrumb, ContentTree } from "@/components/navigation";
->>>>>>> nextjs-15.2.0
+import Footer from "@/components/navigation/footer";
 import Layout from "@/components/layouts/layout";
 
 type Params = Promise<{ locale: string }>;
