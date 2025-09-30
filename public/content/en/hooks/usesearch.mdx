@@ -1,0 +1,57 @@
+export const name = "useSearch";
+export const link = "/docs/hooks/usesearch";
+export const createdAt = "2024-10-17";
+export const description =
+  "The useSearch hook allows you to easily manage search queries and results.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `useSearch` hook allows you to easily manage search queries and results. It filters a list of items based on a provided search term and filtering function. The hook supports debouncing to optimize performance by avoiding unnecessary filtering during fast input.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## API
+
+- `query: string` - The current search query string.
+- `setQuery: (query: string): void` - A function to update the search query.
+- `filteredItems: T[]` - The list of filtered items based on the search query.
+- `isSearching: boolean` - A `boolean` representing whether the hook is actively searching (debounced).
+
+## Parameters
+
+- `items: T[]` - The list of items to search through.
+- `filterFn: (item: T, query: string): boolean` - A function that defines how to filter the items based on the search query.
+- `debounceDelay?: number` - The delay (in milliseconds) for debouncing the search input. Defaults to 300ms.

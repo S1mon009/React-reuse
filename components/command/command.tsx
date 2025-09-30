@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Search, Circle } from "lucide-react";
+import { useState, useEffect, type JSX, Fragment } from "react";
+import { useTranslations, useLocale } from "next-intl";
+
+import { Button } from "@/components/ui/button";
 import {
   CommandEmpty,
   CommandGroup,
@@ -9,29 +11,35 @@ import {
   CommandItem,
   CommandList,
   CommandDialog,
-  CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
-import { Button } from "@/components/ui/button";
-import { Each } from "@/components/utilities/each/each";
-import { Typography } from "@/components/typography/typography";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "@/components/navigation/navigation";
-import { useTranslations } from "next-intl";
-import { keys as HeaderKeys } from "@/keys/links-keys";
-import { keys as LinksKeys } from "@/keys/sidebar-links-keys";
+import Each from "@/components/utilities/each/each";
+import Typography from "@/components/typography/typography";
+import { Search, Circle, Bot } from "lucide-react";
 
-const translation: string = "Data";
-const searchTranslation: string = "SearchBar";
+import { capitalize } from "@/lib/helpers/text";
+import { FileMetadata, LocaleStructure } from "@/lib/file_structure/interface";
 
-/**
- * Command component that renders a searchable command palette with a dialog-based UI.
- *
- * @returns {JSX.Element} The rendered Command component.
- */
+const searchTranslation: string = "System.SearchBar";
+const translation: string = "System.Navigation";
+
 export default function Command(): JSX.Element {
   const [open, setOpen] = useState<boolean>(false);
+  const [data, setData] = useState<LocaleStructure | null>(null);
   const t = useTranslations(translation);
   const search = useTranslations(searchTranslation);
+  const locale = useLocale();
+
+  useEffect(() => {
+    const fetchStructure = async () => {
+      const res = await fetch(`/api/get-folder-structure?locale=${locale}`);
+      const data = await res.json();
+      setData(data);
+    };
+    fetchStructure();
+  }, [locale]);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -47,43 +55,52 @@ export default function Command(): JSX.Element {
   return (
     <>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder={search("InputSearch")} />
-        <CommandList>
-          <CommandEmpty>{search("NoResults")}</CommandEmpty>
-          <Each
-            of={HeaderKeys}
-            render={(headerKey: string, headerIndex: number) => (
-              <>
-                <CommandGroup
-                  heading={t(`${headerKey}.Name`)}
-                  key={headerIndex}
-                >
-                  <Each
-                    of={LinksKeys[headerIndex]}
-                    render={(link: string, index: number) => (
-                      <Link
-                        href={t(`${headerKey}.Items.${link}.Link`)}
-                        key={index}
-                      >
-                        <CommandItem className="cursor-pointer">
-                          <Circle />
-                          <Typography type="span">
-                            {t(`${headerKey}.Items.${link}.Name`)}
-                          </Typography>
-                        </CommandItem>
-                      </Link>
-                    )}
-                  />
-                </CommandGroup>
-                <CommandSeparator className="last:hidden" />
-              </>
-            )}
-          />
-        </CommandList>
+        <Tabs defaultValue="search">
+          <TabsList className="ml-3 mt-3">
+            <TabsTrigger value="search">
+              <Search className="mr-2 size-4" /> Search
+            </TabsTrigger>
+            <TabsTrigger value="askai">
+              <Bot className="mr-2 size-4" />
+              Ask AI
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="search">
+            <CommandInput placeholder={search("InputSearch")} />
+            <CommandList>
+              <CommandEmpty>{search("NoResults")}</CommandEmpty>
+              <Each
+                of={Object.keys(data?.structure || {})}
+                render={(item, index) => (
+                  <Fragment key={index}>
+                    <CommandGroup heading={t(capitalize(item))}>
+                      <Each
+                        of={data?.structure[item] as FileMetadata[]}
+                        render={(data_item, data_index: number) => (
+                          <Link href={data_item.link} key={data_index}>
+                            <CommandItem className="cursor-pointer">
+                              <Circle />
+                              <Typography type="span">
+                                {data_item.name}
+                              </Typography>
+                            </CommandItem>
+                          </Link>
+                        )}
+                      />
+                    </CommandGroup>
+                  </Fragment>
+                )}
+              />
+            </CommandList>
+          </TabsContent>
+          <TabsContent value="askai" className="h-32 p-3">
+            <Typography type="p">Comming soon</Typography>
+          </TabsContent>
+        </Tabs>
       </CommandDialog>
       <Button
         onClick={() => setOpen(true)}
-        className="hidden md:inline-flex items-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input hover:bg-accent hover:text-accent-foreground px-4 py-2 relative w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
+        className="relative hidden w-full items-center justify-start gap-2 whitespace-nowrap rounded-[0.5rem] border border-input bg-muted/50 px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:pr-12 md:w-40 lg:w-64 xl:inline-flex [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0"
       >
         <Typography type="span" className="hidden lg:inline-flex">
           {search("ButtonSearchLg")}
@@ -102,7 +119,8 @@ export default function Command(): JSX.Element {
         onClick={() => setOpen(true)}
         size="icon"
         variant="outline"
-        className="flex md:hidden"
+        className="flex xl:hidden"
+        aria-label="Search button with icon"
       >
         <Search />
       </Button>

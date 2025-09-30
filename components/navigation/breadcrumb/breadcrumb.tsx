@@ -1,6 +1,9 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, type JSX } from "react";
+import { useState, useEffect } from "react";
+import { useLocale } from "next-intl";
+import { usePathname } from "next/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,89 +11,98 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Layout } from "@/components/layouts/layout";
 import { Link } from "@/components/navigation/navigation";
-import { Each } from "@/components/utilities/each/each";
-import { usePathname } from "@/components/navigation/navigation";
-import { useTranslations } from "next-intl";
+import Typography from "@/components/typography/typography";
+import Layout from "@/components/layouts/layout";
+import Each from "@/components/utilities/each/each";
+import Show from "@/components/utilities/show/show";
 import { House } from "lucide-react";
-import { keys } from "@/keys/links-keys";
+import { capitalize } from "@/lib/helpers/text";
+import { FileMetadata } from "@/lib/file_structure/interface";
 
-const translation: string = "Data";
+type Structure = Record<string, FileMetadata[]>;
 
-/**
- * BreadcrumbNavigation component
- *
- * This component renders a breadcrumb navigation bar that dynamically generates links
- * based on the current pathname. It uses the `next-intl` library for internationalization.
- *
- * @returns {JSX.Element} The rendered BreadcrumbNavigation component.
- */
-export default function BreadcrumbNavigation(): JSX.Element {
+export default function BreadcrumbNavigatio(): JSX.Element {
+  const locale = useLocale();
+  const [structure, setStructure] = useState<Structure>({});
   const pathname = usePathname();
-  const t = useTranslations(translation);
+  const rawSegments = pathname.split("/").filter(Boolean);
 
-  /**
-   * Generates the link data for each breadcrumb item.
-   *
-   * @param {string} link - The current segment of the path.
-   * @param {string} previousLink - The previous segment of the path.
-   * @param {"Link" | "Name"} type - The type of returned data
-   *
-   * @returns {string} A translated URL data based on the segment.
-   */
-  const createLink = (
-    link: string,
-    previousLink: string,
-    type: "Link" | "Name"
-  ): string => {
-    let temporaryLink: string = "";
+  useEffect(() => {
+    const fetchStructure = async () => {
+      const res = await fetch(`/api/get-folder-structure?locale=${locale}`);
+      const { structure } = await res.json();
+      setStructure(structure);
+    };
+    fetchStructure();
+  }, [locale]);
 
-    if (keys.some((item) => item === link[0].toUpperCase() + link.slice(1))) {
-      temporaryLink = t(`${link[0].toUpperCase() + link.slice(1)}.${type}`);
+  const segments = rawSegments.filter(
+    (seg, idx) => idx !== 0 && seg !== "docs",
+  );
+
+  const crumbs: Array<{ name: string; href: string }> = [];
+
+  segments.forEach((segment, idx) => {
+    const path = "/" + rawSegments.slice(2, 2 + idx + 1).join("/");
+
+    let name = "";
+
+    const category = segments[0];
+
+    if (category === "hooks") {
+      name =
+        idx === 0
+          ? "Hooks"
+          : structure.hooks?.find((i: any) => i.link.endsWith(segment))?.name ||
+            capitalize(segment);
+    } else if (category === "utilities") {
+      name =
+        idx === 0
+          ? "Utilities"
+          : structure.utilities?.find((i: any) => i.link.endsWith(segment))
+              ?.name || capitalize(segment);
     } else {
-      temporaryLink = t(
-        `${
-          previousLink[0].toUpperCase() + previousLink.slice(1)
-        }.Items.${link}.${type}`
-      );
+      crumbs.push({ name: "Getting started", href: "/docs" });
+      name =
+        structure.getting_started?.find((i: any) => i.link.endsWith(segment))
+          ?.name || capitalize(segment);
     }
 
-    return temporaryLink;
-  };
+    crumbs.push({ name, href: path });
+  });
 
   return (
-    <Layout type="nav" className="w-full mb-5">
+    <Layout type="nav" className="mb-5 w-full">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
               <Link href="/" aria-label="Go to homepage">
-                <House className="text-primary" />
+                <House className="size-6 text-primary" />
               </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <Each
-            of={pathname.split("/").slice(1)}
-            render={(item: string, index: number) => (
-              <Fragment key={index}>
+            of={crumbs}
+            render={(item: { name: string; href: string }, index: number) => (
+              <Fragment key={item.href}>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link
-                      href={createLink(
-                        item,
-                        pathname.split("/").slice(1)[--index],
-                        "Link"
-                      )}
-                    >
-                      {createLink(
-                        item,
-                        pathname.split("/").slice(1)[index],
-                        "Name"
-                      )}
-                    </Link>
-                  </BreadcrumbLink>
+                  <Show>
+                    <Show.When isTrue={index === 0}>
+                      <BreadcrumbLink asChild>
+                        <Typography type="span">{item.name}</Typography>
+                      </BreadcrumbLink>
+                    </Show.When>
+                    <Show.Else>
+                      <BreadcrumbLink asChild>
+                        <Link href={`${item.name.toLowerCase()}`}>
+                          {item.name}
+                        </Link>
+                      </BreadcrumbLink>
+                    </Show.Else>
+                  </Show>
                 </BreadcrumbItem>
               </Fragment>
             )}

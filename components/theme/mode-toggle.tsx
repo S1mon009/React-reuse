@@ -1,8 +1,9 @@
 "use client";
 
-import * as React from "react";
-import { Moon, Sun } from "lucide-react";
+import type { JSX } from "react";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -10,22 +11,20 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Each } from "@/components/utilities/each/each";
-import { useTranslations } from "next-intl";
+import Each from "@/components/utilities/each/each";
+import { Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const translation: string = "Header.Theme";
 
-/**
- * ModeToggle component allows users to switch between light, dark, and system themes.
- * The component uses a dropdown menu to present the options and updates the theme
- * accordingly when an option is selected.
- *
- * @returns {JSX.Element} The rendered ModeToggle component.
- */
 export function ModeToggle() {
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
   const t = useTranslations(translation);
-  const themes: string[] = ["Light", "Dark", "System"];
+  const themes: Array<"light" | "dark" | "system"> = [
+    "light",
+    "dark",
+    "system",
+  ];
 
   /**
    * changeMode is a helper function to update the theme.
@@ -38,18 +37,31 @@ export function ModeToggle() {
   /**
    * Renders a single theme item.
    *
-   * @param {any} theme - The name of theme.
+   * @param {string} themeSelect - The name of theme.
    * @param {number} index - The index of the item in the array.
    * @returns {JSX.Element} The rendered DropdownMenuItem component.
    */
-  const renderThemes = (theme: any, index: number): JSX.Element => {
+  const renderThemes = (
+    themeSelect: "light" | "dark" | "system",
+    index: number,
+  ): JSX.Element => {
+    const isActive = theme === themeSelect;
     return (
       <DropdownMenuItem
         key={index}
-        onClick={changeMode.bind(null, theme.toLowerCase())}
-        aria-label={t(theme)}
+        onClick={changeMode.bind(null, themeSelect)}
+        aria-label={t(
+          themeSelect.charAt(0).toUpperCase() + themeSelect.slice(1),
+        )}
+        className="flex items-center justify-start"
       >
-        {t(theme)}
+        <span
+          className={cn(
+            "mr-3 block size-2 rounded-full",
+            isActive ? "bg-current" : "bg-transparent",
+          )}
+        ></span>
+        {t(themeSelect.charAt(0).toUpperCase() + themeSelect.slice(1))}
       </DropdownMenuItem>
     );
   };

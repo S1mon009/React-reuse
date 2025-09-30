@@ -1,0 +1,67 @@
+export const name = "Typesafe";
+export const link = "/docs/typesafe";
+export const createdAt = "2024-10-17";
+export const description = "How the code is protected against errors.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Testing with Vitest
+
+One of the core pillars of our library is the rigorous testing process applied to every hook and utility we develop. By leveraging **Vitest**, a fast, modern testing framework designed for TypeScript and JavaScript, we ensure that every piece of code meets the highest standards of reliability and functionality. Testing is not an afterthought for us - it’s an integral part of our development process, allowing us to catch potential issues early and deliver tools you can depend on.
+
+### Comprehensive Testing Across Scenarios
+
+Every hook and utility in our library undergoes thorough testing to ensure that it behaves correctly in a wide variety of scenarios. This includes:
+
+- **Edge Cases:** We simulate uncommon or unexpected user interactions to ensure our tools are robust enough to handle them gracefully.
+- **Real-World Usage Patterns:** By testing against common and practical usage scenarios, we ensure our hooks work seamlessly in everyday applications.
+- **Stress Testing:** Hooks are evaluated under high-pressure conditions, such as handling large datasets or rapid state changes, to confirm they maintain optimal performance.
+
+This meticulous approach guarantees that our tools perform as expected, regardless of how simple or complex your use case may be.
+
+### The Power of Vitest in Our Workflow
+
+Vitest stands out as a cutting-edge testing framework that combines speed, flexibility, and seamless TypeScript integration. Its blazing-fast feedback loop allows us to iterate quickly while maintaining confidence in the reliability of our code. Additionally, Vitest's close alignment with the modern JavaScript ecosystem means that it integrates smoothly into our workflow, enabling us to write tests that are both efficient and easy to maintain.
+
+We employ a **multi-layered testing strategy** that includes:
+
+1. **Unit Tests:** Focused on individual functions or hooks to verify that each component works as intended in isolation.
+
+2. **Integration Tests:** Designed to evaluate how hooks interact with one another and with external components, ensuring smooth functionality within larger systems.
+
+By combining these approaches, we achieve a high level of test coverage, which helps us maintain the library’s reliability as it grows and evolves over time. This commitment to testing ensures that any new features or updates are introduced without compromising existing functionality.
+
+### Confidence Through Test-Driven Development
+
+Our library is built with a strong focus on test-driven development (TDD). This approach involves writing tests before implementing the code itself, ensuring that every feature is developed with a clear understanding of its requirements and behavior. The result? A robust library you can confidently integrate into your projects, knowing that each hook and utility has been rigorously validated to perform under various conditions.
+
+## Written in TypeScript
+
+Our entire library is developed using TypeScript, a powerful superset of JavaScript that introduces static typing to the language. By choosing TypeScript as the foundation for our hooks and utilities, we unlock a wealth of benefits that enhance the development experience and improve the quality of the final product.
+
+### The Advantages of TypeScript
+
+TypeScript brings a range of features to the table that are especially valuable for building and maintaining complex libraries:
+
+1. **Type Safety:** With static typing, potential errors are caught during development, reducing the likelihood of runtime issues in production.
+2. **Enhanced Tooling:** TypeScript's integration with modern IDEs provides robust features like code autocompletion, inline documentation, and intelligent refactoring suggestions.
+3. **Improved Code Readability:** By explicitly defining types, we make our hooks and utilities easier to understand and work with, both for you and your team.
+
+### Robust Type Definitions for Better APIs
+
+The type definitions in our library serve as a contract between our tools and their users. These definitions clearly specify the expected inputs and outputs of each hook, reducing the potential for misuse and ensuring that your code remains predictable and maintainable.
+
+Additionally, TypeScript allows us to create **expressive and intuitive APIs**. For example:
+
+- Hooks automatically infer types from their inputs, so you don’t need to provide redundant type annotations.
+- Complex data structures are simplified with clear, self-documenting type definitions.
+
+### Developer Experience Meets Production Reliability
+
+TypeScript's type inference and advanced features like discriminated unions and generics make it possible to design APIs that are both powerful and user-friendly. These capabilities not only improve the **developer experience** during implementation but also translate into **higher reliability** in production environments. By catching errors early and enforcing strict typing rules, TypeScript helps us deliver tools that are both flexible and robust.
+
+Whether you're integrating our hooks into a small project or a large-scale enterprise application, the combination of TypeScript-driven development and Vitest-powered testing ensures that you have a library you can trust to meet your needs.

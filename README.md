@@ -54,4 +54,5 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - `Show` - A component that conditionally renders its children based on a given boolean value or condition. Useful for displaying or hiding content based on state or props.
 
 ### Components (comming soon)
+
 ### Animations (comming soon)

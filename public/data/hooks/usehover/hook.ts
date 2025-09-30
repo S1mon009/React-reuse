@@ -2,7 +2,7 @@ import { useState, useCallback, useRef, useEffect } from "react";
 
 interface UseHoverReturn<T extends HTMLElement> {
   hovered: boolean;
-  ref: React.RefObject<T>;
+  ref: React.RefObject<T | null>;
 }
 
 export function useHover<T extends HTMLElement>(): UseHoverReturn<T> {

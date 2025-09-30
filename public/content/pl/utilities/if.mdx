@@ -1,0 +1,44 @@
+export const name = "<If/>";
+export const link = "/docs/utilities/if";
+export const createdAt = "2025-07-22";
+export const description =
+  "Komponent If warunkowo renderuje swoje dzieci na podstawie wyrażenia logicznego.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Opis
+
+Komponent `If` umożliwia warunkowe renderowanie w React. Przyjmuje trzy właściwości: `condition`, `children`, `else`. Zapewnia to przejrzysty i semantyczny sposób wyrażenia logiki „if…else” w JSX, bez zaśmiecania kodu operatorami trójargumentowymi.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="util"
+  triggers={[
+    { value: "util", title: "Util" },
+    { value: "usage", title: "Usage" },
+  ]}
+  contents={[
+    {
+      value: "util",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/util.tsx`,
+      ariaLabel: "Util code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## Parametry
+
+- `condition: boolean` – wyrażenie logiczne decydujące, który blok ma zostać wyświetlony.
+- `children: React.ReactNode` – zawartość renderowana, gdy `condition` jest równe `true`.
+- `else?: React.ReactNode` – zawartość renderowana, gdy `condition` jest równe `false`.

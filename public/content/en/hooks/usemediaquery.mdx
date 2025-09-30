@@ -1,0 +1,52 @@
+export const name = "useMediaQuery";
+export const link = "/docs/hooks/usemediaquery";
+export const createdAt = "2024-10-17";
+export const description =
+  "The useMediaQuery hook enables you to apply responsive design techniques by listening to CSS media query changes.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `useMediaQuery` hook enables you to apply responsive design techniques by listening to CSS media query changes. It returns a boolean indicating whether the media query matches the current viewport, allowing you to conditionally render components or apply styles based on the query.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## API
+
+- `isMobile: boolean` - `true` if the media query matches the current viewport, otherwise `false`.
+
+## Parameters
+
+- `query: string` - A string representing the media query you want to listen to.

@@ -7,7 +7,7 @@ interface UsePromiseAllResult<T> {
 }
 
 export function usePromiseAll<T>(
-  promises: Promise<T>[]
+  promises: Promise<T>[],
 ): UsePromiseAllResult<T> {
   const [results, setResults] = useState<T[] | null>(null);
   const [error, setError] = useState<Error | null>(null);

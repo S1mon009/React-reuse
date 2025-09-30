@@ -1,0 +1,44 @@
+export const name = "<If/>";
+export const link = "/docs/utilities/if";
+export const createdAt = "2025-07-22";
+export const description =
+  "The If component conditionally renders its children based on a boolean expression.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `If` component enables conditional rendering in React. It accepts three props: `condition`, `children`, `else`. This provides a clean, semantic way to express an “if…else” flow in JSX without cluttering your code with ternary operators.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="util"
+  triggers={[
+    { value: "util", title: "Util" },
+    { value: "usage", title: "Usage" },
+  ]}
+  contents={[
+    {
+      value: "util",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/util.tsx`,
+      ariaLabel: "Util code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## Parameters
+
+- `condition: boolean` – a boolean expression that determines which block to display.
+- `children: ReactNode` – the content to render when `condition` is true.
+- `else?: ReactNode` – (optional) the content to render when `condition` is false.

@@ -1,0 +1,51 @@
+export const name = "useClipboard";
+export const link = "/docs/hooks/useclipboard";
+export const createdAt = "2024-10-17";
+export const description =
+  "The useClipboard is a custom React hook that provides a simple interface to copy text to the user's clipboard using the Clipboard API";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `useClipboard` is a custom React hook that provides a simple interface to copy text to the user's clipboard using the Clipboard API. It handles success and error states, and includes a reset function to clear the current state. This hook simplifies copying text to the clipboard and provides feedback on whether the operation was successful.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## Parameters
+
+- `copyToClipboard(text: string): void` - Takes a string and attempts to copy it to the clipboard. If successful, it updates isCopied to true; if it fails, it sets an error message.
+- `isCopied: boolean` - A boolean flag indicating whether the text has been successfully copied to the clipboard.
+- `error: string | null` - If copying to the clipboard fails, this string contains the error message. It is null if there is no error.
+- `reset(): void` - Resets the isCopied and error states to their initial values. Useful if you want to reset the hook after a successful or failed clipboard action.

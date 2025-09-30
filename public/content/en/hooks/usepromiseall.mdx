@@ -1,0 +1,53 @@
+export const name = "usePromiseAll";
+export const link = "/docs/hooks/usepromiseall";
+export const createdAt = "2024-10-17";
+export const description =
+  "The usePromiseAll is a hook that allows executing multiple promises concurrently, providing a simple way to track loading, success, and error states.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `usePromiseAll` is a hook that allows executing multiple promises concurrently, providing a simple way to track loading, success, and error states. Once all promises are resolved (or any is rejected), the hook returns the results or an error, along with the loading state.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## API
+
+- `results: T[] | null` - Resolved values of all promises or `null` if still loading.
+- `error: Error | null` - Any encountered error during promise execution, or `null` if no errors occurred.- `isLoading: boolean` - A `boolean` representing the loading state (`true` while waiting for promises, `false` when all are resolved or one is rejected).
+
+## Parameters
+
+- `promises: Promise<T>[]` - An array of promises to be executed concurrently.

@@ -19,6 +19,7 @@ export function useClipboard(): UseClipboardReturn {
       setIsCopied(true); // Set the copied state to true on success
       setError(null); // Clear any previous error
     } catch (err) {
+      console.error("Failed to copy text: ", err);
       setError("Failed to copy text to clipboard");
       setIsCopied(false); // Reset the copied state on failure
     }

@@ -1,6 +1,8 @@
 "use client";
 
-import * as React from "react";
+import type { JSX } from "react";
+import { useTranslations, useLocale } from "next-intl";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -8,26 +10,46 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Typography } from "@/components/typography/typography";
-import Show from "@/components/utilities/conditional_rendering/show";
 import { Link, usePathname } from "@/components/navigation/navigation";
-import { useTranslations, useLocale } from "next-intl";
+import Show from "@/components/utilities/show/show";
+import Each from "@/components/utilities/each/each";
+import Typography from "@/components/typography/typography";
+import { cn } from "@/lib/utils";
+
+import { locales } from "@/config/locales";
 
 const translation: string = "Header.Language";
 
-/**
- * LanguageToggle component for switching between different languages.
- *
- * This component displays a dropdown menu with options to switch between
- * different languages. The currently selected language is shown on the button,
- * and users can select another language from the dropdown.
- *
- * @returns {JSX.Element} The rendered LanguageToggle component.
- */
 export function LanguageToggle(): JSX.Element {
   const pathname = usePathname();
   const locale = useLocale();
   const t = useTranslations(translation);
+
+  /**
+   * Renders a single theme item.
+   *
+   * @param {string} localeSelect - The name of theme.
+   * @param {number} index - The index of the item in the array.
+   * @returns {JSX.Element} The rendered DropdownMenuItem component.
+   */
+  const renderLocales = (localeSelect: string, index: number): JSX.Element => {
+    const isActive = locale === localeSelect.toLowerCase();
+
+    return (
+      <DropdownMenuItem asChild key={index}>
+        <Link href={pathname} locale={localeSelect}>
+          <span
+            className={cn(
+              "mr-3 block size-2 rounded-full",
+              isActive ? "bg-current" : "bg-transparent",
+            )}
+          ></span>
+          {localeSelect === "en" && t("English")}
+          {localeSelect === "pl" && t("Polish")}
+        </Link>
+      </DropdownMenuItem>
+    );
+  };
 
   return (
     <DropdownMenu>
@@ -47,16 +69,7 @@ export function LanguageToggle(): JSX.Element {
         aria-label="Language options"
         className="border-muted"
       >
-        <DropdownMenuItem asChild>
-          <Link href={pathname} locale="en">
-            {t("English")}
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href={pathname} locale="pl">
-            {t("Polish")}
-          </Link>
-        </DropdownMenuItem>
+        <Each of={locales} render={renderLocales} />
       </DropdownMenuContent>
     </DropdownMenu>
   );

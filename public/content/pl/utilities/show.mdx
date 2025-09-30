@@ -1,0 +1,48 @@
+export const name = "<Show/>";
+export const link = "/docs/utilities/show";
+export const createdAt = "2024-10-17";
+export const description =
+  "Komponent Show w React umożliwia warunkowe renderowanie komponentów podrzędnych na podstawie określonych warunków.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Opis
+
+Komponent `Show` w React umożliwia warunkowe renderowanie komponentów podrzędnych na podstawie określonych warunków. Używa dwóch podkomponentów: `Show.When` i `Show.Else`. Komponent `Show.When` renderuje swoje dzieci, jeśli prop `isTrue` jest ustawiony na true, natomiast `Show.Else` renderuje się, jeśli żaden warunek nie jest spełniony. Ten komponent upraszcza logikę warunkową, wbudowując ją bezpośrednio w JSX.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="util"
+  triggers={[
+    {
+      value: "util",
+      title: "Util",
+    },
+    {
+      value: "usage",
+      title: "Zastosowanie",
+    },
+  ]}
+  contents={[
+    {
+      value: "util",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/util.tsx`,
+      ariaLabel: "Util code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/utilities/${name.slice(1, -2).toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## Parametry
+
+- `isTrue?: boolean` - Określa, czy dzieci powinny być renderowane. Jeśli jest ustawione na `true`, dzieci zostaną wyrenderowane.

@@ -1,0 +1,50 @@
+export const name = "useKeyboardShortcup";
+export const link = "/docs/hooks/usekeyboardshortcup";
+export const createdAt = "2024-10-17";
+export const description =
+  "The useKeyboardShortcut hook listens for specific key combinations (e.g., 'Ctrl+S' or 'Alt+Shift+P') and triggers a callback function when the combination is pressed.";
+
+import { Separator } from "@/components/ui/separator";
+import Heading from "@/components/docs/heading/heading";
+import CodeTabs from "@/components/code/code-tabs";
+import { roughNotationColor } from "@/config/rought-notation-color";
+
+<Heading title={name} color={roughNotationColor} />
+
+## Description
+
+The `useKeyboardShortcut` hook listens for specific key combinations (e.g., 'Ctrl+S' or 'Alt+Shift+P') and triggers a callback function when the combination is pressed. This is useful for implementing features like save shortcuts, quick actions, or custom key-based navigation in your application.
+
+<Separator className="my-5" aria-hidden="true" />
+
+<CodeTabs
+  defaultValue="hook"
+  triggers={[
+    {
+      value: "hook",
+      title: "Hook",
+    },
+    {
+      value: "usage",
+      title: "Usage",
+    },
+  ]}
+  contents={[
+    {
+      value: "hook",
+      code: `/data/hooks/${name.toLowerCase()}/hook.ts`,
+      ariaLabel: "Hook code scroll area",
+    },
+    {
+      value: "usage",
+      code: `/data/hooks/${name.toLowerCase()}/usage.txt`,
+      ariaLabel: "Usage example scroll area",
+    },
+  ]}
+/>
+
+## Parameters
+
+- `keys: string[]` - An array of keys (e.g., ['Control', 'S'] or ['Alt', 'Shift', 'P']) that represent the key combination.
+- `callback(): void` - A function that is executed when the key combination is pressed.
+- `element?: HTMLElement | Window` - The DOM element to attach the listener to. Defaults to window.

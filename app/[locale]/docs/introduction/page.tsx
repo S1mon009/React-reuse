@@ -1,116 +1,37 @@
-import { Fragment } from "react";
-import { Layout } from "@/components/layouts/layout";
-import { Typography } from "@/components/typography/typography";
-import Heading from "@/components/docs/heading";
-import SectionNavigation from "@/components/navigation/section_navigation/section-navigation";
-import Footer from "@/components/docs/footer";
-import { Separator } from "@/components/ui/separator";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Each } from "@/components/utilities/each/each";
-import Show from "@/components/utilities/conditional_rendering/show";
-import { useTranslations } from "next-intl";
-import { getPrevNextValue } from "@/lib/utils";
-import { roughNotationColor as color } from "@/config/rought-notation-color";
-import { keys as linkKeys } from "@/keys/sidebar-links-keys";
-import { keys as categoryKeys } from "@/keys/links-keys";
+import type { JSX } from "react";
+import type { Metadata } from "next";
 
-const translations: string = "Data.Docs.Items.introduction";
-const sectionItemsTranslation: string = "Data.Hooks.SectionItems";
-const keys: string[] = ["Entry", "Testing", "TypeScript", "Linting"];
+// import PrevNextNav from "@/components/navigation/prev-next-nav";
+import SectionNavigationList from "@/components/navigation/section_list/section-list";
+import Layout from "@/components/layouts/layout";
 
-/**
- * Page component renders introduction info about library.
- * It supports localization (i18n) and is responsive for a11y improvements.
- *
- * @returns {JSX.Element} The rendered Page component.
- */
-export default function Page() {
-  const t = useTranslations(translations);
-  const footerItems = useTranslations("Data");
-  const sectionItems = useTranslations(sectionItemsTranslation);
-  const footerLinks = getPrevNextValue("introduction", linkKeys, categoryKeys);
+type Params = Promise<{ locale: string }>;
+
+export const metadata: Metadata = {
+  title: "Introduction",
+  description: "Introduction to the documentation",
+};
+
+export default async function Page(props: {
+  params: Params;
+}): Promise<JSX.Element> {
+  const { locale } = await props.params;
+
+  const { default: Post } = await import(
+    `@/public/content/${locale}/getting_started/introduction.mdx`
+  );
 
   return (
     <>
-      <Layout type="section" id="introduction">
-        <Heading title={t("Name")} color={color} />
+      <Layout type="mdx" id="introduction">
+        <Post />
+        {/* <PrevNextNav /> */}
       </Layout>
-      <ScrollArea
-        className="block h-[calc(100vh-12rem)] pr-4 pb-4"
-        aria-label="Main content area"
-      >
-        <Layout type="section">
-          <Each
-            of={keys}
-            render={(item, index: number) => {
-              return (
-                <Fragment key={index}>
-                  <Layout type="article" id={`${item.toLowerCase()}`}>
-                    <Show>
-                      <Show.When isTrue={index > 0}>
-                        <Typography type="h3" className="my-4">
-                          {t(`Content.${item}.Title`)}
-                        </Typography>
-                      </Show.When>
-                    </Show>
-                    <Each
-                      of={t(`Content.${item}.Content`).split("&")}
-                      render={(section, sectionIndex: number) => (
-                        <Typography
-                          type="p"
-                          className="my-2"
-                          key={sectionIndex}
-                        >
-                          {section}
-                        </Typography>
-                      )}
-                    />
-                  </Layout>
-                  <Separator className="mt-4" />
-                </Fragment>
-              );
-            }}
-          />
-        </Layout>
-        <Layout type="section" className="my-4" id="summary">
-          {t("Content.Summary")}
-        </Layout>
-        <Separator className="my-4" />
-        <Footer
-          data={[
-            {
-              link:
-                footerItems(
-                  `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Link`
-                ) && "",
-              title: sectionItems("Footer.Previous"),
-              description:
-                footerItems(
-                  `${footerLinks?.prevCategory}.Items.${footerLinks?.prev}.Name`
-                ) && "",
-            },
-            {
-              link:
-                footerItems(
-                  `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Link`
-                ) || "",
-              title: sectionItems("Footer.Next"),
-              description:
-                footerItems(
-                  `${footerLinks?.nextCategory}.Items.${footerLinks?.next}.Name`
-                ) || "",
-            },
-          ]}
-        />
-      </ScrollArea>
       <Layout
         type="aside"
-        className="hidden md:w-1/5 md:block fixed top-14 right-4 h-full p-4"
+        className="fixed right-0 top-14 hidden h-full w-1/5 p-4 md:block"
       >
-        <SectionNavigation
-          scrollItemsArray={["Entry", "Testing", "TypeScript", "Linting"]}
-          translation="Data.ScrollIntoViewItems"
-        />
+        <SectionNavigationList sectionId="introduction" />
       </Layout>
     </>
   );
